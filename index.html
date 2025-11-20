@@ -1,454 +1,275 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Diamond Store | Affordable & Trusted Digital Plans</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="The Diamond Store - Affordable & Trusted Digital Plans. YouTube Premium, Netflix 4K, Prime Video, Spotify, and more at student-friendly prices."
-  />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Diamond Store — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020617;
+  --card:#0f172a;
+  --gold:#facc15;
+  --gold-strong:#eab308;
+  --muted:#9ca3af;
+  --insta1:#feda75;--insta2:#fa7e1e;--insta3:#d62976;--insta4:#962fbf;--insta5:#4f5bd5;
+  --border:rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%;
+  background:radial-gradient(circle at top, rgba(250,204,21,0.03), transparent 45%), var(--bg);
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:#f9fafb;
+  overflow-x:hidden;
+}
+.container{max-width:1100px;margin:18px auto;padding:18px;position:relative}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* header */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;background:transparent;border-radius:12px;
+  z-index:5
+}
+.brand-title{font-weight:700;color:var(--gold)}
 
-  <style>
-    :root {
-      --bg: #020617;
-      --accent-gold: #facc15;
-      --accent-gold-strong: #eab308;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-soft: rgba(148, 163, 184, 0.2);
-    }
+/* centered logo */
+.center-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:18px}
+.logo-large{
+  width:120px;height:120px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 30% 25%, rgba(250,204,21,0.06), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  cursor:pointer;
+  animation:logoFloat 4s ease-in-out infinite;
+}
+.logo-large img{
+  width:78%;height:78%;object-fit:contain;display:block;
+  filter:drop-shadow(0 10px 30px rgba(250,204,21,0.12))
+}
+@keyframes logoFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+  100%{transform:translateY(0)}
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* insta button */
+.logo-actions{display:flex;gap:12px}
+.action-btn{
+  padding:10px 14px;border-radius:999px;font-weight:700;border:none;cursor:pointer;
+  background:linear-gradient(90deg,var(--gold),var(--gold-strong));color:#061018;
+  box-shadow:0 12px 36px rgba(0,0,0,0.6);position:relative;overflow:visible;
+}
+.action-btn.insta{
+  background:linear-gradient(90deg,var(--insta1),var(--insta2),var(--insta3),var(--insta4),var(--insta5));
+  color:#fff
+}
+.action-btn::after{content:"";position:absolute;inset:0;border-radius:999px;box-shadow:0 0 18px rgba(250,204,21,0.45)}
+.action-btn.insta::after{box-shadow:0 0 18px rgba(255,100,150,0.45)}
 
-    body {
-      background: #020617;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text-main);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+.page-spacer{height:160px}
 
-    /* HEADER */
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-      background: rgba(2, 6, 23, 0.8);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0; z-index: 60;
-    }
+/* stats */
+.stats-col{
+  display:flex;flex-direction:column;gap:28px;width:220px;
+  margin:30px auto 10px auto;align-items:center
+}
+.stat-item{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat-icon{
+  width:74px;height:74px;border-radius:50%;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow:0 12px 30px rgba(0,0,0,0.6)
+}
+.stat-number{font-size:44px;color:var(--gold);font-weight:800}
+.stat-label{color:var(--muted);font-size:16px}
 
-    .logo-mark {
-      display:flex; align-items:center; gap:12px;
-    }
-    .logo-img-small{
-      width:42px;height:42px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(234,179,8,0.15));
-    }
-    .logo-text { font-weight:700; color:var(--accent-gold); letter-spacing:0.03em; }
-    nav a {
-      margin-left: 12px;
-      font-size: .9rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
+/* schedule */
+.schedule{
+  margin:20px auto;padding:14px;border-radius:12px;width:320px;text-align:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  border:1px solid rgba(255,255,255,0.04)
+}
+.schedule h4{color:var(--gold);margin-bottom:8px}
+.schedule p{color:var(--muted);margin:6px 0}
 
-    nav a:hover { color: var(--accent-gold); }
+/* trending */
+.trending{max-width:980px;margin:18px auto;padding:12px}
+.trending h3{color:var(--gold);margin-bottom:12px}
+.trend-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px
+}
+.trend-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  padding:12px;border-radius:12px;
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow:0 16px 40px rgba(0,0,0,0.55)
+}
+.trend-title{font-weight:700;margin-bottom:6px}
+.trend-price{color:var(--gold);font-weight:800;margin-bottom:8px}
+.trend-feat{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
+.trend-btn{
+  padding:10px 12px;border:none;border-radius:10px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-strong));font-weight:800;
+  color:#061018;cursor:pointer;position:relative;
+}
 
-    /* HERO */
-    .hero {
-      max-width: 1100px;
-      margin: 28px auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    /* Centered animated logo area added above hero-left content */
-    .hero-logo {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      margin-bottom:8px;
-    }
-
-    .center-logo-wrap{
-      position:relative;
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: radial-gradient(circle at 30% 25%, rgba(250,204,21,0.06), rgba(255,255,255,0.02));
-      box-shadow:0 12px 36px rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.04);
-      transform: translateY(0);
-      animation: float 4s ease-in-out infinite;
-      z-index:30;
-    }
-
-    .center-logo-wrap img{ width:76%; height:76%; object-fit:contain; display:block; filter: drop-shadow(0 8px 20px rgba(234,179,8,0.12)); }
-
-    @keyframes float { 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
-
-    .hero-title {
-      font-size: 2.3rem;
-      font-weight: 700;
-      line-height: 1.05;
-    }
-
-    .hero-title span {
-      color: var(--accent-gold);
-    }
-
-    .hero-subtitle {
-      margin-top: 10px;
-      color: var(--text-muted);
-      font-size: 1rem;
-      max-width: 450px;
-    }
-
-    .btn {
-      margin-top: 18px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: .9rem;
-      font-weight: 600;
-    }
-
-    .btn-primary {
-      background: var(--accent-gold);
-      color: #000;
-      position: relative;
-      overflow: visible;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid var(--accent-gold);
-      color: var(--accent-gold);
-    }
-
-    /* HERO STATS */
-    .stats-card {
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 16px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 10px;
-    }
-
-    .stat-box {
-      background: #1e293b;
-      padding: 12px;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-    }
-
-    .stat-label {
-      font-size: .75rem;
-      color: var(--text-muted);
-    }
-
-    /* FEATURED PRODUCTS */
-    .section {
-      max-width: 1100px;
-      margin: 24px auto;
-      padding: 0 20px 40px;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .products-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-      gap: 16px;
-    }
-
-    .product-card {
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 16px;
-    }
-
-    .product-title { font-size: 1rem; font-weight: 600; margin-bottom: 5px; }
-
-    .product-price span { color: var(--accent-gold); font-weight: 700; }
-
-    .buy-btn {
-      margin-top: 10px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 14px;
-      background: var(--accent-gold);
-      color: #000;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Particles canvas sits behind main content but above background */
-    #logoParticles {
-      position: absolute;
-      pointer-events: none;
-      z-index: 20;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 130px;
-    }
-
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding: 18px; gap: 12px; }
-      #logoParticles { top: calc( (100px) ); }
-      .center-logo-wrap { width:120px;height:120px; }
-      .hero-title { font-size: clamp(1.6rem,6vw,2.2rem); }
-    }
-
-  </style>
+/* diamond particles */
+.particle{
+  position:fixed;pointer-events:none;z-index:9999;
+  width:10px;height:10px;background:rgba(250,204,21,1);
+  transform:rotate(45deg);border-radius:2px;mix-blend-mode:screen;
+}
+</style>
 </head>
-
 <body>
 
+<div class="container">
 <header>
-  <div class="logo-mark">
-    <img src="./1000275497.png" alt="TDS" class="logo-img-small">
-    <div class="logo-text">TDS</div>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">All Products</a>
-    <a href="https://www.instagram.com/the_diamond._.store" target="_blank">Instagram</a>
-  </nav>
+  <div class="brand-title">The Diamond Store</div>
+  <nav><a href="products.html" style="color:var(--muted);text-decoration:none">Products</a></nav>
 </header>
 
-<!-- PARTICLES CANVAS for central logo (absolute positioned) -->
-<canvas id="logoParticles" width="700" height="400" aria-hidden="true"></canvas>
+<main>
 
-<!-- HERO -->
-<section class="hero" aria-labelledby="heroHeading">
-  <div>
-    <!-- Centered animated logo -->
-    <div class="hero-logo" aria-hidden="true">
-      <div class="center-logo-wrap" id="centerLogo">
-        <img src="./1000275497.png" alt="TDS Logo">
-      </div>
-    </div>
-
-    <h1 id="heroHeading" class="hero-title">Premium <span>subscriptions</span><br> at local prices.</h1>
-    <p class="hero-subtitle">
-      Get Netflix 4K, YouTube Premium, Prime Video, Spotify and more at up to 70–90% off.
-    </p>
-
-    <button class="btn btn-primary" id="chatBtn" onclick="openWhatsApp('Hi, I came from your website. I want to know about your digital subscription plans.')">Chat on WhatsApp</button>
-    <button class="btn btn-secondary" onclick="window.location='products.html'">View All Products</button>
+<div class="center-wrap">
+  <div class="logo-large" id="logoCenter">
+    <img src="1000275497.png" alt="logo">
   </div>
 
-  <aside class="stats-card" aria-hidden="true">
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-number">₹35</div>
-        <div class="stat-label">YouTube Premium / month</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">₹120</div>
-        <div class="stat-label">Netflix 4K / month</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">₹150</div>
-        <div class="stat-label">Prime Video / 6 months</div>
-      </div>
+  <div class="logo-actions">
+    <button class="action-btn insta" id="instaBtn"
+      onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">
+      Instagram
+    </button>
+  </div>
+</div>
+
+<div class="page-spacer"></div>
+
+<!-- stats icons -->
+<div class="stats-col">
+
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none"
+      stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="7" r="4"/>
+        <path d="M6 21v-2a6 6 0 0 1 12 0v2"/>
+      </svg>
     </div>
-  </aside>
-</section>
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Happy Customers</div>
+  </div>
 
-<!-- FEATURED PRODUCTS -->
-<section class="section">
-  <h2 class="section-title">Featured Deals</h2>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none"
+      stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 17l6-6 4 4 8-8"/>
+        <path d="M14 7h7v7"/>
+      </svg>
+    </div>
+    <div class="stat-number">100+</div>
+    <div class="stat-label">Active Subs</div>
+  </div>
 
-  <div class="products-row">
-    <div class="product-card">
-      <div class="product-title">Netflix 4K Shared Profile</div>
-      <div class="product-price">Starting at <span>₹120</span> / month</div>
-      <button class="buy-btn" onclick="openWhatsApp('Hi, I want to buy Netflix 4K plan for ₹120/month')">Buy on WhatsApp</button>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none"
+      stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 15 8.5 22 9.3 17 14 18.5 21 12 17.8 5.5 21 7 14 2 9.3 9 8.5"/>
+      </svg>
+    </div>
+    <div class="stat-number">99.9%</div>
+    <div class="stat-label">Success Rate</div>
+  </div>
+
+</div>
+
+<!-- schedule -->
+<div class="schedule">
+  <h4>Online Hours</h4>
+  <p><strong>Sunday:</strong> Full day — Online</p>
+  <p><strong>Mon–Sat:</strong> 6:30 AM — 9:00 AM & 4:40 PM — 8:30 PM</p>
+</div>
+
+<!-- trending -->
+<div class="trending">
+  <h3>Trending Right Now</h3>
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-title">Netflix 4K Shared</div>
+      <div class="trend-price">₹120 / month</div>
+      <div class="trend-feat">Ultra HD shared profile — Fast Delivery</div>
+      <button class="trend-btn" onclick="openWA('Netflix Shared — ₹120')">Buy on WhatsApp</button>
     </div>
 
-    <div class="product-card">
-      <div class="product-title">YouTube Premium + Music</div>
-      <div class="product-price">Just <span>₹35</span> / month</div>
-      <button class="buy-btn" onclick="openWhatsApp('Hi, I want the YouTube Premium + Music plan for ₹35/month')">Buy on WhatsApp</button>
+    <div class="trend-card">
+      <div class="trend-title">YouTube Premium + Music</div>
+      <div class="trend-price">₹35 / month</div>
+      <div class="trend-feat">Ad‑free + Background Play</div>
+      <button class="trend-btn" onclick="openWA('YouTube Premium — ₹35')">Buy on WhatsApp</button>
     </div>
 
-    <div class="product-card">
-      <div class="product-title">Prime Video • 6 Months</div>
-      <div class="product-price">Only <span>₹150</span></div>
-      <button class="buy-btn" onclick="openWhatsApp('Hi, I want the Prime Video 6-month plan for ₹150')">Buy on WhatsApp</button>
+    <div class="trend-card">
+      <div class="trend-title">CapCut Pro 1 Month</div>
+      <div class="trend-price">₹350</div>
+      <div class="trend-feat">Full Pro Editing Tools</div>
+      <button class="trend-btn" onclick="openWA('CapCut Pro — ₹350')">Buy on WhatsApp</button>
     </div>
   </div>
-</section>
+</div>
 
-<footer style="padding:28px 20px 40px;text-align:center;color:var(--text-muted)">© <span id="year"></span> The Diamond Store</footer>
+<div class="footer-note" style="text-align:center;margin-top:30px;color:var(--muted)">
+  WhatsApp: <a href="https://wa.me/919024487624" style="color:var(--gold)">+91 90244 87624</a>
+</div>
+
+</main>
+</div>
 
 <script>
-  // WhatsApp helper
-  const WHATSAPP_NUMBER = "9024487624";
-  function openWhatsApp(msg){
-    const url = "https://wa.me/91" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
-    window.open(url, "_blank");
+const WHATSAPP="9024487624";
+function openWA(text){
+  window.open("https://wa.me/91"+WHATSAPP+"?text="+encodeURIComponent("Hi, I'm interested in: "+text));
+}
+
+/* diamond particles */
+(function(){
+  const gold=['rgba(250,204,21,1)','rgba(234,179,8,1)','rgba(255,230,120,1)'];
+  function create(x,y,color){
+    const e=document.createElement('div');
+    e.className='particle';
+    const s=8+Math.random()*10;
+    e.style.width=e.style.height=s+'px';
+    e.style.left=(x-s/2)+'px';
+    e.style.top=(y-s/2)+'px';
+    e.style.background=color;
+    document.body.appendChild(e);
+    const a=Math.random()*Math.PI*2;
+    const d=40+Math.random()*100;
+    const dx=Math.cos(a)*d, dy=Math.sin(a)*d;
+    e.animate([{transform:'translate(0,0) rotate(45deg)',opacity:1},
+               {transform:'translate('+dx+'px,'+dy+'px) rotate(80deg)',opacity:0}],
+               {duration:900,easing:'cubic-bezier(.2,.9,.2,1)'});
+    setTimeout(()=>e.remove(),1000);
   }
-
-  // --- Logo particle system (drawn into canvas #logoParticles) ---
-  (function(){
-    const canvas = document.getElementById('logoParticles');
-    const ctx = canvas.getContext('2d');
-    function resize(){
-      // make canvas width match viewport (capped)
-      const w = Math.min(window.innerWidth, 980);
-      canvas.width = w;
-      canvas.height = 320;
-      canvas.style.left = '50%';
-      canvas.style.marginLeft = -(w/2) + 'px';
-      canvas.style.top = '90px';
+  function burst(el){
+    const r=el.getBoundingClientRect();
+    const cx=r.left+r.width/2, cy=r.top+r.height/2;
+    for(let i=0;i<12;i++){
+      create(cx,cy,gold[Math.floor(Math.random()*gold.length)]);
     }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const logoImg = new Image();
-    logoImg.src = './1000275497.png';
-
-    const particles = [];
-    function rand(a,b){ return Math.random()*(b-a)+a; }
-
-    class P {
-      constructor(x,y,opts={}){
-        this.x = x + rand(-10,10);
-        this.y = y + rand(-8,8);
-        this.vx = opts.vx ?? rand(-0.6,0.6);
-        this.vy = opts.vy ?? rand(0.2,1.2);
-        this.size = opts.size ?? rand(8,28);
-        this.rot = rand(0,Math.PI*2);
-        this.vrot = rand(-0.02,0.02);
-        this.alpha = opts.alpha ?? rand(0.06,0.28);
-        this.birth = performance.now();
-        this.life = opts.life ?? rand(1200,3600);
-        this.useImage = opts.useImage ?? false;
-      }
-      draw(now){
-        const t = (now - this.birth) / this.life;
-        if (t>1) return false;
-        const ease = 1 - Math.pow(1 - t, 2);
-        const x = this.x + this.vx * (now - this.birth) * 0.06;
-        const y = this.y + this.vy * (now - this.birth) * 0.06;
-        const s = this.size * (1 + 0.12 * ease);
-        ctx.save();
-        ctx.globalAlpha = (1 - ease) * this.alpha + 0.02;
-        ctx.translate(x,y);
-        ctx.rotate(this.rot + this.vrot * (now - this.birth) * 0.001);
-        if (this.useImage && logoImg.complete) {
-          try { ctx.drawImage(logoImg, -s/2, -s/2, s, s); } catch(e){ drawDiamond(s); }
-        } else {
-          drawDiamond(s);
-        }
-        ctx.restore();
-        return true;
-      }
-    }
-
-    function drawDiamond(s){
-      ctx.beginPath();
-      ctx.moveTo(0, -s*0.5);
-      ctx.lineTo(s*0.35, 0);
-      ctx.lineTo(0, s*0.5);
-      ctx.lineTo(-s*0.35, 0);
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(250,204,21,0.12)';
-      ctx.fill();
-    }
-
-    function centerOfLogo(){
-      const el = document.getElementById('centerLogo');
-      const rect = el.getBoundingClientRect();
-      return { x: rect.left + rect.width/2 - (canvas.getBoundingClientRect().left || 0), y: rect.top + rect.height/2 - (canvas.getBoundingClientRect().top || 0) };
-    }
-
-    let lastEmit = 0;
-    function emitGentle(now){
-      if (now - lastEmit < 120) return;
-      lastEmit = now;
-      const c = centerOfLogo();
-      const count = Math.random() > 0.65 ? 3 : 1;
-      for(let i=0;i<count;i++){
-        particles.push(new P(c.x, c.y, { vx: rand(-0.2,0.4), vy: rand(0.6,1.6), size: rand(6,18), alpha: rand(0.06,0.18), useImage: false }));
-      }
-    }
-
-    function burst(strength=22){
-      const c = centerOfLogo();
-      for(let i=0;i<strength;i++){
-        const angle = Math.random()*Math.PI*2;
-        const speed = 0.6 + Math.random()*2.2;
-        particles.push(new P(c.x, c.y, { vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed*0.6 + 0.2, size: rand(10,36), life: rand(800,2400), alpha: rand(0.12,0.35), useImage: Math.random()<0.16 }));
-      }
-    }
-
-    function animate(now){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      // subtle center glow
-      const g = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, Math.max(canvas.width, canvas.height));
-      g.addColorStop(0, 'rgba(250,204,21,0.012)');
-      g.addColorStop(1, 'rgba(2,6,23,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-
-      emitGentle(now);
-
-      for(let i = particles.length - 1; i >= 0; i--){
-        if (!particles[i].draw(now)) particles.splice(i,1);
-      }
-      if (particles.length > 800) particles.splice(0, particles.length - 700);
-      requestAnimationFrame(animate);
-    }
-
-    // click/tap on logo to burst
-    document.getElementById('centerLogo').addEventListener('click', ()=> {
-      burst(26);
-      // small pop animation
-      const el = document.getElementById('centerLogo');
-      el.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.06)' }, { transform: 'scale(1)' }], { duration: 320, easing: 'cubic-bezier(.2,.9,.2,1)' });
-    });
-
-    requestAnimationFrame(animate);
-
-  })();
-
-  // set year
-  document.getElementById('year').textContent = new Date().getFullYear();
+  }
+  const logo=document.getElementById('logoCenter');
+  if(logo){
+    setInterval(()=>{burst(logo)},800);
+    logo.onclick=()=>burst(logo);
+  }
+})();
 </script>
 
 </body>
