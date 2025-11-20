@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Diamond Store — Products</title>
+<meta name="description" content="The Diamond Store — Premium subscriptions: Netflix, Chaupal, YouTube, Prime, Spotify, CapCut and more." />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020617;
+  --card:#0f172a;
+  --gold:#facc15;
+  --gold-strong:#eab308;
+  --muted:#9ca3af;
+  --border:rgba(255,255,255,0.04);
+  --insta1:#feda75; --insta2:#fa7e1e; --insta3:#d62976; --insta4:#962fbf; --insta5:#4f5bd5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:radial-gradient(circle at top, rgba(250,204,21,0.03), transparent 45%), var(--bg);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#f9fafb;overflow-x:hidden;}
+.wrap{max-width:1120px;margin:18px auto;padding:18px;position:relative}
+
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(6px);position:relative;z-index:20}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(234,179,8,0.12))}
+.brand .title{font-weight:700;color:var(--gold)}
+nav{display:flex;gap:12px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+#instaBtn{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--insta1),var(--insta2),var(--insta3),var(--insta4),var(--insta5));color:white;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,80,140,0.12)}
+
+/* floating logo centered at top */
+.logo-center {position:fixed;left:50%;transform:translateX(-50%);top:68px;width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%, rgba(250,204,21,0.06), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.04);box-shadow:0 18px 60px rgba(0,0,0,0.6);z-index:25;cursor:pointer;animation:logoFloat 4s ease-in-out infinite;}
+.logo-center img{width:74%;height:74%;object-fit:contain;display:block;filter:drop-shadow(0 10px 30px rgba(250,204,21,0.12));}
+@keyframes logoFloat{0%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}100%{transform:translateX(-50%) translateY(0)}}
+
+/* hero and panels */
+.hero{margin-top:160px;display:flex;gap:18px;align-items:flex-start}
+.left{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.18));padding:18px;border-radius:14px;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+.page-kicker{display:inline-block;color:var(--gold);font-weight:700;letter-spacing:0.12em}
+.page-title{font-size:1.6rem;font-weight:700;margin-top:6px}
+.page-desc{color:var(--muted);margin-top:6px;max-width:680px}
+.actions{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.btn{border-radius:999px;padding:10px 14px;font-weight:700;border:none;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--gold),var(--gold-strong));color:#061018;box-shadow:0 14px 40px rgba(234,179,8,0.12)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--gold)}
+
+/* right stats */
+.right{width:320px;min-width:260px;max-width:340px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));border-radius:14px;padding:14px;border:1px solid var(--border)}
+.stat{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:12px;background:#0d1720;margin-bottom:10px}
+.stat h3{font-size:1.15rem;color:var(--gold);margin:0}
+.stat p{color:var(--muted);margin:0;font-size:0.9rem}
+
+/* specials */
+.specials{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:18px;z-index:5;position:relative}
+.special{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));padding:14px;border-radius:14px;border:1px solid var(--border);position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.55)}
+.special .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.special .title{font-weight:700}
+.special .sub{color:var(--muted)}
+
+/* pills */
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:880px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.plans{grid-template-columns:repeat(1,1fr)}}
+.pill{border-radius:14px;padding:12px;border:1px solid rgba(255,255,255,0.02);cursor:pointer;transition:all .14s ease;display:flex;flex-direction:column;gap:6px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));box-shadow:0 8px 18px rgba(0,0,0,0.6)}
+.pill:hover{transform:translateY(-6px);box-shadow:0 26px 70px rgba(0,0,0,0.7)}
+.pill.active{background:linear-gradient(180deg, rgba(234,179,8,0.06), rgba(0,0,0,0.36));border-color:rgba(234,179,8,0.85);box-shadow:0 18px 50px rgba(0,0,0,0.65)}
+.pill .lbl{font-weight:700}
+.pill .price{color:var(--gold);font-weight:800}
+
+/* special footer */
+.special-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:12px;flex-wrap:wrap}
+.buy{padding:10px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--gold),var(--gold-strong));font-weight:800;color:#061018;cursor:pointer;position:relative;overflow:visible}
+.buy::after{content:"";position:absolute;inset:0;border-radius:10px;box-shadow:0 0 18px rgba(250,204,21,0.6);pointer-events:none}
+.buy.pre-vib{animation:preVib .36s ease-in-out}
+@keyframes preVib{0%{transform:translateY(0)}25%{transform:translateY(-1px) rotate(-0.5deg)}50%{transform:translateY(1px) rotate(0.5deg)}75%{transform:translateY(-1px) rotate(-0.5deg)}100%{transform:translateY(0)}}
+.buy.vib{animation:btn-vib 0.18s linear infinite}
+@keyframes btn-vib{0%{transform:translate(0)}25%{transform:translate(-1px,1px)}50%{transform:translate(1px,-1px)}75%{transform:translate(-1px,-1px)}100%{transform:translate(1px,1px)}}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));border-radius:12px;padding:12px;border:1px solid var(--border);box-shadow:0 14px 36px rgba(0,0,0,0.55);position:relative;overflow:hidden}
+.tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--gold);font-weight:700;margin-bottom:8px}
+.product-title{font-weight:700;margin-bottom:6px}
+.product-price{font-weight:700;color:var(--gold);margin-bottom:10px}
+.btn-whats{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:linear-gradient(90deg,var(--gold),var(--gold-strong));color:#061018;font-weight:800;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:visible}
+.btn-whats::after{content:"";position:absolute;inset:0;border-radius:12px;box-shadow:0 0 18px rgba(250,204,21,0.6);pointer-events:none}
+
+/* features box */
+.features-box{margin-top:10px;background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:0.92rem}
+.features-box ul{margin-left:16px}
+
+/* particle */
+.particle{ position: fixed; pointer-events: none; z-index:9999; border-radius:50%; mix-blend-mode:screen; }
+/* instagram particles small square */
+.particle.insta{ border-radius:6px; mix-blend-mode:screen; }
+
+/* reveal */
+.reveal{transform:translateY(6px);opacity:0;animation:revealIn .6s ease forwards}
+@keyframes revealIn{to{transform:none;opacity:1}}
+
+/* responsive */
+@media(max-width:880px){.hero{flex-direction:column}.right{width:100%}.logo-center{top:48px;width:84px;height:84px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <img id="siteLogoSmall" src="1000275497.png" alt="TDS logo">
+      <div class="title">The Diamond Store</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="productsmain.html" aria-current="page">Products</a>
+      <button id="instaBtn" title="Instagram" onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">Instagram</button>
+    </nav>
+  </header>
+
+  <!-- floating logo centered -->
+  <div class="logo-center" id="logoCenter" title="Tap for sparkle">
+    <img id="siteLogo" src="1000275497.png" alt="TDS">
+  </div>
+
+  <section class="hero" aria-label="Main">
+    <div class="left">
+      <div class="page-kicker">Active deals</div>
+      <div class="page-title">Premium subscriptions at local prices</div>
+      <div class="page-desc">Manually verified activations via WhatsApp — pick a plan, confirm through chat and we’ll deliver instantly.</div>
+
+      <div class="actions">
+        <button class="btn primary" id="mainChat">Chat on WhatsApp</button>
+        <button class="btn ghost" onclick="window.location='#specials'">Jump to specials</button>
+      </div>
+    </div>
+
+    <aside class="right" aria-hidden="true">
+      <div class="stat"><div><h3>50+</h3><p>Trusted customers</p></div><div style="font-size:22px;color:var(--gold)">✦</div></div>
+      <div class="stat"><div><h3>Instant</h3><p>Activation</p></div><div style="font-size:22px;color:var(--gold)">⚡</div></div>
+      <div class="stat"><div><h3>100+</h3><p>Active subscriptions</p></div><div style="font-size:22px;color:var(--gold)">✔</div></div>
+    </aside>
+  </section>
+
+  <div id="specials" class="specials" role="region" aria-label="Featured plans">
+    <!-- Chaupal -->
+    <article class="special reveal" id="chaupalSpecial">
+      <div class="head">
+        <div>
+          <div class="title">CHAUPAL · Regional / Punjabi content</div>
+          <div class="sub">Punjabi & regional movies, shows — pick a duration and order through WhatsApp.</div>
+        </div>
+        <div style="font-weight:800;color:var(--gold)">Chaupal</div>
+      </div>
+
+      <div class="plans" id="chaupalPlans">
+        <div class="pill active" data-id="chaupal-1m" data-label="CHAUPAL · 1 MONTH" data-price="80"><div class="lbl">1 Month</div><div class="price">₹80</div></div>
+        <div class="pill" data-id="chaupal-3m" data-label="CHAUPAL · 3 MONTHS" data-price="160"><div class="lbl">3 Months</div><div class="price">₹160</div></div>
+        <div class="pill" data-id="chaupal-6m" data-label="CHAUPAL · 6 MONTHS" data-price="250"><div class="lbl">6 Months</div><div class="price">₹250</div></div>
+        <div class="pill" data-id="chaupal-12m" data-label="CHAUPAL · 12 MONTHS" data-price="380"><div class="lbl">12 Months</div><div class="price">₹380</div></div>
+      </div>
+
+      <div class="special-footer">
+        <div class="special-summary" id="chaupalSummary">Selected: <strong id="chaupalSelected">CHAUPAL · 1 MONTH – ₹80</strong></div>
+        <button class="buy" id="chaupalBuy">Order on WhatsApp</button>
+      </div>
+      <div class="features-box">
+        <strong>Features:</strong>
+        <ul>
+          <li>High-quality Punjabi content</li>
+          <li>Works on multiple devices</li>
+          <li>Manual activation via WhatsApp</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Netflix -->
+    <article class="special reveal" id="netflixSpecial">
+      <div class="head">
+        <div>
+          <div class="title">NETFLIX 4K · Profile based access</div>
+          <div class="sub">Shared and locked profile options (1–24 months). Ultra HD available.</div>
+        </div>
+        <div style="font-weight:800;color:var(--gold)">Netflix</div>
+      </div>
+
+      <div class="plans" id="netflixPlans">
+        <div class="pill active" data-id="shared-monthly" data-label="SHARED PROFILE · MONTHLY" data-price="120"><div class="lbl">SHARED · MONTHLY</div><div class="price">₹120 / month</div></div>
+        <div class="pill" data-id="locked-half-year" data-label="LOCKED PROFILE · HALF-YEARLY" data-price="520"><div class="lbl">LOCKED · 6 MONTHS</div><div class="price">₹520 / 6 months</div></div>
+        <div class="pill" data-id="locked-yearly" data-label="LOCKED PROFILE · YEARLY" data-price="990"><div class="lbl">LOCKED · 12 MONTHS</div><div class="price">₹990 / year</div></div>
+        <div class="pill" data-id="locked-two-year" data-label="LOCKED PROFILE · TWO-YEAR" data-price="1800"><div class="lbl">LOCKED · 24 MONTHS</div><div class="price">₹1800 / 2 years</div></div>
+      </div>
+
+      <div class="special-footer">
+        <div class="special-summary" id="netflixSummary">Selected: <strong id="netflixSelected">SHARED PROFILE · MONTHLY – ₹120</strong></div>
+        <button class="buy" id="netflixBuy">Buy selected Netflix plan</button>
+      </div>
+      <div class="features-box">
+        <strong>Features:</strong>
+        <ul>
+          <li>Ultra HD (4K) profiles</li>
+          <li>Shared and locked profiles available</li>
+          <li>Manual activation and clear instructions via WhatsApp</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <div class="grid" aria-label="Other products" id="productGrid">
+
+    <div class="card">
+      <div class="tag">YouTube</div>
+      <div class="product-title">YouTube Premium + Music</div>
+      <div class="product-price">₹35 / month</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Ad-free YouTube</li><li>Background play & downloads</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('YouTube Premium + Music — ₹35 / month')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">Prime</div>
+      <div class="product-title">Prime Video · 6 Months</div>
+      <div class="product-price">₹150 / 6 months</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Popular movies & shows</li><li>Multiple device login</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('Prime Video — 6 months — ₹150')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">Spotify</div>
+      <div class="product-title">Spotify Premium · 2 Months</div>
+      <div class="product-price">₹90 / 2 months</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Ad-free music</li><li>Offline downloads</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('Spotify Premium — 2 months — ₹90')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">Drive</div>
+      <div class="product-title">Google Drive 2TB + Gemini AI</div>
+      <div class="product-price">₹40</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>2TB storage</li><li>Gemini AI access</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('Google Drive 2TB + Gemini — ₹40')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">Zee5</div>
+      <div class="product-title">Zee5 · 1 Year</div>
+      <div class="product-price">₹200 / year</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Regional & international content</li><li>Full year access</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('Zee5 — 1 year — ₹200')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">Hotstar</div>
+      <div class="product-title">Hotstar 1K · Special</div>
+      <div class="product-price">₹80</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Popular TV & sports</li><li>Quick activation</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('Hotstar 1K / JioCinema special — ₹80')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">CapCut</div>
+      <div class="product-title">CapCut Pro Account · 1 Month</div>
+      <div class="product-price">₹350 / 1 month</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Full Pro features</li><li>Advanced editing</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('CapCut Pro Account — 1 month — ₹350')">Buy on WhatsApp</button>
+    </div>
+
+    <div class="card">
+      <div class="tag">New</div>
+      <div class="product-title">Extra Product — Placeholder</div>
+      <div class="product-price">Contact for price</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Details on request</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('I am interested in Extra Product — please share details')">Buy on WhatsApp</button>
+    </div>
+
+  </div>
+
+  <footer style="margin-top:28px;color:var(--muted);text-align:center;padding-bottom:40px">© <span id="year"></span> The Diamond Store · WhatsApp: <a href="https://wa.me/919024487624" style="color:var(--gold)">+91 90244 87624</a></footer>
+</div>
+
+<script>
+const WHATSAPP = "9024487624";
+function openWA(text){
+  window.open("https://wa.me/91"+WHATSAPP+"?text="+encodeURIComponent("Hi, I want: "+text), "_blank");
+}
+
+/* wirePills */
+function wirePills(containerId, summaryId, buyBtnId){
+  const container = document.getElementById(containerId);
+  if(!container) return;
+  const pills = Array.from(container.querySelectorAll('.pill'));
+  const summary = document.getElementById(summaryId);
+  const buy = document.getElementById(buyBtnId);
+  let selected = { id: pills[0].dataset.id || '', label: pills[0].dataset.label || pills[0].querySelector('.lbl').textContent, price: Number(pills[0].dataset.price || 0) };
+
+  function update(){
+    pills.forEach(p => p.classList.remove('active'));
+    const active = pills.find(p => p.dataset.id === selected.id) || pills[0];
+    if(active) active.classList.add('active');
+    if(summary) summary.textContent = (selected.label || active.dataset.label || active.querySelector('.lbl').textContent) + " – ₹" + selected.price;
+    if(buy) buy.onclick = function(){ openWA((selected.label || active.dataset.label || active.querySelector('.lbl').textContent) + " — ₹" + selected.price); };
+  }
+
+  pills.forEach(p => p.addEventListener('click', function(){
+    selected = { id: this.dataset.id || '', label: this.dataset.label || this.querySelector('.lbl').textContent, price: Number(this.dataset.price || 0) };
+    update();
+  }));
+
+  const initial = pills.find(p=>p.classList.contains('active')) || pills[0];
+  if(initial){
+    selected = { id: initial.dataset.id || '', label: initial.dataset.label || initial.querySelector('.lbl').textContent, price: Number(initial.dataset.price || 0) };
+  }
+  update();
+}
+
+/* Particle system + pre-vibrate sequence */
+(function(){
+  const goldColors = ['rgba(250,204,21,1)','rgba(234,179,8,1)','rgba(255,230,120,1)'];
+  const instaColors = ['#feda75','#fa7e1e','#d62976','#962fbf','#4f5bd5'];
+
+  function createParticle(x,y,color,opts={}){
+    const p = document.createElement('div');
+    p.className = 'particle' + (opts.insta? ' insta':'' );
+    const size = opts.size || (6 + Math.random()*12);
+    p.style.width = p.style.height = size + 'px';
+    p.style.left = (x - size/2) + 'px';
+    p.style.top = (y - size/2) + 'px';
+    p.style.background = color;
+    p.style.opacity = '1';
+    p.style.zIndex = 9999;
+    p.style.pointerEvents = 'none';
+    p.style.borderRadius = opts.insta? '6px':'50%';
+    document.body.appendChild(p);
+    const ang = Math.random()*Math.PI*2;
+    const dist = 60 + Math.random()*160;
+    const dx = Math.cos(ang)*dist;
+    const dy = Math.sin(ang)*dist - 10;
+    const rot = (Math.random()>0.5?1:-1)*(20 + Math.random()*160);
+    p.animate([
+      { transform: 'translate(0,0) rotate(0deg)', opacity:1 },
+      { transform: 'translate('+dx+'px,'+dy+'px) rotate('+rot+'deg)', opacity:0 }
+    ],{ duration: 700 + Math.random()*900, easing: 'cubic-bezier(.2,.9,.2,1)' });
+    setTimeout(()=> p.remove(), 1800);
+  }
+
+  function emitFrom(el,count,colors,opts={}){
+    const r = el.getBoundingClientRect();
+    const cx = r.left + r.width/2;
+    const cy = r.top + r.height/2;
+    for(let i=0;i<count;i++){
+      const color = colors[Math.floor(Math.random()*colors.length)];
+      const sx = cx + (Math.random()-0.5)*r.width*0.6;
+      const sy = cy + (Math.random()-0.5)*r.height*0.6;
+      createParticle(sx,sy,color,opts);
+    }
+  }
+
+  // Pre-vibrate then emit sequence
+  function preVibrateThenEmit(el,colors,opts={}){
+    if(!el) return;
+    // add pre-vib class
+    el.classList.add('pre-vib');
+    // after 320ms emit particles and add vib class shortly
+    setTimeout(()=>{
+      emitFrom(el, 10 + Math.floor(Math.random()*4), colors, opts);
+      el.classList.remove('pre-vib');
+      el.classList.add('vib');
+      // remove vib after 4s
+      setTimeout(()=> el.classList.remove('vib'), 4000);
+    }, 320);
+  }
+
+  function wireAll(){
+    // wire buy buttons and whatsapp buttons
+    const allBtns = document.querySelectorAll('.buy, .btn-whats, .btn.primary, .btn.ghost');
+    allBtns.forEach(b=>{
+      // on click -> pre-vib then emit
+      b.addEventListener('click', function(e){
+        // prevent double-open for real WA buttons when using pre-vib: if button has onclick that opens WA, allow it after particles
+        // run pre-vib+emit
+        preVibrateThenEmit(b, goldColors);
+        // if button has onclick attribute calling openWA, let it run (it will open immediately). That's acceptable.
+      });
+      // mouseenter small pre-vib and small emit
+      b.addEventListener('mouseenter', function(){ preVibrateThenEmit(b, goldColors); });
+    });
+
+    // Instagram special
+    const insta = document.getElementById('instaBtn');
+    if(insta){
+      insta.addEventListener('click', function(e){
+        preVibrateThenEmit(insta, instaColors, {insta:true});
+        // open link (allow default)
+      });
+      insta.addEventListener('mouseenter', function(){
+        preVibrateThenEmit(insta, instaColors, {insta:true});
+      });
+    }
+
+    // logo click
+    const logo = document.getElementById('logoCenter');
+    if(logo){
+      logo.addEventListener('click', function(){ preVibrateThenEmit(logo, goldColors); });
+    }
+
+    // continuous gentle periodic particle release from Buy buttons (subtle)
+    setInterval(()=>{
+      const buttons = document.querySelectorAll('.buy, .btn-whats');
+      buttons.forEach((b,idx)=>{
+        // stagger releases
+        setTimeout(()=> preVibrateThenEmit(b, goldColors), idx*120);
+      });
+    }, 8000);
+  }
+
+  document.addEventListener('DOMContentLoaded', wireAll);
+})();
+
+/* wire pills */
+wirePills('chaupalPlans','chaupalSelected','chaupalBuy');
+wirePills('netflixPlans','netflixSelected','netflixBuy');
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
