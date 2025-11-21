@@ -147,6 +147,13 @@ header{
   100% { box-shadow: 0 12px 36px rgba(234,179,8,0.12); transform: translateY(0); }
 }
 
+
+.action-btn.whatsapp{
+  background: linear-gradient(90deg,#25D366,#128C7E);
+  color:white;
+  box-shadow:0 12px 36px rgba(18,140,126,0.18);
+}
+
 </style>
 </head>
 <body>
@@ -289,7 +296,7 @@ function openWA(text){
   const logo=document.getElementById('logoCenter');
   if(logo){
     setInterval(()=>{burst(logo)},800);
-    logo.onclick=()=>burst(logo);
+    logo.onclick=()=>
   }
 })();
 </script>

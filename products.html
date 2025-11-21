@@ -8,20 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#020617;
+  --bg:#021228;
   --card:#0f172a;
   --gold:#facc15;
   --gold-strong:#eab308;
   --muted:#9ca3af;
   --border:rgba(255,255,255,0.04);
   --insta1:#feda75; --insta2:#fa7e1e; --insta3:#d62976; --insta4:#962fbf; --insta5:#4f5bd5;
+  --cyan-glow:#00ffff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:radial-gradient(circle at top, rgba(250,204,21,0.03), transparent 45%), var(--bg);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#f9fafb;overflow-x:hidden;}
+html,body{height:100%;background: linear-gradient(180deg, #00040d 0%, #021228 40%, #072033 100%);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#f9fafb;overflow-x:hidden;}
 .wrap{max-width:1120px;margin:18px auto;padding:18px;position:relative}
 
 /* header */
-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:12px;border:1px solid var(--border);backdrop-filter:blur(6px);position:relative;z-index:20}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:12px;border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(6px);position:relative;z-index:20}
 .brand{display:flex;align-items:center;gap:12px}
 .brand img{width:46px;height:46px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(234,179,8,0.12))}
 .brand .title{font-weight:700;color:var(--gold)}
@@ -29,14 +30,14 @@ nav{display:flex;gap:12px;align-items:center}
 nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
 #instaBtn{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--insta1),var(--insta2),var(--insta3),var(--insta4),var(--insta5));color:white;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,80,140,0.12)}
 
-/* floating logo centered at top */
-.logo-center {position:fixed;left:50%;transform:translateX(-50%);top:68px;width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%, rgba(250,204,21,0.06), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.04);box-shadow:0 18px 60px rgba(0,0,0,0.6);z-index:25;cursor:pointer;animation:logoFloat 4s ease-in-out infinite;}
-.logo-center img{width:74%;height:74%;object-fit:contain;display:block;filter:drop-shadow(0 10px 30px rgba(250,204,21,0.12));}
+/* floating logo centered at top - CIRCULAR */
+.logo-center {position:fixed;left:50%;top:20px;transform:translateX(-50%);width:90px;height:90px;display:flex;align-items:center;justify-content:center;z-index:25;border-radius:50%;}
+.logo-center img{width:100%;height:100%;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 32px var(--cyan-glow)) drop-shadow(0 0 64px rgba(0,255,255,0.4));}
 @keyframes logoFloat{0%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}100%{transform:translateX(-50%) translateY(0)}}
 
 /* hero and panels */
 .hero{margin-top:160px;display:flex;gap:18px;align-items:flex-start}
-.left{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.18));padding:18px;border-radius:14px;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+.left{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.18));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
 .page-kicker{display:inline-block;color:var(--gold);font-weight:700;letter-spacing:0.12em}
 .page-title{font-size:1.6rem;font-weight:700;margin-top:6px}
 .page-desc{color:var(--muted);margin-top:6px;max-width:680px}
@@ -53,7 +54,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
 
 /* specials */
 .specials{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:18px;z-index:5;position:relative}
-.special{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));padding:14px;border-radius:14px;border:1px solid var(--border);position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.55)}
+.special{background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.30));padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.55)}
 .special .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .special .title{font-weight:700}
 .special .sub{color:var(--muted)}
@@ -62,7 +63,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
 .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 @media(max-width:880px){.plans{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.plans{grid-template-columns:repeat(1,1fr)}}
-.pill{border-radius:14px;padding:12px;border:1px solid rgba(255,255,255,0.02);cursor:pointer;transition:all .14s ease;display:flex;flex-direction:column;gap:6px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));box-shadow:0 8px 18px rgba(0,0,0,0.6)}
+.pill{border-radius:14px;padding:12px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:all .14s ease;display:flex;flex-direction:column;gap:6px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12));box-shadow:0 8px 18px rgba(0,0,0,0.6)}
 .pill:hover{transform:translateY(-6px);box-shadow:0 26px 70px rgba(0,0,0,0.7)}
 .pill.active{background:linear-gradient(180deg, rgba(234,179,8,0.06), rgba(0,0,0,0.36));border-color:rgba(234,179,8,0.85);box-shadow:0 18px 50px rgba(0,0,0,0.65)}
 .pill .lbl{font-weight:700}
@@ -79,21 +80,16 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
 
 /* grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));border-radius:12px;padding:12px;border:1px solid var(--border);box-shadow:0 14px 36px rgba(0,0,0,0.55);position:relative;overflow:hidden}
-.tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--gold);font-weight:700;margin-bottom:8px}
+.card{background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.30));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.14);box-shadow:0 14px 36px rgba(0,0,0,0.55);position:relative;overflow:hidden}
+.tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.04);color:var(--gold);font-weight:700;margin-bottom:8px}
 .product-title{font-weight:700;margin-bottom:6px}
 .product-price{font-weight:700;color:var(--gold);margin-bottom:10px}
 .btn-whats{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:linear-gradient(90deg,var(--gold),var(--gold-strong));color:#061018;font-weight:800;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:visible}
 .btn-whats::after{content:"";position:absolute;inset:0;border-radius:12px;box-shadow:0 0 18px rgba(250,204,21,0.6);pointer-events:none}
 
 /* features box */
-.features-box{margin-top:10px;background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:0.92rem}
+.features-box{margin-top:10px;background:rgba(255,255,255,0.04);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-size:0.92rem}
 .features-box ul{margin-left:16px}
-
-/* particle */
-.particle{ position: fixed; pointer-events: none; z-index:9999; border-radius:50%; mix-blend-mode:screen; }
-/* instagram particles small square */
-.particle.insta{ border-radius:6px; mix-blend-mode:screen; }
 
 /* reveal */
 .reveal{transform:translateY(6px);opacity:0;animation:revealIn .6s ease forwards}
@@ -117,7 +113,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     </nav>
   </header>
 
-  <!-- floating logo centered -->
+  <!-- floating logo centered - CIRCULAR -->
   <div class="logo-center" id="logoCenter" title="Tap for sparkle">
     <img id="siteLogo" src="1000275497.png" alt="TDS">
   </div>
@@ -126,7 +122,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     <div class="left">
       <div class="page-kicker">Active deals</div>
       <div class="page-title">Premium subscriptions at local prices</div>
-      <div class="page-desc">Manually verified activations via WhatsApp — pick a plan, confirm through chat and we’ll deliver instantly.</div>
+      <div class="page-desc">Manually verified activations via WhatsApp — pick a plan, confirm through chat and we'll deliver instantly.</div>
 
       <div class="actions">
         <button class="btn primary" id="mainChat">Chat on WhatsApp</button>
@@ -203,6 +199,39 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
         </ul>
       </div>
     </article>
+
+    <!-- ChatGPT Premium -->
+    <article class="special reveal" id="chatgptSpecial">
+      <div class="head">
+        <div>
+          <div class="title">CHATGPT · AI Assistant Premium Plans</div>
+          <div class="sub">GO and Plus plans with advanced AI capabilities, longer responses, and priority access.</div>
+        </div>
+        <div style="font-weight:800;color:var(--gold)">ChatGPT</div>
+      </div>
+
+      <div class="plans" id="chatgptPlans">
+        <div class="pill active" data-id="chatgpt-go-1y" data-label="CHATGPT GO · 1 YEAR" data-price="120"><div class="lbl">GO · 1 YEAR</div><div class="price">₹120</div></div>
+        <div class="pill" data-id="chatgpt-plus-1m" data-label="CHATGPT PLUS · 1 MONTH" data-price="260"><div class="lbl">PLUS · 1 MONTH</div><div class="price">₹260</div></div>
+        <div class="pill" data-id="chatgpt-plus-3m" data-label="CHATGPT PLUS · 3 MONTHS" data-price="720"><div class="lbl">PLUS · 3 MONTHS</div><div class="price">₹720</div></div>
+        <div class="pill" data-id="chatgpt-plus-6m" data-label="CHATGPT PLUS · 6 MONTHS" data-price="1499"><div class="lbl">PLUS · 6 MONTHS</div><div class="price">₹1499</div></div>
+        <div class="pill" data-id="chatgpt-plus-1y" data-label="CHATGPT PLUS · 1 YEAR" data-price="2799"><div class="lbl">PLUS · 1 YEAR</div><div class="price">₹2799</div></div>
+      </div>
+
+      <div class="special-footer">
+        <div class="special-summary" id="chatgptSummary">Selected: <strong id="chatgptSelected">CHATGPT GO · 1 YEAR – ₹120</strong></div>
+        <button class="buy" id="chatgptBuy">Order on WhatsApp</button>
+      </div>
+      <div class="features-box">
+        <strong>Features:</strong>
+        <ul>
+          <li>Advanced AI conversations</li>
+          <li>Priority access during high traffic</li>
+          <li>Longer response limits</li>
+          <li>Early access to new features</li>
+        </ul>
+      </div>
+    </article>
   </div>
 
   <div class="grid" aria-label="Other products" id="productGrid">
@@ -271,12 +300,12 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     </div>
 
     <div class="card">
-      <div class="tag">New</div>
-      <div class="product-title">Extra Product — Placeholder</div>
-      <div class="product-price">Contact for price</div>
-      <div class="features-box"><strong>Features:</strong><ul><li>Details on request</li></ul></div>
+      <div class="tag">ChatGPT</div>
+      <div class="product-title">ChatGPT GO · 1 Year</div>
+      <div class="product-price">₹120 / year</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>AI assistant access</li><li>Basic premium features</li></ul></div>
       <div style="height:10px"></div>
-      <button class="btn-whats buy" onclick="openWA('I am interested in Extra Product — please share details')">Buy on WhatsApp</button>
+      <button class="btn-whats buy" onclick="openWA('ChatGPT GO — 1 year — ₹120')">Buy on WhatsApp</button>
     </div>
 
   </div>
@@ -319,15 +348,14 @@ function wirePills(containerId, summaryId, buyBtnId){
   update();
 }
 
-/* Particle system + pre-vibrate sequence */
+/* Simplified particle system - only for logo with deep cyan glow */
 (function(){
-  const goldColors = ['rgba(250,204,21,1)','rgba(234,179,8,1)','rgba(255,230,120,1)'];
-  const instaColors = ['#feda75','#fa7e1e','#d62976','#962fbf','#4f5bd5'];
+  const cyanColors = ['#00ffff','#00e6e6','#00cccc','#00b3b3'];
 
   function createParticle(x,y,color,opts={}){
     const p = document.createElement('div');
-    p.className = 'particle' + (opts.insta? ' insta':'' );
-    const size = opts.size || (6 + Math.random()*12);
+    p.className = 'particle';
+    const size = opts.size || (8 + Math.random()*16);
     p.style.width = p.style.height = size + 'px';
     p.style.left = (x - size/2) + 'px';
     p.style.top = (y - size/2) + 'px';
@@ -335,96 +363,94 @@ function wirePills(containerId, summaryId, buyBtnId){
     p.style.opacity = '1';
     p.style.zIndex = 9999;
     p.style.pointerEvents = 'none';
-    p.style.borderRadius = opts.insta? '6px':'50%';
+    p.style.borderRadius = '50%';
     document.body.appendChild(p);
     const ang = Math.random()*Math.PI*2;
-    const dist = 60 + Math.random()*160;
+    const dist = 80 + Math.random()*200;
     const dx = Math.cos(ang)*dist;
     const dy = Math.sin(ang)*dist - 10;
-    const rot = (Math.random()>0.5?1:-1)*(20 + Math.random()*160);
     p.animate([
-      { transform: 'translate(0,0) rotate(0deg)', opacity:1 },
-      { transform: 'translate('+dx+'px,'+dy+'px) rotate('+rot+'deg)', opacity:0 }
-    ],{ duration: 700 + Math.random()*900, easing: 'cubic-bezier(.2,.9,.2,1)' });
-    setTimeout(()=> p.remove(), 1800);
+      { transform: 'translate(0,0) scale(1)', opacity:1 },
+      { transform: 'translate('+dx+'px,'+dy+'px) scale(0.2)', opacity:0 }
+    ],{ duration: 1000 + Math.random()*1200, easing: 'cubic-bezier(.2,.9,.2,1)' });
+    setTimeout(()=> p.remove(), 2200);
   }
 
-  function emitFrom(el,count,colors,opts={}){
-    const r = el.getBoundingClientRect();
+  function emitFromLogo(){
+    const logo = document.getElementById('logoCenter');
+    if(!logo) return;
+    const r = logo.getBoundingClientRect();
     const cx = r.left + r.width/2;
     const cy = r.top + r.height/2;
-    for(let i=0;i<count;i++){
-      const color = colors[Math.floor(Math.random()*colors.length)];
-      const sx = cx + (Math.random()-0.5)*r.width*0.6;
-      const sy = cy + (Math.random()-0.5)*r.height*0.6;
-      createParticle(sx,sy,color,opts);
+    
+    // Create multiple particles for logo
+    for(let i=0; i<8; i++){
+      const color = cyanColors[Math.floor(Math.random()*cyanColors.length)];
+      const sx = cx + (Math.random()-0.5)*r.width*0.3;
+      const sy = cy + (Math.random()-0.5)*r.height*0.3;
+      createParticle(sx,sy,color);
     }
   }
 
-  // Pre-vibrate then emit sequence
-  function preVibrateThenEmit(el,colors,opts={}){
-    if(!el) return;
-    // add pre-vib class
-    el.classList.add('pre-vib');
-    // after 320ms emit particles and add vib class shortly
-    setTimeout(()=>{
-      emitFrom(el, 10 + Math.floor(Math.random()*4), colors, opts);
-      el.classList.remove('pre-vib');
-      el.classList.add('vib');
-      // remove vib after 4s
-      setTimeout(()=> el.classList.remove('vib'), 4000);
-    }, 320);
-  }
-
-  function wireAll(){
-    // wire buy buttons and whatsapp buttons
-    const allBtns = document.querySelectorAll('.buy, .btn-whats, .btn.primary, .btn.ghost');
-    allBtns.forEach(b=>{
-      // on click -> pre-vib then emit
-      b.addEventListener('click', function(e){
-        // prevent double-open for real WA buttons when using pre-vib: if button has onclick that opens WA, allow it after particles
-        // run pre-vib+emit
-        preVibrateThenEmit(b, goldColors);
-        // if button has onclick attribute calling openWA, let it run (it will open immediately). That's acceptable.
-      });
-      // mouseenter small pre-vib and small emit
-      b.addEventListener('mouseenter', function(){ preVibrateThenEmit(b, goldColors); });
-    });
-
-    // Instagram special
-    const insta = document.getElementById('instaBtn');
-    if(insta){
-      insta.addEventListener('click', function(e){
-        preVibrateThenEmit(insta, instaColors, {insta:true});
-        // open link (allow default)
-      });
-      insta.addEventListener('mouseenter', function(){
-        preVibrateThenEmit(insta, instaColors, {insta:true});
-      });
-    }
-
-    // logo click
+  function wireLogoParticles(){
     const logo = document.getElementById('logoCenter');
     if(logo){
-      logo.addEventListener('click', function(){ preVibrateThenEmit(logo, goldColors); });
-    }
-
-    // continuous gentle periodic particle release from Buy buttons (subtle)
-    setInterval(()=>{
-      const buttons = document.querySelectorAll('.buy, .btn-whats');
-      buttons.forEach((b,idx)=>{
-        // stagger releases
-        setTimeout(()=> preVibrateThenEmit(b, goldColors), idx*120);
+      logo.addEventListener('click', function(){
+        // Emit particles on click
+        for(let i=0; i<15; i++){
+          setTimeout(() => emitFromLogo(), i * 80);
+        }
       });
-    }, 8000);
+      
+      // Gentle continuous emission from logo
+      setInterval(() => {
+        emitFromLogo();
+      }, 3000);
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', wireAll);
+  // Keep button animations but remove particles
+  function wireButtonAnimations(){
+    const allBtns = document.querySelectorAll('.buy, .btn-whats, .btn.primary, .btn.ghost');
+    allBtns.forEach(b=>{
+      b.addEventListener('click', function(){
+        this.classList.add('pre-vib');
+        setTimeout(() => {
+          this.classList.remove('pre-vib');
+          this.classList.add('vib');
+          setTimeout(() => this.classList.remove('vib'), 4000);
+        }, 320);
+      });
+    });
+
+    const insta = document.getElementById('instaBtn');
+    if(insta){
+      insta.addEventListener('click', function(){
+        this.classList.add('pre-vib');
+        setTimeout(() => {
+          this.classList.remove('pre-vib');
+          this.classList.add('vib');
+          setTimeout(() => this.classList.remove('vib'), 4000);
+        }, 320);
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    wireLogoParticles();
+    wireButtonAnimations();
+  });
 })();
 
 /* wire pills */
 wirePills('chaupalPlans','chaupalSelected','chaupalBuy');
 wirePills('netflixPlans','netflixSelected','netflixBuy');
+wirePills('chatgptPlans','chatgptSelected','chatgptBuy');
+
+// Connect main chat button
+document.getElementById('mainChat').addEventListener('click', function(){
+  openWA('Hi, I want to know more about your premium subscriptions');
+});
 
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
