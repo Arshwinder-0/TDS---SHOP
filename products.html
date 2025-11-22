@@ -86,6 +86,12 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
 .pill .lbl{font-weight:700}
 .pill .price{color:var(--gold);font-weight:800}
 
+/* single plan style */
+.single-plan{display:flex;justify-content:center;margin:10px 0}
+.single-pill{border-radius:14px;padding:16px 20px;border:1px solid rgba(234,179,8,0.3);display:flex;flex-direction:column;gap:8px;background:linear-gradient(180deg, rgba(234,179,8,0.08), rgba(0,0,0,0.25));box-shadow:0 12px 30px rgba(234,179,8,0.15);text-align:center;min-width:200px}
+.single-pill .lbl{font-weight:700;font-size:1.1rem}
+.single-pill .price{color:var(--gold);font-weight:800;font-size:1.3rem}
+
 /* special footer */
 .special-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:12px;flex-wrap:wrap}
 .buy{padding:10px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--gold),var(--gold-strong));font-weight:800;color:#061018;cursor:pointer;position:relative;overflow:visible}
@@ -160,38 +166,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
   </section>
 
   <div id="specials" class="specials" role="region" aria-label="Featured plans">
-    <!-- Chaupal -->
-    <article class="special reveal" id="chaupalSpecial">
-      <div class="head">
-        <div>
-          <div class="title">CHAUPAL · Regional / Punjabi content</div>
-          <div class="sub">Punjabi & regional movies, shows — pick a duration and order through WhatsApp.</div>
-        </div>
-        <div style="font-weight:800;color:var(--gold)">Chaupal</div>
-      </div>
-
-      <div class="plans" id="chaupalPlans">
-        <div class="pill active" data-id="chaupal-1m" data-label="CHAUPAL · 1 MONTH" data-price="80"><div class="lbl">1 Month</div><div class="price">₹80</div></div>
-        <div class="pill" data-id="chaupal-3m" data-label="CHAUPAL · 3 MONTHS" data-price="160"><div class="lbl">3 Months</div><div class="price">₹160</div></div>
-        <div class="pill" data-id="chaupal-6m" data-label="CHAUPAL · 6 MONTHS" data-price="280"><div class="lbl">6 Months</div><div class="price">₹280</div></div>
-        <div class="pill" data-id="chaupal-12m" data-label="CHAUPAL · 12 MONTHS" data-price="499"><div class="lbl">12 Months</div><div class="price">₹499</div></div>
-      </div>
-
-      <div class="special-footer">
-        <div class="special-summary" id="chaupalSummary">Selected: <strong id="chaupalSelected">CHAUPAL · 1 MONTH – ₹80</strong></div>
-        <button class="buy" id="chaupalBuy">Order on WhatsApp</button>
-      </div>
-      <div class="features-box">
-        <strong>Features:</strong>
-        <ul>
-          <li>High-quality Punjabi content</li>
-          <li>Works on multiple devices</li>
-          <li>Manual activation via WhatsApp</li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- Netflix -->
+    <!-- Netflix - MOST POPULAR -->
     <article class="special reveal" id="netflixSpecial">
       <div class="head">
         <div>
@@ -222,35 +197,97 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
       </div>
     </article>
 
-    <!-- ChatGPT Premium -->
-    <article class="special reveal" id="chatgptSpecial">
+    <!-- YouTube Premium - MOST POPULAR -->
+    <article class="special reveal" id="youtubeSpecial">
       <div class="head">
         <div>
-          <div class="title">CHATGPT · AI Assistant Premium Plans</div>
-          <div class="sub">GO and Plus plans with advanced AI capabilities, longer responses, and priority access.</div>
+          <div class="title">YOUTUBE PREMIUM · Ad-free Experience</div>
+          <div class="sub">Includes YouTube Music Premium. Background play, downloads, and no ads.</div>
         </div>
-        <div style="font-weight:800;color:var(--gold)">ChatGPT</div>
+        <div style="font-weight:800;color:var(--gold)">YouTube</div>
       </div>
 
-      <div class="plans" id="chatgptPlans">
-        <div class="pill active" data-id="chatgpt-go-1y" data-label="CHATGPT GO · 1 YEAR" data-price="120"><div class="lbl">GO · 1 YEAR</div><div class="price">₹120</div></div>
-        <div class="pill" data-id="chatgpt-plus-1m" data-label="CHATGPT PLUS · 1 MONTH" data-price="260"><div class="lbl">PLUS · 1 MONTH</div><div class="price">₹260</div></div>
-        <div class="pill" data-id="chatgpt-plus-3m" data-label="CHATGPT PLUS · 3 MONTHS" data-price="720"><div class="lbl">PLUS · 3 MONTHS</div><div class="price">₹720</div></div>
-        <div class="pill" data-id="chatgpt-plus-6m" data-label="CHATGPT PLUS · 6 MONTHS" data-price="1499"><div class="lbl">PLUS · 6 MONTHS</div><div class="price">₹1499</div></div>
-        <div class="pill" data-id="chatgpt-plus-1y" data-label="CHATGPT PLUS · 1 YEAR" data-price="2799"><div class="lbl">PLUS · 1 YEAR</div><div class="price">₹2799</div></div>
+      <div class="single-plan">
+        <div class="single-pill">
+          <div class="lbl">1 MONTH</div>
+          <div class="price">₹35</div>
+        </div>
       </div>
 
       <div class="special-footer">
-        <div class="special-summary" id="chatgptSummary">Selected: <strong id="chatgptSelected">CHATGPT GO · 1 YEAR – ₹120</strong></div>
-        <button class="buy" id="chatgptBuy">Order on WhatsApp</button>
+        <div class="special-summary">YOUTUBE PREMIUM · 1 MONTH – ₹35</div>
+        <button class="buy" onclick="openWA('YOUTUBE PREMIUM · 1 MONTH — ₹35')">Buy YouTube Premium</button>
       </div>
       <div class="features-box">
         <strong>Features:</strong>
         <ul>
-          <li>Advanced AI conversations</li>
-          <li>Priority access during high traffic</li>
-          <li>Longer response limits</li>
-          <li>Early access to new features</li>
+          <li>Ad-free YouTube videos</li>
+          <li>Background play on mobile</li>
+          <li>Video downloads for offline viewing</li>
+          <li>Includes YouTube Music Premium</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Prime Video - MOST POPULAR -->
+    <article class="special reveal" id="primeSpecial">
+      <div class="head">
+        <div>
+          <div class="title">PRIME VIDEO · Movies & TV Shows</div>
+          <div class="sub">Access to Amazon Originals, popular movies, and exclusive content.</div>
+        </div>
+        <div style="font-weight:800;color:var(--gold)">Prime Video</div>
+      </div>
+
+      <div class="single-plan">
+        <div class="single-pill">
+          <div class="lbl">6 MONTHS</div>
+          <div class="price">₹150</div>
+        </div>
+      </div>
+
+      <div class="special-footer">
+        <div class="special-summary">PRIME VIDEO · 6 MONTHS – ₹150</div>
+        <button class="buy" onclick="openWA('PRIME VIDEO · 6 MONTHS — ₹150')">Buy Prime Video</button>
+      </div>
+      <div class="features-box">
+        <strong>Features:</strong>
+        <ul>
+          <li>Amazon Originals and exclusives</li>
+          <li>Popular movies and TV shows</li>
+          <li>Multiple device support</li>
+          <li>4K Ultra HD available</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Chaupal - MOST POPULAR -->
+    <article class="special reveal" id="chaupalSpecial">
+      <div class="head">
+        <div>
+          <div class="title">CHAUPAL · Regional / Punjabi content</div>
+          <div class="sub">Punjabi & regional movies, shows — pick a duration and order through WhatsApp.</div>
+        </div>
+        <div style="font-weight:800;color:var(--gold)">Chaupal</div>
+      </div>
+
+      <div class="plans" id="chaupalPlans">
+        <div class="pill active" data-id="chaupal-1m" data-label="CHAUPAL · 1 MONTH" data-price="80"><div class="lbl">1 Month</div><div class="price">₹80</div></div>
+        <div class="pill" data-id="chaupal-3m" data-label="CHAUPAL · 3 MONTHS" data-price="160"><div class="lbl">3 Months</div><div class="price">₹160</div></div>
+        <div class="pill" data-id="chaupal-6m" data-label="CHAUPAL · 6 MONTHS" data-price="280"><div class="lbl">6 Months</div><div class="price">₹280</div></div>
+        <div class="pill" data-id="chaupal-12m" data-label="CHAUPAL · 12 MONTHS" data-price="499"><div class="lbl">12 Months</div><div class="price">₹499</div></div>
+      </div>
+
+      <div class="special-footer">
+        <div class="special-summary" id="chaupalSummary">Selected: <strong id="chaupalSelected">CHAUPAL · 1 MONTH – ₹80</strong></div>
+        <button class="buy" id="chaupalBuy">Order on WhatsApp</button>
+      </div>
+      <div class="features-box">
+        <strong>Features:</strong>
+        <ul>
+          <li>High-quality Punjabi content</li>
+          <li>Works on multiple devices</li>
+          <li>Manual activation via WhatsApp</li>
         </ul>
       </div>
     </article>
@@ -259,21 +296,12 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
   <div class="grid" aria-label="Other products" id="productGrid">
 
     <div class="card">
-      <div class="tag">YouTube</div>
-      <div class="product-title">YouTube Premium + Music</div>
-      <div class="product-price">₹35 / month</div>
-      <div class="features-box"><strong>Features:</strong><ul><li>Ad-free YouTube</li><li>Background play & downloads</li></ul></div>
+      <div class="tag">Hotstar</div>
+      <div class="product-title">Hotstar HD · Premium Content</div>
+      <div class="product-price">₹80</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>HD quality streaming</li><li>Popular TV & sports</li><li>Quick activation</li></ul></div>
       <div style="height:10px"></div>
-      <button class="btn-whats buy" onclick="openWA('YouTube Premium + Music — ₹35 / month')">Buy on WhatsApp</button>
-    </div>
-
-    <div class="card">
-      <div class="tag">Prime</div>
-      <div class="product-title">Prime Video · 6 Months</div>
-      <div class="product-price">₹150 / 6 months</div>
-      <div class="features-box"><strong>Features:</strong><ul><li>Popular movies & shows</li><li>Multiple device login</li></ul></div>
-      <div style="height:10px"></div>
-      <button class="btn-whats buy" onclick="openWA('Prime Video — 6 months — ₹150')">Buy on WhatsApp</button>
+      <button class="btn-whats buy" onclick="openWA('Hotstar HD — ₹80')">Buy on WhatsApp</button>
     </div>
 
     <div class="card">
@@ -304,21 +332,32 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     </div>
 
     <div class="card">
-      <div class="tag">Hotstar</div>
-      <div class="product-title">Hotstar 1K · Special</div>
-      <div class="product-price">₹80</div>
-      <div class="features-box"><strong>Features:</strong><ul><li>Popular TV & sports</li><li>Quick activation</li></ul></div>
-      <div style="height:10px"></div>
-      <button class="btn-whats buy" onclick="openWA('Hotstar 1K / JioCinema special — ₹80')">Buy on WhatsApp</button>
-    </div>
-
-    <div class="card">
       <div class="tag">CapCut</div>
       <div class="product-title">CapCut Pro Account · 1 Month</div>
       <div class="product-price">₹350 / 1 month</div>
       <div class="features-box"><strong>Features:</strong><ul><li>Full Pro features</li><li>Advanced editing</li></ul></div>
       <div style="height:10px"></div>
       <button class="btn-whats buy" onclick="openWA('CapCut Pro Account — 1 month — ₹350')">Buy on WhatsApp</button>
+    </div>
+
+    <!-- ChatGPT GO -->
+    <div class="card">
+      <div class="tag">ChatGPT</div>
+      <div class="product-title">ChatGPT GO · 1 Year</div>
+      <div class="product-price">₹120</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Advanced AI conversations</li><li>Priority access</li><li>Longer response limits</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('ChatGPT GO · 1 YEAR — ₹120')">Buy on WhatsApp</button>
+    </div>
+
+    <!-- ChatGPT Plus 1 Month -->
+    <div class="card">
+      <div class="tag">ChatGPT Plus</div>
+      <div class="product-title">ChatGPT Plus · 1 Month</div>
+      <div class="product-price">₹260</div>
+      <div class="features-box"><strong>Features:</strong><ul><li>Advanced AI capabilities</li><li>Priority access to GPT-4</li><li>Early access to new features</li><li>Faster response times</li></ul></div>
+      <div style="height:10px"></div>
+      <button class="btn-whats buy" onclick="openWA('ChatGPT Plus · 1 MONTH — ₹260')">Buy on WhatsApp</button>
     </div>
 
     <div class="card">
@@ -459,10 +498,9 @@ function wirePills(containerId, summaryId, buyBtnId){
   });
 })();
 
-/* wire pills */
-wirePills('chaupalPlans','chaupalSelected','chaupalBuy');
+/* wire pills for Netflix and Chaupal only */
 wirePills('netflixPlans','netflixSelected','netflixBuy');
-wirePills('chatgptPlans','chatgptSelected','chatgptBuy');
+wirePills('chaupalPlans','chaupalSelected','chaupalBuy');
 
 // Connect main chat button
 document.getElementById('mainChat').addEventListener('click', function(){
