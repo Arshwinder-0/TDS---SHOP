@@ -16,6 +16,7 @@
   --border:rgba(255,255,255,0.04);
   --insta1:#feda75; --insta2:#fa7e1e; --insta3:#d62976; --insta4:#962fbf; --insta5:#4f5bd5;
   --cyan-glow:#00ffff;
+  --red-glow:#ff3366;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background: linear-gradient(180deg, #00040d 0%, #021228 40%, #072033 100%);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#f9fafb;overflow-x:hidden;}
@@ -46,6 +47,13 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 nav{display:flex;gap:12px;align-items:center}
 nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
 #instaBtn{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--insta1),var(--insta2),var(--insta3),var(--insta4),var(--insta5));color:white;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,80,140,0.12)}
+#offersBtn{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#ff3366,#ff0033);color:white;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,51,102,0.12);position:relative;overflow:hidden}
+#offersBtn::after{content:"";position:absolute;inset:0;border-radius:999px;box-shadow:0 0 25px rgba(0,255,255,0.8);pointer-events:none;animation:cyanPulse 3s infinite alternate}
+
+@keyframes cyanPulse {
+  0% { box-shadow: 0 0 15px rgba(0,255,255,0.6); }
+  100% { box-shadow: 0 0 30px rgba(0,255,255,0.9); }
+}
 
 /* floating logo centered at top - CIRCULAR */
 .logo-center {position:fixed;left:50%;top:20px;transform:translateX(-50%);width:90px;height:90px;display:flex;align-items:center;justify-content:center;z-index:25;border-radius:50%;}
@@ -136,7 +144,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     </div>
     <nav>
       <a href="index.html">Home</a>
-      
+      <button id="offersBtn" title="Special Offers" onclick="window.location.href='offer.html'">Special Offers</button>
       <button id="instaBtn" title="Instagram" onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">Instagram</button>
     </nav>
   </header>
@@ -482,6 +490,19 @@ function wirePills(containerId, summaryId, buyBtnId){
     const insta = document.getElementById('instaBtn');
     if(insta){
       insta.addEventListener('click', function(){
+        this.classList.add('pre-vib');
+        setTimeout(() => {
+          this.classList.remove('pre-vib');
+          this.classList.add('vib');
+          setTimeout(() => this.classList.remove('vib'), 4000);
+        }, 320);
+      });
+    }
+    
+    // Add animation to offers button
+    const offersBtn = document.getElementById('offersBtn');
+    if(offersBtn){
+      offersBtn.addEventListener('click', function(){
         this.classList.add('pre-vib');
         setTimeout(() => {
           this.classList.remove('pre-vib');
