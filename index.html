@@ -18,6 +18,8 @@
   --cyan-glow:#00ffff;
   --whatsapp-green: #25D366;
   --whatsapp-green-glow: rgba(37, 211, 102, 0.6);
+  --red-glow: #ff3366;
+  --red-strong: #ff0033;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background: linear-gradient(180deg, #00040d 0%, #021228 40%, #072033 100%);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#f9fafb;overflow-x:hidden;}
@@ -49,7 +51,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .brand .title{font-weight:700;color:var(--gold)}
 nav{display:flex;gap:12px;align-items:center}
 nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
-#instaBtn{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--insta1),var(--insta2),var(--insta3),var(--insta4),var(--insta5));color:white;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,80,140,0.12)}
+#instaBtn{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--insta1),var(--insta2),var(--insta3),var(--insta4),var(--insta5));color:white;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,80,140,0.12);position:absolute;right:20px;top:20px;z-index:30}
 
 /* floating logo centered at top */
 .logo-center {position:fixed;left:50%;top:20px;transform:translateX(-50%);width:90px;height:90px;display:flex;align-items:center;justify-content:center;z-index:25;}
@@ -60,12 +62,20 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
 .hero{margin-top:40px;text-align:center;max-width:720px;margin-left:auto;margin-right:auto}
 .hero-title{font-size:2.8rem;font-weight:800;line-height:1.1;background:linear-gradient(90deg,var(--gold),var(--gold-strong));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{color:var(--muted);margin-top:14px;font-size:1.1rem;max-width:580px;margin-left:auto;margin-right:auto}
-.actions{display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap}
-.btn{border-radius:999px;padding:12px 24px;font-weight:700;border:none;cursor:pointer;font-size:1rem}
+.actions{display:flex;flex-direction:column;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap;align-items:center}
+.btn{border-radius:999px;padding:12px 24px;font-weight:700;border:none;cursor:pointer;font-size:1rem;width:100%;max-width:280px}
 .btn.primary{background:linear-gradient(90deg,var(--gold),var(--gold-strong));color:#061018;box-shadow:0 14px 40px rgba(234,179,8,0.12)}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--gold)}
 .btn.whatsapp{background:var(--whatsapp-green);color:white;box-shadow:0 0 20px var(--whatsapp-green-glow);transition: all 0.3s ease;}
 .btn.whatsapp:hover{box-shadow:0 0 30px var(--whatsapp-green-glow), 0 0 40px rgba(37, 211, 102, 0.4);}
+.btn.offers{background:linear-gradient(90deg,var(--red-glow),var(--red-strong));color:white;box-shadow:0 0 20px rgba(255,51,102,0.6);transition: all 0.3s ease;position:relative;overflow:hidden}
+.btn.offers::after{content:"";position:absolute;inset:0;border-radius:999px;box-shadow:0 0 25px rgba(255,51,102,0.8);pointer-events:none;animation:redPulse 3s infinite alternate}
+.btn.offers:hover{box-shadow:0 0 30px rgba(255,51,102,0.8), 0 0 40px rgba(255,51,102,0.4);}
+
+@keyframes redPulse {
+  0% { box-shadow: 0 0 15px rgba(255,51,102,0.6); }
+  100% { box-shadow: 0 0 30px rgba(255,51,102,0.9); }
+}
 
 /* stats - HORIZONTAL and COMPACT */
 .stats{display:flex;justify-content:center;gap:40px;margin-top:48px;flex-wrap:wrap}
@@ -105,6 +115,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
   .logo-center{top:48px;width:84px;height:84px}
   .stats{gap:30px}
   .features{gap:15px}
+  #instaBtn{right:15px;top:15px;padding:6px 10px;font-size:0.85rem}
 }
 @media(max-width:580px){
   .hero-title{font-size:1.8rem}
@@ -115,6 +126,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
   .stat-number{font-size:1.5rem}
   .features{flex-direction:column;align-items:center;gap:15px}
   .feature{max-width:100%;min-width:auto}
+  #instaBtn{right:10px;top:10px;padding:5px 8px;font-size:0.8rem}
 }
 @media(max-width:768px){
   .trending-products{flex-direction:column;align-items:center;gap:20px}
@@ -138,9 +150,11 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     </div>
     <nav>
       <a href="products.html">Products</a>
-      <button id="instaBtn" title="Instagram" onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">Instagram</button>
     </nav>
   </header>
+
+  <!-- Instagram Button at Corner -->
+  <button id="instaBtn" title="Instagram" onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">Instagram</button>
 
   <!-- floating logo centered -->
   <div class="logo-center" id="logoCenter" title="Tap for sparkle">
@@ -154,6 +168,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
     <div class="actions">
       <button class="btn primary" id="mainChat">ALL PRODUCTS</button>
       <button class="btn whatsapp" onclick="window.open('https://wa.me/919024487624','_blank')">Chat on WhatsApp</button>
+      <button class="btn offers" onclick="window.location.href='offer.html'">Special Offers</button>
     </div>
 
     <!-- Compact Horizontal Stats -->
@@ -231,6 +246,7 @@ function openWA(text){
   const instaColors = ['#feda75','#fa7e1e','#d62976','#962fbf','#4f5bd5'];
   const cyanColors = ['#00ffff','#00e6e6','#00cccc','#00b3b3'];
   const whatsappColors = ['#25D366', '#128C7E', '#075E54'];
+  const redColors = ['#ff3366', '#ff0033', '#ff6699', '#ff1a53'];
 
   function createParticle(x,y,color,opts={}){
     const p = document.createElement('div');
@@ -291,6 +307,8 @@ function openWA(text){
       b.addEventListener('click', function(e){
         if(b.classList.contains('whatsapp')) {
           preVibrateThenEmit(b, whatsappColors);
+        } else if(b.classList.contains('offers')) {
+          preVibrateThenEmit(b, redColors);
         } else {
           preVibrateThenEmit(b, goldColors);
         }
@@ -298,6 +316,8 @@ function openWA(text){
       b.addEventListener('mouseenter', function(){
         if(b.classList.contains('whatsapp')) {
           preVibrateThenEmit(b, whatsappColors);
+        } else if(b.classList.contains('offers')) {
+          preVibrateThenEmit(b, redColors);
         } else {
           preVibrateThenEmit(b, goldColors);
         }
