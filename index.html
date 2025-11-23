@@ -25,6 +25,68 @@
 html,body{height:100%;background: linear-gradient(180deg, #00040d 0%, #021228 40%, #072033 100%);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#f9fafb;overflow-x:hidden;}
 .wrap{max-width:1120px;margin:18px auto;padding:18px;position:relative}
 
+/* Animated Logo Intro Overlay */
+#introOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#introOverlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#introLogo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 50px var(--cyan-glow)) drop-shadow(0 0 100px rgba(0,255,255,0.6));
+  animation: logoIntro 3s ease-in-out forwards;
+}
+
+@keyframes logoIntro {
+  0% {
+    transform: scale(0.3) rotate(-180deg);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Main content - initially hidden */
+#mainContent {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#mainContent.fade-in {
+  opacity: 1;
+}
+
 /* Banner Section */
 .banner-section {
   margin-top: 20px;
@@ -133,105 +195,117 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
   .banner-section {
     margin-top: 10px;
   }
+  #introLogo {
+    width: 150px;
+    height: 150px;
+  }
 }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <!-- Banner Section at Top -->
-  <section class="banner-section reveal">
-    <img src="banner21.png" alt="The Diamond Store - Premium Subscriptions">
-  </section>
+<!-- Animated Logo Intro Overlay -->
+<div id="introOverlay">
+  <img id="introLogo" src="1000275497.png" alt="The Diamond Store">
+</div>
 
-  <header>
-    <div class="brand">
-      <img id="siteLogoSmall" src="1000275497.png" alt="TDS logo">
-      <div class="title">The Diamond Store</div>
+<!-- Main Content (initially hidden) -->
+<div id="mainContent">
+  <div class="wrap">
+    <!-- Banner Section at Top -->
+    <section class="banner-section reveal">
+      <img src="banner21.png" alt="The Diamond Store - Premium Subscriptions">
+    </section>
+
+    <header>
+      <div class="brand">
+        <img id="siteLogoSmall" src="1000275497.png" alt="TDS logo">
+        <div class="title">The Diamond Store</div>
+      </div>
+      <nav>
+        <a href="products.html">Products</a>
+      </nav>
+    </header>
+
+    <!-- Instagram Button at Corner -->
+    <button id="instaBtn" title="Instagram" onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">Instagram</button>
+
+    <!-- floating logo centered -->
+    <div class="logo-center" id="logoCenter" title="Tap for sparkle">
+      <img id="siteLogo" src="1000275497.png" alt="TDS">
     </div>
-    <nav>
-      <a href="products.html">Products</a>
-    </nav>
-  </header>
 
-  <!-- Instagram Button at Corner -->
-  <button id="instaBtn" title="Instagram" onclick="window.open('https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk','_blank')">Instagram</button>
+    <section class="hero" aria-label="Main">
+      <h1 class="hero-title">SUBSCRIPTIONS AT VERY CHEAP PRICE</h1>
+      <p class="hero-desc">Netflix, Chaupal, YouTube, Prime, Spotify, CapCut and more — manually verified activations delivered instantly via WhatsApp.</p>
 
-  <!-- floating logo centered -->
-  <div class="logo-center" id="logoCenter" title="Tap for sparkle">
-    <img id="siteLogo" src="1000275497.png" alt="TDS">
+      <div class="actions">
+        <button class="btn primary" id="mainChat">ALL PRODUCTS</button>
+        <button class="btn whatsapp" onclick="window.open('https://wa.me/919024487624','_blank')">Chat on WhatsApp</button>
+        <button class="btn offers" onclick="window.location.href='offer.html'">Special Offers</button>
+      </div>
+
+      <!-- Compact Horizontal Stats -->
+      <div class="stats">
+        <div class="stat-item reveal">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Trusted customers</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number">Instant</span>
+          <span class="stat-label">Activation</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Active subscriptions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Products Section -->
+    <section class="trending" aria-label="Trending Products">
+      <h2 class="section-title reveal">Trending Now</h2>
+      <div class="trending-products">
+        <div class="trending-card reveal">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="trending-icon">
+          <div class="trending-name">Netflix</div>
+          <button class="trending-btn" onclick="window.location.href='products.html'">View</button>
+        </div>
+        <div class="trending-card reveal">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Premium" class="trending-icon">
+          <div class="trending-name">YouTube Premium</div>
+          <button class="trending-btn" onclick="window.location.href='products.html'">View</button>
+        </div>
+        <div class="trending-card reveal">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video" class="trending-icon">
+          <div class="trending-name">Prime Video</div>
+          <button class="trending-btn" onclick="window.location.href='products.html'">View</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compact Horizontal Features -->
+    <section class="features" aria-label="Features">
+      <div class="feature reveal">
+        <div class="feature-icon">🚀</div>
+        <h3 class="feature-title">Instant Delivery</h3>
+        <p class="feature-desc">Get your subscriptions activated immediately after confirmation via WhatsApp</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">Manual Verification</h3>
+        <p class="feature-desc">Each activation is manually verified to ensure 100% working service</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">💰</div>
+        <h3 class="feature-title">Local Pricing</h3>
+        <p class="feature-desc">Premium services at affordable Indian prices with flexible durations</p>
+      </div>
+    </section>
+
+    <footer style="margin-top:80px;color:var(--muted);text-align:center;padding-bottom:40px">
+      © <span id="year"></span> The Diamond Store · WhatsApp: <a href="https://wa.me/919024487624" style="color:var(--gold)">+91 90244 87624</a>
+    </footer>
   </div>
-
-  <section class="hero" aria-label="Main">
-    <h1 class="hero-title">SUBSCRIPTIONS AT VERY CHEAP PRICE</h1>
-    <p class="hero-desc">Netflix, Chaupal, YouTube, Prime, Spotify, CapCut and more — manually verified activations delivered instantly via WhatsApp.</p>
-
-    <div class="actions">
-      <button class="btn primary" id="mainChat">ALL PRODUCTS</button>
-      <button class="btn whatsapp" onclick="window.open('https://wa.me/919024487624','_blank')">Chat on WhatsApp</button>
-      <button class="btn offers" onclick="window.location.href='offer.html'">Special Offers</button>
-    </div>
-
-    <!-- Compact Horizontal Stats -->
-    <div class="stats">
-      <div class="stat-item reveal">
-        <span class="stat-number">50+</span>
-        <span class="stat-label">Trusted customers</span>
-      </div>
-      <div class="stat-item reveal">
-        <span class="stat-number">Instant</span>
-        <span class="stat-label">Activation</span>
-      </div>
-      <div class="stat-item reveal">
-        <span class="stat-number">100+</span>
-        <span class="stat-label">Active subscriptions</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trending Products Section -->
-  <section class="trending" aria-label="Trending Products">
-    <h2 class="section-title reveal">Trending Now</h2>
-    <div class="trending-products">
-      <div class="trending-card reveal">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="trending-icon">
-        <div class="trending-name">Netflix</div>
-        <button class="trending-btn" onclick="window.location.href='products.html'">View</button>
-      </div>
-      <div class="trending-card reveal">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Premium" class="trending-icon">
-        <div class="trending-name">YouTube Premium</div>
-        <button class="trending-btn" onclick="window.location.href='products.html'">View</button>
-      </div>
-      <div class="trending-card reveal">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video" class="trending-icon">
-        <div class="trending-name">Prime Video</div>
-        <button class="trending-btn" onclick="window.location.href='products.html'">View</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Compact Horizontal Features -->
-  <section class="features" aria-label="Features">
-    <div class="feature reveal">
-      <div class="feature-icon">🚀</div>
-      <h3 class="feature-title">Instant Delivery</h3>
-      <p class="feature-desc">Get your subscriptions activated immediately after confirmation via WhatsApp</p>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">🛡️</div>
-      <h3 class="feature-title">Manual Verification</h3>
-      <p class="feature-desc">Each activation is manually verified to ensure 100% working service</p>
-    </div>
-    <div class="feature reveal">
-      <div class="feature-icon">💰</div>
-      <h3 class="feature-title">Local Pricing</h3>
-      <p class="feature-desc">Premium services at affordable Indian prices with flexible durations</p>
-    </div>
-  </section>
-
-  <footer style="margin-top:80px;color:var(--muted);text-align:center;padding-bottom:40px">
-    © <span id="year"></span> The Diamond Store · WhatsApp: <a href="https://wa.me/919024487624" style="color:var(--gold)">+91 90244 87624</a>
-  </footer>
 </div>
 
 <script>
@@ -239,6 +313,23 @@ const WHATSAPP = "9024487624";
 function openWA(text){
   window.open("https://wa.me/91"+WHATSAPP+"?text="+encodeURIComponent("Hi, I want: "+text), "_blank");
 }
+
+// Animated Logo Intro
+document.addEventListener('DOMContentLoaded', function() {
+  const introOverlay = document.getElementById('introOverlay');
+  const mainContent = document.getElementById('mainContent');
+  
+  // After 3 seconds (duration of animation), fade out intro and show main content
+  setTimeout(function() {
+    introOverlay.classList.add('fade-out');
+    mainContent.classList.add('fade-in');
+    
+    // Remove intro overlay from DOM after transition completes
+    setTimeout(function() {
+      introOverlay.remove();
+    }, 1000);
+  }, 3000);
+});
 
 /* Particle system + pre-vibrate sequence */
 (function(){
@@ -357,7 +448,8 @@ function openWA(text){
     });
   }
 
-  document.addEventListener('DOMContentLoaded', wireAll);
+  // Wait for intro to finish before wiring interactions
+  setTimeout(wireAll, 3000);
 })();
 
 document.getElementById('year').textContent = new Date().getFullYear();
