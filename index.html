@@ -205,7 +205,7 @@ nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999
 <body>
 <!-- Animated Logo Intro Overlay -->
 <div id="introOverlay">
-  <img id="intrologo.mp4" src="1000275497.png" alt="The Diamond Store">
+  <img id="introLogo" src="1000275497.png" alt="The Diamond Store">
 </div>
 
 <!-- Main Content (initially hidden) -->
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const introOverlay = document.getElementById('introOverlay');
   const mainContent = document.getElementById('mainContent');
   
-  // After 4 seconds (duration of animation), fade out intro and show main content
+  // After 3 seconds (duration of animation), fade out intro and show main content
   setTimeout(function() {
     introOverlay.classList.add('fade-out');
     mainContent.classList.add('fade-in');
