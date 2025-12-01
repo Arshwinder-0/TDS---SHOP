@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Diamond Store - Sunday Sale Active</title>
+    <title>The Diamond Store - Sunday & Christmas Special Offers</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -310,13 +310,16 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
         }
         
-        @keyframes pulse {
-            0% { box-shadow: 0 14px 36px rgba(0,0,0,0.55); }
-            50% { box-shadow: 0 14px 36px rgba(0, 255, 255, 0.3); }
-            100% { box-shadow: 0 14px 36px rgba(0,0,0,0.55); }
+        .product-card.locked {
+            filter: blur(8px) brightness(0.7);
+            pointer-events: none;
+        }
+        
+        .product-card.unlocked {
+            filter: none;
+            pointer-events: all;
         }
         
         .product-card:hover {
@@ -403,31 +406,72 @@
             transform: scale(1.05);
         }
         
-        .available-badge {
+        .locked-overlay {
             position: absolute;
-            top: -10px;
-            right: -10px;
-            background: var(--offer-green);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 999px;
-            font-size: 0.8rem;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            color: var(--cyan-glow);
             font-weight: 700;
-            z-index: 5;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        .sunday-offer-text {
-            color: var(--gold);
-            font-size: 0.9rem;
-            margin-top: 10px;
-            font-weight: 600;
             text-align: center;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            padding: 20px;
+        }
+        
+        .locked-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+        }
+        
+        .locked-text {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .product-timer {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .product-timer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .product-timer-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            background: rgba(234, 179, 8, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 50px;
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+        }
+        
+        .product-timer-label {
+            color: var(--muted);
+            font-size: 0.7rem;
+            margin-top: 3px;
+        }
+        
+        .unlock-time {
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 600;
         }
         
         /* Footer */
@@ -486,6 +530,20 @@
                 width: 84px;
                 height: 84px;
             }
+            
+            .locked-text {
+                font-size: 1.4rem;
+            }
+            
+            .locked-icon {
+                font-size: 2.5rem;
+            }
+            
+            .product-timer-value {
+                font-size: 1.2rem;
+                min-width: 40px;
+                padding: 6px 10px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -500,6 +558,24 @@
             .countdown-item, .christmas-countdown-item {
                 width: 45%;
                 margin-bottom: 10px;
+            }
+            
+            .locked-text {
+                font-size: 1.2rem;
+            }
+            
+            .locked-icon {
+                font-size: 2rem;
+            }
+            
+            .product-timer {
+                gap: 5px;
+            }
+            
+            .product-timer-value {
+                font-size: 1rem;
+                min-width: 35px;
+                padding: 4px 8px;
             }
         }
     </style>
@@ -529,59 +605,31 @@
 
         <!-- Sunday Timer Section -->
         <section class="timer-section">
-            <h2 class="timer-title">SUNDAY SALE ENDS IN</h2>
+            <h2 class="timer-title" id="timerTitle">SUNDAY OFFERS UNLOCK IN</h2>
             <div class="countdown">
                 <div class="countdown-item">
-                    <div class="countdown-value">17</div>
+                    <div class="countdown-value" id="hours">00</div>
                     <div class="countdown-label">HOURS</div>
                 </div>
                 <div class="countdown-item">
-                    <div class="countdown-value">43</div>
+                    <div class="countdown-value" id="minutes">00</div>
                     <div class="countdown-label">MINUTES</div>
                 </div>
                 <div class="countdown-item">
-                    <div class="countdown-value">44</div>
+                    <div class="countdown-value" id="seconds">00</div>
                     <div class="countdown-label">SECONDS</div>
                 </div>
             </div>
-            <p class="timer-message">Hurry! These offers expire in</p>
+            <p class="timer-message" id="timerMessage">Get ready for amazing Sunday discounts!</p>
         </section>
 
-<!-- Christmas Timer Section -->
-        <section class="christmas-timer-section">
-            <h2 class="christmas-timer-title">CHRISTMAS OFFERS UNLOCK IN</h2>
-            <div class="christmas-countdown">
-                <div class="christmas-countdown-item">
-                    <div class="christmas-countdown-value">31</div>
-                    <div class="christmas-countdown-label">DAYS</div>
-                </div>
-                <div class="christmas-countdown-item">
-                    <div class="christmas-countdown-value">17</div>
-                    <div class="christmas-countdown-label">HOURS</div>
-                </div>
-                <div class="christmas-countdown-item">
-                    <div class="christmas-countdown-value">43</div>
-                    <div class="christmas-countdown-label">MINUTES</div>
-                </div>
-                <div class="christmas-countdown-item">
-                    <div class="christmas-countdown-value">44</div>
-                    <div class="christmas-countdown-label">SECONDS</div>
-                </div>
-            </div>
-            <p class="christmas-timer-message">Biggest offers of the year coming on Christmas!</p>
-            
-            <!-- Snowflakes Container -->
-            <div class="snowflakes" id="snowflakes"></div>
-        </section>
-
-        <!-- Products Grid - ALL UNLOCKED -->
+        <!-- Products Grid -->
         <div class="products-grid">
             <!-- YouTube Premium -->
-            <div class="product-card">
-                <div class="available-badge">AVAILABLE NOW!</div>
+            <div class="product-card locked" id="youtube-card">
                 <div class="product-tag">YouTube</div>
                 <h3 class="product-title">YouTube Premium + Music</h3>
-                <div class="product-price">
+                <div class="product-price hidden">
                     <span class="original-price">₹35</span>
                     <span class="offer-price">₹28</span>
                     <span class="discount-badge">20% OFF</span>
@@ -595,15 +643,32 @@
                     </ul>
                 </div>
                 <button class="buy-btn" onclick="openWA('YouTube Premium Sunday Offer — ₹28 / month')">BUY NOW</button>
-                <div class="sunday-offer-text">Sunday Exclusive - Available for 24 hours only!</div>
+                <div class="locked-overlay">
+                    <div class="locked-icon">🔒</div>
+                    <div class="locked-text">SUNDAY OFFER</div>
+                    <div class="product-timer">
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="yt-hours">00</div>
+                            <div class="product-timer-label">HRS</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="yt-minutes">00</div>
+                            <div class="product-timer-label">MIN</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="yt-seconds">00</div>
+                            <div class="product-timer-label">SEC</div>
+                        </div>
+                    </div>
+                    <div class="unlock-time" id="yt-unlock-time">Unlocks Sunday 12:00 AM</div>
+                </div>
             </div>
 
             <!-- Netflix -->
-            <div class="product-card">
-                <div class="available-badge">AVAILABLE NOW!</div>
+            <div class="product-card locked" id="netflix-card">
                 <div class="product-tag">Netflix</div>
                 <h3 class="product-title">Netflix 4K · Shared Profile</h3>
-                <div class="product-price">
+                <div class="product-price hidden">
                     <span class="original-price">₹120</span>
                     <span class="offer-price">₹96</span>
                     <span class="discount-badge">20% OFF</span>
@@ -617,15 +682,32 @@
                     </ul>
                 </div>
                 <button class="buy-btn" onclick="openWA('Netflix Sunday Offer — ₹96 / month')">BUY NOW</button>
-                <div class="sunday-offer-text">Sunday Exclusive - Available for 24 hours only!</div>
+                <div class="locked-overlay">
+                    <div class="locked-icon">🔒</div>
+                    <div class="locked-text">SUNDAY OFFER</div>
+                    <div class="product-timer">
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="nf-hours">00</div>
+                            <div class="product-timer-label">HRS</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="nf-minutes">00</div>
+                            <div class="product-timer-label">MIN</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="nf-seconds">00</div>
+                            <div class="product-timer-label">SEC</div>
+                        </div>
+                    </div>
+                    <div class="unlock-time" id="nf-unlock-time">Unlocks Sunday 12:00 AM</div>
+                </div>
             </div>
 
             <!-- Prime Video -->
-            <div class="product-card">
-                <div class="available-badge">AVAILABLE NOW!</div>
+            <div class="product-card locked" id="prime-card">
                 <div class="product-tag">Prime Video</div>
                 <h3 class="product-title">Prime Video · 6 Months</h3>
-                <div class="product-price">
+                <div class="product-price hidden">
                     <span class="original-price">₹150</span>
                     <span class="offer-price">₹120</span>
                     <span class="discount-badge">20% OFF</span>
@@ -639,15 +721,32 @@
                     </ul>
                 </div>
                 <button class="buy-btn" onclick="openWA('Prime Video Sunday Offer — ₹120 / 6 months')">BUY NOW</button>
-                <div class="sunday-offer-text">Sunday Exclusive - Available for 24 hours only!</div>
+                <div class="locked-overlay">
+                    <div class="locked-icon">🔒</div>
+                    <div class="locked-text">SUNDAY OFFER</div>
+                    <div class="product-timer">
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="pv-hours">00</div>
+                            <div class="product-timer-label">HRS</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="pv-minutes">00</div>
+                            <div class="product-timer-label">MIN</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="pv-seconds">00</div>
+                            <div class="product-timer-label">SEC</div>
+                        </div>
+                    </div>
+                    <div class="unlock-time" id="pv-unlock-time">Unlocks Sunday 12:00 AM</div>
+                </div>
             </div>
 
             <!-- Zee5 -->
-            <div class="product-card">
-                <div class="available-badge">AVAILABLE NOW!</div>
+            <div class="product-card locked" id="zee5-card">
                 <div class="product-tag">Zee5</div>
                 <h3 class="product-title">Zee5 · 1 Year</h3>
-                <div class="product-price">
+                <div class="product-price hidden">
                     <span class="original-price">₹200</span>
                     <span class="offer-price">₹160</span>
                     <span class="discount-badge">20% OFF</span>
@@ -661,15 +760,32 @@
                     </ul>
                 </div>
                 <button class="buy-btn" onclick="openWA('Zee5 Sunday Offer — ₹160 / year')">BUY NOW</button>
-                <div class="sunday-offer-text">Sunday Exclusive - Available for 24 hours only!</div>
+                <div class="locked-overlay">
+                    <div class="locked-icon">🔒</div>
+                    <div class="locked-text">SUNDAY OFFER</div>
+                    <div class="product-timer">
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="z5-hours">00</div>
+                            <div class="product-timer-label">HRS</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="z5-minutes">00</div>
+                            <div class="product-timer-label">MIN</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="z5-seconds">00</div>
+                            <div class="product-timer-label">SEC</div>
+                        </div>
+                    </div>
+                    <div class="unlock-time" id="z5-unlock-time">Unlocks Sunday 12:00 AM</div>
+                </div>
             </div>
 
             <!-- Chaupal -->
-            <div class="product-card">
-                <div class="available-badge">AVAILABLE NOW!</div>
+            <div class="product-card locked" id="chaupal-card">
                 <div class="product-tag">Chaupal</div>
                 <h3 class="product-title">Chaupal · Regional Content</h3>
-                <div class="product-price">
+                <div class="product-price hidden">
                     <span class="original-price">₹80</span>
                     <span class="offer-price">₹64</span>
                     <span class="discount-badge">20% OFF</span>
@@ -683,7 +799,25 @@
                     </ul>
                 </div>
                 <button class="buy-btn" onclick="openWA('Chaupal Sunday Offer — ₹64 / month')">BUY NOW</button>
-                <div class="sunday-offer-text">Sunday Exclusive - Available for 24 hours only!</div>
+                <div class="locked-overlay">
+                    <div class="locked-icon">🔒</div>
+                    <div class="locked-text">SUNDAY OFFER</div>
+                    <div class="product-timer">
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="ch-hours">00</div>
+                            <div class="product-timer-label">HRS</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="ch-minutes">00</div>
+                            <div class="product-timer-label">MIN</div>
+                        </div>
+                        <div class="product-timer-item">
+                            <div class="product-timer-value" id="ch-seconds">00</div>
+                            <div class="product-timer-label">SEC</div>
+                        </div>
+                    </div>
+                    <div class="unlock-time" id="ch-unlock-time">Unlocks Sunday 12:00 AM</div>
+                </div>
             </div>
         </div>
 
@@ -694,10 +828,35 @@
             <button class="buy-btn" style="max-width: 250px; margin: 0 auto;" onclick="openWA('Regular Offers')">VIEW REGULAR OFFERS</button>
         </section>
 
-        
+        <!-- Christmas Timer Section -->
+        <section class="christmas-timer-section">
+            <h2 class="christmas-timer-title" id="christmasTimerTitle">CHRISTMAS OFFERS UNLOCK IN</h2>
+            <div class="christmas-countdown">
+                <div class="christmas-countdown-item">
+                    <div class="christmas-countdown-value" id="christmas-days">00</div>
+                    <div class="christmas-countdown-label">DAYS</div>
+                </div>
+                <div class="christmas-countdown-item">
+                    <div class="christmas-countdown-value" id="christmas-hours">00</div>
+                    <div class="christmas-countdown-label">HOURS</div>
+                </div>
+                <div class="christmas-countdown-item">
+                    <div class="christmas-countdown-value" id="christmas-minutes">00</div>
+                    <div class="christmas-countdown-label">MINUTES</div>
+                </div>
+                <div class="christmas-countdown-item">
+                    <div class="christmas-countdown-value" id="christmas-seconds">00</div>
+                    <div class="christmas-countdown-label">SECONDS</div>
+                </div>
+            </div>
+            <p class="christmas-timer-message" id="christmasTimerMessage">Biggest offers of the year coming on Christmas!</p>
+            
+            <!-- Snowflakes Container -->
+            <div class="snowflakes" id="snowflakes"></div>
+        </section>
 
         <footer>
-            © 2025 The Diamond Store · WhatsApp: <a href="https://wa.me/919024487624" style="color:var(--gold)">+91 90244 87624</a>
+            © <span id="year"></span> The Diamond Store · WhatsApp: <a href="https://wa.me/919024487624" style="color:var(--gold)">+91 90244 87624</a>
         </footer>
     </div>
 
@@ -707,6 +866,40 @@
         function openWA(text) {
             window.open("https://wa.me/91" + WHATSAPP + "?text=" + encodeURIComponent("Hi, I want: " + text), "_blank");
         }
+        
+        // Set target date to next Sunday
+        function getTargetDate() {
+            const now = new Date();
+            const target = new Date(now);
+            
+            // Calculate days until next Sunday
+            const currentDay = now.getDay(); // 0-6 (0 = Sunday)
+            const daysUntilSunday = currentDay === 0 ? 7 : 7 - currentDay;
+            
+            target.setDate(now.getDate() + daysUntilSunday);
+            target.setHours(0, 0, 0, 0); // Set to midnight
+            
+            return target;
+        }
+        
+        // Set target date to Christmas
+        function getChristmasDate() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            let christmas = new Date(currentYear, 11, 25); // December 25
+            
+            // If Christmas has already passed this year, set for next year
+            if (now > christmas) {
+                christmas = new Date(currentYear + 1, 11, 25);
+            }
+            
+            return christmas;
+        }
+        
+        let targetDate = getTargetDate();
+        let christmasDate = getChristmasDate();
+        let saleActive = false;
+        let saleEndDate = null;
         
         // Create snowflakes
         function createSnowflakes() {
@@ -733,10 +926,175 @@
             }
         }
         
+        function updateSundayCountdown() {
+            const now = new Date().getTime();
+            let distance;
+            let timerTitle = document.getElementById('timerTitle');
+            let timerMessage = document.getElementById('timerMessage');
+            
+            if (!saleActive) {
+                // Countdown to Sunday
+                distance = targetDate - now;
+                
+                if (distance <= 0) {
+                    // Sunday has arrived, start the sale
+                    saleActive = true;
+                    saleEndDate = new Date(targetDate);
+                    saleEndDate.setDate(saleEndDate.getDate() + 1); // Sale ends next day at midnight
+                    unlockProducts();
+                    timerTitle.textContent = "SUNDAY SALE ENDS IN";
+                    timerMessage.textContent = "Hurry! These offers expire in";
+                    
+                    // Update all unlock time texts
+                    updateAllUnlockTexts("Available Now!");
+                }
+            } else {
+                // Countdown to end of Sunday sale
+                distance = saleEndDate - now;
+                
+                if (distance <= 0) {
+                    // Sale has ended
+                    saleActive = false;
+                    targetDate = getTargetDate(); // Set next Sunday
+                    lockProducts();
+                    timerTitle.textContent = "SUNDAY OFFERS UNLOCK IN";
+                    timerMessage.textContent = "Get ready for amazing Sunday discounts!";
+                    
+                    // Reset unlock time texts
+                    updateAllUnlockTexts(`Unlocks Sunday ${targetDate.toLocaleDateString()}`);
+                }
+            }
+            
+            // Calculate time units
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Update main timer
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update individual product timers
+            updateProductTimers(hours, minutes, seconds);
+        }
+        
+        function updateChristmasCountdown() {
+            const now = new Date().getTime();
+            const distance = christmasDate - now;
+            
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Update Christmas timer
+            document.getElementById('christmas-days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('christmas-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('christmas-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('christmas-seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        function updateProductTimers(hours, minutes, seconds) {
+            // Update YouTube timer
+            document.getElementById('yt-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('yt-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('yt-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update Netflix timer
+            document.getElementById('nf-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('nf-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('nf-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update Prime Video timer
+            document.getElementById('pv-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('pv-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('pv-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update Zee5 timer
+            document.getElementById('z5-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('z5-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('z5-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update Chaupal timer
+            document.getElementById('ch-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('ch-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('ch-seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        function updateAllUnlockTexts(text) {
+            const unlockElements = [
+                'yt-unlock-time', 'nf-unlock-time', 'pv-unlock-time', 
+                'z5-unlock-time', 'ch-unlock-time'
+            ];
+            
+            unlockElements.forEach(id => {
+                document.getElementById(id).textContent = text;
+            });
+        }
+        
+        function unlockProducts() {
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                product.classList.remove('locked');
+                product.classList.add('unlocked');
+                
+                // Show prices when unlocked
+                const priceElement = product.querySelector('.product-price');
+                priceElement.classList.remove('hidden');
+            });
+        }
+        
+        function lockProducts() {
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                product.classList.remove('unlocked');
+                product.classList.add('locked');
+                
+                // Hide prices when locked
+                const priceElement = product.querySelector('.product-price');
+                priceElement.classList.add('hidden');
+            });
+        }
+        
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
             // Create snowflakes
             createSnowflakes();
+            
+            // Update unlock time text with actual date
+            updateAllUnlockTexts(`Unlocks Sunday ${targetDate.toLocaleDateString()}`);
+            
+            // Check if it's already Sunday
+            const now = new Date();
+            if (now.getDay() === 0) { // 0 is Sunday
+                const startOfDay = new Date(now);
+                startOfDay.setHours(0, 0, 0, 0);
+                
+                if (now >= startOfDay) {
+                    saleActive = true;
+                    saleEndDate = new Date(startOfDay);
+                    saleEndDate.setDate(saleEndDate.getDate() + 1); // Sale ends tomorrow at midnight
+                    unlockProducts();
+                    document.getElementById('timerTitle').textContent = "SUNDAY SALE ENDS IN";
+                    document.getElementById('timerMessage').textContent = "Hurry! These offers expire in";
+                    
+                    // Update unlock time text
+                    updateAllUnlockTexts("Available Now!");
+                }
+            }
+            
+            // Start countdowns
+            updateSundayCountdown();
+            updateChristmasCountdown();
+            setInterval(updateSundayCountdown, 1000);
+            setInterval(updateChristmasCountdown, 1000);
         });
     </script>
 </body>
