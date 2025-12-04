@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDS - AI Assistant Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0088cc;
+            --secondary: #25D366;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --success: #28a745;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: var(--dark);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #25D366, #0088cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            color: var(--light);
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #0088cc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .chat-container {
+            display: flex;
+            height: 600px;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .products-list {
+            margin-bottom: 30px;
+        }
+        
+        .products-list h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .product-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-item:hover {
+            transform: translateX(5px);
+            border-color: var(--primary);
+        }
+        
+        .product-item.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .product-item h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .product-item .price {
+            font-weight: 600;
+            color: var(--success);
+        }
+        
+        .product-item.active .price {
+            color: white;
+        }
+        
+        .instructions {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px dashed var(--warning);
+        }
+        
+        .instructions h4 {
+            color: var(--warning);
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            max-width: 80%;
+        }
+        
+        .message.bot {
+            align-self: flex-start;
+        }
+        
+        .message.user {
+            align-self: flex-end;
+        }
+        
+        .message-content {
+            padding: 15px;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .message.bot .message-content {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message.user .message-content {
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        .message.bot .message-time {
+            text-align: left;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .chat-input input:focus {
+            border-color: var(--primary);
+        }
+        
+        .chat-input button {
+            padding: 15px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-input button:hover {
+            background: #0077b3;
+            transform: translateY(-2px);
+        }
+        
+        .payment-qr {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid var(--warning);
+        }
+        
+        .payment-qr h4 {
+            color: var(--warning);
+            margin-bottom: 15px;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .upload-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid var(--success);
+        }
+        
+        .upload-section h4 {
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+        
+        .upload-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--success);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            .chat-container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #dee2e6;
+            }
+            
+            .chat-area {
+                height: 500px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">TDS</div>
+            <h1>The Diamond Store AI Assistant</h1>
+            <p>Get instant answers about prices, offers, and purchase assistance</p>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>AI Assistant is online</span>
+            </div>
+        </div>
+        
+        <div class="chat-container">
+            <div class="sidebar">
+                <div class="products-list">
+                    <h3>🎯 Popular Products</h3>
+                    <div class="product-item" onclick="selectProduct('netflix')">
+                        <h4>Netflix Premium</h4>
+                        <div class="price">₹96/month</div>
+                        <small>4K Ultra HD • Shared Profile</small>
+                    </div>
+                    <div class="product-item" onclick="selectProduct('youtube')">
+                        <h4>YouTube Premium</h4>
+                        <div class="price">₹28/month</div>
+                        <small>Ad-free • Background Play • Music</small>
+                    </div>
+                    <div class="product-item" onclick="selectProduct('prime')">
+                        <h4>Prime Video</h4>
+                        <div class="price">₹120/6 months</div>
+                        <small>All Movies & Shows • 4K</small>
+                    </div>
+                    <div class="product-item" onclick="selectProduct('chaupal')">
+                        <h4>Chaupal TV</h4>
+                        <div class="price">₹64/month</div>
+                        <small>Punjabi Content • Multiple Devices</small>
+                    </div>
+                    <div class="product-item" onclick="selectProduct('capcut')">
+                        <h4>CapCut Pro</h4>
+                        <div class="price">Ask for price</div>
+                        <small>Premium Editing Features</small>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <h4>💡 How to Purchase</h4>
+                    <ul>
+                        <li>Ask about any product</li>
+                        <li>Get price & feature details</li>
+                        <li>Click "Buy Now" when ready</li>
+                        <li>Complete payment via QR</li>
+                        <li>Upload payment screenshot</li>
+                        <li>Get redirected to WhatsApp</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="chat-area">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will appear here -->
+                    <div class="message bot">
+                        <div class="message-content">
+                            👋 Hello! I'm your TDS AI assistant. I can help you with:
+                            <br><br>
+                            📦 Product prices and features<br>
+                            💰 Why our prices are the best<br>
+                            🎁 Special offers and discounts<br>
+                            🛒 Purchase assistance<br>
+                            ❓ Any other questions!
+                            <br><br>
+                            Ask me anything or select a product from the left!
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hidden Sections -->
+        <div id="paymentSection" style="display: none; padding: 30px;">
+            <div class="payment-qr">
+                <h4>💰 Complete Payment</h4>
+                <p>Scan this QR code to pay ₹<span id="paymentAmount">0</span></p>
+                <div class="qr-code" id="qrCode">
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem;">📱</div>
+                        <div style="font-size: 0.8rem; margin-top: 10px;">UPI QR Code</div>
+                    </div>
+                </div>
+                <p>UPI ID: <strong>tds-store@upi</strong></p>
+                <button onclick="showUploadSection()" style="padding: 10px 20px; background: var(--warning); color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+                    I've Completed Payment
+                </button>
+            </div>
+        </div>
+        
+        <div id="uploadSection" style="display: none; padding: 30px;">
+            <div class="upload-section">
+                <h4>📸 Upload Payment Proof</h4>
+                <p>Please upload a screenshot of your payment confirmation</p>
+                <input type="file" id="paymentProof" accept="image/*" style="display: none;">
+                <label for="paymentProof" class="upload-btn">Choose File</label>
+                <div id="fileName" style="margin-top: 10px; color: var(--gray);"></div>
+                <button onclick="completePurchase()" style="padding: 12px 30px; background: var(--success); color: white; border: none; border-radius: 50px; font-size: 1rem; cursor: pointer; margin-top: 20px;">
+                    Submit & Proceed to WhatsApp
+                </button>
+            </div>
+        </div>
+        
+        <div id="whatsappSection" style="display: none; padding: 30px;">
+            <a href="#" id="whatsappLink" class="whatsapp-btn" target="_blank">
+                💬 Open WhatsApp for Activation
+            </a>
+            <p style="text-align: center; margin-top: 15px; color: var(--gray);">
+                You'll be redirected to WhatsApp with your order details pre-filled
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const BOT_TOKEN = '8325426310:AAHRvAUFuikIpc1xi3tbyBGLi2FAZRmGjbE';
+        const GEMINI_API_KEY = 'AIzaSyBsfmWJWMESrkGIoUB0yo1W8zvKiPSs6wM';
+        const WHATSAPP_NUMBER = '919024487624';
+        
+        // Product Database
+        const products = {
+            netflix: {
+                name: "Netflix Premium",
+                price: "₹96/month",
+                description: "4K Ultra HD streaming with shared profile access",
+                features: ["4K Quality", "4 Screens", "All Content", "Shared Profile"],
+                whyCheap: "We source directly from bulk family plans and share costs among multiple users, passing savings to you.",
+                offer: "Special Sunday Offer: ₹96 instead of ₹120 (20% OFF)"
+            },
+            youtube: {
+                name: "YouTube Premium",
+                price: "₹28/month",
+                description: "Ad-free YouTube with background play and Music Premium",
+                features: ["No Ads", "Background Play", "YouTube Music", "Downloads"],
+                whyCheap: "Regional pricing combined with family plan optimization makes this 80% cheaper than individual plans.",
+                offer: "Sunday Special: ₹28 instead of ₹35 (20% OFF)"
+            },
+            prime: {
+                name: "Prime Video",
+                price: "₹120/6 months",
+                description: "Amazon Prime Video with all movies and shows",
+                features: ["All Content", "4K Streaming", "Multiple Devices", "Originals"],
+                whyCheap: "Long-term subscription sharing reduces per-user cost significantly.",
+                offer: "Christmas Offer: ₹120 for 6 months (Save ₹30)"
+            },
+            chaupal: {
+                name: "Chaupal TV",
+                price: "₹64/month",
+                description: "Premium Punjabi content streaming platform",
+                features: ["Punjabi Shows", "Movies", "Live TV", "Multi-Device"],
+                whyCheap: "Direct partnership with content providers gives us wholesale rates.",
+                offer: "Festival Offer: ₹64 instead of ₹80 (20% OFF)"
+            },
+            capcut: {
+                name: "CapCut Pro",
+                price: "Contact for price",
+                description: "Professional video editing with premium features",
+                features: ["No Watermark", "Premium Effects", "Cloud Storage", "All Tools"],
+                whyCheap: "We purchase team/enterprise licenses and distribute at minimal margin.",
+                offer: "Special bundle pricing available"
+            }
+        };
+        
+        let currentProduct = null;
+        let chatHistory = [];
+        
+        // Initialize chat
+        function initChat() {
+            addMessage("bot", "Welcome to The Diamond Store! I'm your AI assistant. How can I help you today?");
+        }
+        
+        // Add message to chat
+        function addMessage(sender, text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            messageDiv.innerHTML = `
+                <div class="message-content">${text}</div>
+                <div class="message-time">${timeString}</div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Add to history
+            chatHistory.push({sender, text, time: timeString});
+        }
+        
+        // Handle Enter key press
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // Send user message
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage("user", message);
+            input.value = '';
+            
+            // Show typing indicator
+            showTyping();
+            
+            // Process message
+            setTimeout(() => {
+                processUserMessage(message);
+            }, 1000);
+        }
+        
+        // Show typing indicator
+        function showTyping() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="typing">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Remove typing indicator
+        function removeTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) {
+                typing.remove();
+            }
+        }
+        
+        // Process user message
+        async function processUserMessage(message) {
+            removeTyping();
+            
+            const lowerMessage = message.toLowerCase();
+            
+            // Check for purchase intent
+            if (lowerMessage.includes('buy') || lowerMessage.includes('purchase') || 
+                lowerMessage.includes('order') || lowerMessage.includes('want to buy')) {
+                
+                if (currentProduct) {
+                    showPaymentSection(currentProduct);
+                    addMessage("bot", `Great! You want to purchase ${products[currentProduct].name}. Let me guide you through the payment process.`);
+                } else {
+                    addMessage("bot", "I'd love to help you make a purchase! Please first tell me which product you're interested in, or select one from the left sidebar.");
+                }
+                return;
+            }
+            
+            // Check for price questions
+            if (lowerMessage.includes('price') || lowerMessage.includes('cost') || 
+                lowerMessage.includes('how much') || lowerMessage.includes('₹')) {
+                
+                for (const [key, product] of Object.entries(products)) {
+                    if (lowerMessage.includes(key) || lowerMessage.includes(product.name.toLowerCase())) {
+                        currentProduct = key;
+                        addMessage("bot", `💰 ${product.name} Price: ${product.price}\n\n${product.description}\n\n✨ Features:\n${product.features.map(f => `• ${f}`).join('\n')}\n\n🎯 ${product.offer}\n\n💡 Why it's cheap: ${product.whyCheap}\n\nType "buy" to purchase now!`);
+                        return;
+                    }
+                }
+                
+                addMessage("bot", "We offer various products at amazing prices! Please specify which product you're interested in, or check the prices in the sidebar.");
+                return;
+            }
+            
+            // Check for product-specific questions
+            for (const [key, product] of Object.entries(products)) {
+                if (lowerMessage.includes(key) || lowerMessage.includes(product.name.toLowerCase().split(' ')[0])) {
+                    currentProduct = key;
+                    addMessage("bot", `🔍 ${product.name}\n\n${product.description}\n\n✨ Features:\n${product.features.map(f => `• ${f}`).join('\n')}\n\n💰 Price: ${product.price}\n\n🎯 ${product.offer}\n\n💡 ${product.whyCheap}\n\nType "buy" to purchase or ask me anything else!`);
+                    return;
+                }
+            }
+            
+            // Check for why cheap questions
+            if (lowerMessage.includes('why cheap') || lowerMessage.includes('cheap price') || 
+                lowerMessage.includes('how so cheap') || lowerMessage.includes('low price')) {
+                
+                addMessage("bot", `🎯 **Why Our Prices Are The Best:**\n\n1. **Bulk Purchasing:** We buy subscriptions in bulk from official sources\n2. **Family/Team Plans:** We optimize shared plans to reduce individual costs\n3. **Regional Pricing:** We leverage regional pricing differences\n4. **Direct Partnerships:** Some services are through direct partnerships\n5. **No Middlemen:** We cut out intermediaries to save costs\n\nAll subscriptions are 100% genuine and come with instant activation!`);
+                return;
+            }
+            
+            // Check for general questions
+            if (lowerMessage.includes('help') || lowerMessage.includes('what can you do')) {
+                addMessage("bot", "🤖 **I Can Help You With:**\n\n• Product information and pricing\n• Feature comparisons\n• Special offers and discounts\n• Purchase assistance\n• Payment guidance\n• Activation process\n• General questions about TDS\n\nJust ask me anything or select a product from the sidebar!");
+                return;
+            }
+            
+            // Check for offers
+            if (lowerMessage.includes('offer') || lowerMessage.includes('discount') || 
+                lowerMessage.includes('sale') || lowerMessage.includes('deal')) {
+                
+                addMessage("bot", "🎁 **Current Special Offers:**\n\n• **Sunday Special:** All products 20% OFF every Sunday\n• **Christmas Sale:** Coming soon with biggest discounts\n• **Bulk Discounts:** Extra discount on multiple purchases\n• **Referral Bonus:** Get ₹50 off for referring friends\n\nCheck individual products for specific offers!");
+                return;
+            }
+            
+            // Check for payment methods
+            if (lowerMessage.includes('payment') || lowerMessage.includes('pay') || 
+                lowerMessage.includes('upi') || lowerMessage.includes('qr')) {
+                
+                addMessage("bot", "💳 **Payment Methods Available:**\n\n• **UPI** (Google Pay, PhonePe, Paytm)\n• **QR Code Scan**\n• **Bank Transfer**\n\nAll payments are secure and verified. After payment, upload screenshot for instant activation!");
+                return;
+            }
+            
+            // Use Gemini AI for other questions
+            try {
+                const response = await getAIResponse(message);
+                addMessage("bot", response);
+            } catch (error) {
+                console.error('AI Error:', error);
+                addMessage("bot", "I'm here to help with product information, pricing, and purchases! Please ask about our products or select one from the sidebar.");
+            }
+        }
+        
+        // Get AI response from Gemini
+        async function getAIResponse(message) {
+            // Simple rule-based responses for common questions
+            const responses = {
+                'hello': '👋 Hello! Welcome to The Diamond Store! How can I assist you today?',
+                'hi': '👋 Hi there! Looking for premium subscriptions at amazing prices? Ask me anything!',
+                'thanks': 'You\'re welcome! 😊 Let me know if you need anything else.',
+                'contact': 'You can reach us on WhatsApp: +91 90244 87624\nWe provide instant activation and support!',
+                'legit': '✅ **100% Legit & Trusted:**\n\n• 500+ satisfied customers\n• Instant WhatsApp support\n• Manual verification for each activation\n• 24/7 customer service\n• Genuine subscriptions only\n\nWe value trust above everything!',
+                'refund': '🔄 **Refund Policy:**\n\nFull refund if:\n• Service not activated within 1 hour\n• Service stops working within 7 days\n• Wrong product delivered\n\nContact WhatsApp support for refund requests.',
+                'activation': '⚡ **Activation Process:**\n\n1. Complete payment\n2. Share payment screenshot\n3. We activate within 15-30 minutes\n4. You get login credentials\n5. Start enjoying immediately!\n\nWe provide step-by-step guidance.',
+                'trust': '🤝 **Why Trust TDS:**\n\n• Established since 2023\n• 500+ happy customers\n• Instant WhatsApp support\n• Manual verification process\n• Best prices guaranteed\n• Genuine subscriptions\n\nYour trust is our priority!'
+            };
+            
+            const lowerMessage = message.toLowerCase();
+            
+            for (const [key, response] of Object.entries(responses)) {
+                if (lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+            
+            // If no predefined response, use generic response
+            return "I'm your TDS AI assistant! I specialize in helping with:\n\n• Product prices and features\n• Special offers and discounts\n• Purchase assistance\n• Payment guidance\n\nPlease ask about specific products or check the sidebar for popular items!";
+        }
+        
+        // Select product from sidebar
+        function selectProduct(productKey) {
+            currentProduct = productKey;
+            const product = products[productKey];
+            
+            // Update active state
+            document.querySelectorAll('.product-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            addMessage("bot", `🎯 **${product.name}**\n\n${product.description}\n\n✨ **Features:**\n${product.features.map(f => `• ${f}`).join('\n')}\n\n💰 **Price:** ${product.price}\n\n🎯 **Offer:** ${product.offer}\n\n💡 **Why it's cheap:** ${product.whyCheap}\n\n💬 **Ask me anything about this product or type "buy" to purchase!**`);
+        }
+        
+        // Show payment section
+        function showPaymentSection(productKey) {
+            const product = products[productKey];
+            const price = parseInt(product.price.match(/\d+/)[0]) || 100;
+            
+            document.getElementById('paymentAmount').textContent = price;
+            document.getElementById('paymentSection').style.display = 'block';
+            document.getElementById('uploadSection').style.display = 'none';
+            document.getElementById('whatsappSection').style.display = 'none';
+            
+            // Scroll to payment section
+            document.getElementById('paymentSection').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        // Show upload section
+        function showUploadSection() {
+            document.getElementById('uploadSection').style.display = 'block';
+            document.getElementById('paymentSection').style.display = 'none';
+            
+            // Update file input handler
+            document.getElementById('paymentProof').addEventListener('change', function(e) {
+                const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+                document.getElementById('fileName').textContent = `Selected: ${fileName}`;
+            });
+            
+            document.getElementById('uploadSection').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        // Complete purchase
+        function completePurchase() {
+            const fileInput = document.getElementById('paymentProof');
+            if (!fileInput.files[0]) {
+                alert('Please upload payment screenshot first');
+                return;
+            }
+            
+            // Show WhatsApp section
+            document.getElementById('whatsappSection').style.display = 'block';
+            document.getElementById('uploadSection').style.display = 'none';
+            
+            const product = products[currentProduct];
+            const whatsappMessage = `Hello! I want to purchase ${product.name} (${product.price}). I have completed payment and uploaded the screenshot. Please activate my subscription.`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            
+            document.getElementById('whatsappLink').href = whatsappLink;
+            
+            addMessage("bot", `✅ Perfect! Click the WhatsApp button below to send your order details. Our team will activate your ${product.name} within 15-30 minutes!`);
+            
+            document.getElementById('whatsappSection').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initChat();
+            
+            // Add sample questions
+            setTimeout(() => {
+                addMessage("bot", "💡 **Quick questions you can ask:**\n\n• 'Netflix price?'\n• 'Why are prices so cheap?'\n• 'Show me offers'\n• 'I want to buy YouTube Premium'\n• 'How to pay?'");
+            }, 2000);
+        });
+        
+        // CSS for typing indicator
+        const style = document.createElement('style');
+        style.textContent = `
+            .typing {
+                display: inline-block;
+                width: 60px;
+                height: 30px;
+                position: relative;
+            }
+            .typing span {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #666;
+                margin: 0 2px;
+                animation: typing 1.4s infinite;
+            }
+            .typing span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            .typing span:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+            @keyframes typing {
+                0%, 60%, 100% { transform: translateY(0); }
+                30% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
