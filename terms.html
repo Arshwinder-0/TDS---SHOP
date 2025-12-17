@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service - The Diamond Store (TDS) - Read our terms and conditions for using our premium subscription services.">
+    <meta name="keywords" content="Terms of Service, TDS, The Diamond Store, Subscriptions, Terms and Conditions">
+    <meta name="author" content="The Diamond Store">
+    <title>Terms of Service | The Diamond Store</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --space-navy: #021228;
+            --space-navy-light: #0a1f3a;
+            --gold-start: #facc15;
+            --gold-end: #eab308;
+            --cyan-glow: #00d4ff;
+            --deep-cyan: #00b4d8;
+            --whatsapp-green: #25D366;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --success-green: #22c55e;
+            --warning-orange: #f59e0b;
+            --danger-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--space-navy);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* ==================== ANIMATED BACKGROUND ==================== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(250, 204, 21, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 180, 216, 0.04) 0%, transparent 60%);
+            animation: bgPulse 15s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: orbFloat 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 212, 255, 0.1);
+            top: 10%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(250, 204, 21, 0.08);
+            bottom: 20%;
+            right: -5%;
+            animation-delay: -7s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* ==================== FLOATING LOGO ==================== */
+        .floating-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+
+        .floating-logo img {
+            width: clamp(250px, 45vw, 500px);
+            height: auto;
+            filter: drop-shadow(0 0 80px var(--cyan-glow));
+            animation: logoFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.02); }
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 25px;
+            background: rgba(2, 18, 40, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 8px 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+            transition: all 0.3s ease;
+        }
+
+        .header-logo:hover img {
+            filter: drop-shadow(0 0 20px var(--cyan-glow)) drop-shadow(0 0 40px var(--deep-cyan));
+            transform: scale(1.05);
+        }
+
+        .header-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-btn-home {
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            color: var(--space-navy);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+        }
+
+        .nav-btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 8px 25px rgba(250, 204, 21, 0.3);
+        }
+
+        .nav-btn-products {
+            background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan));
+            color: var(--space-navy);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-btn-products:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), 0 8px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* ==================== TRANSLATE BUTTON ==================== */
+        .translate-wrapper {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .translate-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan-glow);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .translate-btn i {
+            color: var(--cyan-glow);
+        }
+
+        .translate-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--space-navy-light);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 10px 0;
+            min-width: 180px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .translate-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .translate-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .translate-option:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .translate-option.active {
+            color: var(--cyan-glow);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .translate-option i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== PAGE HEADER ==================== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--space-navy);
+            box-shadow: 0 0 40px rgba(250, 204, 21, 0.3);
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(250, 204, 21, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(250, 204, 21, 0.5); }
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end), var(--text-primary));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .last-updated i {
+            color: var(--cyan-glow);
+        }
+
+        /* ==================== QUICK NAVIGATION ==================== */
+        .quick-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quick-nav-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold-start);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quick-nav-link {
+            padding: 8px 16px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quick-nav-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--text-primary);
+            border-color: var(--cyan-glow);
+            transform: translateY(-2px);
+        }
+
+        .quick-nav-link i {
+            font-size: 0.75rem;
+            color: var(--cyan-glow);
+        }
+
+        /* ==================== TERMS SECTIONS ==================== */
+        .terms-section {
+            margin-bottom: 30px;
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        .terms-section:nth-child(1) { animation-delay: 0.1s; }
+        .terms-section:nth-child(2) { animation-delay: 0.15s; }
+        .terms-section:nth-child(3) { animation-delay: 0.2s; }
+        .terms-section:nth-child(4) { animation-delay: 0.25s; }
+        .terms-section:nth-child(5) { animation-delay: 0.3s; }
+        .terms-section:nth-child(6) { animation-delay: 0.35s; }
+        .terms-section:nth-child(7) { animation-delay: 0.4s; }
+        .terms-section:nth-child(8) { animation-delay: 0.45s; }
+        .terms-section:nth-child(9) { animation-delay: 0.5s; }
+        .terms-section:nth-child(10) { animation-delay: 0.55s; }
+
+        .section-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .section-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .section-header:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--space-navy);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover .section-number {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .section-title-wrapper {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .section-preview {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .section-toggle {
+            width: 35px;
+            height: 35px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan-glow);
+            transition: all 0.3s ease;
+        }
+
+        .section-card.open .section-toggle {
+            background: var(--cyan-glow);
+            color: var(--space-navy);
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+
+        .section-card.open .section-content {
+            max-height: 2000px;
+        }
+
+        .section-body {
+            padding: 0 25px 25px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .section-body p {
+            margin: 15px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .section-body strong {
+            color: var(--text-primary);
+        }
+
+        .section-body ul {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .section-body li {
+            position: relative;
+            padding: 10px 0 10px 35px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-body li:last-child {
+            border-bottom: none;
+        }
+
+        .section-body li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-body li::after {
+            content: '✓';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cyan-glow);
+            font-size: 0.7rem;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .highlight-box i {
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+
+        .highlight-box.info {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .highlight-box.info i {
+            color: var(--cyan-glow);
+        }
+
+        .highlight-box.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .highlight-box.warning i {
+            color: var(--warning-orange);
+        }
+
+        .highlight-box.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .highlight-box.success i {
+            color: var(--success-green);
+        }
+
+        .highlight-box.danger {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .highlight-box.danger i {
+            color: var(--danger-red);
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .highlight-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(250, 204, 21, 0.05));
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn-instagram {
+            background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+            color: white;
+            box-shadow: 0 0 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .contact-btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(225, 48, 108, 0.5), 0 10px 30px rgba(225, 48, 108, 0.3);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+        }
+
+        .footer-logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--cyan-glow);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .copyright a {
+            color: var(--gold-start);
+            text-decoration: none;
+        }
+
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--space-navy);
+            box-shadow: 0 8px 30px rgba(250, 204, 21, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 40px rgba(250, 204, 21, 0.5);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .header { padding: 10px 15px; }
+            .header-logo img { height: 35px; }
+            .header-logo-text { display: none; }
+            .nav-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .nav-btn span { display: none; }
+
+            .translate-wrapper { top: 70px; right: 15px; }
+            .translate-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .translate-btn span { display: none; }
+
+            .main-content { padding-top: 80px; }
+            .container { padding: 0 15px; }
+
+            .page-icon { width: 60px; height: 60px; font-size: 1.5rem; }
+            .page-title { font-size: 1.8rem; }
+            .page-subtitle { font-size: 1rem; }
+
+            .quick-nav { padding: 20px; }
+            .quick-nav-links { gap: 8px; }
+            .quick-nav-link { padding: 6px 12px; font-size: 0.8rem; }
+
+            .section-header { padding: 15px 20px; }
+            .section-number { width: 38px; height: 38px; font-size: 1rem; }
+            .section-title { font-size: 1rem; }
+            .section-body { padding: 0 20px 20px; }
+
+            .contact-section { padding: 30px 20px; }
+            .contact-buttons { flex-direction: column; }
+            .contact-btn { width: 100%; justify-content: center; }
+
+            .footer { padding: 30px 15px; }
+            .footer-links { gap: 15px; }
+        }
+
+        /* ==================== PRINT STYLES ==================== */
+        @media print {
+            .header, .translate-wrapper, .scroll-top-btn, .animated-bg, .floating-logo {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+
+            .section-card {
+                break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+
+            .section-content {
+                max-height: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANIMATED BACKGROUND -->
+    <div class="animated-bg">
+        <div class="bg-gradient"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+    </div>
+
+    <!-- FLOATING LOGO -->
+    <div class="floating-logo">
+        <img src="logo.png" alt="TDS Logo">
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="index.html" class="header-logo">
+            <img src="logo.png" alt="TDS Logo">
+            <span class="header-logo-text">The Diamond Store</span>
+        </a>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-btn nav-btn-home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="products.html" class="nav-btn nav-btn-products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- TRANSLATE BUTTON -->
+    <div class="translate-wrapper">
+        <button class="translate-btn" id="translateBtn" onclick="toggleTranslateDropdown()">
+            <i class="fas fa-globe"></i>
+            <span>Translate</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+        </button>
+        <div class="translate-dropdown" id="translateDropdown">
+            <div class="translate-option active" data-lang="en" onclick="translatePage('en')">
+                <i class="fas fa-check"></i>
+                English
+            </div>
+            <div class="translate-option" data-lang="hi" onclick="translatePage('hi')">
+                <i class="fas fa-language"></i>
+                हिंदी (Hindi)
+            </div>
+            <div class="translate-option" data-lang="pa" onclick="translatePage('pa')">
+                <i class="fas fa-language"></i>
+                ਪੰਜਾਬੀ (Punjabi)
+            </div>
+            <div class="translate-option" data-lang="mr" onclick="translatePage('mr')">
+                <i class="fas fa-language"></i>
+                मराठी (Marathi)
+            </div>
+            <div class="translate-option" data-lang="ta" onclick="translatePage('ta')">
+                <i class="fas fa-language"></i>
+                தமிழ் (Tamil)
+            </div>
+            <div class="translate-option" data-lang="te" onclick="translatePage('te')">
+                <i class="fas fa-language"></i>
+                తెలుగు (Telugu)
+            </div>
+            <div class="translate-option" data-lang="bn" onclick="translatePage('bn')">
+                <i class="fas fa-language"></i>
+                বাংলা (Bengali)
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div class="page-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <h1 class="page-title">Terms of Service</h1>
+                <p class="page-subtitle">Please read these terms carefully before using our services. By using The Diamond Store, you agree to these terms.</p>
+                <div class="last-updated">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Last Updated: January 2025</span>
+                </div>
+            </div>
+
+            <!-- QUICK NAVIGATION -->
+            <div class="quick-nav">
+                <div class="quick-nav-title">
+                    <i class="fas fa-compass"></i>
+                    Quick Navigation
+                </div>
+                <div class="quick-nav-links">
+                    <a href="#section1" class="quick-nav-link"><i class="fas fa-check-circle"></i> Agreement</a>
+                    <a href="#section2" class="quick-nav-link"><i class="fas fa-info-circle"></i> About Us</a>
+                    <a href="#section3" class="quick-nav-link"><i class="fas fa-box"></i> Services</a>
+                    <a href="#section4" class="quick-nav-link"><i class="fas fa-credit-card"></i> Payment</a>
+                    <a href="#section5" class="quick-nav-link"><i class="fas fa-truck"></i> Delivery</a>
+                    <a href="#section6" class="quick-nav-link"><i class="fas fa-user-check"></i> User Rules</a>
+                    <a href="#section7" class="quick-nav-link"><i class="fas fa-ban"></i> Prohibited</a>
+                    <a href="#section8" class="quick-nav-link"><i class="fas fa-shield-alt"></i> Warranty</a>
+                    <a href="#section9" class="quick-nav-link"><i class="fas fa-exclamation-triangle"></i> Liability</a>
+                    <a href="#section10" class="quick-nav-link"><i class="fas fa-gavel"></i> Legal</a>
+                </div>
+            </div>
+
+            <!-- TERMS SECTIONS -->
+            <div class="terms-sections">
+                <!-- Section 1: Agreement -->
+                <div class="terms-section" id="section1">
+                    <div class="section-card open">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">1</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Agreement to Terms</div>
+                                <div class="section-preview">Your acceptance of our terms and conditions</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>Welcome to <strong>The Diamond Store (TDS)</strong>! By accessing our website, social media pages, or purchasing any product from us, you agree to be bound by these Terms of Service.</p>
+                                
+                                <div class="highlight-box info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">What This Means</div>
+                                        <div class="highlight-text">When you buy from us or use our services, you're agreeing to follow these rules. If you don't agree, please don't use our services.</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li>These terms apply to all customers and users</li>
+                                    <li>We may update these terms from time to time</li>
+                                    <li>Continued use means you accept any changes</li>
+                                    <li>You must be at least 18 years old to purchase</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: About Us -->
+                <div class="terms-section" id="section2">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">2</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">About The Diamond Store</div>
+                                <div class="section-preview">Who we are and what we do</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p><strong>The Diamond Store (TDS)</strong> is a premium digital subscription service provider based in <strong>Ganganagar, Rajasthan, India</strong>. We started in <strong>2025</strong> with a mission to make premium subscriptions affordable for everyone.</p>
+
+                                <ul>
+                                    <li><strong>Business Name:</strong> The Diamond Store (TDS)</li>
+                                    <li><strong>Location:</strong> Ganganagar, Rajasthan, India</li>
+                                    <li><strong>Established:</strong> 2025</li>
+                                    <li><strong>Services:</strong> Premium OTT & Digital Subscriptions</li>
+                                </ul>
+
+                                <div class="highlight-box success">
+                                    <i class="fas fa-gem"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Our Promise</div>
+                                        <div class="highlight-text">We provide genuine, working subscriptions at the most affordable prices with fast delivery and excellent customer support.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Services -->
+                <div class="terms-section" id="section3">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">3</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Our Services</div>
+                                <div class="section-preview">What subscriptions we offer</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We offer a wide range of premium digital subscriptions including but not limited to:</p>
+
+                                <ul>
+                                    <li><strong>Streaming Services:</strong> Netflix, Prime Video, Disney+ Hotstar, Zee5, Chaupal</li>
+                                    <li><strong>Music Services:</strong> YouTube Premium, Spotify Premium, Apple Music</li>
+                                    <li><strong>Productivity Tools:</strong> Canva Pro, CapCut Pro, LinkedIn Premium</li>
+                                    <li><strong>AI Services:</strong> ChatGPT Plus, Claude AI, Perplexity AI</li>
+                                    <li><strong>Cloud Storage:</strong> Google Drive with Gemini AI</li>
+                                    <li><strong>Gaming:</strong> Steam Games, Xbox Game Pass, PlayStation Games</li>
+                                    <li><strong>Software:</strong> Windows Activation Keys</li>
+                                </ul>
+
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Product-Specific Terms</div>
+                                        <div class="highlight-text">Each product may have different terms (shared vs personal account, number of devices, etc.). Full details are provided before purchase and with your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Payment -->
+                <div class="terms-section" id="section4">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">4</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Payment Terms</div>
+                                <div class="section-preview">How to pay for our services</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We accept various payment methods to make purchasing easy and convenient for you.</p>
+
+                                <ul>
+                                    <li><strong>UPI Payments:</strong> Google Pay, PhonePe, Paytm, BHIM, and all other UPI apps</li>
+                                    <li><strong>Redeem Codes:</strong> Gift cards and redeem codes accepted</li>
+                                    <li><strong>Bank Transfer:</strong> Direct bank transfer available on request</li>
+                                </ul>
+
+                                <div class="highlight-box info">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Payment Timing</div>
+                                        <div class="highlight-text">Payment terms vary by product. Some products require full payment upfront, while others allow partial payment with the remaining 60% after delivery confirmation.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Important:</strong></p>
+                                <ul>
+                                    <li>We NEVER store your payment information</li>
+                                    <li>All payments are final once the product is delivered and working</li>
+                                    <li>Currently, we only accept payments from India</li>
+                                    <li>International payments coming soon!</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Delivery -->
+                <div class="terms-section" id="section5">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">5</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Delivery Policy</div>
+                                <div class="section-preview">How and when you receive your subscription</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We pride ourselves on fast delivery! Here's what to expect:</p>
+
+                                <div class="highlight-box success">
+                                    <i class="fas fa-rocket"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Super Fast Delivery</div>
+                                        <div class="highlight-text"><strong>90% of orders</strong> are delivered within <strong>5 minutes</strong> of payment confirmation!</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li><strong>Standard Delivery:</strong> 90% orders within 5 minutes</li>
+                                    <li><strong>Extended Delivery:</strong> 10% orders within 1-3 hours (during peak times)</li>
+                                    <li><strong>Delivery Method:</strong> Via WhatsApp or Instagram DM</li>
+                                    <li><strong>Delivery Contents:</strong> Login credentials or activation instructions</li>
+                                </ul>
+
+                                <p>You will receive:</p>
+                                <ul>
+                                    <li>Login credentials (username/email and password)</li>
+                                    <li>Setup instructions (if needed)</li>
+                                    <li>Product-specific usage guidelines</li>
+                                    <li>Support contact for any issues</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: User Responsibilities -->
+                <div class="terms-section" id="section6">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">6</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">User Responsibilities</div>
+                                <div class="section-preview">Your obligations as a customer</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>As a valued customer, you agree to:</p>
+
+                                <ul>
+                                    <li>Provide accurate contact information (phone/email)</li>
+                                    <li>Use the subscription as per the product-specific guidelines provided</li>
+                                    <li>Not share your credentials publicly or with unauthorized users</li>
+                                    <li>Report any issues within the support period</li>
+                                    <li>Treat our support team with respect</li>
+                                </ul>
+
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-user-shield"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Sharing Policy</div>
+                                        <div class="highlight-text">Sharing rules depend on the product type. Some subscriptions are for personal use only, while others allow family sharing. Full details are provided with each product.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Prohibited Activities -->
+                <div class="terms-section" id="section7">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">7</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Prohibited Activities</div>
+                                <div class="section-preview">What you cannot do with our services</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>The following activities are <strong>strictly prohibited</strong> and may result in immediate termination without refund:</p>
+
+                                <div class="highlight-box danger">
+                                    <i class="fas fa-ban"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Do NOT Do These</div>
+                                        <div class="highlight-text">Violation of these rules will result in account termination and you will not be eligible for any refund or replacement.</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li><strong>Password Changes:</strong> Do NOT change the password of shared accounts</li>
+                                    <li><strong>Public Sharing:</strong> Do NOT share credentials on social media or public forums</li>
+                                    <li><strong>Reselling:</strong> Do NOT resell or redistribute our subscriptions</li>
+                                    <li><strong>Illegal Use:</strong> Do NOT use subscriptions for any illegal activities</li>
+                                    <li><strong>Abuse:</strong> Do NOT abuse the service or attempt to hack/exploit</li>
+                                    <li><strong>Multiple Claims:</strong> Do NOT make false claims for refunds</li>
+                                    <li><strong>Automation:</strong> Do NOT use bots or automation tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Warranty & Support -->
+                <div class="terms-section" id="section8">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">8</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Warranty & Support</div>
+                                <div class="section-preview">Our guarantee and how we help you</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We stand behind our products and provide support to ensure your satisfaction.</p>
+
+                                <div class="highlight-box success">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Our Guarantee</div>
+                                        <div class="highlight-text">If your subscription stops working during the validity period (and it's not due to your violation), we will provide a replacement!</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li><strong>Working Guarantee:</strong> All subscriptions are tested before delivery</li>
+                                    <li><strong>Replacement Policy:</strong> Free replacement if subscription stops working</li>
+                                    <li><strong>Support Period:</strong> Full support during your subscription validity</li>
+                                    <li><strong>Response Time:</strong> We aim to respond within 1-2 hours</li>
+                                </ul>
+
+                                <p><strong>How to Get Support:</strong></p>
+                                <ul>
+                                    <li>Message us on WhatsApp: +91 9024487624</li>
+                                    <li>DM us on Instagram: @tdsofficial.store</li>
+                                    <li>Include your order details and describe the issue</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 9: Limitation of Liability -->
+                <div class="terms-section" id="section9">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">9</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Limitation of Liability</div>
+                                <div class="section-preview">What we are and aren't responsible for</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>While we strive to provide the best service, there are some things beyond our control:</p>
+
+                                <p><strong>We are NOT responsible for:</strong></p>
+                                <ul>
+                                    <li>Service outages by Netflix, YouTube, or other platforms</li>
+                                    <li>Your internet connectivity issues</li>
+                                    <li>Account suspension due to your violation of platform rules</li>
+                                    <li>Changes in platform policies that affect the service</li>
+                                    <li>Device compatibility issues on your end</li>
+                                    <li>Issues caused by sharing credentials with others</li>
+                                </ul>
+
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Service Nature</div>
+                                        <div class="highlight-text">We provide access to subscription services through various methods. The actual service is provided by the respective platform (Netflix, YouTube, etc.). We are not affiliated with these companies.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Maximum Liability:</strong> In any case, our maximum liability is limited to the amount you paid for the specific product.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 10: Governing Law -->
+                <div class="terms-section" id="section10">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-number">10</div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Governing Law & Disputes</div>
+                                <div class="section-preview">Legal jurisdiction and dispute resolution</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>These terms are governed by the laws of India.</p>
+
+                                <ul>
+                                    <li><strong>Jurisdiction:</strong> Ganganagar, Rajasthan, India</li>
+                                    <li><strong>Governing Law:</strong> Laws of India</li>
+                                    <li><strong>Dispute Resolution:</strong> We prefer to resolve disputes amicably through direct communication</li>
+                                </ul>
+
+                                <div class="highlight-box info">
+                                    <i class="fas fa-handshake"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Let's Talk First</div>
+                                        <div class="highlight-text">Before taking any legal action, please contact us directly. We believe most issues can be resolved through friendly discussion.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Changes to Terms:</strong></p>
+                                <ul>
+                                    <li>We may update these terms at any time</li>
+                                    <li>Changes will be posted on this page with a new "Last Updated" date</li>
+                                    <li>Your continued use after changes means you accept the new terms</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT SECTION -->
+            <div class="contact-section">
+                <h2 class="contact-title">Questions About Our Terms?</h2>
+                <p class="contact-subtitle">We're here to help! Reach out to us anytime.</p>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/919024487624?text=Hi! I have a question about your Terms of Service." target="_blank" class="contact-btn contact-btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        Chat on WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/tdsofficial.store" target="_blank" class="contact-btn contact-btn-instagram">
+                        <i class="fab fa-instagram"></i>
+                        DM on Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="logo.png" alt="TDS Logo">
+            <span class="footer-logo-text">The Diamond Store</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="products.html" class="footer-link">Products</a>
+            <a href="terms.html" class="footer-link">Terms of Service</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="refund.html" class="footer-link">Refund Policy</a>
+        </div>
+        <p class="copyright">
+            © <span id="currentYear"></span> <a href="https://tdsofficial.store">The Diamond Store</a>. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- GOOGLE TRANSLATE ELEMENT (Hidden) -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ==================== PARTICLES ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initScrollEffects();
+            setCurrentYear();
+            
+            // Open first section by default
+            const firstSection = document.querySelector('.section-card');
+            if (firstSection) {
+                firstSection.classList.add('open');
+            }
+        });
+
+        function createParticles() {
+            const bg = document.querySelector('.animated-bg');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (8 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                bg.appendChild(particle);
+            }
+        }
+
+        // ==================== SECTION TOGGLE ====================
+        function toggleSection(header) {
+            const card = header.parentElement;
+            const isOpen = card.classList.contains('open');
+            
+            // Close all sections
+            document.querySelectorAll('.section-card').forEach(c => {
+                c.classList.remove('open');
+            });
+            
+            // Open clicked section if it wasn't already open
+            if (!isOpen) {
+                card.classList.add('open');
+                
+                // Scroll to section smoothly
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // ==================== TRANSLATE DROPDOWN ====================
+        function toggleTranslateDropdown() {
+            const dropdown = document.getElementById('translateDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.translate-wrapper')) {
+                document.getElementById('translateDropdown').classList.remove('show');
+            }
+        });
+
+        // ==================== GOOGLE TRANSLATE ====================
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function translatePage(lang) {
+            // Update active state
+            document.querySelectorAll('.translate-option').forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.lang === lang) {
+                    opt.classList.add('active');
+                }
+            });
+
+            // Close dropdown
+            document.getElementById('translateDropdown').classList.remove('show');
+
+            // Use Google Translate
+            const frame = document.querySelector('.goog-te-menu-frame');
+            if (frame) {
+                const frameDoc = frame.contentDocument || frame.contentWindow.document;
+                const links = frameDoc.querySelectorAll('a');
+                links.forEach(link => {
+                    if (link.textContent.toLowerCase().includes(getLanguageName(lang).toLowerCase())) {
+                        link.click();
+                    }
+                });
+            } else {
+                // Fallback: Set cookie and reload
+                document.cookie = `googtrans=/en/${lang}; path=/`;
+                document.cookie = `googtrans=/en/${lang}; path=/; domain=.${window.location.hostname}`;
+                
+                if (lang !== 'en') {
+                    // Trigger translation
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                } else {
+                    // Reset to English
+                    const frame = document.querySelector('iframe.goog-te-banner-frame');
+                    if (frame) {
+                        const closeBtn = frame.contentDocument.querySelector('.goog-close-link');
+                        if (closeBtn) closeBtn.click();
+                    }
+                    window.location.reload();
+                }
+            }
+        }
+
+        function getLanguageName(code) {
+            const names = {
+                'en': 'English',
+                'hi': 'Hindi',
+                'pa': 'Punjabi',
+                'mr': 'Marathi',
+                'ta': 'Tamil',
+                'te': 'Telugu',
+                'bn': 'Bengali'
+            };
+            return names[code] || code;
+        }
+
+        // ==================== SCROLL EFFECTS ====================
+        function initScrollEffects() {
+            const header = document.getElementById('header');
+            const scrollBtn = document.getElementById('scrollTopBtn');
+
+            window.addEventListener('scroll', () => {
+                // Header shadow
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Scroll to top button
+                if (window.scrollY > 400) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ==================== CURRENT YEAR ====================
+        function setCurrentYear() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+
+        // ==================== SMOOTH SCROLL FOR ANCHOR LINKS ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Open the section if it's a terms section
+                    const card = target.querySelector('.section-card');
+                    if (card) {
+                        document.querySelectorAll('.section-card').forEach(c => c.classList.remove('open'));
+                        card.classList.add('open');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Google Translate Script -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
