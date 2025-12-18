@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Refund Policy - The Diamond Store (TDS) - Clear guidelines for returns and replacements of our premium subscriptions.">
+    <meta name="keywords" content="Refund Policy, Returns, Replacement, Warranty, TDS, The Diamond Store, Subscription Support">
+    <meta name="author" content="The Diamond Store">
+    <title>Refund Policy | The Diamond Store</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --space-navy: #021228;
+            --space-navy-light: #0a1f3a;
+            --gold-start: #facc15;
+            --gold-end: #eab308;
+            --cyan-glow: #00d4ff;
+            --deep-cyan: #00b4d8;
+            --whatsapp-green: #25D366;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --success-green: #22c55e;
+            --warning-orange: #f59e0b;
+            --danger-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--space-navy);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* ==================== ANIMATED BACKGROUND ==================== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(250, 204, 21, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 180, 216, 0.04) 0%, transparent 60%);
+            animation: bgPulse 15s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: orbFloat 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 212, 255, 0.1);
+            top: 10%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(250, 204, 21, 0.08);
+            bottom: 20%;
+            right: -5%;
+            animation-delay: -7s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* ==================== FLOATING LOGO ==================== */
+        .floating-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+
+        .floating-logo img {
+            width: clamp(250px, 45vw, 500px);
+            height: auto;
+            filter: drop-shadow(0 0 80px var(--cyan-glow));
+            animation: logoFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.02); }
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 25px;
+            background: rgba(2, 18, 40, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 8px 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+            transition: all 0.3s ease;
+        }
+
+        .header-logo:hover img {
+            filter: drop-shadow(0 0 20px var(--cyan-glow)) drop-shadow(0 0 40px var(--deep-cyan));
+            transform: scale(1.05);
+        }
+
+        .header-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-btn-home {
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            color: var(--space-navy);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+        }
+
+        .nav-btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 8px 25px rgba(250, 204, 21, 0.3);
+        }
+
+        .nav-btn-products {
+            background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan));
+            color: var(--space-navy);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-btn-products:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), 0 8px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== PAGE HEADER ==================== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--space-navy);
+            box-shadow: 0 0 40px rgba(250, 204, 21, 0.3);
+            animation: iconPulse 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-icon::after {
+            content: '💸';
+            position: absolute;
+            font-size: 2.5rem;
+            animation: moneyFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes moneyFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(-5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(5px) rotate(5deg); }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(250, 204, 21, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(250, 204, 21, 0.5); }
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end), var(--text-primary));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .last-updated i {
+            color: var(--cyan-glow);
+        }
+
+        /* ==================== QUICK NAVIGATION ==================== */
+        .quick-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quick-nav-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cyan-glow);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quick-nav-link {
+            padding: 8px 16px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quick-nav-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--text-primary);
+            border-color: var(--cyan-glow);
+            transform: translateY(-2px);
+        }
+
+        .quick-nav-link i {
+            font-size: 0.75rem;
+            color: var(--cyan-glow);
+        }
+
+        /* ==================== REFUND SECTIONS ==================== */
+        .refund-section {
+            margin-bottom: 25px;
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        .refund-section:nth-child(1) { animation-delay: 0.1s; }
+        .refund-section:nth-child(2) { animation-delay: 0.15s; }
+        .refund-section:nth-child(3) { animation-delay: 0.2s; }
+        .refund-section:nth-child(4) { animation-delay: 0.25s; }
+        .refund-section:nth-child(5) { animation-delay: 0.3s; }
+        .refund-section:nth-child(6) { animation-delay: 0.35s; }
+
+        .section-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .section-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .section-header:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover .section-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .section-title-wrapper {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .section-preview {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .section-toggle {
+            width: 35px;
+            height: 35px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan-glow);
+            transition: all 0.3s ease;
+        }
+
+        .section-card.open .section-toggle {
+            background: var(--cyan-glow);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+
+        .section-card.open .section-content {
+            max-height: 2000px;
+        }
+
+        .section-body {
+            padding: 0 25px 25px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .section-body p {
+            margin: 15px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .section-body strong {
+            color: var(--text-primary);
+        }
+
+        /* Lists */
+        .section-body ul {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .section-body li {
+            position: relative;
+            padding: 12px 0 12px 40px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-body li:last-child {
+            border-bottom: none;
+        }
+
+        .section-body li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+        }
+
+        .section-body li::after {
+            content: '✓';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cyan-glow);
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .section-body li.cross::after {
+            content: '✗';
+            color: var(--danger-red);
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .highlight-box i {
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+
+        .highlight-box.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .highlight-box.success i {
+            color: var(--success-green);
+        }
+
+        .highlight-box.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .highlight-box.warning i {
+            color: var(--warning-orange);
+        }
+
+        .highlight-box.info {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .highlight-box.info i {
+            color: var(--cyan-glow);
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .highlight-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== REPLACEMENT GUARANTEE ==================== */
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 180, 216, 0.1));
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { transform: translateX(50%); }
+        }
+
+        .guarantee-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: guaranteePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes guaranteePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .guarantee-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--cyan-glow);
+            margin-bottom: 10px;
+        }
+
+        .guarantee-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(250, 204, 21, 0.05));
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-method {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--cyan-glow);
+            transform: translateY(-3px);
+        }
+
+        .contact-method i {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-method.whatsapp i { color: var(--whatsapp-green); }
+        .contact-method.instagram i { color: #E1306C; }
+        .contact-method.email i { color: var(--cyan-glow); }
+
+        .contact-method-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .contact-method-value {
+            font-weight: 600;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn-instagram {
+            background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
+            color: white;
+            box-shadow: 0 0 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .contact-btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(225, 48, 108, 0.5), 0 10px 30px rgba(225, 48, 108, 0.3);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+        }
+
+        .footer-logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--cyan-glow);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .copyright a {
+            color: var(--gold-start);
+            text-decoration: none;
+        }
+
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .header { padding: 10px 15px; }
+            .header-logo img { height: 35px; }
+            .header-logo-text { display: none; }
+            .nav-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .nav-btn span { display: none; }
+
+            .main-content { padding-top: 80px; }
+            .container { padding: 0 15px; }
+
+            .page-icon { width: 70px; height: 70px; font-size: 1.8rem; }
+            .page-icon::after { font-size: 2rem; }
+            .page-title { font-size: 1.8rem; }
+            .page-subtitle { font-size: 1rem; }
+
+            .quick-nav { padding: 20px; }
+            .quick-nav-links { gap: 8px; }
+            .quick-nav-link { padding: 6px 12px; font-size: 0.8rem; }
+
+            .section-header { padding: 15px 20px; }
+            .section-icon { width: 42px; height: 42px; font-size: 1rem; }
+            .section-title { font-size: 1rem; }
+            .section-body { padding: 0 20px 20px; }
+
+            .guarantee-box { padding: 25px 20px; }
+            .guarantee-icon { font-size: 2.5rem; }
+            .guarantee-title { font-size: 1.2rem; }
+
+            .contact-section { padding: 30px 20px; }
+            .contact-methods { grid-template-columns: 1fr; }
+            .contact-buttons { flex-direction: column; }
+            .contact-btn { width: 100%; justify-content: center; }
+
+            .footer { padding: 30px 15px; }
+            .footer-links { gap: 15px; }
+
+            .floating-logo { display: none; }
+        }
+
+        /* ==================== PRINT STYLES ==================== */
+        @media print {
+            .header, .scroll-top-btn, .animated-bg, .floating-logo {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+
+            .section-card {
+                break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+
+            .section-content {
+                max-height: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANIMATED BACKGROUND -->
+    <div class="animated-bg">
+        <div class="bg-gradient"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+    </div>
+
+    <!-- FLOATING LOGO -->
+    <div class="floating-logo">
+        <img src="logo.png" alt="TDS Logo">
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="index.html" class="header-logo">
+            <img src="logo.png" alt="TDS Logo">
+            <span class="header-logo-text">The Diamond Store</span>
+        </a>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-btn nav-btn-home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="products.html" class="nav-btn nav-btn-products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div class="page-icon"></div>
+                <h1 class="page-title">Refund Policy</h1>
+                <p class="page-subtitle">Clear guidelines for returns, replacements, and warranty claims for our premium subscriptions.</p>
+                <div class="last-updated">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Last Updated: <span id="currentDate"></span></span>
+                </div>
+            </div>
+
+            <!-- QUICK NAVIGATION -->
+            <div class="quick-nav">
+                <div class="quick-nav-title">
+                    <i class="fas fa-compass"></i>
+                    Quick Navigation
+                </div>
+                <div class="quick-nav-links">
+                    <a href="#guarantee" class="quick-nav-link"><i class="fas fa-shield-alt"></i> Replacement Guarantee</a>
+                    <a href="#eligibility" class="quick-nav-link"><i class="fas fa-check-circle"></i> Refund Eligibility</a>
+                    <a href="#non-refundable" class="quick-nav-link"><i class="fas fa-times-circle"></i> Non-Refundable</a>
+                    <a href="#process" class="quick-nav-link"><i class="fas fa-exchange-alt"></i> Request Process</a>
+                    <a href="#service-rules" class="quick-nav-link"><i class="fas fa-cog"></i> Service Rules</a>
+                    <a href="#contact" class="quick-nav-link"><i class="fas fa-headset"></i> Contact Support</a>
+                </div>
+            </div>
+
+            <!-- REPLACEMENT GUARANTEE -->
+            <div class="guarantee-box" id="guarantee">
+                <span class="guarantee-icon">🛡️</span>
+                <h2 class="guarantee-title">Our Replacement Guarantee</h2>
+                <p class="guarantee-text">At TDS Official Store, we prioritize immediate replacement over refunds. If your subscription doesn't work as promised, we'll replace it within hours - not days.</p>
+            </div>
+
+            <!-- REFUND SECTIONS -->
+            <div class="refund-sections">
+                <!-- Section 1: Refund Eligibility -->
+                <div class="refund-section" id="eligibility">
+                    <div class="section-card open">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">When Refunds Are Considered</div>
+                                <div class="section-preview">Limited scenarios where refunds may be issued</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Very Low Refund Probability</div>
+                                        <div class="highlight-text">We issue replacements, not refunds, in 99% of cases. Refunds are considered only in exceptional circumstances where replacement is impossible.</div>
+                                    </div>
+                                </div>
+
+                                <p>Refunds may be considered in these <strong>rare situations only</strong>:</p>
+                                
+                                <ul>
+                                    <li><strong>Complete Service Failure</strong>: Subscription doesn't work at all and cannot be replaced with a functional alternative</li>
+                                    <li><strong>Duplicate Payment</strong>: You were accidentally charged twice for the same order</li>
+                                    <li><strong>Wrong Product Delivered</strong>: You received a different product than what you ordered and don't want it</li>
+                                    <li><strong>Permanent Service Discontinuation</strong>: The service provider permanently shuts down the service</li>
+                                </ul>
+
+                                <div class="highlight-box info">
+                                    <i class="fas fa-clock"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Refund Time Window</div>
+                                        <div class="highlight-text">Refund requests are only considered <strong>during your active subscription period</strong>. Once your subscription expires, no refunds can be processed.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Non-Refundable Situations -->
+                <div class="refund-section" id="non-refundable">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Non-Refundable Situations</div>
+                                <div class="section-preview">What is NOT eligible for refund under any circumstances</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-ban"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Strict No-Refund Policy</div>
+                                        <div class="highlight-text">"Change of mind" or "I don't want it anymore" after delivery is NOT a valid reason for refund. All sales are final once the product is delivered and verified.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Absolutely NO REFUNDS for:</strong></p>
+                                
+                                <ul>
+                                    <li class="cross"><strong>Change of Mind</strong>: You decided you don't want the product after delivery</li>
+                                    <li class="cross"><strong>Working Subscription Used</strong>: You used the service and then want a refund</li>
+                                    <li class="cross"><strong>Found Cheaper Elsewhere</strong>: You found a better price after purchase</li>
+                                    <li class="cross"><strong>Misunderstanding Features</strong>: You didn't understand what the product included</li>
+                                    <li class="cross"><strong>Device Compatibility Issues</strong>: The subscription doesn't work on your specific device</li>
+                                    <li class="cross"><strong>Personal Reasons</strong>: Financial issues, gift not wanted, etc.</li>
+                                    <li class="cross"><strong>Expired Subscriptions</strong>: After your subscription period ends</li>
+                                </ul>
+
+                                <p><strong>Important:</strong> By purchasing from TDS Official Store, you acknowledge and agree to these non-refundable terms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: How to Request -->
+                <div class="refund-section" id="process">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">How to Request Replacement/Refund</div>
+                                <div class="section-preview">Step-by-step process for assistance</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box success">
+                                    <i class="fas fa-comments"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Replacement First Policy</div>
+                                        <div class="highlight-text">We always try to replace non-working subscriptions first. Refund is the last resort when replacement is impossible.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Step 1: Contact Support Immediately</strong></p>
+                                <p>Reach out to us within 24 hours of discovering the issue via:</p>
+                                
+                                <div class="highlight-box info">
+                                    <i class="fas fa-share-alt"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Multiple Contact Channels</div>
+                                        <div class="highlight-text">You can contact us through WhatsApp, Instagram, or Email. WhatsApp is the fastest way to get help.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Step 2: Provide Required Information</strong></p>
+                                <ul>
+                                    <li>Your order details (product name, duration, price)</li>
+                                    <li>Transaction ID/screenshot of payment</li>
+                                    <li>WhatsApp/Instagram username used for order</li>
+                                    <li>Detailed description of the issue</li>
+                                    <li>Screenshots/video of the problem</li>
+                                </ul>
+
+                                <p><strong>Step 3: Allow Investigation Time</strong></p>
+                                <p>We investigate every claim thoroughly. This typically takes 6-24 hours depending on the issue complexity.</p>
+
+                                <p><strong>Step 4: Solution Implementation</strong></p>
+                                <p>We'll either:
+                                <br>1. Replace your subscription immediately
+                                <br>2. Explain why it's working correctly
+                                <br>3. Process refund ONLY if replacement is impossible</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Refund Processing -->
+                <div class="refund-section">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Refund Processing Details</div>
+                                <div class="section-preview">How refunds are handled if approved</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>If your rare refund request is approved, here's how we process it:</p>
+
+                                <div class="highlight-box success">
+                                    <i class="fas fa-undo-alt"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Original Payment Method Only</div>
+                                        <div class="highlight-text">All refunds are processed to the original payment method used for purchase. We cannot refund to different accounts or payment methods.</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li><strong>Processing Time</strong>: 3-7 business days after approval</li>
+                                    <li><strong>Method</strong>: Return to original UPI/Bank account</li>
+                                    <li><strong>Amount</strong>: Full purchase price (no fees deducted)</li>
+                                    <li><strong>Notification</strong>: You'll receive confirmation via your contact method</li>
+                                </ul>
+
+                                <p><strong>Important Notes:</strong></p>
+                                <ul>
+                                    <li>Bank processing times vary (usually 1-3 days after we initiate)</li>
+                                    <li>We provide transaction reference number for tracking</li>
+                                    <li>No partial refunds - it's all or nothing</li>
+                                    <li>Once refund is initiated, it cannot be canceled</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Service Specific Rules -->
+                <div class="refund-section" id="service-rules">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Service-Specific Rules & Warranty</div>
+                                <div class="section-preview">Different rules for different product categories</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p><strong>YES - Rules are provided with each product.</strong> Breaking these rules voids warranty and refund eligibility:</p>
+
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Rules Void Warranty</div>
+                                        <div class="highlight-text">If you break the specific rules provided with your product, your warranty expires immediately and you become ineligible for replacement or refund.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Common Rules (Product Specific):</strong></p>
+                                <ul>
+                                    <li><strong>Single Device Logins</strong>: Don't share or use on multiple devices</li>
+                                    <li><strong>Account Security</strong>: Don't change passwords or security settings</li>
+                                    <li><strong>Usage Limits</strong>: Stay within fair usage policies</li>
+                                    <li><strong>Regional Restrictions</strong>: Use only in allowed countries</li>
+                                    <li><strong>Platform Rules</strong>: Follow the service provider's terms</li>
+                                </ul>
+
+                                <p><strong>Warranty Period:</strong></p>
+                                <ul>
+                                    <li><strong>Streaming Services</strong>: Entire subscription duration</li>
+                                    <li><strong>Software Subscriptions</strong>: As long as your plan is active</li>
+                                    <li><strong>Game Keys/Accounts</strong**: 7-30 days (varies by product)</li>
+                                    <li><strong>AI Tools</strong>: Duration specified at purchase</li>
+                                </ul>
+
+                                <p><strong>Pro Tip:</strong> Always read the specific rules sent with your product delivery. Ask us if anything is unclear before using the service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Contact for Disputes -->
+                <div class="refund-section" id="contact">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Contact for Disputes & Questions</div>
+                                <div class="section-preview">How to reach us for clarification or disputes</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box info">
+                                    <i class="fas fa-comment-dots"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Primary Dispute Resolution</div>
+                                        <div class="highlight-text">WhatsApp is our main channel for disputes, but Instagram is also fully supported for resolution. Email is for formal communications only.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>For Disputes Contact:</strong></p>
+                                <ul>
+                                    <li><strong>WhatsApp</strong>: Primary channel - fastest response</li>
+                                    <li><strong>Instagram</strong>: Fully supported for dispute resolution</li>
+                                    <li><strong>Email</strong>: For formal communications only</li>
+                                </ul>
+
+                                <p><strong>What to Include in Dispute Messages:</strong></p>
+                                <ul>
+                                    <li>"DISPUTE" in the first message</li>
+                                    <li>Your order reference/details</li>
+                                    <li>Clear description of the issue</li>
+                                    <li>What resolution you're seeking</li>
+                                    <li>All relevant screenshots</li>
+                                </ul>
+
+                                <p><strong>Response Time:</strong></p>
+                                <ul>
+                                    <li><strong>WhatsApp</strong>: 1-6 hours during business hours</li>
+                                    <li><strong>Instagram</strong>: 6-12 hours</li>
+                                    <li><strong>Email</strong>: 24-48 hours</li>
+                                </ul>
+
+                                <p><strong>Business Hours:</strong> 10 AM - 10 PM IST (Monday-Sunday)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT SECTION -->
+            <div class="contact-section">
+                <h2 class="contact-title">Need Help with Your Order?</h2>
+                <p class="contact-subtitle">Contact us immediately if you're facing issues with your subscription</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="contact-method-label">WhatsApp (Fastest)</div>
+                        <div class="contact-method-value">+91 9024487624</div>
+                    </div>
+                    <div class="contact-method instagram">
+                        <i class="fab fa-instagram"></i>
+                        <div class="contact-method-label">Instagram</div>
+                        <div class="contact-method-value">@tdsofficial.store</div>
+                    </div>
+                    <div class="contact-method email">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-method-label">Email</div>
+                        <div class="contact-method-value">sarsh7876@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="https://wa.me/919024487624?text=REFUND%20DISPUTE%20-%20I%20need%20help%20with%20my%20TDS%20order" target="_blank" class="contact-btn contact-btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp Support
+                    </a>
+                    <a href="https://www.instagram.com/tdsofficial.store" target="_blank" class="contact-btn contact-btn-instagram">
+                        <i class="fab fa-instagram"></i>
+                        Instagram DM
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="logo.png" alt="TDS Logo">
+            <span class="footer-logo-text">The Diamond Store</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="products.html" class="footer-link">Products</a>
+            <a href="offer.html" class="footer-link">Special Offers</a>
+            <a href="terms.html" class="footer-link">Terms of Service</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="refund.html" class="footer-link">Refund Policy</a>
+        </div>
+        <p class="copyright">
+            © <span id="currentYear"></span> <a href="https://tdsofficial.store">The Diamond Store</a>. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ==================== PARTICLES ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initScrollEffects();
+            setCurrentDate();
+            setCurrentYear();
+            
+            // Open first section by default
+            const firstSection = document.querySelector('.section-card');
+            if (firstSection) {
+                firstSection.classList.add('open');
+            }
+        });
+
+        function createParticles() {
+            const bg = document.querySelector('.animated-bg');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (8 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                bg.appendChild(particle);
+            }
+        }
+
+        // ==================== SECTION TOGGLE ====================
+        function toggleSection(header) {
+            const card = header.parentElement;
+            const isOpen = card.classList.contains('open');
+            
+            // Close all sections
+            document.querySelectorAll('.section-card').forEach(c => {
+                c.classList.remove('open');
+            });
+            
+            // Open clicked section if it wasn't already open
+            if (!isOpen) {
+                card.classList.add('open');
+                
+                // Scroll to section smoothly
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // ==================== SCROLL EFFECTS ====================
+        function initScrollEffects() {
+            const header = document.getElementById('header');
+            const scrollBtn = document.getElementById('scrollTopBtn');
+
+            window.addEventListener('scroll', () => {
+                // Header shadow
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Scroll to top button
+                if (window.scrollY > 400) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ==================== CURRENT DATE ====================
+        function setCurrentDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        // ==================== CURRENT YEAR ====================
+        function setCurrentYear() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+
+        // ==================== SMOOTH SCROLL FOR ANCHOR LINKS ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Open the section if it's a refund section
+                    const card = target.querySelector('.section-card');
+                    if (card) {
+                        document.querySelectorAll('.section-card').forEach(c => c.classList.remove('open'));
+                        card.classList.add('open');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

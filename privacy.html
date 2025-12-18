@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - The Diamond Store (TDS) - Learn how we protect your personal information and respect your privacy.">
+    <meta name="keywords" content="Privacy Policy, TDS, The Diamond Store, Data Protection, Privacy">
+    <meta name="author" content="The Diamond Store">
+    <title>Privacy Policy | The Diamond Store</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --space-navy: #021228;
+            --space-navy-light: #0a1f3a;
+            --gold-start: #facc15;
+            --gold-end: #eab308;
+            --cyan-glow: #00d4ff;
+            --deep-cyan: #00b4d8;
+            --purple-glow: #a855f7;
+            --deep-purple: #7c3aed;
+            --whatsapp-green: #25D366;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --success-green: #22c55e;
+            --warning-orange: #f59e0b;
+            --danger-red: #ef4444;
+            --info-blue: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--space-navy);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* ==================== ANIMATED BACKGROUND ==================== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+            animation: bgPulse 15s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: orbFloat 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(168, 85, 247, 0.12);
+            top: 10%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 212, 255, 0.08);
+            bottom: 20%;
+            right: -5%;
+            animation-delay: -7s;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: rgba(124, 58, 237, 0.1);
+            top: 50%;
+            left: 60%;
+            animation-delay: -12s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Shield Animation */
+        .floating-shield {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+
+        .floating-shield i {
+            font-size: clamp(200px, 40vw, 400px);
+            color: var(--purple-glow);
+            filter: drop-shadow(0 0 80px var(--purple-glow));
+            animation: shieldFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes shieldFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.02); }
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 25px;
+            background: rgba(2, 18, 40, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 8px 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+            transition: all 0.3s ease;
+        }
+
+        .header-logo:hover img {
+            filter: drop-shadow(0 0 20px var(--cyan-glow)) drop-shadow(0 0 40px var(--deep-cyan));
+            transform: scale(1.05);
+        }
+
+        .header-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-btn-home {
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            color: var(--space-navy);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+        }
+
+        .nav-btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 8px 25px rgba(250, 204, 21, 0.3);
+        }
+
+        .nav-btn-products {
+            background: linear-gradient(135deg, var(--purple-glow), var(--deep-purple));
+            color: white;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .nav-btn-products:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5), 0 8px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        /* ==================== TRANSLATE BUTTON ==================== */
+        .translate-wrapper {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .translate-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--purple-glow);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .translate-btn i {
+            color: var(--purple-glow);
+        }
+
+        .translate-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--space-navy-light);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 10px 0;
+            min-width: 180px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .translate-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .translate-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .translate-option:hover {
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--text-primary);
+        }
+
+        .translate-option.active {
+            color: var(--purple-glow);
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        .translate-option i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== PAGE HEADER ==================== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--purple-glow), var(--deep-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            box-shadow: 0 0 50px rgba(168, 85, 247, 0.4);
+            animation: iconPulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .page-icon::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            animation: ringPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(168, 85, 247, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 70px rgba(168, 85, 247, 0.6); }
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--purple-glow), var(--cyan-glow), var(--text-primary));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .last-updated i {
+            color: var(--purple-glow);
+        }
+
+        /* ==================== PRIVACY PROMISE BOX ==================== */
+        .promise-box {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(124, 58, 237, 0.1));
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promise-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { transform: translateX(50%); }
+        }
+
+        .promise-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .promise-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--purple-glow);
+            margin-bottom: 10px;
+        }
+
+        .promise-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== QUICK NAVIGATION ==================== */
+        .quick-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quick-nav-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--purple-glow);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quick-nav-link {
+            padding: 8px 16px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quick-nav-link:hover {
+            background: rgba(168, 85, 247, 0.2);
+            color: var(--text-primary);
+            border-color: var(--purple-glow);
+            transform: translateY(-2px);
+        }
+
+        .quick-nav-link i {
+            font-size: 0.75rem;
+            color: var(--purple-glow);
+        }
+
+        /* ==================== PRIVACY SECTIONS ==================== */
+        .privacy-section {
+            margin-bottom: 25px;
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        .privacy-section:nth-child(1) { animation-delay: 0.1s; }
+        .privacy-section:nth-child(2) { animation-delay: 0.15s; }
+        .privacy-section:nth-child(3) { animation-delay: 0.2s; }
+        .privacy-section:nth-child(4) { animation-delay: 0.25s; }
+        .privacy-section:nth-child(5) { animation-delay: 0.3s; }
+        .privacy-section:nth-child(6) { animation-delay: 0.35s; }
+        .privacy-section:nth-child(7) { animation-delay: 0.4s; }
+        .privacy-section:nth-child(8) { animation-delay: 0.45s; }
+
+        .section-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .section-card:hover {
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .section-header:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--purple-glow), var(--deep-purple));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover .section-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .section-title-wrapper {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .section-preview {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .section-toggle {
+            width: 35px;
+            height: 35px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple-glow);
+            transition: all 0.3s ease;
+        }
+
+        .section-card.open .section-toggle {
+            background: var(--purple-glow);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+
+        .section-card.open .section-content {
+            max-height: 2000px;
+        }
+
+        .section-body {
+            padding: 0 25px 25px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .section-body p {
+            margin: 15px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .section-body strong {
+            color: var(--text-primary);
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .data-table thead {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(124, 58, 237, 0.2));
+        }
+
+        .data-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--purple-glow);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .data-table td {
+            padding: 15px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover td {
+            background: rgba(168, 85, 247, 0.05);
+        }
+
+        .data-table .check-icon {
+            color: var(--success-green);
+        }
+
+        .data-table .cross-icon {
+            color: var(--danger-red);
+        }
+
+        /* Lists */
+        .section-body ul {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .section-body li {
+            position: relative;
+            padding: 12px 0 12px 40px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-body li:last-child {
+            border-bottom: none;
+        }
+
+        .section-body li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: rgba(168, 85, 247, 0.2);
+            border-radius: 50%;
+        }
+
+        .section-body li::after {
+            content: '✓';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--purple-glow);
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .section-body li.cross::after {
+            content: '✗';
+            color: var(--danger-red);
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .highlight-box i {
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+
+        .highlight-box.info {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .highlight-box.info i {
+            color: var(--info-blue);
+        }
+
+        .highlight-box.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .highlight-box.success i {
+            color: var(--success-green);
+        }
+
+        .highlight-box.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .highlight-box.warning i {
+            color: var(--warning-orange);
+        }
+
+        .highlight-box.privacy {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .highlight-box.privacy i {
+            color: var(--purple-glow);
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .highlight-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Badge List */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--purple-glow);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .badge-green {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success-green);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--info-blue);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        /* ==================== YOUR RIGHTS SECTION ==================== */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .right-card {
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .right-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple-glow);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+        }
+
+        .right-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--purple-glow);
+        }
+
+        .right-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .right-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(0, 212, 255, 0.05));
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-method {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--purple-glow);
+            transform: translateY(-3px);
+        }
+
+        .contact-method i {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-method.whatsapp i { color: var(--whatsapp-green); }
+        .contact-method.instagram i { color: #E1306C; }
+        .contact-method.email i { color: var(--info-blue); }
+
+        .contact-method-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .contact-method-value {
+            font-weight: 600;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn-email {
+            background: linear-gradient(135deg, var(--info-blue), #2563eb);
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-btn-email:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--cyan-glow));
+        }
+
+        .footer-logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--purple-glow);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .copyright a {
+            color: var(--gold-start);
+            text-decoration: none;
+        }
+
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple-glow), var(--deep-purple));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 40px rgba(168, 85, 247, 0.5);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .header { padding: 10px 15px; }
+            .header-logo img { height: 35px; }
+            .header-logo-text { display: none; }
+            .nav-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .nav-btn span { display: none; }
+
+            .translate-wrapper { top: 70px; right: 15px; }
+            .translate-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .translate-btn span { display: none; }
+
+            .main-content { padding-top: 80px; }
+            .container { padding: 0 15px; }
+
+            .page-icon { width: 70px; height: 70px; font-size: 1.8rem; }
+            .page-title { font-size: 1.8rem; }
+            .page-subtitle { font-size: 1rem; }
+
+            .promise-box { padding: 25px 20px; }
+            .promise-icon { font-size: 2.5rem; }
+            .promise-title { font-size: 1.2rem; }
+
+            .quick-nav { padding: 20px; }
+            .quick-nav-links { gap: 8px; }
+            .quick-nav-link { padding: 6px 12px; font-size: 0.8rem; }
+
+            .section-header { padding: 15px 20px; }
+            .section-icon { width: 42px; height: 42px; font-size: 1rem; }
+            .section-title { font-size: 1rem; }
+            .section-body { padding: 0 20px 20px; }
+
+            .data-table { font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 10px; }
+
+            .rights-grid { grid-template-columns: 1fr; }
+
+            .contact-section { padding: 30px 20px; }
+            .contact-methods { grid-template-columns: 1fr; }
+            .contact-buttons { flex-direction: column; }
+            .contact-btn { width: 100%; justify-content: center; }
+
+            .footer { padding: 30px 15px; }
+            .footer-links { gap: 15px; }
+
+            .floating-shield { display: none; }
+        }
+
+        /* ==================== PRINT STYLES ==================== */
+        @media print {
+            .header, .translate-wrapper, .scroll-top-btn, .animated-bg, .floating-shield {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+
+            .section-card {
+                break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+
+            .section-content {
+                max-height: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANIMATED BACKGROUND -->
+    <div class="animated-bg">
+        <div class="bg-gradient"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+    </div>
+
+    <!-- FLOATING SHIELD -->
+    <div class="floating-shield">
+        <i class="fas fa-shield-alt"></i>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="index.html" class="header-logo">
+            <img src="logo.png" alt="TDS Logo">
+            <span class="header-logo-text">The Diamond Store</span>
+        </a>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-btn nav-btn-home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="products.html" class="nav-btn nav-btn-products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- TRANSLATE BUTTON -->
+    <div class="translate-wrapper">
+        <button class="translate-btn" id="translateBtn" onclick="toggleTranslateDropdown()">
+            <i class="fas fa-globe"></i>
+            <span>Translate</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+        </button>
+        <div class="translate-dropdown" id="translateDropdown">
+            <div class="translate-option active" data-lang="en" onclick="translatePage('en')">
+                <i class="fas fa-check"></i>
+                English
+            </div>
+            <div class="translate-option" data-lang="hi" onclick="translatePage('hi')">
+                <i class="fas fa-language"></i>
+                हिंदी (Hindi)
+            </div>
+            <div class="translate-option" data-lang="pa" onclick="translatePage('pa')">
+                <i class="fas fa-language"></i>
+                ਪੰਜਾਬੀ (Punjabi)
+            </div>
+            <div class="translate-option" data-lang="mr" onclick="translatePage('mr')">
+                <i class="fas fa-language"></i>
+                मराठी (Marathi)
+            </div>
+            <div class="translate-option" data-lang="ta" onclick="translatePage('ta')">
+                <i class="fas fa-language"></i>
+                தமிழ் (Tamil)
+            </div>
+            <div class="translate-option" data-lang="te" onclick="translatePage('te')">
+                <i class="fas fa-language"></i>
+                తెలుగు (Telugu)
+            </div>
+            <div class="translate-option" data-lang="bn" onclick="translatePage('bn')">
+                <i class="fas fa-language"></i>
+                বাংলা (Bengali)
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div class="page-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1 class="page-title">Privacy Policy</h1>
+                <p class="page-subtitle">Your privacy matters to us. Learn how we collect, use, and protect your personal information.</p>
+                <div class="last-updated">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Last Updated: January 2025</span>
+                </div>
+            </div>
+
+            <!-- PRIVACY PROMISE BOX -->
+            <div class="promise-box">
+                <span class="promise-icon">🔒</span>
+                <h2 class="promise-title">Our Privacy Promise</h2>
+                <p class="promise-text">At The Diamond Store, we believe your personal data belongs to you. We collect only what's necessary, never sell your information, and always protect your privacy.</p>
+            </div>
+
+            <!-- QUICK NAVIGATION -->
+            <div class="quick-nav">
+                <div class="quick-nav-title">
+                    <i class="fas fa-compass"></i>
+                    Quick Navigation
+                </div>
+                <div class="quick-nav-links">
+                    <a href="#section1" class="quick-nav-link"><i class="fas fa-database"></i> Data We Collect</a>
+                    <a href="#section2" class="quick-nav-link"><i class="fas fa-question-circle"></i> Why We Collect</a>
+                    <a href="#section3" class="quick-nav-link"><i class="fas fa-lock"></i> Data Security</a>
+                    <a href="#section4" class="quick-nav-link"><i class="fas fa-share-alt"></i> Data Sharing</a>
+                    <a href="#section5" class="quick-nav-link"><i class="fas fa-cookie"></i> Cookies</a>
+                    <a href="#section6" class="quick-nav-link"><i class="fas fa-user-shield"></i> Your Rights</a>
+                    <a href="#section7" class="quick-nav-link"><i class="fas fa-child"></i> Children's Privacy</a>
+                    <a href="#section8" class="quick-nav-link"><i class="fas fa-sync"></i> Policy Updates</a>
+                </div>
+            </div>
+
+            <!-- PRIVACY SECTIONS -->
+            <div class="privacy-sections">
+                <!-- Section 1: Data We Collect -->
+                <div class="privacy-section" id="section1">
+                    <div class="section-card open">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Information We Collect</div>
+                                <div class="section-preview">What personal data we gather from you</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We collect minimal information necessary to process your orders and provide excellent service. Here's exactly what we collect:</p>
+
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Information</th>
+                                            <th>Required?</th>
+                                            <th>Purpose</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fas fa-user"></i> Your Name</td>
+                                            <td><span class="badge badge-blue">Optional</span></td>
+                                            <td>To personalize communication</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fab fa-whatsapp"></i> WhatsApp Number</td>
+                                            <td><span class="badge badge-purple">Required</span></td>
+                                            <td>To deliver your subscription & provide support</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fab fa-instagram"></i> Instagram Username</td>
+                                            <td><span class="badge badge-blue">If ordering via IG</span></td>
+                                            <td>To communicate if you order via Instagram</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-receipt"></i> Transaction ID</td>
+                                            <td><span class="badge badge-purple">For verification</span></td>
+                                            <td>To verify payment (not stored permanently)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="highlight-box success">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">What We DON'T Collect</div>
+                                        <div class="highlight-text">We do NOT collect your email address, physical address, location data, bank details, or any other sensitive information. Transaction IDs are used for verification only and not permanently stored.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>How we collect this information:</strong></p>
+                                <div class="badge-list">
+                                    <span class="badge badge-green"><i class="fab fa-whatsapp"></i> WhatsApp Chat</span>
+                                    <span class="badge badge-purple"><i class="fab fa-instagram"></i> Instagram DM</span>
+                                    <span class="badge badge-blue"><i class="fas fa-globe"></i> Website Contact</span>
+                                </div>
+
+                                <div class="highlight-box info">
+                                    <i class="fas fa-robot"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">No Automatic Data Collection</div>
+                                        <div class="highlight-text">Our website does NOT automatically collect any data about you. We don't use analytics, tracking pixels, or any form of automatic data collection.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Why We Collect -->
+                <div class="privacy-section" id="section2">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Why We Collect Your Data</div>
+                                <div class="section-preview">The purpose behind our data collection</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We only collect data for one simple reason: <strong>to process your orders and deliver your subscriptions</strong>.</p>
+
+                                <ul>
+                                    <li><strong>Order Processing:</strong> Your WhatsApp number is needed to send you subscription credentials</li>
+                                    <li><strong>Payment Verification:</strong> Transaction ID helps us confirm your payment</li>
+                                    <li><strong>Customer Support:</strong> To help you if any issues arise with your subscription</li>
+                                    <li><strong>Order Communication:</strong> To update you about your order status</li>
+                                </ul>
+
+                                <div class="highlight-box privacy">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">About Marketing & Promotions</div>
+                                        <div class="highlight-text">We post updates and offers on our <strong>Instagram page (@tdsofficial.store)</strong> for everyone to see. We do NOT send promotional DMs or marketing messages to your WhatsApp. You'll only receive messages related to your orders.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Data Security -->
+                <div class="privacy-section" id="section3">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">How We Protect Your Data</div>
+                                <div class="section-preview">Security measures we take</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We take your privacy seriously and implement multiple security measures to protect your information.</p>
+
+                                <div class="highlight-box success">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Our Security Measures</div>
+                                        <div class="highlight-text">Your data is stored securely on password and biometric-protected personal devices. We never share our devices with others.</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li><strong>Device Protection:</strong> Password and biometric (fingerprint/face) lock on all devices</li>
+                                    <li><strong>Personal Storage Only:</strong> Data stored on personal device, not shared storage</li>
+                                    <li><strong>Limited Access:</strong> Only business owner has access to customer data</li>
+                                    <li><strong>No Third-Party Storage:</strong> We don't store your data on external servers</li>
+                                    <li><strong>Regular Cleanup:</strong> Old data is deleted after subscription period ends</li>
+                                </ul>
+
+                                <p><strong>Data Retention:</strong></p>
+                                <div class="highlight-box info">
+                                    <i class="fas fa-clock"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">How Long We Keep Your Data</div>
+                                        <div class="highlight-text">We only keep your information <strong>during your active subscription period</strong>. Once your subscription ends and there are no pending issues, your data is deleted from our records.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Data Sharing -->
+                <div class="privacy-section" id="section4">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Data Sharing & Third Parties</div>
+                                <div class="section-preview">Who can access your information</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box success">
+                                    <i class="fas fa-user-secret"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">We NEVER Share or Sell Your Data</div>
+                                        <div class="highlight-text">Your personal information stays with us. We do not share, sell, rent, or trade your data to any third party for any reason.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>Third-Party Services We Use:</strong></p>
+                                <p>While we don't share your data, we do use these platforms to communicate with you:</p>
+
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Service</th>
+                                            <th>Purpose</th>
+                                            <th>Data Shared</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp</td>
+                                            <td>Order communication & delivery</td>
+                                            <td>Your messages to us</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fab fa-instagram" style="color: #E1306C;"></i> Instagram</td>
+                                            <td>Alternative communication</td>
+                                            <td>Your DMs to us</td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-wallet" style="color: #00BAF2;"></i> Paytm/UPI</td>
+                                            <td>Payment processing</td>
+                                            <td>Transaction happens on their platform</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="highlight-box warning">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Note About These Platforms</div>
+                                        <div class="highlight-text">WhatsApp, Instagram, and payment apps have their own privacy policies. When you use these services, their privacy policies apply to the data you share on their platforms.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Cookies & Tracking -->
+                <div class="privacy-section" id="section5">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-cookie-bite"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Cookies & Tracking</div>
+                                <div class="section-preview">Our cookie and tracking policy</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box success">
+                                    <i class="fas fa-cookie"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">No Cookies, No Tracking</div>
+                                        <div class="highlight-text">Our website does NOT use cookies. We do NOT track your browsing behavior, page views, or any other online activities.</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li class="cross"><strong>No Cookies:</strong> We don't store any cookies on your browser</li>
+                                    <li class="cross"><strong>No Analytics:</strong> We don't use Google Analytics or similar tools</li>
+                                    <li class="cross"><strong>No Tracking Pixels:</strong> We don't track your activity across websites</li>
+                                    <li class="cross"><strong>No Fingerprinting:</strong> We don't collect device fingerprint data</li>
+                                </ul>
+
+                                <p>Your visit to our website is completely private and anonymous. We have no way of knowing who visits our site or what pages they view.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Your Rights -->
+                <div class="privacy-section" id="section6">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Your Privacy Rights</div>
+                                <div class="section-preview">What you can request from us</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>You have full control over your personal data. Here are your rights:</p>
+
+                                <div class="rights-grid">
+                                    <div class="right-card">
+                                        <div class="right-icon"><i class="fas fa-eye"></i></div>
+                                        <div class="right-title">Right to Access</div>
+                                        <div class="right-desc">Ask us what data we have about you anytime</div>
+                                    </div>
+                                    <div class="right-card">
+                                        <div class="right-icon"><i class="fas fa-trash-alt"></i></div>
+                                        <div class="right-title">Right to Deletion</div>
+                                        <div class="right-desc">Request us to delete all your data</div>
+                                    </div>
+                                    <div class="right-card">
+                                        <div class="right-icon"><i class="fas fa-edit"></i></div>
+                                        <div class="right-title">Right to Correction</div>
+                                        <div class="right-desc">Ask us to correct any wrong information</div>
+                                    </div>
+                                    <div class="right-card">
+                                        <div class="right-icon"><i class="fas fa-question-circle"></i></div>
+                                        <div class="right-title">Right to Know</div>
+                                        <div class="right-desc">Ask how your data is being used</div>
+                                    </div>
+                                </div>
+
+                                <div class="highlight-box privacy">
+                                    <i class="fas fa-hand-point-right"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">How to Exercise Your Rights</div>
+                                        <div class="highlight-text">Simply message us on WhatsApp or Instagram and tell us what you need. We'll respond within 24-48 hours and take action accordingly.</div>
+                                    </div>
+                                </div>
+
+                                <p><strong>No Marketing Opt-Out Needed:</strong></p>
+                                <p>Since we don't send promotional messages or marketing DMs, there's no need for an opt-out option. You'll only receive messages related to your orders.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Children's Privacy -->
+                <div class="privacy-section" id="section7">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Children's Privacy</div>
+                                <div class="section-preview">Age requirements for our services</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <div class="highlight-box info">
+                                    <i class="fas fa-user-check"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Age Requirement: 13+</div>
+                                        <div class="highlight-text">Our services are available to users who are 13 years of age or older. Users under 18 should have parent/guardian consent.</div>
+                                    </div>
+                                </div>
+
+                                <ul>
+                                    <li><strong>Minimum Age:</strong> You must be at least 13 years old to use our services</li>
+                                    <li><strong>Parental Consent:</strong> Users between 13-18 should have parental permission</li>
+                                    <li><strong>Payment:</strong> Since payments require UPI/bank access, minors should purchase through parents</li>
+                                </ul>
+
+                                <p>If we discover that we've collected data from a child under 13 without parental consent, we will delete it immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Policy Updates -->
+                <div class="privacy-section" id="section8">
+                    <div class="section-card">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="section-title-wrapper">
+                                <div class="section-title">Changes to This Policy</div>
+                                <div class="section-preview">How we update this privacy policy</div>
+                            </div>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-body">
+                                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal reasons.</p>
+
+                                <ul>
+                                    <li><strong>Updates:</strong> Changes will be posted on this page</li>
+                                    <li><strong>Date:</strong> The "Last Updated" date will be changed</li>
+                                    <li><strong>Major Changes:</strong> For significant changes, we may post on Instagram</li>
+                                    <li><strong>Continued Use:</strong> Using our services after changes means you accept the new policy</li>
+                                </ul>
+
+                                <div class="highlight-box info">
+                                    <i class="fas fa-bell"></i>
+                                    <div class="highlight-content">
+                                        <div class="highlight-title">Stay Updated</div>
+                                        <div class="highlight-text">Follow our Instagram page @tdsofficial.store to stay informed about any important updates to our policies or services.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT SECTION -->
+            <div class="contact-section">
+                <h2 class="contact-title">Privacy Questions or Concerns?</h2>
+                <p class="contact-subtitle">We're here to help! Reach out anytime.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="contact-method-label">WhatsApp</div>
+                        <div class="contact-method-value">+91 9024487624</div>
+                    </div>
+                    <div class="contact-method instagram">
+                        <i class="fab fa-instagram"></i>
+                        <div class="contact-method-label">Instagram</div>
+                        <div class="contact-method-value">@tdsofficial.store</div>
+                    </div>
+                    <div class="contact-method email">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-method-label">Email</div>
+                        <div class="contact-method-value">sarsh7876@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="https://wa.me/919024487624?text=Hi! I have a question about your Privacy Policy." target="_blank" class="contact-btn contact-btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        Chat on WhatsApp
+                    </a>
+                    <a href="mailto:sarsh7876@gmail.com?subject=Privacy Policy Question - TDS" class="contact-btn contact-btn-email">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="logo.png" alt="TDS Logo">
+            <span class="footer-logo-text">The Diamond Store</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="products.html" class="footer-link">Products</a>
+            <a href="terms.html" class="footer-link">Terms of Service</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="refund.html" class="footer-link">Refund Policy</a>
+        </div>
+        <p class="copyright">
+            © <span id="currentYear"></span> <a href="https://tdsofficial.store">The Diamond Store</a>. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- GOOGLE TRANSLATE ELEMENT (Hidden) -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ==================== PARTICLES ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initScrollEffects();
+            setCurrentYear();
+            
+            // Open first section by default
+            const firstSection = document.querySelector('.section-card');
+            if (firstSection) {
+                firstSection.classList.add('open');
+            }
+        });
+
+        function createParticles() {
+            const bg = document.querySelector('.animated-bg');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (8 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                bg.appendChild(particle);
+            }
+        }
+
+        // ==================== SECTION TOGGLE ====================
+        function toggleSection(header) {
+            const card = header.parentElement;
+            const isOpen = card.classList.contains('open');
+            
+            // Close all sections
+            document.querySelectorAll('.section-card').forEach(c => {
+                c.classList.remove('open');
+            });
+            
+            // Open clicked section if it wasn't already open
+            if (!isOpen) {
+                card.classList.add('open');
+                
+                // Scroll to section smoothly
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // ==================== TRANSLATE DROPDOWN ====================
+        function toggleTranslateDropdown() {
+            const dropdown = document.getElementById('translateDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.translate-wrapper')) {
+                document.getElementById('translateDropdown').classList.remove('show');
+            }
+        });
+
+        // ==================== GOOGLE TRANSLATE ====================
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function translatePage(lang) {
+            // Update active state
+            document.querySelectorAll('.translate-option').forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.lang === lang) {
+                    opt.classList.add('active');
+                }
+            });
+
+            // Close dropdown
+            document.getElementById('translateDropdown').classList.remove('show');
+
+            // Set cookie for Google Translate
+            document.cookie = `googtrans=/en/${lang}; path=/`;
+            document.cookie = `googtrans=/en/${lang}; path=/; domain=.${window.location.hostname}`;
+
+            if (lang !== 'en') {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                } else {
+                    // Reload to trigger translation
+                    window.location.reload();
+                }
+            } else {
+                // Reset to English
+                window.location.reload();
+            }
+        }
+
+        // ==================== SCROLL EFFECTS ====================
+        function initScrollEffects() {
+            const header = document.getElementById('header');
+            const scrollBtn = document.getElementById('scrollTopBtn');
+
+            window.addEventListener('scroll', () => {
+                // Header shadow
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Scroll to top button
+                if (window.scrollY > 400) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ==================== CURRENT YEAR ====================
+        function setCurrentYear() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+
+        // ==================== SMOOTH SCROLL FOR ANCHOR LINKS ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Open the section if it's a privacy section
+                    const card = target.querySelector('.section-card');
+                    if (card) {
+                        document.querySelectorAll('.section-card').forEach(c => c.classList.remove('open'));
+                        card.classList.add('open');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Google Translate Script -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
