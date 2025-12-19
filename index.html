@@ -2002,31 +2002,63 @@
         }
 
         // ==================== REVIEW FORM ====================
-        function initReviewForm() {
-            const form = document.getElementById('reviewForm');
-            
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                if (selectedRating === 0) {
-                    alert('Please select a star rating!');
-                    return;
-                }
+function initReviewForm() {
+    const form = document.getElementById('reviewForm');
 
-                const submitBtn = document.getElementById('submitBtn');
-                submitBtn.classList.add('loading');
-                submitBtn.disabled = true;
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                form.style.display = 'none';
-                document.getElementById('formSuccess').classList.add('show');
-                
-                // Create celebration particles
-                createClickParticles(submitBtn, 'gold', 25);
-            });
+        if (selectedRating === 0) {
+            alert('Please select a star rating!');
+            return;
         }
+
+        const name = document.getElementById('reviewerName').value.trim();
+        const review = document.getElementById('reviewText').value.trim();
+
+        if (!name || !review) {
+            alert('Please fill all fields');
+            return;
+        }
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+
+        const BOT_TOKEN = "8580253991:AAFM5iWsd1uTwvlSq78ohQCylMl_VXBXvaA";
+        const CHAT_ID = "2056277427";
+
+        const message =
+`⭐ NEW REVIEW RECEIVED ⭐
+
+👤 Name: ${name}
+⭐ Rating: ${selectedRating}/5
+
+📝 Review:
+${review}
+
+🌐 Source: TDS Official Store`;
+
+        try {
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message
+                })
+            });
+
+            form.style.display = 'none';
+            document.getElementById('formSuccess').classList.add('show');
+
+        } catch (error) {
+            alert("Failed to submit review. Please try again.");
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+        }
+    });
+}
 
         // ==================== PARTICLE EFFECTS ====================
         function initParticleEffects() {
