@@ -1661,6 +1661,11 @@
             </div>
         </section>
 
+        <!-- NOTIFICATION BUTTOM -->
+        <button id="enableNotify" style="display:none;">
+  🔔 Enable Deal Alerts
+        </button>
+
         <!-- FEATURES SECTION -->
         <section class="section" id="features">
             <div class="section-header scroll-reveal">
@@ -2279,9 +2284,6 @@ updateTestimonialTimes();
 setInterval(updateTestimonialTimes, 60000);
     </script>
     <!-- Firebase Push Notifications -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
-
 <script>
 const firebaseConfig = {
   apiKey: "AIzaSyA-M6hkzI9IPfgaDVWBD6E712GO85onKQQ",
@@ -2294,13 +2296,16 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-async function initPush() {
-  if (!("Notification" in window)) return;
+const btn = document.getElementById("enableNotify");
+if (!btn) return;
 
-  if (Notification.permission === "default") {
-    const permission = await Notification.requestPermission();
-    if (permission !== "granted") return;
-  }
+if (Notification.permission === "default") {
+  btn.style.display = "block";
+}
+
+btn.addEventListener("click", async () => {
+  const permission = await Notification.requestPermission();
+  if (permission !== "granted") return;
 
   const token = await messaging.getToken({
     vapidKey: "BDJnfkCR6oD806bU2cOM9nu03SICXyO462VlhZk3J2pZriBVGoZDAKQQO0eev7LDJEaOz5RJZjC4RMMb5c58-4Q"
@@ -2308,13 +2313,9 @@ async function initPush() {
 
   console.log("FCM Token:", token);
   localStorage.setItem("tdsFCM", token);
-}
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/firebase-messaging-sw.js")
-    .then(() => initPush());
-}
+  btn.style.display = "none";
+});
 </script>
 </body>
 </html>
