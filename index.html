@@ -2346,8 +2346,7 @@ btn.onclick = async () => {
     btn.style.display = "none";
   }
 };
-</script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
 
 <script>
@@ -2361,7 +2360,14 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-navigator.serviceWorker.ready.then(async (registration) => {
+(async () => {
+  if (Notification.permission !== "granted") {
+    console.log("Notifications not granted");
+    return;
+  }
+
+  const registration = await navigator.serviceWorker.ready;
+
   const token = await messaging.getToken({
     vapidKey: "BDJnfkCR6oD806bU2cOM9nu03SICXyO462VlhZk3J2pZriBVGoZDAKQQO0eev7LDJEaOz5RJZjC4RMMb5c58-4Q",
     serviceWorkerRegistration: registration
@@ -2369,7 +2375,7 @@ navigator.serviceWorker.ready.then(async (registration) => {
 
   console.log("FCM TOKEN:", token);
   localStorage.setItem("tdsFCM", token);
-});
+})();
 </script>
 </body>
 </html>
