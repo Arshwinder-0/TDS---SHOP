@@ -153,6 +153,7 @@ button{
     <h3>Add Product Record</h3><br>
     <input id="cname" placeholder="Customer Name">
     <input id="product" placeholder="Product Name">
+    <input id="pdate" type="date">
     <input id="duration" placeholder="Duration (e.g. 1 month)">
     <button onclick="addRecord()">Add</button>
   </div>
@@ -196,10 +197,11 @@ function ms(text){
 
 function addRecord(){
   data.push({
-    name:cname.value,
-    product:product.value,
-    duration:duration.value,
-    end:Date.now()+ms(duration.value)
+    name: cname.value,
+    product: product.value,
+    purchased: pdate.value,
+    duration: duration.value,
+    end: Date.now() + ms(duration.value)
   });
   save();
 }
@@ -224,7 +226,8 @@ function render(){
       </div>
       <h3>${r.product}</h3>
       <p>👤 ${r.name}</p>
-      <p>⏳ ${exp?"Expired":time(left)}</p>
+<p>📅 Purchased: ${r.purchased || "—"}</p>
+<p>⏳ ${exp?"Expired":time(left)}</p>
       <div class="actions">
         <button class="edit" onclick="edit(${i})">Edit</button>
         <button class="delete" onclick="del(${i})">Delete</button>
