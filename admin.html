@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin | TDS Official Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --space-navy:#021228;
+  --glass-bg:rgba(255,255,255,.06);
+  --glass-border:rgba(255,255,255,.12);
+  --gold:#facc15;
+  --green:#25D366;
+  --red:#ff3366;
+  --text:#fff;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--space-navy);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* HEADER */
+.header{
+  position:fixed;top:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;
+  background:rgba(2,18,40,.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);
+  z-index:999;
+}
+.header-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;color:#fff;
+}
+.header-logo img{height:36px}
+.header-logo span{
+  font-weight:700;
+  background:linear-gradient(135deg,#facc15,#eab308);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.header a.home{
+  padding:8px 16px;
+  background:linear-gradient(135deg,#facc15,#eab308);
+  border-radius:20px;
+  text-decoration:none;
+  color:#021228;
+  font-weight:600;
+}
+
+/* MAIN */
+main{padding:90px 20px;max-width:1200px;margin:auto}
+
+/* LOGIN */
+#loginBox{
+  max-width:360px;margin:80px auto;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:20px;padding:30px;
+  box-shadow:0 0 40px rgba(250,204,21,.15);
+}
+#loginBox h2{text-align:center;margin-bottom:20px}
+input,select{
+  width:100%;padding:12px;margin-bottom:14px;
+  border-radius:14px;border:none;
+  background:rgba(255,255,255,.1);
+  color:#fff;
+}
+button{
+  width:100%;padding:12px;
+  border:none;border-radius:20px;
+  background:linear-gradient(135deg,#facc15,#eab308);
+  font-weight:700;cursor:pointer;
+}
+
+/* FORM */
+.form-box{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:30px;
+}
+
+/* PRODUCTS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px)}
+.badge{
+  position:absolute;top:14px;right:14px;
+  padding:5px 12px;
+  border-radius:14px;
+  font-size:.7rem;
+  font-weight:700;
+}
+.active{background:var(--green)}
+.expired{background:var(--red)}
+.icon img{width:50px}
+.actions{
+  display:flex;gap:10px;margin-top:15px;
+}
+.actions button{
+  flex:1;font-size:.8rem;
+}
+.delete{background:linear-gradient(135deg,#ff3366,#cc0044)}
+.edit{background:linear-gradient(135deg,#25D366,#128C7E)}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <img src="logo.png">
+    <span>TDS Official</span>
+  </a>
+  <a href="index.html" class="home">🏠 Home</a>
+</header>
+
+<main>
+
+<!-- LOGIN -->
+<div id="loginBox">
+  <h2>Admin Login</h2>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- ADMIN -->
+<div id="admin" style="display:none">
+
+  <div class="form-box">
+    <h3>Add Product Record</h3><br>
+    <input id="cname" placeholder="Customer Name">
+    <input id="product" placeholder="Product Name">
+    <input id="duration" placeholder="Duration (e.g. 1 month)">
+    <button onclick="addRecord()">Add</button>
+  </div>
+
+  <div class="grid" id="records"></div>
+</div>
+
+</main>
+
+<script>
+const USERS={
+  "Arshwinder":"SRAN7KRW",
+  "Rajinder":"RAJider001"
+};
+
+let data=JSON.parse(localStorage.getItem("tdsRecords")||"[]");
+
+function login(){
+  const u=user.value,p=pass.value;
+  if(USERS[u]===p){
+    localStorage.setItem("tdsAdmin",u);
+    loginBox.style.display="none";
+    admin.style.display="block";
+    render();
+  }else alert("Invalid login");
+}
+
+if(localStorage.getItem("tdsAdmin")){
+  loginBox.style.display="none";
+  admin.style.display="block";
+  render();
+}
+
+function ms(text){
+  const n=parseInt(text);
+  if(text.includes("month"))return n*30*864e5;
+  if(text.includes("day"))return n*864e5;
+  if(text.includes("hour"))return n*36e5;
+  return n*6e4;
+}
+
+function addRecord(){
+  data.push({
+    name:cname.value,
+    product:product.value,
+    duration:duration.value,
+    end:Date.now()+ms(duration.value)
+  });
+  save();
+}
+
+function save(){
+  localStorage.setItem("tdsRecords",JSON.stringify(data));
+  render();
+}
+
+function render(){
+  records.innerHTML="";
+  data.forEach((r,i)=>{
+    const left=r.end-Date.now();
+    const exp=left<=0;
+    records.innerHTML+=`
+    <div class="card">
+      <span class="badge ${exp?"expired":"active"}">
+        ${exp?"EXPIRED":"ACTIVE"}
+      </span>
+      <div class="icon">
+        <img src="${r.product.toLowerCase()}_logo.png" onerror="this.outerHTML='📦'">
+      </div>
+      <h3>${r.product}</h3>
+      <p>👤 ${r.name}</p>
+      <p>⏳ ${exp?"Expired":time(left)}</p>
+      <div class="actions">
+        <button class="edit" onclick="edit(${i})">Edit</button>
+        <button class="delete" onclick="del(${i})">Delete</button>
+      </div>
+    </div>`;
+  });
+}
+
+function time(ms){
+  const d=Math.floor(ms/864e5);
+  const h=Math.floor(ms%864e5/36e5);
+  return `${d}d ${h}h left`;
+}
+
+function del(i){
+  if(confirm("Delete?")&&confirm("Confirm delete")){
+    data.splice(i,1);save();
+  }
+}
+function edit(i){
+  const r=data[i];
+  r.name=prompt("Name",r.name);
+  r.product=prompt("Product",r.product);
+  r.duration=prompt("Duration",r.duration);
+  r.end=Date.now()+ms(r.duration);
+  save();
+}
+
+setInterval(render,60000);
+</script>
+
+</body>
+</html>
