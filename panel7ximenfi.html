@@ -2,111 +2,218 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Admin | TDS Official Store</title>
+<title>TDS Admin Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --space:#021228;
-  --glass:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.12);
-  --gold:#facc15;
-  --green:#25D366;
-  --red:#ff3366;
-  --text:#fff;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Poppins,sans-serif;
-  background:var(--space);
-  color:var(--text);
-  min-height:100vh;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b0f14;
+  color: #fff;
 }
 
-/* HEADER */
-header{
-  position:fixed;top:0;left:0;right:0;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 20px;
-  background:rgba(2,18,40,.9);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  z-index:999;
-}
-.logo{
-  display:flex;align-items:center;gap:10px;
-  text-decoration:none;color:#fff;
-}
-.logo img{height:36px}
-.logo span{
-  font-weight:700;
-  background:linear-gradient(135deg,#facc15,#eab308);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.home{
-  padding:8px 16px;
-  background:linear-gradient(135deg,#facc15,#eab308);
-  border-radius:20px;
-  text-decoration:none;
-  color:#021228;
-  font-weight:600;
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
 
-main{padding:90px 20px;max-width:1200px;margin:auto}
-
-/* LOGIN */
-#loginBox{
-  max-width:360px;margin:80px auto;
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:20px;padding:30px;
-  box-shadow:0 0 40px rgba(250,204,21,.15);
-}
-#loginBox h2{text-align:center;margin-bottom:20px}
-
-input{
-  width:100%;padding:12px;margin-bottom:14px;
-  border-radius:14px;border:none;
-  background:rgba(255,255,255,.1);
-  color:#fff;
-}
-button{
-  width:100%;padding:12px;
-  border:none;border-radius:20px;
-  background:linear-gradient(135deg,#facc15,#eab308);
-  font-weight:700;cursor:pointer;
+h1, h2 {
+  text-align: center;
+  color: #facc15;
 }
 
-/* FORM */
-.form{
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:30px;
+.card {
+  background: #111827;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 20px rgba(250,204,21,0.08);
 }
 
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:20px;
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
 }
-.card{
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:20px;
-  position:relative;
-  transition:.3s;
+
+input {
+  background: #020617;
+  color: #fff;
 }
-.card:hover{transform:translateY(-6px)}
-.badge{
-  position:absolute;top:14px;right:14px;
-  padding:5px 12px;
+
+button {
+  background: #facc15;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+button.secondary {
+  background: #1f2933;
+  color: #fff;
+}
+
+.hidden { display: none; }
+
+.product {
+  border-left: 4px solid #22c55e;
+}
+
+.expired {
+  border-left-color: #ef4444;
+  opacity: 0.75;
+}
+
+small {
+  color: #9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="loginBox" class="card">
+    <h2>Admin Login</h2>
+    <input id="user" placeholder="Username">
+    <input id="pass" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginError" style="color:red;text-align:center;"></p>
+  </div>
+
+  <!-- PANEL -->
+  <div id="panel" class="hidden">
+
+    <h1>TDS Admin Panel</h1>
+
+    <!-- ADD PRODUCT -->
+    <div class="card">
+      <h2>Add Record</h2>
+      <input id="name" placeholder="Customer Name">
+      <input id="product" placeholder="Product Name">
+      <input id="date" type="date">
+      <input id="duration" placeholder="Duration (days)">
+      <button onclick="addRecord()">Add</button>
+    </div>
+
+    <!-- RECORDS -->
+    <div id="records"></div>
+
+  </div>
+</div>
+
+<script>
+/* ================= LOGIN ================= */
+
+const USERS = [
+  { u: "Arshwinder", p: "SRAN7KRW" },
+  { u: "Rajinder", p: "RAJider001" }
+];
+
+function login() {
+  const u = user.value.trim();
+  const p = pass.value.trim();
+
+  const ok = USERS.some(x => x.u === u && x.p === p);
+  if (!ok) {
+    loginError.textContent = "Invalid login";
+    return;
+  }
+
+  sessionStorage.setItem("tdsAdmin", "1");
+  loginBox.classList.add("hidden");
+  panel.classList.remove("hidden");
+  render();
+}
+
+if (sessionStorage.getItem("tdsAdmin")) {
+  loginBox.classList.add("hidden");
+  panel.classList.remove("hidden");
+  render();
+}
+
+/* ================= DATA ================= */
+
+let data = JSON.parse(localStorage.getItem("tdsData") || "[]");
+
+function save() {
+  localStorage.setItem("tdsData", JSON.stringify(data));
+}
+
+/* ================= ADD ================= */
+
+function addRecord() {
+  if (!name.value || !product.value || !date.value || !duration.value) {
+    alert("Fill all fields");
+    return;
+  }
+
+  data.push({
+    id: Date.now(),
+    name: name.value,
+    product: product.value,
+    date: date.value,
+    duration: Number(duration.value)
+  });
+
+  save();
+  render();
+
+  name.value = product.value = duration.value = "";
+}
+
+/* ================= RENDER ================= */
+
+function render() {
+  records.innerHTML = "";
+
+  data.forEach(item => {
+    const start = new Date(item.date);
+    const end = new Date(start);
+    end.setDate(end.getDate() + item.duration);
+
+    const now = new Date();
+    const expired = now > end;
+
+    const div = document.createElement("div");
+    div.className = "card product " + (expired ? "expired" : "");
+
+    div.innerHTML = `
+      <b>${item.name}</b><br>
+      ${item.product}<br>
+      <small>Purchased: ${item.date}</small><br>
+      <small>Expires: ${end.toDateString()}</small><br>
+      <small>Status: ${expired ? "❌ Expired" : "✅ Active"}</small>
+      <br><br>
+      <button class="secondary" onclick="edit(${item.id})">Edit</button>
+      <button class="danger" onclick="del(${item.id})">Delete</button>
+    `;
+
+    records.appendChild(div);
+  });
+}
+
+/* ================= EDIT ================= */
+
+function edit(id) {
+  const i = data.find(x => x.id === id);
+  if (!i) return;
+
+  const newDur = prompt("New duration (days)", i.duration);
+  if (!newDur) return;
+
+  i.duration = Number(new  padding:5px 12px;
   border-radius:14px;
   font-size:.7rem;
   font-weight:700;
