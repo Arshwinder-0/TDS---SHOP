@@ -43,4 +43,45 @@ No frameworks. No libraries. No backend.
 
 ---
 
-## 📂 Project Structure
+The admin panel is intentionally not linked anywhere on the site.
+
+---
+
+## ⚠️ Important Notes
+
+- This is a **static project**
+- Admin data is stored in **browser LocalStorage**
+- Records are **device & browser specific**
+- Other admins will NOT see the same data unless a backend is added
+
+This project is designed for **personal tracking**, not multi-admin collaboration.
+
+---
+
+## 🚀 Future Improvements (Planned / Possible)
+
+- Firebase / Supabase backend for shared data
+- Role-based admin access
+- Push notifications
+- Cloud-based product records
+- Analytics dashboard
+
+---
+
+## 👨‍💻 Author
+
+**Arshwinder**  
+Founder – TDS Official Store  
+
+> Built with curiosity, mistakes, learning, and zero fake shortcuts.
+
+---
+
+## 🦉 Final Note
+
+This project represents real growth:
+- From copy-paste to understanding
+- From design to system thinking
+- From “why doesn’t this work?” to “how should this work?”
+
+Keep building.
