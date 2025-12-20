@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>TDS Admin Panel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
   background: #0b0f14;
   color: #fff;
 }
@@ -26,10 +26,10 @@ h1, h2 {
 
 .card {
   background: #111827;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 16px;
   margin-bottom: 16px;
-  box-shadow: 0 0 20px rgba(250,204,21,0.08);
+  box-shadow: 0 0 25px rgba(250,204,21,0.08);
 }
 
 input, button {
@@ -52,17 +52,19 @@ button {
   cursor: pointer;
 }
 
+button.secondary {
+  background: #1f2937;
+  color: #fff;
+}
+
 button.danger {
   background: #ef4444;
   color: #fff;
 }
 
-button.secondary {
-  background: #1f2933;
-  color: #fff;
+.hidden {
+  display: none;
 }
-
-.hidden { display: none; }
 
 .product {
   border-left: 4px solid #22c55e;
@@ -70,7 +72,24 @@ button.secondary {
 
 .expired {
   border-left-color: #ef4444;
-  opacity: 0.75;
+  opacity: 0.8;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.active-badge {
+  background: #22c55e;
+  color: #000;
+}
+
+.expired-badge {
+  background: #ef4444;
 }
 
 small {
@@ -86,27 +105,175 @@ small {
   <!-- LOGIN -->
   <div id="loginBox" class="card">
     <h2>Admin Login</h2>
-    <input id="user" placeholder="Username">
-    <input id="pass" type="password" placeholder="Password">
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <label>
+      <input type="checkbox" id="remember"> Remember me
+    </label>
     <button onclick="login()">Login</button>
-    <p id="loginError" style="color:red;text-align:center;"></p>
+    <p id="loginError" style="color:#ef4444;text-align:center;"></p>
   </div>
 
   <!-- PANEL -->
   <div id="panel" class="hidden">
 
-    <h1>TDS Admin Panel</h1>
+    <h1>TDS Subscription Tracker</h1>
 
-    <!-- ADD PRODUCT -->
+    <!-- ADD RECORD -->
     <div class="card">
-      <h2>Add Record</h2>
-      <input id="name" placeholder="Customer Name">
-      <input id="product" placeholder="Product Name">
-      <input id="date" type="date">
-      <input id="duration" placeholder="Duration (days)">
+      <h2>Add Subscription</h2>
+      <input id="custName" placeholder="Customer Name">
+      <input id="productName" placeholder="Product Name">
+      <input id="purchaseDate" type="date">
+      <input id="durationDays" type="number" placeholder="Duration (days)">
       <button onclick="addRecord()">Add</button>
     </div>
 
+    <!-- RECORDS -->
+    <div id="records"></div>
+
+  </div>
+</div>
+
+<script>
+/* ================= LOGIN ================= */
+
+const USERNAME = "Arshwinder";
+const PASSWORD = "ADMIN";
+
+function login() {
+  const u = username.value.trim();
+  const p = password.value.trim();
+
+  if (u !== USERNAME || p !== PASSWORD) {
+    loginError.textContent = "Wrong username or password";
+    return;
+  }
+
+  if (remember.checked) {
+    localStorage.setItem("tdsLoggedIn", "yes");
+  } else {
+    sessionStorage.setItem("tdsLoggedIn", "yes");
+  }
+
+  showPanel();
+}
+
+function showPanel() {
+  loginBox.classList.add("hidden");
+  panel.classList.remove("hidden");
+  render();
+}
+
+if (
+  localStorage.getItem("tdsLoggedIn") === "yes" ||
+  sessionStorage.getItem("tdsLoggedIn") === "yes"
+) {
+  showPanel();
+}
+
+/* ================= DATA ================= */
+
+let data = JSON.parse(localStorage.getItem("tdsData") || "[]");
+
+function save() {
+  localStorage.setItem("tdsData", JSON.stringify(data));
+}
+
+/* ================= ADD ================= */
+
+function addRecord() {
+  if (
+    !custName.value ||
+    !productName.value ||
+    !purchaseDate.value ||
+    !durationDays.value
+  ) {
+    alert("Fill all fields");
+    return;
+  }
+
+  data.push({
+    id: Date.now(),
+    name: custName.value,
+    product: productName.value,
+    date: purchaseDate.value,
+    duration: Number(durationDays.value)
+  });
+
+  save();
+  render();
+
+  custName.value = "";
+  productName.value = "";
+  durationDays.value = "";
+}
+
+/* ================= RENDER ================= */
+
+function render() {
+  records.innerHTML = "";
+
+  data.forEach(item => {
+    const start = new Date(item.date);
+    const end = new Date(start);
+    end.setDate(end.getDate() + item.duration);
+
+    const now = new Date();
+    const expired = now > end;
+
+    const div = document.createElement("div");
+    div.className = "card product " + (expired ? "expired" : "");
+
+    div.innerHTML = `
+      <b>${item.name}</b><br>
+      ${item.product}<br><br>
+
+      <small>Purchased: ${start.toDateString()}</small><br>
+      <small>Expires: ${end.toDateString()}</small><br><br>
+
+      <span class="badge ${expired ? "expired-badge" : "active-badge"}">
+        ${expired ? "Expired" : "Active"}
+      </span>
+
+      <br><br>
+
+      <button class="secondary" onclick="editRecord(${item.id})">Edit</button>
+      <button class="danger" onclick="deleteRecord(${item.id})">Delete</button>
+    `;
+
+    records.appendChild(div);
+  });
+}
+
+/* ================= EDIT ================= */
+
+function editRecord(id) {
+  const item = data.find(x => x.id === id);
+  if (!item) return;
+
+  const newDur = prompt("Enter new duration (days):", item.duration);
+  if (!newDur) return;
+
+  item.duration = Number(newDur);
+  save();
+  render();
+}
+
+/* ================= DELETE (2 STEP) ================= */
+
+function deleteRecord(id) {
+  if (!confirm("Do you really want to delete this record?")) return;
+  if (!confirm("This action cannot be undone. Confirm again.")) return;
+
+  data = data.filter(x => x.id !== id);
+  save();
+  render();
+}
+</script>
+
+</body>
+</html>
     <!-- RECORDS -->
     <div id="records"></div>
 
