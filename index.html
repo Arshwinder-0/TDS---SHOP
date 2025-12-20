@@ -1635,7 +1635,13 @@ display:block;
 ">
 🔔 ENABLE NOTIFICATIONS
         </button>
-
+<script>
+document.getElementById("notifyBtn").addEventListener("click", async () => {
+  const result = await Notification.requestPermission();
+  alert("Permission result: " + result);
+});
+</script>
+        
         <!-- PRODUCTS SECTION -->
         <section class="section" id="products">
             <div class="section-header scroll-reveal">
