@@ -198,28 +198,6 @@
             100% { transform: translateX(calc(100vw + 100px)) translateY(200px); opacity: 0; }
         }
 
-        .notify-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 99999;
-
-  padding: 14px 22px;
-  border-radius: 30px;
-  border: none;
-
-  background: linear-gradient(135deg, #facc15, #eab308);
-  color: #021228;
-  font-weight: 700;
-  font-size: 14px;
-
-  box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
-  cursor: pointer;
-
-  display: none;
-        }
-
         /* ==================== HEADER ==================== */
         .header {
             position: fixed;
@@ -1596,14 +1574,7 @@
                     </a>
                 </div>
 
-                <button
-  style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
-         z-index:999999;padding:12px 20px;font-size:14px;"
-  onclick="alert(localStorage.getItem('tdsFCM'))">
-  🔍 CHECK FCM TOKEN
-                </button>
-
-                <!-- Stats Bar -->
+                                <!-- Stats Bar -->
                 <div class="stats-bar scroll-reveal">
                     <div class="stat-item">
                         <div class="stat-number" data-target="50" data-suffix="+">0</div>
@@ -1621,33 +1592,7 @@
                 </div>
             </div>
         </section>
-
-        <button id="notifyBtn"
-style="
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-z-index:2147483647;
-padding:16px 26px;
-border-radius:999px;
-border:none;
-background:#facc15;
-color:#000;
-font-size:16px;
-font-weight:700;
-box-shadow:0 0 25px rgba(250,204,21,0.9);
-cursor:pointer;
-display:block;
-">
-🔔 ENABLE NOTIFICATIONS
-        </button>
-<script>
-document.getElementById("notifyBtn").addEventListener("click", async () => {
-  const result = await Notification.requestPermission();
-  alert("Permission result: " + result);
-});
-</script>
+        
         
         <!-- PRODUCTS SECTION -->
         <section class="section" id="products">
@@ -2335,51 +2280,5 @@ updateTestimonialTimes();
 // Update every 1 minute
 setInterval(updateTestimonialTimes, 60000);
     </script>
-    <!-- Firebase Push Notifications -->
-<script>
-if ("serviceWorker" in navigator) {
-}
-    <script>
-const btn = document.getElementById("notifyBtn");
-
-if ("Notification" in window && Notification.permission === "default") {
-  btn.style.display = "block";
-}
-
-btn.onclick = async () => {
-  const permission = await Notification.requestPermission();
-  if (permission === "granted") {
-    btn.style.display = "none";
-  }
-};
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
-
-<script>
-firebase.initializeApp({
-  apiKey: "AIzaSyA-M6hkzI9IPfgaDVWBD6E712GO85onKQQ",
-  authDomain: "tds-notifications-9fc56.firebaseapp.com",
-  projectId: "tds-notifications-9fc56",
-  messagingSenderId: "775343258792",
-  appId: "1:775343258792:web:145f08b58da349d830569d"
-});
-
-const messaging = firebase.messaging();
-
-// WAIT for service worker to be ready
-navigator.serviceWorker.ready.then(async (registration) => {
-  try {
-    const token = await messaging.getToken({
-      vapidKey: "BDJnfkCR6oD806bU2cOM9nu03SICXyO462VlhZk3J2pZriBVGoZDAKQQO0eev7LDJEaOz5RJZjC4RMMb5c58-4Q",
-      serviceWorkerRegistration: registration
-    });
-
-    console.log("FCM TOKEN:", token);
-    localStorage.setItem("tdsFCM", token);
-  } catch (err) {
-    console.error("FCM ERROR:", err);
-  }
-});
-</script>
 </body>
 </html>
