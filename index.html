@@ -2347,5 +2347,29 @@ btn.onclick = async () => {
   }
 };
 </script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyA-M6hkzI9IPfgaDVWBD6E712GO85onKQQ",
+  authDomain: "tds-notifications-9fc56.firebaseapp.com",
+  projectId: "tds-notifications-9fc56",
+  messagingSenderId: "775343258792",
+  appId: "1:775343258792:web:145f08b58da349d830569d"
+});
+
+const messaging = firebase.messaging();
+
+navigator.serviceWorker.ready.then(async (registration) => {
+  const token = await messaging.getToken({
+    vapidKey: "BDJnfkCR6oD806bU2cOM9nu03SICXyO462VlhZk3J2pZriBVGoZDAKQQO0eev7LDJEaOz5RJZjC4RMMb5c58-4Q",
+    serviceWorkerRegistration: registration
+  });
+
+  console.log("FCM TOKEN:", token);
+  localStorage.setItem("tdsFCM", token);
+});
+</script>
 </body>
 </html>
