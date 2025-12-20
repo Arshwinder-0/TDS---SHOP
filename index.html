@@ -1593,6 +1593,8 @@
             </div>
         </section>
 
+        <button id="notifyBtn" style="display:none;">Enable Notifications</button>
+
         <!-- PRODUCTS SECTION -->
         <section class="section" id="products">
             <div class="section-header scroll-reveal">
@@ -2284,5 +2286,19 @@ setInterval(updateTestimonialTimes, 60000);
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/sw.js");
 }
+    <script>
+const btn = document.getElementById("notifyBtn");
+
+if ("Notification" in window && Notification.permission === "default") {
+  btn.style.display = "block";
+}
+
+btn.onclick = async () => {
+  const permission = await Notification.requestPermission();
+  if (permission === "granted") {
+    btn.style.display = "none";
+  }
+};
+</script>
 </body>
 </html>
