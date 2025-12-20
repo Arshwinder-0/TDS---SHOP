@@ -1662,7 +1662,20 @@
         </section>
 
         <!-- NOTIFICATION BUTTOM -->
-        <button id="enableNotify" style="display:none;">
+        <button id="enableNotify"
+  style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999999;
+    padding: 14px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,#facc15,#f59e0b);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 0 20px rgba(250,204,21,0.6);
+  ">
   🔔 Enable Deal Alerts
         </button>
 
@@ -2299,9 +2312,6 @@ const messaging = firebase.messaging();
 const btn = document.getElementById("enableNotify");
 if (!btn) return;
 
-if (Notification.permission === "default") {
-  btn.style.display = "block";
-}
 
 btn.addEventListener("click", async () => {
   const permission = await Notification.requestPermission();
