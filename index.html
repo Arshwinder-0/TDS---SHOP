@@ -2367,22 +2367,20 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-(async () => {
-  if (Notification.permission !== "granted") {
-    console.log("Notifications not granted");
-    return;
+// WAIT for service worker to be ready
+navigator.serviceWorker.ready.then(async (registration) => {
+  try {
+    const token = await messaging.getToken({
+      vapidKey: "BDJnfkCR6oD806bU2cOM9nu03SICXyO462VlhZk3J2pZriBVGoZDAKQQO0eev7LDJEaOz5RJZjC4RMMb5c58-4Q",
+      serviceWorkerRegistration: registration
+    });
+
+    console.log("FCM TOKEN:", token);
+    localStorage.setItem("tdsFCM", token);
+  } catch (err) {
+    console.error("FCM ERROR:", err);
   }
-
-  const registration = await navigator.serviceWorker.ready;
-
-  const token = await messaging.getToken({
-    vapidKey: "BDJnfkCR6oD806bU2cOM9nu03SICXyO462VlhZk3J2pZriBVGoZDAKQQO0eev7LDJEaOz5RJZjC4RMMb5c58-4Q",
-    serviceWorkerRegistration: registration
-  });
-
-  console.log("FCM TOKEN:", token);
-  localStorage.setItem("tdsFCM", token);
-})();
+});
 </script>
 </body>
 </html>
