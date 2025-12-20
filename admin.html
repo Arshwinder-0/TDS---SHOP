@@ -196,13 +196,16 @@ function ms(text){
 }
 
 function addRecord(){
+  const purchaseTime = new Date(pdate.value).getTime();
+
   data.push({
     name: cname.value,
     product: product.value,
     purchased: pdate.value,
     duration: duration.value,
-    end: Date.now() + ms(duration.value)
+    end: purchaseTime + ms(duration.value)
   });
+
   save();
 }
 
