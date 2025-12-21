@@ -61,24 +61,32 @@ main{padding:90px 20px;max-width:1200px;margin:auto}
 
 /* LOGIN */
 #loginBox{
-  max-width:360px;margin:80px auto;
+  max-width:360px;
+  margin:120px auto;
   background:var(--glass-bg);
   border:1px solid var(--glass-border);
-  border-radius:20px;padding:30px;
+  border-radius:20px;
+  padding:30px;
   box-shadow:0 0 40px rgba(250,204,21,.15);
 }
 #loginBox h2{text-align:center;margin-bottom:20px}
 input{
-  width:100%;padding:12px;margin-bottom:14px;
-  border-radius:14px;border:none;
+  width:100%;
+  padding:12px;
+  margin-bottom:14px;
+  border-radius:14px;
+  border:none;
   background:rgba(255,255,255,.1);
   color:#fff;
 }
 button{
-  width:100%;padding:12px;
-  border:none;border-radius:20px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:20px;
   background:linear-gradient(135deg,#facc15,#eab308);
-  font-weight:700;cursor:pointer;
+  font-weight:700;
+  cursor:pointer;
 }
 
 /* FORM */
@@ -106,7 +114,9 @@ button{
 }
 .card:hover{transform:translateY(-6px)}
 .badge{
-  position:absolute;top:14px;right:14px;
+  position:absolute;
+  top:14px;
+  right:14px;
   padding:5px 12px;
   border-radius:14px;
   font-size:.7rem;
@@ -116,22 +126,31 @@ button{
 .expired{background:var(--red)}
 .icon img{width:50px}
 .actions{
-  display:flex;gap:10px;margin-top:15px;
+  display:flex;
+  gap:10px;
+  margin-top:15px;
 }
-.actions button{flex:1;font-size:.8rem}
+.actions button{
+  flex:1;
+  font-size:.8rem;
+}
 .delete{background:linear-gradient(135deg,#ff3366,#cc0044)}
 .edit{background:linear-gradient(135deg,#25D366,#128C7E)}
+
+@media(max-width:600px){
+  #loginBox{margin:140px 16px}
+}
 </style>
 </head>
 
 <body>
 
 <header class="header">
-  <a href="index.html" class="header-logo">
+  <a href="/" class="header-logo">
     <img src="logo.png">
     <span>TDS Official</span>
   </a>
-  <a href="index.html" class="home">🏠 Home</a>
+  <a href="/" class="home">🏠 Home</a>
 </header>
 
 <main>
@@ -164,7 +183,10 @@ const USERS={
   "Rajinder":"RAJider001"
 };
 
-/* PRE-ADDED RECORDS */
+const loginBox=document.getElementById("loginBox");
+const admin=document.getElementById("admin");
+
+/* PRE-ADDED SHARED RECORDS */
 let data = JSON.parse(localStorage.getItem("tdsRecords")) || [
   {name:"Pirtpal",product:"Amazon Prime",purchased:"19-12-25",duration:"1 month",end:new Date(2025,11,19).getTime()+30*864e5},
   {name:"Rai",product:"Netflix 4k",purchased:"19-12-25",duration:"1 month",end:new Date(2025,11,19).getTime()+30*864e5},
@@ -172,8 +194,17 @@ let data = JSON.parse(localStorage.getItem("tdsRecords")) || [
   {name:"Manpreet",product:"YouTube",purchased:"21-12-25",duration:"1 month",end:new Date(2025,11,21).getTime()+30*864e5}
 ];
 
+if(localStorage.getItem("tdsAdmin")){
+  loginBox.style.display="none";
+  admin.style.display="block";
+  render();
+}
+
 function login(){
-  if(USERS[user.value]===pass.value){
+  const u=user.value.trim();
+  const p=pass.value.trim();
+  if(USERS[u]===p){
+    localStorage.setItem("tdsAdmin",u);
     loginBox.style.display="none";
     admin.style.display="block";
     render();
@@ -191,7 +222,6 @@ function ms(text){
 function addRecord(){
   const [y,m,d]=pdate.value.split("-");
   const purchaseTime=new Date(y,m-1,d).getTime();
-
   data.push({
     name:cname.value,
     product:product.value,
@@ -199,7 +229,6 @@ function addRecord(){
     duration:duration.value,
     end:purchaseTime+ms(duration.value)
   });
-
   localStorage.setItem("tdsRecords",JSON.stringify(data));
   render();
 }
@@ -253,162 +282,6 @@ function edit(i){
 
 setInterval(render,60000);
 render();
-</script>
-
-</body>
-</html>  position:absolute;top:14px;right:14px;
-  padding:5px 12px;
-  border-radius:14px;
-  font-size:.7rem;
-  font-weight:700;
-}
-.active{background:var(--green)}
-.expired{background:var(--red)}
-.icon img{width:50px}
-.actions{
-  display:flex;gap:10px;margin-top:15px;
-}
-.actions button{
-  flex:1;font-size:.8rem;
-}
-.delete{background:linear-gradient(135deg,#ff3366,#cc0044)}
-.edit{background:linear-gradient(135deg,#25D366,#128C7E)}
-</style>
-</head>
-
-<body>
-
-<header class="header">
-  <a href="index.html" class="header-logo">
-    <img src="logo.png">
-    <span>TDS Official</span>
-  </a>
-  <a href="index.html" class="home">🏠 Home</a>
-</header>
-
-<main>
-
-<!-- LOGIN -->
-<div id="loginBox">
-  <h2>Admin Login</h2>
-  <input id="user" placeholder="Username">
-  <input id="pass" type="password" placeholder="Password">
-  <button onclick="login()">Login</button>
-</div>
-
-<!-- ADMIN -->
-<div id="admin" style="display:none">
-
-  <div class="form-box">
-    <input id="cname" placeholder="Customer Name">
-<input id="product" placeholder="Product Name">
-<input id="pdate" type="date">
-<input id="duration" placeholder="Duration (e.g. 1 month)">
-    <button onclick="addRecord()">Add</button>
-  </div>
-
-  <div class="grid" id="records"></div>
-</div>
-
-</main>
-
-<script>
-const USERS={
-  "Arshwinder":"SRAN7KRW",
-  "Rajinder":"RAJider001"
-};
-
-let data=JSON.parse(localStorage.getItem("tdsRecords")||"[]");
-
-function login(){
-  const u=user.value,p=pass.value;
-  if(USERS[u]===p){
-    localStorage.setItem("tdsAdmin",u);
-    loginBox.style.display="none";
-    admin.style.display="block";
-    render();
-  }else alert("Invalid login");
-}
-
-if(localStorage.getItem("tdsAdmin")){
-  loginBox.style.display="none";
-  admin.style.display="block";
-  render();
-}
-
-function ms(text){
-  const n=parseInt(text);
-  if(text.includes("month"))return n*30*864e5;
-  if(text.includes("day"))return n*864e5;
-  if(text.includes("hour"))return n*36e5;
-  return n*6e4;
-}
-
-function addRecord(){
-  const purchaseTime = new Date(pdate.value).getTime();
-
-  data.push({
-    name: cname.value,
-    product: product.value,
-    purchased: pdate.value,
-    duration: duration.value,
-    end: purchaseTime + ms(duration.value)
-  });
-
-  save();
-}
-
-function save(){
-  localStorage.setItem("tdsRecords",JSON.stringify(data));
-  render();
-}
-
-function render(){
-  records.innerHTML="";
-  data.forEach((r,i)=>{
-    const left=r.end-Date.now();
-    const exp=left<=0;
-    records.innerHTML+=`
-    <div class="card">
-      <span class="badge ${exp?"expired":"active"}">
-        ${exp?"EXPIRED":"ACTIVE"}
-      </span>
-      <div class="icon">
-        <img src="${r.product.toLowerCase()}_logo.png" onerror="this.outerHTML='📦'">
-      </div>
-      <h3>${r.product}</h3>
-     <p>👤 ${r.name}</p>
-<p>📅 Purchased: ${r.purchased || "—"}</p>
-<p>⏳ ${exp?"Expired":time(left)}</p>
-      <div class="actions">
-        <button class="edit" onclick="edit(${i})">Edit</button>
-        <button class="delete" onclick="del(${i})">Delete</button>
-      </div>
-    </div>`;
-  });
-}
-
-function time(ms){
-  const d=Math.floor(ms/864e5);
-  const h=Math.floor(ms%864e5/36e5);
-  return `${d}d ${h}h left`;
-}
-
-function del(i){
-  if(confirm("Delete?")&&confirm("Confirm delete")){
-    data.splice(i,1);save();
-  }
-}
-function edit(i){
-  const r=data[i];
-  r.name=prompt("Name",r.name);
-  r.product=prompt("Product",r.product);
-  r.duration=prompt("Duration",r.duration);
-  r.end=Date.now()+ms(r.duration);
-  save();
-}
-
-setInterval(render,60000);
 </script>
 
 </body>
