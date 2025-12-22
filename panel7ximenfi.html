@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,6 +74,20 @@
             }
         }
 
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
         /* Login Page */
         .login-container {
             display: flex;
@@ -146,7 +159,7 @@
             position: relative;
         }
 
-        .input-group i {
+        .input-group i.input-icon {
             position: absolute;
             left: 20px;
             top: 50%;
@@ -157,7 +170,7 @@
 
         .input-group input {
             width: 100%;
-            padding: 18px 20px 18px 55px;
+            padding: 18px 50px 18px 55px;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 14px;
@@ -176,9 +189,38 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        .input-group input:focus + i,
-        .input-group input:focus ~ i {
+        .input-group input:focus + i.input-icon {
             color: var(--primary);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .toggle-password:hover {
+            color: white;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
         }
 
         .login-btn {
@@ -309,14 +351,19 @@
             gap: 20px;
         }
 
-        .admin-name {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
+        .admin-info {
+            text-align: right;
         }
 
-        .admin-name span {
+        .admin-name {
             color: white;
             font-weight: 600;
+            font-size: 16px;
+        }
+
+        .last-login {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
         }
 
         .logout-btn {
@@ -356,6 +403,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: scaleIn 0.5s ease forwards;
             opacity: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
 
         .stat-card:nth-child(1) { animation-delay: 0.1s; }
@@ -400,12 +452,117 @@
             font-weight: 700;
         }
 
+        /* Controls Section */
+        .controls-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .product-filter {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-filter:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .product-filter option {
+            background: #1e1b4b;
+            color: white;
+        }
+
         /* Products Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
         .section-title {
             color: white;
             font-size: 22px;
             font-weight: 700;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -415,9 +572,14 @@
             color: var(--primary);
         }
 
+        .results-count {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 20px;
         }
 
@@ -432,13 +594,24 @@
             opacity: 0;
         }
 
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.15s; }
-        .product-card:nth-child(3) { animation-delay: 0.2s; }
-        .product-card:nth-child(4) { animation-delay: 0.25s; }
-        .product-card:nth-child(5) { animation-delay: 0.3s; }
-        .product-card:nth-child(6) { animation-delay: 0.35s; }
-        .product-card:nth-child(7) { animation-delay: 0.4s; }
+        .product-card.new-badge::before {
+            content: 'NEW';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        .product-card {
+            position: relative;
+        }
 
         @keyframes cardSlide {
             from {
@@ -466,33 +639,50 @@
 
         .product-info h3 {
             color: white;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         .product-name {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            font-weight: 500;
         }
 
         .product-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 20px;
+            overflow: hidden;
+        }
+
+        .product-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-icon.prime { background: linear-gradient(135deg, #00a8e1, #232f3e); }
         .product-icon.netflix { background: linear-gradient(135deg, #e50914, #b20710); }
         .product-icon.youtube { background: linear-gradient(135deg, #ff0000, #cc0000); }
-        .product-icon.chaupal { background: linear-gradient(135deg, #ff6b00, #ff9500); }
+        .product-icon.chaupal { background: #ff6b00; }
+        .product-icon.google { background: white; }
+        .product-icon.chatgpt { background: #10a37f; }
+        .product-icon.capcut { background: #000000; }
+        .product-icon.claude { background: #cc785c; }
+        .product-icon.duolingo { background: #58cc02; }
+        .product-icon.perplexity { background: #1a1a2e; }
+        .product-icon.zee5 { background: #8230c6; }
+        .product-icon.hotstar { background: linear-gradient(135deg, #0c3b5e, #1c5d8d); }
 
         .status-badge {
             padding: 8px 16px;
@@ -530,8 +720,8 @@
 
         .detail-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 12px 15px;
-            border-radius: 10px;
+            padding: 14px 16px;
+            border-radius: 12px;
         }
 
         .detail-label {
@@ -539,12 +729,12 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .detail-value {
             color: white;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
         }
 
@@ -573,7 +763,7 @@
             background: rgba(99, 102, 241, 0.2);
             padding: 12px 15px;
             border-radius: 10px;
-            min-width: 60px;
+            min-width: 65px;
         }
 
         .timer-block.expired-timer {
@@ -626,6 +816,33 @@
             background: linear-gradient(90deg, var(--danger), #f87171);
         }
 
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .no-results i {
+            font-size: 60px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .no-results h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header {
@@ -636,6 +853,20 @@
 
             .header-left {
                 flex-direction: column;
+            }
+
+            .header-right {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .admin-info {
+                text-align: center;
+            }
+
+            .logout-btn {
+                width: 100%;
+                justify-content: center;
             }
 
             .products-grid {
@@ -652,6 +883,19 @@
 
             .login-box {
                 padding: 40px 25px;
+            }
+
+            .controls-section {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .filter-group {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -684,15 +928,20 @@
                 <i class="fas fa-exclamation-circle"></i> Invalid username or password
             </div>
 
-            <form id="loginForm">
+            <form id="loginForm" autocomplete="on">
                 <div class="input-group">
-                    <input type="text" id="username" placeholder="Username" required>
-                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Username" autocomplete="username" required>
+                    <i class="fas fa-user input-icon"></i>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" placeholder="Password" required>
-                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+                    <i class="fas fa-lock input-icon"></i>
+                    <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
                 </div>
+                <label class="remember-me">
+                    <input type="checkbox" id="rememberMe" checked>
+                    <span>Remember me</span>
+                </label>
                 <button type="submit" class="login-btn">
                     <i class="fas fa-sign-in-alt"></i> Login
                 </button>
@@ -708,8 +957,9 @@
                 <h1 class="header-title">Admin Dashboard</h1>
             </div>
             <div class="header-right">
-                <div class="admin-name">
-                    Welcome, <span id="adminName">Admin</span>
+                <div class="admin-info">
+                    <div class="admin-name" id="adminName">Admin</div>
+                    <div class="last-login" id="lastLogin">Last login: --</div>
                 </div>
                 <button class="logout-btn" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
@@ -724,7 +974,7 @@
                     <i class="fas fa-box"></i>
                 </div>
                 <div class="stat-label">Total Subscriptions</div>
-                <div class="stat-value" id="totalCount">10</div>
+                <div class="stat-value" id="totalCount">0</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon active">
@@ -742,13 +992,42 @@
             </div>
         </div>
 
+        <!-- Controls -->
+        <div class="controls-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name or product..." oninput="filterProducts()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+                <button class="filter-btn" data-filter="active" onclick="setFilter('active')">Active</button>
+                <button class="filter-btn" data-filter="expired" onclick="setFilter('expired')">Expired</button>
+            </div>
+            <select class="product-filter" id="productFilter" onchange="filterProducts()">
+                <option value="all">All Products</option>
+            </select>
+        </div>
+
         <!-- Products -->
-        <h2 class="section-title">
-            <i class="fas fa-list"></i> Active Subscriptions
-        </h2>
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-list"></i> Subscriptions
+            </h2>
+            <div class="results-count" id="resultsCount">Showing 0 subscriptions</div>
+        </div>
         <div class="products-grid" id="productsGrid">
             <!-- Products will be injected here -->
         </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No subscriptions found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Admin Dashboard. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
@@ -758,19 +1037,38 @@
             { username: 'Rajinder', password: 'ADMIN' }
         ];
 
-        // Products Data
+        // Products Data (will be sorted by date - newest first)
         const products = [
-            { name: 'Prince', product: 'Netflix', date: '22-12-25', duration: 1 }, 
+            { name: 'Prince', product: 'Netflix', date: '22-12-25', duration: 1 },
             { name: 'Pirtpal', product: 'Amazon Prime', date: '19-12-25', duration: 1 },
             { name: 'Rai', product: 'Netflix 4k', date: '19-12-25', duration: 1 },
             { name: 'Sumit Grover', product: 'Chaupal 4k', date: '21-12-25', duration: 1 },
             { name: 'Manpreet', product: 'YouTube', date: '21-12-25', duration: 1 },
             { name: 'Abhijeet Sran', product: 'Chaupal 4k', date: '19-11-25', duration: 6 },
             { name: 'Jeeva', product: 'YouTube', date: '21-12-25', duration: 1 },
-            { name: 'Aditya', product: 'Youtube', date: '21-12-25', duration: 1 }, 
-            { name: 'Lavish Beniwal', product: 'Amazon Prime', date: '21-12-25', duration: 6 }, 
+            { name: 'Aditya', product: 'Youtube', date: '21-12-25', duration: 1 },
+            { name: 'Lavish Beniwal', product: 'Amazon Prime', date: '21-12-25', duration: 6 },
             { name: 'Mehraj', product: 'Google', date: '22-12-25', duration: 1 }
         ];
+
+        let currentFilter = 'all';
+        let filteredProducts = [];
+
+        // Toggle Password Visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
 
         // Login Handler
         document.getElementById('loginForm').addEventListener('submit', function(e) {
@@ -784,12 +1082,25 @@
             );
 
             if (user) {
+                const now = new Date();
+                const loginTime = now.toLocaleString('en-IN', { 
+                    day: '2-digit', 
+                    month: 'short', 
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
                 document.getElementById('loginPage').classList.add('hidden');
                 document.getElementById('dashboard').classList.add('active');
                 document.getElementById('adminName').textContent = user.username;
+                document.getElementById('lastLogin').textContent = 'Last login: ' + loginTime;
+                
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('adminName', user.username);
-                renderProducts();
+                sessionStorage.setItem('loginTime', loginTime);
+                
+                initDashboard();
             } else {
                 const errorMsg = document.getElementById('errorMsg');
                 errorMsg.style.display = 'block';
@@ -803,9 +1114,9 @@
         function logout() {
             sessionStorage.removeItem('loggedIn');
             sessionStorage.removeItem('adminName');
+            sessionStorage.removeItem('loginTime');
             document.getElementById('dashboard').classList.remove('active');
             document.getElementById('loginPage').classList.remove('hidden');
-            document.getElementById('username').value = '';
             document.getElementById('password').value = '';
         }
 
@@ -814,7 +1125,8 @@
             document.getElementById('loginPage').classList.add('hidden');
             document.getElementById('dashboard').classList.add('active');
             document.getElementById('adminName').textContent = sessionStorage.getItem('adminName');
-            renderProducts();
+            document.getElementById('lastLogin').textContent = 'Last login: ' + sessionStorage.getItem('loginTime');
+            initDashboard();
         }
 
         // Parse Date (DD-MM-YY format)
@@ -826,31 +1138,76 @@
             return new Date(year, month, day);
         }
 
-        // Calculate Expiry Date
+        // Calculate Expiry Date (1 month = 30 days)
         function getExpiryDate(startDate, durationMonths) {
             const expiry = new Date(startDate);
-            expiry.setMonth(expiry.getMonth() + durationMonths);
+            expiry.setDate(expiry.getDate() + (durationMonths * 30));
             return expiry;
         }
 
         // Get Product Icon Class
-        function getProductIcon(product) {
+        function getProductIconClass(product) {
             const productLower = product.toLowerCase();
             if (productLower.includes('prime') || productLower.includes('amazon')) return 'prime';
             if (productLower.includes('netflix')) return 'netflix';
             if (productLower.includes('youtube')) return 'youtube';
             if (productLower.includes('chaupal')) return 'chaupal';
+            if (productLower.includes('google')) return 'google';
+            if (productLower.includes('chatgpt')) return 'chatgpt';
+            if (productLower.includes('capcut')) return 'capcut';
+            if (productLower.includes('claude')) return 'claude';
+            if (productLower.includes('duolingo')) return 'duolingo';
+            if (productLower.includes('perplexity')) return 'perplexity';
+            if (productLower.includes('zee5')) return 'zee5';
+            if (productLower.includes('hotstar')) return 'hotstar';
             return 'prime';
         }
 
-        // Get Product Icon
-        function getProductFA(product) {
+        // Get Product Icon Content (real logos)
+        function getProductIconContent(product) {
             const productLower = product.toLowerCase();
-            if (productLower.includes('prime') || productLower.includes('amazon')) return 'fab fa-amazon';
-            if (productLower.includes('netflix')) return 'fas fa-play';
-            if (productLower.includes('youtube')) return 'fab fa-youtube';
-            if (productLower.includes('chaupal')) return 'fas fa-film';
-            return 'fas fa-tv';
+            
+            // Font Awesome icons for common platforms
+            if (productLower.includes('prime') || productLower.includes('amazon')) {
+                return '<i class="fab fa-amazon" style="color: white;"></i>';
+            }
+            if (productLower.includes('netflix')) {
+                return '<svg viewBox="0 0 24 24" width="24" height="24" fill="#e50914"><path d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596 2.344.058 4.85.398 4.854.398-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.913.002-22.95zM5.398 1.05V24c1.873-.225 2.81-.312 4.715-.398v-9.22z"/></svg>';
+            }
+            if (productLower.includes('youtube')) {
+                return '<i class="fab fa-youtube" style="color: white;"></i>';
+            }
+            if (productLower.includes('google')) {
+                return '<i class="fab fa-google" style="color: #4285f4;"></i>';
+            }
+            
+            // Local logo files for other platforms
+            if (productLower.includes('chaupal')) {
+                return '<img src="chaupal_logo.png" alt="Chaupal">';
+            }
+            if (productLower.includes('chatgpt')) {
+                return '<img src="chatgpt_logo.png" alt="ChatGPT">';
+            }
+            if (productLower.includes('capcut')) {
+                return '<img src="capcut_logo.png" alt="CapCut">';
+            }
+            if (productLower.includes('claude')) {
+                return '<img src="claude_logo.png" alt="Claude">';
+            }
+            if (productLower.includes('duolingo')) {
+                return '<img src="duolingo_logo.png" alt="Duolingo">';
+            }
+            if (productLower.includes('perplexity')) {
+                return '<img src="preplexity_logo.png" alt="Perplexity">';
+            }
+            if (productLower.includes('zee5')) {
+                return '<img src="zee5_logo.png" alt="Zee5">';
+            }
+            if (productLower.includes('hotstar')) {
+                return '<img src="hotstar_logo.png" alt="Hotstar">';
+            }
+            
+            return '<i class="fas fa-tv" style="color: white;"></i>';
         }
 
         // Format Date
@@ -859,27 +1216,142 @@
             return date.toLocaleDateString('en-IN', options);
         }
 
+        // Sort products by date (newest first)
+        function sortProductsByDate(productsArray) {
+            return [...productsArray].sort((a, b) => {
+                const dateA = parseDate(a.date);
+                const dateB = parseDate(b.date);
+                return dateB - dateA; // Descending order (newest first)
+            });
+        }
+
+        // Initialize Dashboard
+        function initDashboard() {
+            populateProductFilter();
+            filterProducts();
+            startTimers();
+        }
+
+        // Populate Product Filter Dropdown
+        function populateProductFilter() {
+            const productFilter = document.getElementById('productFilter');
+            const uniqueProducts = [...new Set(products.map(p => {
+                // Normalize product name
+                const name = p.product.toLowerCase();
+                if (name.includes('netflix')) return 'Netflix';
+                if (name.includes('amazon') || name.includes('prime')) return 'Amazon Prime';
+                if (name.includes('youtube')) return 'YouTube';
+                if (name.includes('chaupal')) return 'Chaupal';
+                if (name.includes('google')) return 'Google';
+                if (name.includes('chatgpt')) return 'ChatGPT';
+                if (name.includes('capcut')) return 'CapCut';
+                if (name.includes('claude')) return 'Claude';
+                if (name.includes('duolingo')) return 'Duolingo';
+                if (name.includes('perplexity')) return 'Perplexity';
+                if (name.includes('zee5')) return 'Zee5';
+                if (name.includes('hotstar')) return 'Hotstar';
+                return p.product;
+            }))];
+
+            productFilter.innerHTML = '<option value="all">All Products</option>';
+            uniqueProducts.forEach(product => {
+                productFilter.innerHTML += `<option value="${product.toLowerCase()}">${product}</option>`;
+            });
+        }
+
+        // Set Status Filter
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === filter) {
+                    btn.classList.add('active');
+                }
+            });
+            filterProducts();
+        }
+
+        // Filter Products
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const productFilterValue = document.getElementById('productFilter').value;
+            const now = new Date();
+
+            // Sort by date first (newest first)
+            let sorted = sortProductsByDate(products);
+
+            filteredProducts = sorted.filter(product => {
+                const startDate = parseDate(product.date);
+                const expiryDate = getExpiryDate(startDate, product.duration);
+                const isActive = now < expiryDate;
+
+                // Status filter
+                if (currentFilter === 'active' && !isActive) return false;
+                if (currentFilter === 'expired' && isActive) return false;
+
+                // Search filter
+                if (searchTerm) {
+                    const matchesName = product.name.toLowerCase().includes(searchTerm);
+                    const matchesProduct = product.product.toLowerCase().includes(searchTerm);
+                    if (!matchesName && !matchesProduct) return false;
+                }
+
+                // Product type filter
+                if (productFilterValue !== 'all') {
+                    const productName = product.product.toLowerCase();
+                    if (!productName.includes(productFilterValue)) return false;
+                }
+
+                return true;
+            });
+
+            renderProducts();
+        }
+
+        // Check if product is new (purchased within last 3 days)
+        function isNewProduct(dateStr) {
+            const purchaseDate = parseDate(dateStr);
+            const now = new Date();
+            const diffTime = now - purchaseDate;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 3;
+        }
+
         // Render Products
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
+            const noResults = document.getElementById('noResults');
+            const resultsCount = document.getElementById('resultsCount');
+            
             grid.innerHTML = '';
 
-            products.forEach((product, index) => {
+            if (filteredProducts.length === 0) {
+                noResults.style.display = 'block';
+                resultsCount.textContent = 'No subscriptions found';
+            } else {
+                noResults.style.display = 'none';
+                resultsCount.textContent = `Showing ${filteredProducts.length} subscription${filteredProducts.length > 1 ? 's' : ''}`;
+            }
+
+            filteredProducts.forEach((product, index) => {
                 const startDate = parseDate(product.date);
                 const expiryDate = getExpiryDate(startDate, product.duration);
                 const now = new Date();
                 const isActive = now < expiryDate;
                 const timeRemaining = expiryDate - now;
+                const isNew = isNewProduct(product.date);
 
                 const card = document.createElement('div');
-                card.className = 'product-card';
+                card.className = `product-card ${isNew ? 'new-badge' : ''}`;
+                card.style.animationDelay = `${index * 0.05}s`;
+                
                 card.innerHTML = `
                     <div class="product-header">
                         <div class="product-info">
                             <h3>${product.name}</h3>
                             <div class="product-name">
-                                <div class="product-icon ${getProductIcon(product.product)}">
-                                    <i class="${getProductFA(product.product)}"></i>
+                                <div class="product-icon ${getProductIconClass(product.product)}">
+                                    ${getProductIconContent(product.product)}
                                 </div>
                                 ${product.product}
                             </div>
@@ -899,7 +1371,7 @@
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Duration</div>
-                            <div class="detail-value">${product.duration} Month${product.duration > 1 ? 's' : ''}</div>
+                            <div class="detail-value">${product.duration} Month${product.duration > 1 ? 's' : ''} (${product.duration * 30} days)</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Status</div>
@@ -908,7 +1380,7 @@
                     </div>
                     <div class="timer-section">
                         <div class="timer-label">${isActive ? 'Time Remaining' : 'Subscription Ended'}</div>
-                        <div class="timer-display" id="timer-${index}">
+                        <div class="timer-display" data-expiry="${expiryDate.getTime()}" data-start="${startDate.getTime()}">
                             ${isActive ? getTimerHTML(timeRemaining) : '<span class="expired-text"><i class="fas fa-clock"></i> EXPIRED</span>'}
                         </div>
                         ${isActive ? `
@@ -924,7 +1396,6 @@
             });
 
             updateStats();
-            startTimers();
         }
 
         // Get Timer HTML
@@ -988,6 +1459,7 @@
                 }
             });
 
+            document.getElementById('totalCount').textContent = products.length;
             document.getElementById('activeCount').textContent = active;
             document.getElementById('expiredCount').textContent = expired;
         }
@@ -995,15 +1467,16 @@
         // Start Live Timers
         function startTimers() {
             setInterval(() => {
-                products.forEach((product, index) => {
-                    const startDate = parseDate(product.date);
-                    const expiryDate = getExpiryDate(startDate, product.duration);
-                    const now = new Date();
-                    const timeRemaining = expiryDate - now;
+                const timerDisplays = document.querySelectorAll('.timer-display');
+                
+                timerDisplays.forEach(timerEl => {
+                    const expiryTime = parseInt(timerEl.dataset.expiry);
+                    const startTime = parseInt(timerEl.dataset.start);
+                    const now = new Date().getTime();
+                    const timeRemaining = expiryTime - now;
 
-                    const timerEl = document.getElementById(`timer-${index}`);
-                    if (timerEl) {
-                        if (timeRemaining <= 0) {
+                    if (timeRemaining <= 0) {
+                        if (!timerEl.innerHTML.includes('EXPIRED')) {
                             timerEl.innerHTML = '<span class="expired-text"><i class="fas fa-clock"></i> EXPIRED</span>';
                             const card = timerEl.closest('.product-card');
                             const badge = card.querySelector('.status-badge');
@@ -1011,10 +1484,24 @@
                                 badge.classList.remove('active');
                                 badge.classList.add('expired');
                                 badge.textContent = 'Expired';
+                                const progressContainer = card.querySelector('.progress-container');
+                                if (progressContainer) {
+                                    progressContainer.remove();
+                                }
                                 updateStats();
                             }
-                        } else {
-                            timerEl.innerHTML = getTimerHTML(timeRemaining);
+                        }
+                    } else {
+                        timerEl.innerHTML = getTimerHTML(timeRemaining);
+                        
+                        // Update progress bar
+                        const card = timerEl.closest('.product-card');
+                        const progressFill = card.querySelector('.progress-fill');
+                        if (progressFill) {
+                            const startDate = new Date(startTime);
+                            const expiryDate = new Date(expiryTime);
+                            progressFill.style.width = getProgressWidth(startDate, expiryDate) + '%';
+                            progressFill.className = 'progress-fill ' + getProgressClass(startDate, expiryDate);
                         }
                     }
                 });
