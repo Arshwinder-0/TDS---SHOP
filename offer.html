@@ -3,794 +3,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TDS Official Store - Christmas Sale! Grab premium subscriptions at lowest prices from Dec 21-27!">
-    <meta name="keywords" content="Christmas Sale, Netflix, YouTube Premium, streaming, subscriptions, cheap, India, TDS">
-    <meta name="author" content="TDS Official Store">
-    <title>Christmas Sale | TDS Official Store</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+    <title>🎄 New Year Offers 2026 - TDS Official Store</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --christmas-red: #c41e3a;
-            --christmas-dark-red: #8b0000;
-            --christmas-green: #165b33;
-            --christmas-dark-green: #0d3d22;
-            --christmas-gold: #ffd700;
-            --christmas-light-gold: #ffec8b;
-            --snow-white: #fffafa;
-            --ice-blue: #e0f7fa;
-            --night-blue: #0a1628;
-            --deep-blue: #021228;
-            --whatsapp-green: #25D366;
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.8);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BA;
+            --gold-dark: #B8960C;
+            --cyan: #00D4FF;
+            --cyan-dark: #00A3CC;
+            --dark-blue: #0A1628;
+            --navy: #0F2744;
+            --snow-white: #F8F9FA;
+            --cream: #FFF8E7;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(180deg, var(--deep-blue) 0%, #0d1f3c 50%, var(--night-blue) 100%);
-            color: var(--text-primary);
+            background: linear-gradient(180deg, #0A1628 0%, #0F2744 30%, #1A3A5C 60%, #0F2744 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            line-height: 1.6;
+            color: #fff;
             position: relative;
         }
 
-        /* ==================== SNOWFALL EFFECT ==================== */
-        .snowfall-container {
+        /* Snowy Background */
+        .snow-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 100;
-            overflow: hidden;
+            z-index: 1;
+            background: 
+                radial-gradient(ellipse at top, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom, rgba(10, 22, 40, 0.8) 0%, transparent 60%);
         }
 
-        .snowflake {
+        /* Snow Particles */
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .snow {
             position: absolute;
             top: -10px;
-            color: white;
+            background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+            border-radius: 50%;
             opacity: 0.9;
-            font-size: 1rem;
             animation: snowfall linear infinite;
-            text-shadow: 0 0 5px rgba(255,255,255,0.5);
         }
 
         @keyframes snowfall {
             0% {
-                transform: translateY(-10px) rotate(0deg) translateX(0);
+                transform: translateY(-10px) translateX(0) rotate(0deg);
                 opacity: 1;
             }
             50% {
+                transform: translateY(50vh) translateX(30px) rotate(180deg);
                 opacity: 0.8;
             }
             100% {
-                transform: translateY(100vh) rotate(360deg) translateX(50px);
+                transform: translateY(100vh) translateX(-20px) rotate(360deg);
                 opacity: 0.3;
             }
         }
 
-        /* ==================== CHRISTMAS BACKGROUND ==================== */
-        .christmas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .aurora {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(180deg, 
-                rgba(22, 91, 51, 0.2) 0%, 
-                rgba(0, 100, 80, 0.1) 30%,
-                transparent 100%);
-            animation: auroraMove 15s ease-in-out infinite;
-        }
-
-        @keyframes auroraMove {
-            0%, 100% { opacity: 0.3; transform: translateY(0); }
-            50% { opacity: 0.6; transform: translateY(-20px); }
-        }
-
-        /* Christmas Trees */
-        .tree-left {
-            position: fixed;
-            bottom: 80px;
-            left: -20px;
-            z-index: 2;
-            opacity: 0.9;
-        }
-
-        .tree-left svg {
-            width: 180px;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(22, 91, 51, 0.5));
-        }
-
-        .tree-right {
-            position: fixed;
-            bottom: 80px;
-            right: -20px;
-            z-index: 2;
-            opacity: 0.9;
-        }
-
-        .tree-right svg {
-            width: 150px;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(22, 91, 51, 0.5));
-        }
-
-        /* Christmas Lights */
+        /* Christmas Decorations */
         .christmas-lights {
             position: fixed;
-            top: 60px;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 40px;
-            z-index: 50;
+            height: 60px;
+            z-index: 100;
             display: flex;
             justify-content: center;
-            gap: 30px;
-            overflow: hidden;
-        }
-
-        .light-bulb {
-            width: 15px;
-            height: 20px;
-            border-radius: 50% 50% 50% 50%;
-            animation: lightGlow 1.5s ease-in-out infinite alternate;
-        }
-
-        .light-red { background: #ff4444; box-shadow: 0 0 15px #ff4444, 0 0 30px #ff4444; }
-        .light-green { background: #44ff44; box-shadow: 0 0 15px #44ff44, 0 0 30px #44ff44; animation-delay: 0.2s; }
-        .light-gold { background: #ffdd44; box-shadow: 0 0 15px #ffdd44, 0 0 30px #ffdd44; animation-delay: 0.4s; }
-        .light-blue { background: #44ddff; box-shadow: 0 0 15px #44ddff, 0 0 30px #44ddff; animation-delay: 0.6s; }
-
-        @keyframes lightGlow {
-            0% { opacity: 0.4; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1.1); }
-        }
-
-        /* Snow Pile */
-        .snow-pile {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            z-index: 3;
+            align-items: flex-start;
             pointer-events: none;
         }
 
-        .snow-pile svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Decorations */
-        .decoration {
-            position: fixed;
-            z-index: 4;
-            animation: floatDecor 6s ease-in-out infinite;
-        }
-
-        .decoration-gift-1 {
-            bottom: 90px;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .decoration-gift-2 {
-            bottom: 85px;
-            right: 15%;
-            animation-delay: -2s;
-        }
-
-        .decoration-gift-3 {
-            bottom: 95px;
-            left: 25%;
-            animation-delay: -4s;
-        }
-
-        .decoration svg {
-            width: 50px;
-            height: auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-        }
-
-        @keyframes floatDecor {
-            0%, 100% { transform: translateY(0) rotate(-3deg); }
-            50% { transform: translateY(-10px) rotate(3deg); }
-        }
-
-        /* Reindeer */
-        .reindeer {
-            position: fixed;
-            top: 15%;
-            right: 5%;
-            z-index: 4;
-            animation: reindeerFly 8s ease-in-out infinite;
-        }
-
-        .reindeer svg {
-            width: 120px;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
-        }
-
-        @keyframes reindeerFly {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-20px) translateY(-15px); }
-            50% { transform: translateX(0) translateY(-25px); }
-            75% { transform: translateX(20px) translateY(-10px); }
-        }
-
-        /* Stars */
-        .star {
-            position: fixed;
-            z-index: 1;
-            animation: starTwinkle 2s ease-in-out infinite;
-        }
-
-        @keyframes starTwinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* ==================== HEADER ==================== */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 12px 25px;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--christmas-red);
+        .light-string {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--christmas-red), var(--christmas-gold), var(--christmas-green), var(--christmas-gold), var(--christmas-red));
-            background-size: 200% 100%;
-            animation: borderGlow 3s linear infinite;
-        }
-
-        @keyframes borderGlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .header-logo img {
-            height: 40px;
-            width: auto;
-            filter: drop-shadow(0 0 10px var(--christmas-gold));
-            transition: all 0.3s ease;
-        }
-
-        .header-logo:hover img {
-            filter: drop-shadow(0 0 20px var(--christmas-gold)) drop-shadow(0 0 40px var(--christmas-red));
-            transform: scale(1.05);
-        }
-
-        .header-logo-text {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--christmas-gold), var(--snow-white));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .nav-btn {
+            gap: 30px;
             padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            font-family: 'Poppins', sans-serif;
         }
 
-        .nav-btn-home {
-            background: linear-gradient(135deg, var(--christmas-gold), #daa520);
-            color: var(--deep-blue);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        .light-bulb {
+            width: 12px;
+            height: 18px;
+            border-radius: 50% 50% 50% 50%;
+            animation: twinkle 1.5s ease-in-out infinite;
         }
 
-        .nav-btn-home:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 8px 25px rgba(255, 215, 0, 0.3);
+        .light-bulb:nth-child(1) { background: #ff6b6b; animation-delay: 0s; }
+        .light-bulb:nth-child(2) { background: #ffd700; animation-delay: 0.2s; }
+        .light-bulb:nth-child(3) { background: #00ff88; animation-delay: 0.4s; }
+        .light-bulb:nth-child(4) { background: #00d4ff; animation-delay: 0.6s; }
+        .light-bulb:nth-child(5) { background: #ff69b4; animation-delay: 0.8s; }
+        .light-bulb:nth-child(6) { background: #ff6b6b; animation-delay: 1s; }
+        .light-bulb:nth-child(7) { background: #ffd700; animation-delay: 1.2s; }
+        .light-bulb:nth-child(8) { background: #00ff88; animation-delay: 1.4s; }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 1; 
+                box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+            }
+            50% { 
+                opacity: 0.5; 
+                box-shadow: 0 0 5px currentColor;
+            }
         }
 
-        .nav-btn-products {
-            background: linear-gradient(135deg, var(--christmas-green), var(--christmas-dark-green));
-            color: white;
-            box-shadow: 0 0 15px rgba(22, 91, 51, 0.4);
-        }
-
-        .nav-btn-products:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(22, 91, 51, 0.6), 0 8px 25px rgba(22, 91, 51, 0.3);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* ==================== MAIN CONTENT ==================== */
-        .main-content {
+        /* Main Container */
+        .container {
             position: relative;
             z-index: 10;
-            padding-top: 70px;
-            padding-bottom: 120px;
-        }
-
-        /* ==================== BANNER ==================== */
-        .banner-section {
-            width: 100%;
-            padding: 15px 20px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
+            padding: 80px 20px 20px;
         }
 
-        .banner-wrapper {
-            position: relative;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 50px rgba(196, 30, 58, 0.3), 
-                        0 0 40px rgba(255, 215, 0, 0.2);
-            border: 3px solid transparent;
-            background: linear-gradient(var(--deep-blue), var(--deep-blue)) padding-box,
-                        linear-gradient(135deg, var(--christmas-red), var(--christmas-gold), var(--christmas-green)) border-box;
-        }
-
-        .banner-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            animation: bannerReveal 1s ease-out;
-        }
-
-        @keyframes bannerReveal {
-            0% { opacity: 0; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* ==================== HERO SECTION ==================== */
-        .hero-section {
+        /* Header */
+        .header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 0;
         }
 
-        .hero-logo {
-            margin-bottom: 25px;
+        .logo-wrapper {
             position: relative;
-        }
-
-        .hero-logo img {
-            width: clamp(100px, 22vw, 150px);
-            height: auto;
-            filter: drop-shadow(0 0 30px var(--christmas-gold)) drop-shadow(0 0 60px var(--christmas-red));
-            animation: heroLogoFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes heroLogoFloat {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
-        }
-
-        /* Sale Badge */
-        .sale-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, var(--christmas-red), var(--christmas-dark-red));
-            padding: 12px 30px;
-            border-radius: 50px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 30px rgba(196, 30, 58, 0.5);
-            animation: badgePulse 2s ease-in-out infinite;
-            border: 2px solid var(--christmas-gold);
-        }
-
-        @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(196, 30, 58, 0.5); }
-            50% { box-shadow: 0 0 50px rgba(196, 30, 58, 0.8), 0 0 80px rgba(255, 215, 0, 0.3); }
-        }
-
-        .sale-badge i {
-            font-size: 1.3rem;
-            color: var(--christmas-gold);
-            animation: iconSpin 3s ease-in-out infinite;
-        }
-
-        @keyframes iconSpin {
-            0%, 100% { transform: rotate(-10deg); }
-            50% { transform: rotate(10deg); }
-        }
-
-        .sale-badge-text {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: 1px;
-        }
-
-        .hero-title {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--snow-white) 0%, var(--christmas-gold) 50%, var(--snow-white) 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleShine 3s ease-in-out infinite;
-        }
-
-        @keyframes titleShine {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .sale-dates {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 10px 25px;
-            border-radius: 30px;
+            display: inline-block;
             margin-bottom: 30px;
         }
 
-        .sale-dates i {
-            color: var(--christmas-gold);
+        .logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--cyan);
+            padding: 5px;
+            background: rgba(0, 212, 255, 0.1);
+            filter: drop-shadow(0 0 25px var(--cyan)) drop-shadow(0 0 50px var(--cyan)) drop-shadow(0 0 75px rgba(0, 212, 255, 0.5));
+            animation: cyanPulse 3s ease-in-out infinite;
         }
 
-        .sale-dates span {
-            color: var(--snow-white);
-            font-weight: 600;
+        @keyframes cyanPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 25px var(--cyan)) drop-shadow(0 0 50px var(--cyan));
+            }
+            50% {
+                filter: drop-shadow(0 0 35px var(--cyan)) drop-shadow(0 0 70px var(--cyan)) drop-shadow(0 0 100px rgba(0, 212, 255, 0.6));
+            }
         }
 
-        /* ==================== COUNTDOWN TIMER ==================== */
-        .countdown-section {
-            margin-bottom: 40px;
-        }
-
-        .countdown-title {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: 1.5rem;
-            color: var(--christmas-gold);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(139, 0, 0, 0.3));
-            border: 2px solid var(--christmas-red);
-            border-radius: 20px;
-            padding: 20px 25px;
-            min-width: 90px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-item::before {
-            content: '';
+        .logo-ring {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--christmas-gold), var(--christmas-red), var(--christmas-gold));
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50%;
+            animation: ringRotate 10s linear infinite;
         }
 
-        .countdown-number {
-            font-size: 2.5rem;
+        @keyframes ringRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             font-weight: 700;
-            color: var(--snow-white);
-            line-height: 1;
-            font-family: 'Mountains of Christmas', cursive;
-        }
-
-        .countdown-label {
-            font-size: 0.75rem;
-            color: var(--christmas-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        /* Sale Status */
-        .sale-status {
-            margin-top: 20px;
-            padding: 15px 30px;
-            border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .sale-status.upcoming {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 200, 0, 0.1));
-            border: 2px solid var(--christmas-gold);
-            color: var(--christmas-gold);
-            animation: upcomingGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes upcomingGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); }
-        }
-
-        .sale-status.live {
-            background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 180, 80, 0.1));
-            border: 2px solid var(--whatsapp-green);
-            color: var(--whatsapp-green);
-            animation: liveGlow 1.5s ease-in-out infinite;
-        }
-
-        @keyframes liveGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(37, 211, 102, 0.6); }
-        }
-
-        .sale-status.ended {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(139, 0, 0, 0.1));
-            border: 2px solid var(--christmas-red);
-            color: var(--christmas-red);
-        }
-
-        /* ==================== ACTION BUTTONS ==================== */
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .action-btn {
-            padding: 14px 30px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .action-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .action-btn:hover::before { left: 100%; }
-
-        .btn-home {
-            background: linear-gradient(135deg, var(--christmas-gold), #daa520);
-            color: var(--deep-blue);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn-home:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 10px 30px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn-products {
-            background: linear-gradient(135deg, var(--christmas-green), var(--christmas-dark-green));
-            color: white;
-            box-shadow: 0 0 25px rgba(22, 91, 51, 0.4);
-        }
-
-        .btn-products:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 40px rgba(22, 91, 51, 0.6), 0 10px 30px rgba(22, 91, 51, 0.4);
-        }
-
-        /* ==================== STATS BAR ==================== */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            padding: 25px 35px;
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.15), rgba(22, 91, 51, 0.15));
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 25px;
-            border: 2px solid var(--glass-border);
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-icon {
-            font-size: 1.5rem;
-            color: var(--christmas-gold);
-            margin-bottom: 5px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--christmas-gold), var(--snow-white));
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-light) 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: goldShimmer 4s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes goldShimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 200% center; }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--snow-white);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .year-badge {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: var(--dark-blue);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+            letter-spacing: 5px;
+        }
+
+        /* Timer Section */
+        .timer-section {
+            background: linear-gradient(135deg, rgba(15, 39, 68, 0.9), rgba(26, 58, 92, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin: 40px auto;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Fireworks inside timer */
+        .timer-fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: fireworkBurst 2s ease-out infinite;
+        }
+
+        @keyframes fireworkBurst {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .firework::before,
+        .firework::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: inherit;
+        }
+
+        .firework::before {
+            top: -15px;
+            left: 0;
+            box-shadow: 
+                10px 10px 0 currentColor,
+                -10px 10px 0 currentColor,
+                10px -10px 0 currentColor,
+                -10px -10px 0 currentColor,
+                15px 0 0 currentColor,
+                -15px 0 0 currentColor,
+                0 15px 0 currentColor,
+                0 -15px 0 currentColor;
+        }
+
+        .sparkle-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-20px) scale(1);
+            }
+        }
+
+        .timer-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .timer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold-light);
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .timer-box {
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            padding: 15px 20px;
+            min-width: 80px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .timer-box .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--snow-white);
             line-height: 1;
         }
 
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 3px;
+        .timer-box .label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            font-weight: 500;
         }
 
-        /* ==================== PRODUCTS SECTION ==================== */
+        .timer-separator {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 300;
+            opacity: 0.7;
+        }
+
+        .offer-status {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .status-locked {
+            background: linear-gradient(135deg, #4a1c1c, #6b2c2c);
+            color: #ff8a8a;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            box-shadow: 0 0 20px rgba(255, 100, 100, 0.2);
+        }
+
+        .status-active {
+            background: linear-gradient(135deg, #1c4a2e, #2c6b3e);
+            color: #8aff8a;
+            border: 1px solid rgba(100, 255, 100, 0.3);
+            box-shadow: 0 0 20px rgba(100, 255, 100, 0.2);
+            animation: activeGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes activeGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(100, 255, 100, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(100, 255, 100, 0.4); }
+        }
+
+        .status-ended {
+            background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+            color: #aaa;
+            border: 1px solid rgba(150, 150, 150, 0.3);
+        }
+
+        /* Products Section */
         .products-section {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin: 60px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             color: var(--snow-white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        .section-title i {
-            color: var(--christmas-gold);
-            animation: iconBounce 2s ease-in-out infinite;
-        }
-
-        @keyframes iconBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        .section-title span {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-subtitle {
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        /* ==================== PRODUCTS GRID ==================== */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 0 10px;
         }
 
-        /* ==================== PRODUCT CARD ==================== */
+        /* Product Card */
         .product-card {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(22, 91, 51, 0.1));
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid var(--glass-border);
-            border-radius: 25px;
-            padding: 25px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(145deg, rgba(15, 39, 68, 0.95), rgba(10, 22, 40, 0.98));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 30px;
             position: relative;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
         .product-card::before {
@@ -799,1455 +481,933 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--christmas-red), var(--christmas-gold), var(--christmas-green));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--christmas-gold);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 
-                        0 0 40px rgba(196, 30, 58, 0.2),
-                        0 0 60px rgba(255, 215, 0, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(212, 175, 55, 0.15);
         }
 
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .christmas-ribbon {
+        .product-badge {
             position: absolute;
-            top: 15px;
-            right: -35px;
-            background: linear-gradient(135deg, var(--christmas-red), var(--christmas-dark-red));
-            color: white;
-            padding: 5px 40px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .product-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 18px;
+            margin-bottom: 25px;
         }
 
-        .product-icon {
+        .product-logo-wrapper {
+            position: relative;
+        }
+
+        .product-logo {
             width: 65px;
             height: 65px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            border: 2px solid var(--glass-border);
-        }
-
-        .product-icon img {
-            width: 45px;
-            height: 45px;
+            border-radius: 16px;
             object-fit: contain;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .product-icon i {
-            font-size: 2rem;
-            color: var(--christmas-gold);
-        }
-
-        .product-card:hover .product-icon {
-            transform: scale(1.1) rotate(5deg);
-            border-color: var(--christmas-gold);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
-        }
-
-        .product-info {
-            flex: 1;
+        .product-card:hover .product-logo {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
         }
 
         .product-name {
-            font-size: 1.15rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 5px;
             color: var(--snow-white);
         }
 
-        .product-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+        /* Dropdown Styling */
+        .plans-container {
+            margin-bottom: 25px;
         }
 
-        .feature-tag {
-            background: rgba(196, 30, 58, 0.2);
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            color: var(--christmas-gold);
-            border: 1px solid rgba(196, 30, 58, 0.3);
+        .plans-dropdown {
+            position: relative;
         }
 
-        /* ==================== PRICING ==================== */
-        .product-plans {
-            margin: 15px 0;
+        .plans-dropdown select {
+            width: 100%;
+            padding: 16px 45px 16px 20px;
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.8), rgba(15, 39, 68, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 14px;
+            color: var(--snow-white);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            appearance: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .plans-dropdown select:hover,
+        .plans-dropdown select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            outline: none;
+        }
+
+        .plans-dropdown::after {
+            content: '▼';
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 0.8rem;
+            pointer-events: none;
+        }
+
+        .plans-dropdown option {
+            background: var(--navy);
+            color: var(--snow-white);
+            padding: 15px;
         }
 
         .single-plan {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.8), rgba(15, 39, 68, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 14px;
+            padding: 18px 22px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 12px 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
+            align-items: center;
         }
 
         .plan-duration {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .plan-duration i {
-            color: var(--christmas-gold);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .plan-price {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--christmas-gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            color: var(--gold);
         }
 
-        .original-price {
-            text-decoration: line-through;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-right: 10px;
-        }
-
-        /* Dropdown */
-        .plans-dropdown {
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .dropdown-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-header:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .dropdown-title {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dropdown-title i {
-            color: var(--christmas-gold);
-        }
-
-        .dropdown-arrow {
-            transition: transform 0.3s ease;
-            color: var(--christmas-gold);
-        }
-
-        .plans-dropdown.open .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .plans-dropdown.open .dropdown-content {
-            max-height: 300px;
-        }
-
-        .plan-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            border-top: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .plan-option:hover {
-            background: rgba(196, 30, 58, 0.1);
-        }
-
-        .plan-option.selected {
-            background: rgba(37, 211, 102, 0.1);
-            border-left: 3px solid var(--whatsapp-green);
-        }
-
-        .plan-details {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .plan-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .plan-note {
-            font-size: 0.7rem;
-            color: var(--christmas-gold);
-        }
-
-        .plan-option .plan-price {
-            font-size: 1.2rem;
-        }
-
-        /* ==================== BUY BUTTON ==================== */
-        .buy-btn-wrapper {
-            position: relative;
-            margin-top: 15px;
-        }
-
+        /* Buy Button */
         .buy-btn {
             width: 100%;
-            padding: 14px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
+            padding: 16px 30px;
             border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .buy-btn-unlocked {
-            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
-            color: white;
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .buy-btn-unlocked:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 40px rgba(37, 211, 102, 0.6), 0 10px 30px rgba(37, 211, 102, 0.4);
-        }
-
-        .buy-btn-locked {
-            background: linear-gradient(135deg, #555, #333);
-            color: #999;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
-        .buy-btn-locked:hover {
-            transform: none;
-        }
-
-        .lock-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            backdrop-filter: blur(2px);
-        }
-
-        .lock-overlay i {
-            color: var(--christmas-gold);
-            font-size: 1.2rem;
-            animation: lockShake 2s ease-in-out infinite;
-        }
-
-        @keyframes lockShake {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-5deg); }
-            75% { transform: rotate(5deg); }
-        }
-
-        .lock-overlay span {
-            color: var(--snow-white);
-            font-size: 0.9rem;
+            border-radius: 14px;
+            font-size: 1.1rem;
             font-weight: 600;
-        }
-
-        /* ==================== SCROLL TO TOP ==================== */
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 120px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--christmas-red), var(--christmas-dark-red));
-            border: 2px solid var(--christmas-gold);
+            font-family: 'Poppins', sans-serif;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: white;
-            box-shadow: 0 8px 30px rgba(196, 30, 58, 0.4);
-            transition: all 0.3s ease;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .scroll-top-btn.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .scroll-top-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 12px 40px rgba(196, 30, 58, 0.5);
-        }
-
-        /* ==================== FOOTER ==================== */
-        .footer {
-            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
-            border-top: 2px solid var(--christmas-red);
-            padding: 50px 20px 140px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-logo {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
         }
 
-        .footer-logo img {
-            height: 50px;
-            width: auto;
-            filter: drop-shadow(0 0 15px var(--christmas-gold));
+        .buy-btn-active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark-blue);
+            box-shadow: 
+                0 0 25px rgba(212, 175, 55, 0.5),
+                0 0 50px rgba(212, 175, 55, 0.3),
+                0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: buttonGlow 2s ease-in-out infinite;
         }
 
-        .footer-logo-text {
-            font-family: 'Mountains of Christmas', cursive;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--christmas-gold), var(--snow-white));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        @keyframes buttonGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 25px rgba(212, 175, 55, 0.5),
+                    0 0 50px rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 35px rgba(212, 175, 55, 0.7),
+                    0 0 70px rgba(212, 175, 55, 0.5),
+                    0 0 100px rgba(212, 175, 55, 0.3);
+            }
         }
 
-        .footer-tagline {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+        .buy-btn-active:hover {
+            transform: scale(1.02);
+            box-shadow: 
+                0 0 40px rgba(212, 175, 55, 0.7),
+                0 0 80px rgba(212, 175, 55, 0.5);
         }
 
-        .footer-social {
+        .buy-btn-active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: btnShine 3s ease-in-out infinite;
+        }
+
+        @keyframes btnShine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .buy-btn-locked {
+            background: linear-gradient(135deg, #2a3444, #1e2530);
+            color: #6a7585;
+            cursor: not-allowed;
+            border: 1px solid rgba(100, 120, 140, 0.3);
+        }
+
+        .buy-btn-ended {
+            background: linear-gradient(135deg, #3a2a2a, #2a1e1e);
+            color: #a08080;
+            cursor: not-allowed;
+            border: 1px solid rgba(140, 100, 100, 0.3);
+        }
+
+        .btn-timer {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* Navigation Buttons */
+        .nav-section {
+            margin: 60px auto;
+            max-width: 450px;
+        }
+
+        .nav-buttons {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            flex-direction: column;
+            gap: 18px;
         }
 
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            border: 2px solid var(--glass-border);
+        .nav-btn {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 14px;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
             text-decoration: none;
-            font-size: 1.4rem;
-            color: white;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 2px;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .home-btn {
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            color: var(--dark-blue);
+            box-shadow: 
+                0 0 25px rgba(0, 212, 255, 0.4),
+                0 0 50px rgba(0, 212, 255, 0.2),
+                0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: cyanBtnGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes cyanBtnGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), 0 8px 25px rgba(0, 0, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.3), 0 8px 25px rgba(0, 0, 0, 0.3); }
+        }
+
+        .products-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark-blue);
+            box-shadow: 
+                0 0 25px rgba(212, 175, 55, 0.4),
+                0 0 50px rgba(212, 175, 55, 0.2),
+                0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: goldBtnGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes goldBtnGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), 0 8px 25px rgba(0, 0, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3), 0 8px 25px rgba(0, 0, 0, 0.3); }
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            background: linear-gradient(180deg, transparent, rgba(10, 22, 40, 0.8));
+        }
+
+        .footer-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 2px solid var(--cyan);
+            padding: 5px;
+            filter: drop-shadow(0 0 20px var(--cyan));
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .social-icon:hover {
-            transform: translateY(-5px) scale(1.1);
+        .footer-link:hover {
+            color: var(--gold);
         }
 
-        .social-icon.instagram:hover {
-            background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
-            border-color: transparent;
-        }
-
-        .social-icon.whatsapp:hover {
-            background: var(--whatsapp-green);
-            border-color: transparent;
-        }
-
-        .footer-bottom {
-            padding-top: 20px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .copyright a {
-            color: var(--christmas-gold);
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
             text-decoration: none;
+            color: #fff;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            animation: whatsappFloat 3s ease-in-out infinite;
         }
 
-        /* ==================== SCROLL REVEAL ==================== */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        @keyframes whatsappFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(37, 211, 102, 0.7);
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        /* Christmas Tree Decoration */
+        .tree-decoration {
+            position: fixed;
+            bottom: 0;
+            left: 20px;
+            font-size: 4rem;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .tree-decoration-right {
+            left: auto;
+            right: 20px;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header { padding: 10px 15px; }
-            .header-logo img { height: 35px; }
-            .header-logo-text { font-size: 1.2rem; }
-            .nav-btn { padding: 8px 14px; font-size: 0.8rem; }
-            .mobile-menu-btn { display: block; }
-            .nav-btn span { display: none; }
+            .container {
+                padding: 70px 15px 15px;
+            }
 
-            .tree-left, .tree-right { display: none; }
-            .reindeer { display: none; }
-            .decoration { display: none; }
-            .christmas-lights { display: none; }
+            .main-title {
+                font-size: 2.2rem;
+            }
 
-            .banner-section { padding: 10px 15px; }
-            
-            .hero-section { padding: 30px 15px; }
-            .hero-title { font-size: 2rem; }
-            .sale-badge { padding: 10px 20px; }
-            .sale-badge-text { font-size: 1rem; }
-            
-            .countdown-item { padding: 15px 18px; min-width: 70px; }
-            .countdown-number { font-size: 1.8rem; }
-            
-            .hero-buttons { flex-direction: column; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
-            .action-btn { width: 100%; }
+            .year-badge {
+                font-size: 1.8rem;
+                padding: 10px 30px;
+            }
 
-            .stats-bar { gap: 25px; padding: 20px; }
-            .stat-number { font-size: 1.6rem; }
+            .timer-section {
+                padding: 25px 20px;
+            }
 
-            .products-section { padding: 15px; }
-            .products-grid { grid-template-columns: 1fr; gap: 20px; }
-            .product-card { padding: 20px; }
+            .timer-box {
+                min-width: 60px;
+                padding: 12px 15px;
+            }
 
-            .footer { padding: 40px 15px 150px; }
+            .timer-box .number {
+                font-size: 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                gap: 20px;
+            }
+
+            .light-string {
+                gap: 20px;
+            }
+
+            .light-bulb {
+                width: 10px;
+                height: 14px;
+            }
         }
 
-        @media (max-width: 480px) {
-            .hero-logo img { width: 80px; }
-            .hero-title { font-size: 1.7rem; }
-            .sale-badge { flex-direction: column; gap: 5px; }
-            
-            .countdown-container { gap: 10px; }
-            .countdown-item { padding: 12px 15px; min-width: 60px; }
-            .countdown-number { font-size: 1.5rem; }
-            .countdown-label { font-size: 0.65rem; }
-
-            .stats-bar { flex-direction: column; gap: 20px; }
-
-            .product-header { flex-direction: column; text-align: center; }
-            .product-icon { width: 75px; height: 75px; }
-            .product-info { text-align: center; }
-            .product-features { justify-content: center; }
+        /* Snowflake Emoji Decorations */
+        .snowflake-decor {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0.1;
+            z-index: 0;
+            animation: floatSnowflake 15s ease-in-out infinite;
         }
 
-        /* ==================== CUSTOM SCROLLBAR ==================== */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--deep-blue); }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--christmas-red), var(--christmas-green));
-            border-radius: 5px;
+        @keyframes floatSnowflake {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
         }
-        ::-webkit-scrollbar-thumb:hover { background: var(--christmas-gold); }
+
+        /* Star Decorations */
+        .star-decor {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold);
+            animation: starTwinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
     </style>
 </head>
 <body>
-    <!-- CHRISTMAS BACKGROUND -->
-    <div class="christmas-bg">
-        <div class="aurora"></div>
+    <!-- Snow Background -->
+    <div class="snow-bg"></div>
+
+    <!-- Snowfall -->
+    <div class="snowfall" id="snowfall"></div>
+
+    <!-- Christmas Lights -->
+    <div class="christmas-lights">
+        <div class="light-string">
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+            <div class="light-bulb"></div>
+        </div>
     </div>
 
-    <!-- SNOWFALL -->
-    <div class="snowfall-container" id="snowfallContainer"></div>
+    <!-- Tree Decorations -->
+    <div class="tree-decoration">🎄</div>
+    <div class="tree-decoration tree-decoration-right">🎄</div>
 
-    <!-- CHRISTMAS LIGHTS -->
-    <div class="christmas-lights" id="christmasLights"></div>
-
-    <!-- TREES -->
-    <div class="tree-left">
-        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="50,10 10,70 30,70 5,110 25,110 0,150 100,150 75,110 95,110 70,70 90,70" fill="#165b33"/>
-            <rect x="40" y="140" width="20" height="15" fill="#8B4513"/>
-            <circle cx="30" cy="50" r="4" fill="#ff4444"/>
-            <circle cx="60" cy="40" r="3" fill="#ffdd44"/>
-            <circle cx="45" cy="70" r="4" fill="#44ddff"/>
-            <circle cx="70" cy="80" r="3" fill="#ff4444"/>
-            <circle cx="25" cy="100" r="4" fill="#ffdd44"/>
-            <circle cx="55" cy="110" r="3" fill="#44ff44"/>
-            <polygon points="50,5 52,15 48,15" fill="#ffd700"/>
-            <polygon points="45,10 50,5 55,10" fill="#ffd700"/>
-        </svg>
-    </div>
-
-    <div class="tree-right">
-        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="50,10 10,70 30,70 5,110 25,110 0,150 100,150 75,110 95,110 70,70 90,70" fill="#0d3d22"/>
-            <rect x="40" y="140" width="20" height="15" fill="#8B4513"/>
-            <circle cx="35" cy="55" r="3" fill="#44ff44"/>
-            <circle cx="65" cy="45" r="4" fill="#ff4444"/>
-            <circle cx="40" cy="85" r="3" fill="#ffdd44"/>
-            <circle cx="60" cy="95" r="4" fill="#44ddff"/>
-            <circle cx="30" cy="115" r="3" fill="#ff4444"/>
-            <polygon points="50,5 52,15 48,15" fill="#ffd700"/>
-            <polygon points="45,10 50,5 55,10" fill="#ffd700"/>
-        </svg>
-    </div>
-
-    <!-- SNOW PILE -->
-    <div class="snow-pile">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,60 Q100,20 200,50 T400,40 T600,55 T800,35 T1000,50 T1200,40 T1440,60 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.9)"/>
-            <path d="M0,80 Q150,50 300,70 T600,60 T900,75 T1200,55 T1440,80 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.95)"/>
-            <path d="M0,100 Q200,80 400,95 T800,85 T1200,95 T1440,100 L1440,120 L0,120 Z" fill="white"/>
-        </svg>
-    </div>
-
-    <!-- GIFTS -->
-    <div class="decoration decoration-gift-1">
-        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="20" width="40" height="28" rx="3" fill="#c41e3a"/>
-            <rect x="5" y="15" width="40" height="10" rx="2" fill="#8b0000"/>
-            <rect x="22" y="15" width="6" height="33" fill="#ffd700"/>
-            <path d="M25,15 Q15,5 25,0 Q35,5 25,15" fill="#ffd700"/>
-        </svg>
-    </div>
-
-    <div class="decoration decoration-gift-2">
-        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="20" width="40" height="28" rx="3" fill="#165b33"/>
-            <rect x="5" y="15" width="40" height="10" rx="2" fill="#0d3d22"/>
-            <rect x="22" y="15" width="6" height="33" fill="#ff4444"/>
-            <path d="M25,15 Q15,5 25,0 Q35,5 25,15" fill="#ff4444"/>
-        </svg>
-    </div>
-
-    <div class="decoration decoration-gift-3">
-        <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="18" width="35" height="25" rx="3" fill="#ffd700"/>
-            <rect x="5" y="13" width="35" height="9" rx="2" fill="#daa520"/>
-            <rect x="19" y="13" width="6" height="30" fill="#c41e3a"/>
-            <path d="M22,13 Q14,5 22,0 Q30,5 22,13" fill="#c41e3a"/>
-        </svg>
-    </div>
-
-    <!-- REINDEER -->
-    <div class="reindeer">
-        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="60" cy="55" rx="35" ry="25" fill="#8B4513"/>
-            <circle cx="95" cy="40" r="15" fill="#A0522D"/>
-            <circle cx="108" cy="42" r="6" fill="#ff0000">
-                <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="100" cy="35" r="3" fill="black"/>
-            <path d="M85,25 Q80,10 70,5 M75,8 Q72,15 65,12" stroke="#5D4037" stroke-width="3" fill="none"/>
-            <path d="M90,22 Q95,8 105,3 M100,6 Q103,13 110,10" stroke="#5D4037" stroke-width="3" fill="none"/>
-            <rect x="35" y="70" width="8" height="25" rx="3" fill="#6D4C41"/>
-            <rect x="50" y="72" width="8" height="23" rx="3" fill="#6D4C41"/>
-            <rect x="65" y="72" width="8" height="23" rx="3" fill="#6D4C41"/>
-            <rect x="78" y="70" width="8" height="25" rx="3" fill="#6D4C41"/>
-            <circle cx="25" cy="50" r="5" fill="#A0522D"/>
-        </svg>
-    </div>
-
-    <!-- STARS -->
-    <div class="star" style="top: 10%; left: 15%;"><i class="fas fa-star" style="color: #ffd700; font-size: 8px;"></i></div>
-    <div class="star" style="top: 20%; left: 80%; animation-delay: 0.5s;"><i class="fas fa-star" style="color: #fff; font-size: 6px;"></i></div>
-    <div class="star" style="top: 8%; left: 45%; animation-delay: 1s;"><i class="fas fa-star" style="color: #ffd700; font-size: 10px;"></i></div>
-    <div class="star" style="top: 25%; left: 25%; animation-delay: 1.5s;"><i class="fas fa-star" style="color: #fff; font-size: 5px;"></i></div>
-    <div class="star" style="top: 15%; left: 65%; animation-delay: 2s;"><i class="fas fa-star" style="color: #ffd700; font-size: 7px;"></i></div>
-
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <a href="index.html" class="header-logo">
-            <img src="logo.png" alt="TDS Logo">
-            <span class="header-logo-text">TDS Official</span>
-        </a>
-        <nav class="header-nav">
-            <a href="index.html" class="nav-btn nav-btn-home">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="products.html" class="nav-btn nav-btn-products">
-                <i class="fas fa-box"></i>
-                <span>Products</span>
-            </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-        <!-- BANNER -->
-        <section class="banner-section">
-            <div class="banner-wrapper">
-                <img src="banneroffer.gif" alt="Christmas Sale Banner" class="banner-image">
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-wrapper">
+                <div class="logo-ring"></div>
+                <img src="https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/logo.png" alt="TDS Logo" class="logo">
             </div>
-        </section>
+            <h1 class="main-title">New Year Exclusive Offers</h1>
+            <p class="subtitle">Premium Deals • Limited Time • Best Prices</p>
+            <div class="year-badge">2026</div>
+        </header>
 
-        <!-- HERO SECTION -->
-        <section class="hero-section">
-            <div class="hero-logo">
-                <img src="logo.png" alt="TDS Official Store">
-            </div>
+        <!-- Timer Section -->
+        <section class="timer-section">
+            <!-- Fireworks inside timer -->
+            <div class="timer-fireworks" id="timer-fireworks"></div>
 
-            <div class="sale-badge">
-                <i class="fas fa-snowflake"></i>
-                <span class="sale-badge-text">CHRISTMAS SPECIAL SALE</span>
-                <i class="fas fa-snowflake"></i>
-            </div>
-            
-            <h1 class="hero-title">Merry Christmas Sale!</h1>
-            <p class="hero-subtitle">Grab premium subscriptions at the lowest prices of the year!</p>
-
-            <div class="sale-dates">
-                <i class="fas fa-calendar-alt"></i>
-                <span>21st December - 27th December 2025</span>
-            </div>
-
-            <!-- COUNTDOWN TIMER -->
-            <div class="countdown-section">
-                <div class="countdown-title" id="countdownTitle">
-                    <i class="fas fa-hourglass-start"></i>
-                    <span>Offer Starting Soon</span>
-                    <i class="fas fa-hourglass-start"></i>
-                </div>
-                <div class="countdown-container">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="countDays">00</div>
-                        <div class="countdown-label">Days</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="countHours">00</div>
-                        <div class="countdown-label">Hours</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="countMins">00</div>
-                        <div class="countdown-label">Minutes</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="countSecs">00</div>
-                        <div class="countdown-label">Seconds</div>
-                    </div>
-                </div>
-                <div class="sale-status upcoming" id="saleStatus">
-                    <i class="fas fa-bell"></i>
-                    <span>Offer Starting Soon - Stay Tuned!</span>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="hero-buttons">
-                <a href="index.html" class="action-btn btn-home">
-                    <i class="fas fa-home"></i> Back to Home
-                </a>
-                <a href="products.html" class="action-btn btn-products">
-                    <i class="fas fa-box"></i> All Products
-                </a>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-tags"></i></div>
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Products on Sale</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-percent"></i></div>
-                    <div class="stat-number">50%</div>
-                    <div class="stat-label">Max Discount</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-gift"></i></div>
-                    <div class="stat-number">7</div>
-                    <div class="stat-label">Days Only</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRODUCTS SECTION -->
-        <section class="products-section">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">
-                    <i class="fas fa-gift"></i>
-                    Christmas Sale Products
-                    <i class="fas fa-gift"></i>
+            <div class="timer-header">
+                <h2 class="timer-title" id="timer-title">
+                    <i class="far fa-clock"></i> &nbsp;Countdown to Exclusive Offers
                 </h2>
-                <p class="section-subtitle">Limited time offers - Don't miss out!</p>
             </div>
 
-            <div class="products-grid">
-                <!-- Zee5 -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">SALE</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="zee5_logo.png" alt="Zee5" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-tv\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Zee5</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-hd"></i> 4K</span>
-                                <span class="feature-tag"><i class="fas fa-mobile-alt"></i> On Number</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="plans-dropdown" id="zee5Plans">
-                            <div class="dropdown-header" onclick="toggleDropdown('zee5Plans')">
-                                <span class="dropdown-title"><i class="fas fa-list"></i> Select Plan (2 options)</span>
-                                <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
-                            </div>
-                            <div class="dropdown-content">
-                                <div class="plan-option" onclick="selectPlan(this, 'Zee5 4K', '1 Month', '35')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Month</span>
-                                        <span class="plan-note">Christmas Price</span>
-                                    </div>
-                                    <span class="plan-price">₹35</span>
-                                </div>
-                                <div class="plan-option" onclick="selectPlan(this, 'Zee5 4K', '1 Year', '130')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Year</span>
-                                        <span class="plan-note">Best Value!</span>
-                                    </div>
-                                    <span class="plan-price">₹130</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Zee5 4K" data-default-price="35" data-default-duration="1 Month">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
+            <div class="timer-display">
+                <div class="timer-box">
+                    <div class="number" id="days">00</div>
+                    <div class="label">Days</div>
                 </div>
-
-                <!-- Netflix -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">HOT</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-film\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Netflix</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-hd"></i> 4K</span>
-                                <span class="feature-tag"><i class="fas fa-user"></i> Single Device</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 1 Month</span>
-                            <div>
-                                <span class="original-price">₹120</span>
-                                <span class="plan-price">₹90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Netflix 4K" data-price="90" data-duration="1 Month">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-box">
+                    <div class="number" id="hours">00</div>
+                    <div class="label">Hours</div>
                 </div>
-
-                <!-- Chaupal -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">DEAL</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="chaupal_logo.png" alt="Chaupal" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-play-circle\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Chaupal</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-hd"></i> 4K</span>
-                                <span class="feature-tag"><i class="fas fa-user"></i> Single Device</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="plans-dropdown" id="chaupalPlans">
-                            <div class="dropdown-header" onclick="toggleDropdown('chaupalPlans')">
-                                <span class="dropdown-title"><i class="fas fa-list"></i> Select Plan (3 options)</span>
-                                <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
-                            </div>
-                            <div class="dropdown-content">
-                                <div class="plan-option" onclick="selectPlan(this, 'Chaupal 4K', '1 Month', '50')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Month</span>
-                                    </div>
-                                    <span class="plan-price">₹50</span>
-                                </div>
-                                <div class="plan-option" onclick="selectPlan(this, 'Chaupal 4K', '6 Months', '180')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">6 Months</span>
-                                        <span class="plan-note">Save ₹120</span>
-                                    </div>
-                                    <span class="plan-price">₹180</span>
-                                </div>
-                                <div class="plan-option" onclick="selectPlan(this, 'Chaupal 4K', '1 Year', '340')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Year</span>
-                                        <span class="plan-note">Best Value!</span>
-                                    </div>
-                                    <span class="plan-price">₹340</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Chaupal 4K" data-default-price="50" data-default-duration="1 Month">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-box">
+                    <div class="number" id="minutes">00</div>
+                    <div class="label">Mins</div>
                 </div>
-
-                <!-- YouTube Premium -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">50% OFF</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-youtube\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">YouTube Premium</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-music"></i> YT Music</span>
-                                <span class="feature-tag"><i class="fas fa-ban"></i> Ad-Free</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 1 Month</span>
-                            <div>
-                                <span class="original-price">₹35</span>
-                                <span class="plan-price">₹20</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="YouTube Premium" data-price="20" data-duration="1 Month">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-box">
+                    <div class="number" id="seconds">00</div>
+                    <div class="label">Secs</div>
                 </div>
+            </div>
 
-                <!-- CapCut Pro -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">SALE</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="capcut_logo.png" alt="CapCut" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-video\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">CapCut Pro</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-user"></i> Single Device</span>
-                                <span class="feature-tag"><i class="fas fa-star"></i> All Features</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 1 Month</span>
-                            <div>
-                                <span class="original-price">₹350</span>
-                                <span class="plan-price">₹280</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="CapCut Pro" data-price="280" data-duration="1 Month">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Prime Video -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">DEAL</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-play\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Prime Video</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-users"></i> 4 Devices</span>
-                                <span class="feature-tag"><i class="fas fa-envelope"></i> On Mail</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 6 Months</span>
-                            <div>
-                                <span class="original-price">₹150</span>
-                                <span class="plan-price">₹85</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Prime Video" data-price="85" data-duration="6 Months">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Canva Pro -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">VALUE</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="canva_logo.png" alt="Canva" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-palette\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Canva Education Pro</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-envelope"></i> On Mail</span>
-                                <span class="feature-tag"><i class="fas fa-star"></i> All Features</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 1 Year</span>
-                            <div>
-                                <span class="original-price">₹170</span>
-                                <span class="plan-price">₹100</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Canva Education Pro" data-price="100" data-duration="1 Year">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hotstar -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">65% OFF</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="hotstar_logo.png" alt="Hotstar" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-futbol\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Disney+ Hotstar</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-mobile-alt"></i> On Number</span>
-                                <span class="feature-tag"><i class="fas fa-hd"></i> HD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 1 Month</span>
-                            <div>
-                                <span class="original-price">₹80</span>
-                                <span class="plan-price">₹30</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Disney+ Hotstar" data-price="30" data-duration="1 Month">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LinkedIn -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">PRO</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-linkedin\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">LinkedIn Premium</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-globe"></i> Multi-Country</span>
-                                <span class="feature-tag"><i class="fas fa-lock"></i> Secure Login</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="plans-dropdown" id="linkedinPlans">
-                            <div class="dropdown-header" onclick="toggleDropdown('linkedinPlans')">
-                                <span class="dropdown-title"><i class="fas fa-list"></i> Select Plan (2 options)</span>
-                                <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
-                            </div>
-                            <div class="dropdown-content">
-                                <div class="plan-option" onclick="selectPlan(this, 'LinkedIn Career Plan', '3 Months', '235')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">Career Plan - 3 Months</span>
-                                        <span class="plan-note">Job Seekers</span>
-                                    </div>
-                                    <span class="plan-price">₹235</span>
-                                </div>
-                                <div class="plan-option" onclick="selectPlan(this, 'LinkedIn Business Plan', '3 Months', '440')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">Business Plan - 3 Months</span>
-                                        <span class="plan-note">For Professionals</span>
-                                    </div>
-                                    <span class="plan-price">₹440</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="LinkedIn Career Plan" data-default-price="235" data-default-duration="3 Months">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Apple TV/Music -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">SALE</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="apple_logo.png" alt="Apple" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-apple\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Apple TV / Music</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-tv"></i> TV</span>
-                                <span class="feature-tag"><i class="fas fa-music"></i> Music</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 6 Months</span>
-                            <div>
-                                <span class="original-price">₹420</span>
-                                <span class="plan-price">₹370</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Apple TV/Music" data-price="370" data-duration="6 Months">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Spotify -->
-                <div class="product-card scroll-reveal">
-                    <div class="christmas-ribbon">DEAL</div>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fab fa-spotify\'></i>';">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Spotify Premium</h3>
-                            <div class="product-features">
-                                <span class="feature-tag"><i class="fas fa-envelope"></i> Fresh Mail</span>
-                                <span class="feature-tag"><i class="fas fa-ban"></i> Ad-Free</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration"><i class="fas fa-calendar"></i> 3 Months</span>
-                            <div>
-                                <span class="original-price">₹180</span>
-                                <span class="plan-price">₹150</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buy-btn-wrapper">
-                        <a href="#" class="buy-btn buy-btn-locked" data-product="Spotify Premium" data-price="150" data-duration="3 Months">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </a>
-                        <div class="lock-overlay">
-                            <i class="fas fa-lock"></i>
-                            <span>Unlocks Dec 21</span>
-                        </div>
-                    </div>
+            <div class="offer-status">
+                <div class="status-badge status-locked" id="offer-status">
+                    <i class="fas fa-lock"></i>
+                    <span>Offers Locked — Awaiting New Year</span>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- FOOTER -->
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2 class="section-title">Exclusive <span>New Year Deals</span></h2>
+                <p class="section-subtitle">Available for 48 Hours Only</p>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be inserted by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <nav class="nav-section">
+            <div class="nav-buttons">
+                <a href="https://tdsofficial.store/index.html" class="nav-btn home-btn">
+                    <i class="fas fa-home"></i> HOME
+                </a>
+                <a href="https://tdsofficial.store/products.html" class="nav-btn products-btn">
+                    <i class="fas fa-box-open"></i> PRODUCTS
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="logo.png" alt="TDS Logo">
-                <span class="footer-logo-text">TDS Official Store</span>
-            </div>
-            <p class="footer-tagline">Wishing you a Merry Christmas & Happy Holidays!</p>
-
-            <div class="footer-social">
-                <a href="https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk" target="_blank" class="social-icon instagram" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/919024487624" target="_blank" class="social-icon whatsapp" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-
-            <div class="footer-bottom">
-                <p class="copyright">
-                    © <span id="currentYear"></span> <a href="https://tdsofficial.store">TDS Official Store</a>. All rights reserved.
-                </p>
-            </div>
+        <img src="https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/logo.png" alt="TDS Logo" class="footer-logo">
+        <div class="footer-brand">THE DIAMOND STORE</div>
+        <div class="footer-copyright">©Copyright 2025-2026 • All Rights Reserved</div>
+        <div class="footer-links">
+            <a href="https://tdsofficial.store/privacy.html" class="footer-link">
+                <i class="fas fa-shield-alt"></i> Privacy Policy
+            </a>
+            <a href="https://tdsofficial.store/terms.html" class="footer-link">
+                <i class="fas fa-file-contract"></i> Terms of Service
+            </a>
+            <a href="https://tdsofficial.store/refund.html" class="footer-link">
+                <i class="fas fa-undo-alt"></i> Refund Policy
+            </a>
         </div>
     </footer>
 
-    <!-- SCROLL TO TOP -->
-    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919024487624" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // ==================== CONFIGURATION ====================
-        // IMPORTANT: Set your sale dates here (Year 2025)
-        const SALE_START = new Date('December 21, 2025 00:00:00').getTime();
-        const SALE_END = new Date('December 27, 2025 23:59:59').getTime();
-        const WHATSAPP_NUMBER = '919024487624';
+        // Products Data
+        const products = [
+            {
+                name: "Prime Video",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/2560px-Amazon_Prime_Video_logo.svg.png",
+                plans: [{ duration: "6 Months", price: 90 }],
+                badge: "HOT"
+            },
+            {
+                name: "Netflix",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png",
+                plans: [{ duration: "1 Month", price: 99 }],
+                badge: "POPULAR"
+            },
+            {
+                name: "Chaupal",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/chaupal_logo.png",
+                plans: [
+                    { duration: "1 Month", price: 60 },
+                    { duration: "3 Months", price: 120 }
+                ],
+                badge: "DEAL"
+            },
+            {
+                name: "Canva Pro",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/canva_logo.png",
+                plans: [{ duration: "1 Year", price: 80 }],
+                badge: "BEST"
+            },
+            {
+                name: "CapCut Pro",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/capcut_logo.png",
+                plans: [{ duration: "1 Month", price: 290 }],
+                badge: "NEW"
+            },
+            {
+                name: "Apple TV / Music",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/apple_logo.png",
+                plans: [{ duration: "6 Months", price: 380 }],
+                badge: "PREMIUM"
+            },
+            {
+                name: "Hotstar",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/hotstar_logo.png",
+                plans: [{ duration: "1 Month", price: 50 }],
+                badge: "VALUE"
+            },
+            {
+                name: "Duolingo Plus",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Duolingo_logo.svg/2048px-Duolingo_logo.svg.png",
+                plans: [{ duration: "1 Year", price: 750 }],
+                badge: "LEARN"
+            },
+            {
+                name: "Zee5",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/zee5_logo.png",
+                plans: [{ duration: "1 Year", price: 140 }],
+                badge: "SUPER"
+            },
+            {
+                name: "LinkedIn Business",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png",
+                plans: [{ duration: "3 Months", price: 570 }],
+                badge: "PRO"
+            },
+            {
+                name: "Google AI Pro + 2TB",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png",
+                plans: [{ duration: "Lifetime", price: 40 }],
+                badge: "MEGA"
+            },
+            {
+                name: "ChatGPT Plus",
+                logo: "https://raw.githubusercontent.com/tdsofficial-store/tdsofficial.store/main/chatgpt_logo.png",
+                plans: [{ duration: "Go Plan", price: 50 }],
+                badge: "AI"
+            }
+        ];
 
-        // ==================== INITIALIZATION ====================
-        document.addEventListener('DOMContentLoaded', () => {
-            createSnowfall();
-            createChristmasLights();
-            initCountdown();
-            initScrollReveal();
-            initScrollTopButton();
-            setCurrentYear();
-        });
+        // Timer Configuration
+        const newYearDate = new Date('January 1, 2026 00:00:00').getTime();
+        const offerEndDate = new Date('January 3, 2026 00:00:00').getTime();
 
-        // ==================== SNOWFALL ====================
-        function createSnowfall() {
-            const container = document.getElementById('snowfallContainer');
-            const snowflakeChars = ['❄', '❅', '❆', '✻', '✼', '❉', '•'];
+        let currentState = 'locked';
+
+        // Create Snow Particles
+        function createSnow() {
+            const snowfall = document.getElementById('snowfall');
             
-            for (let i = 0; i < 50; i++) {
-                const snowflake = document.createElement('span');
-                snowflake.className = 'snowflake';
-                snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.fontSize = (8 + Math.random() * 15) + 'px';
-                snowflake.style.opacity = 0.4 + Math.random() * 0.6;
-                snowflake.style.animationDuration = (5 + Math.random() * 10) + 's';
-                snowflake.style.animationDelay = Math.random() * 10 + 's';
-                container.appendChild(snowflake);
+            for (let i = 0; i < 80; i++) {
+                const snow = document.createElement('div');
+                snow.className = 'snow';
+                const size = Math.random() * 5 + 3;
+                snow.style.width = size + 'px';
+                snow.style.height = size + 'px';
+                snow.style.left = Math.random() * 100 + '%';
+                snow.style.animationDuration = (Math.random() * 8 + 8) + 's';
+                snow.style.animationDelay = Math.random() * 10 + 's';
+                snowfall.appendChild(snow);
             }
         }
 
-        // ==================== CHRISTMAS LIGHTS ====================
-        function createChristmasLights() {
-            const container = document.getElementById('christmasLights');
-            const colors = ['light-red', 'light-green', 'light-gold', 'light-blue'];
-            
+        // Create Timer Fireworks
+        function createTimerFireworks() {
+            const container = document.getElementById('timer-fireworks');
+            const colors = ['#D4AF37', '#F4E4BA', '#00D4FF', '#ff6b6b', '#00ff88'];
+
+            setInterval(() => {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = Math.random() * 90 + 5 + '%';
+                firework.style.top = Math.random() * 60 + 20 + '%';
+                firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+                firework.style.color = colors[Math.floor(Math.random() * colors.length)];
+                firework.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
+                container.appendChild(firework);
+
+                setTimeout(() => {
+                    firework.remove();
+                }, 2500);
+            }, 400);
+
+            // Add sparkle particles
             for (let i = 0; i < 20; i++) {
-                const light = document.createElement('div');
-                light.className = 'light-bulb ' + colors[i % 4];
-                light.style.animationDelay = (i * 0.1) + 's';
-                container.appendChild(light);
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle-particle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(sparkle);
             }
         }
 
-        // ==================== COUNTDOWN TIMER ====================
-        function initCountdown() {
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+        // Generate Product Cards
+        function generateProductCards() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                
+                let plansHTML = '';
+                if (product.plans.length > 1) {
+                    plansHTML = `
+                        <div class="plans-container">
+                            <div class="plans-dropdown">
+                                <select id="plan-${index}">
+                                    ${product.plans.map((plan, i) => 
+                                        `<option value="${i}">${plan.duration} — ₹${plan.price}</option>`
+                                    ).join('')}
+                                </select>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    plansHTML = `
+                        <div class="plans-container">
+                            <div class="single-plan">
+                                <span class="plan-duration">${product.plans[0].duration}</span>
+                                <span class="plan-price">₹${product.plans[0].price}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="product-badge">${product.badge}</div>
+                    <div class="product-header">
+                        <div class="product-logo-wrapper">
+                            <img src="${product.logo}" alt="${product.name}" class="product-logo" 
+                                onerror="this.src='https://via.placeholder.com/65x65/0F2744/D4AF37?text=${product.name.charAt(0)}'">
+                        </div>
+                        <h3 class="product-name">${product.name}</h3>
+                    </div>
+                    ${plansHTML}
+                    <button class="buy-btn buy-btn-locked" id="btn-${index}" onclick="handleBuy(${index})" disabled>
+                        <i class="fas fa-lock"></i>
+                        <span>Locked</span>
+                        <span class="btn-timer" id="btn-timer-${index}"></span>
+                    </button>
+                `;
+
+                grid.appendChild(card);
+            });
         }
 
-        function updateCountdown() {
+        // Handle Buy
+        function handleBuy(index) {
+            if (currentState === 'active') {
+                const product = products[index];
+                let selectedPlan = product.plans[0];
+                
+                if (product.plans.length > 1) {
+                    const selectElement = document.getElementById(`plan-${index}`);
+                    selectedPlan = product.plans[selectElement.value];
+                }
+
+                const message = `Hello! I'm interested in purchasing *${product.name}* (${selectedPlan.duration}) for *₹${selectedPlan.price}* from the New Year 2026 Offer!`;
+                const whatsappUrl = `https://wa.me/919024487624?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            }
+        }
+
+        // Update Timer
+        function updateTimer() {
             const now = new Date().getTime();
-            const countdownTitle = document.getElementById('countdownTitle');
-            const saleStatus = document.getElementById('saleStatus');
-
-            // Determine which phase we're in
-            if (now < SALE_START) {
-                // === BEFORE SALE STARTS ===
-                const diff = SALE_START - now;
+            
+            if (now < newYearDate) {
+                currentState = 'locked';
+                const distance = newYearDate - now;
                 
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                document.getElementById('countDays').textContent = String(days).padStart(2, '0');
-                document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('countMins').textContent = String(mins).padStart(2, '0');
-                document.getElementById('countSecs').textContent = String(secs).padStart(2, '0');
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 
-                countdownTitle.innerHTML = '<i class="fas fa-hourglass-start"></i> Offer Starting Soon <i class="fas fa-hourglass-start"></i>';
-                saleStatus.className = 'sale-status upcoming';
-                saleStatus.innerHTML = '<i class="fas fa-bell"></i> <span>Get Ready! Sale starts on December 21st</span>';
-
-                // Keep buttons locked
-                lockAllButtons();
-
-            } else if (now >= SALE_START && now <= SALE_END) {
-                // === SALE IS LIVE ===
-                const diff = SALE_END - now;
+                document.getElementById('timer-title').innerHTML = '<i class="far fa-clock"></i> &nbsp;Countdown to Exclusive Offers';
                 
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                const status = document.getElementById('offer-status');
+                status.className = 'status-badge status-locked';
+                status.innerHTML = '<i class="fas fa-lock"></i><span>Offers Locked — Awaiting New Year</span>';
 
-                document.getElementById('countDays').textContent = String(days).padStart(2, '0');
-                document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('countMins').textContent = String(mins).padStart(2, '0');
-                document.getElementById('countSecs').textContent = String(secs).padStart(2, '0');
+                updateButtonStates('locked', `${days}d ${hours}h`);
 
-                countdownTitle.innerHTML = '<i class="fas fa-fire"></i> Sale Ends In <i class="fas fa-fire"></i>';
-                saleStatus.className = 'sale-status live';
-                saleStatus.innerHTML = '<i class="fas fa-bolt"></i> <span>SALE IS LIVE - Grab Your Deals Now!</span>';
+            } else if (now >= newYearDate && now < offerEndDate) {
+                currentState = 'active';
+                const distance = offerEndDate - now;
 
-                // Unlock buttons
-                unlockAllButtons();
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+                document.getElementById('timer-title').innerHTML = '<i class="fas fa-fire"></i> &nbsp;Offer Ends In';
+                
+                const status = document.getElementById('offer-status');
+                status.className = 'status-badge status-active';
+                status.innerHTML = '<i class="fas fa-unlock"></i><span>Offers Are Live — Grab Now!</span>';
+
+                updateButtonStates('active', `${hours}h ${minutes}m`);
 
             } else {
-                // === SALE HAS ENDED ===
-                document.getElementById('countDays').textContent = '00';
-                document.getElementById('countHours').textContent = '00';
-                document.getElementById('countMins').textContent = '00';
-                document.getElementById('countSecs').textContent = '00';
+                currentState = 'ended';
+                
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
 
-                countdownTitle.innerHTML = '<i class="fas fa-clock"></i> Sale Ended <i class="fas fa-clock"></i>';
-                saleStatus.className = 'sale-status ended';
-                saleStatus.innerHTML = '<i class="fas fa-times-circle"></i> <span>Sale has ended. See you next year!</span>';
+                document.getElementById('timer-title').innerHTML = '<i class="fas fa-times-circle"></i> &nbsp;Offer Period Ended';
+                
+                const status = document.getElementById('offer-status');
+                status.className = 'status-badge status-ended';
+                status.innerHTML = '<i class="fas fa-lock"></i><span>Timer Ended — Offers Closed</span>';
 
-                // Lock buttons with ended message
-                lockAllButtons(true);
+                updateButtonStates('ended', '');
             }
         }
 
-        // ==================== LOCK/UNLOCK BUTTONS ====================
-        function lockAllButtons(ended = false) {
-            const lockOverlays = document.querySelectorAll('.lock-overlay');
-            const buyButtons = document.querySelectorAll('.buy-btn');
+        // Update Button States
+        function updateButtonStates(state, timerText) {
+            products.forEach((product, index) => {
+                const btn = document.getElementById(`btn-${index}`);
 
-            lockOverlays.forEach(overlay => {
-                overlay.style.display = 'flex';
-                if (ended) {
-                    overlay.innerHTML = '<i class="fas fa-lock"></i><span>Sale Ended</span>';
+                if (state === 'locked') {
+                    btn.className = 'buy-btn buy-btn-locked';
+                    btn.disabled = true;
+                    btn.innerHTML = `
+                        <i class="fas fa-lock"></i>
+                        <span>Locked</span>
+                        <span class="btn-timer">${timerText}</span>
+                    `;
+                } else if (state === 'active') {
+                    btn.className = 'buy-btn buy-btn-active';
+                    btn.disabled = false;
+                    btn.innerHTML = `
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Buy Now</span>
+                        <span class="btn-timer">${timerText} left</span>
+                    `;
                 } else {
-                    overlay.innerHTML = '<i class="fas fa-lock"></i><span>Unlocks Dec 21</span>';
-                }
-            });
-
-            buyButtons.forEach(btn => {
-                btn.classList.remove('buy-btn-unlocked');
-                btn.classList.add('buy-btn-locked');
-                btn.onclick = (e) => e.preventDefault();
-            });
-        }
-
-        function unlockAllButtons() {
-            const lockOverlays = document.querySelectorAll('.lock-overlay');
-            const buyButtons = document.querySelectorAll('.buy-btn');
-
-            lockOverlays.forEach(overlay => {
-                overlay.style.display = 'none';
-            });
-
-            buyButtons.forEach(btn => {
-                btn.classList.remove('buy-btn-locked');
-                btn.classList.add('buy-btn-unlocked');
-                btn.onclick = null;
-                
-                // Set up WhatsApp link
-                const product = btn.dataset.product;
-                const price = btn.dataset.price || btn.dataset.defaultPrice;
-                const duration = btn.dataset.duration || btn.dataset.defaultDuration || '';
-                
-                if (product && price) {
-                    const message = encodeURIComponent(`I want to buy ${product} ${duration} worth ₹${price}💸. Please give me payment and product information❣️`);
-                    btn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-                    btn.target = '_blank';
+                    btn.className = 'buy-btn buy-btn-ended';
+                    btn.disabled = true;
+                    btn.innerHTML = `
+                        <i class="fas fa-times-circle"></i>
+                        <span>Timer Ended</span>
+                    `;
                 }
             });
         }
 
-        // ==================== DROPDOWN TOGGLE ====================
-        function toggleDropdown(id) {
-            const dropdown = document.getElementById(id);
-            dropdown.classList.toggle('open');
-        }
-
-        // ==================== SELECT PLAN ====================
-        function selectPlan(element, productName, duration, price) {
-            // Remove selected from siblings
-            const siblings = element.parentElement.querySelectorAll('.plan-option');
-            siblings.forEach(sib => sib.classList.remove('selected'));
-            
-            // Add selected to clicked
-            element.classList.add('selected');
-            
-            // Update buy button data
-            const card = element.closest('.product-card');
-            const buyBtn = card.querySelector('.buy-btn');
-            buyBtn.dataset.product = productName;
-            buyBtn.dataset.price = price;
-            buyBtn.dataset.duration = duration;
-            
-            // If sale is live, update the link immediately
-            const now = new Date().getTime();
-            if (now >= SALE_START && now <= SALE_END) {
-                const message = encodeURIComponent(`I want to buy ${productName} ${duration} worth ₹${price}💸. Please give me payment and product information❣️`);
-                buyBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-            }
-        }
-
-        // ==================== SCROLL REVEAL ====================
-        function initScrollReveal() {
-            const elements = document.querySelectorAll('.scroll-reveal');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('revealed');
-                        }, index * 50);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-            elements.forEach(el => observer.observe(el));
-        }
-
-        // ==================== SCROLL TO TOP ====================
-        function initScrollTopButton() {
-            const scrollBtn = document.getElementById('scrollTopBtn');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    scrollBtn.classList.add('visible');
-                } else {
-                    scrollBtn.classList.remove('visible');
-                }
-            });
-        }
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // ==================== CURRENT YEAR ====================
-        function setCurrentYear() {
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-        }
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createSnow();
+            createTimerFireworks();
+            generateProductCards();
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        });
     </script>
 </body>
 </html>
