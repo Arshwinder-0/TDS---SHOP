@@ -692,6 +692,18 @@
             color: var(--gold-start);
         }
 
+        /* 🔧 FIX VPN DROPDOWN CUT ISSUE */
+.product-card,
+.product-plans {
+    overflow: visible !important;
+}
+
+#vpnPlans .dropdown-content {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
         /* Multiple Plans - Dropdown Style */
         .plans-dropdown {
             border: 1px solid var(--glass-border);
