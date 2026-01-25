@@ -1310,30 +1310,70 @@
                 </div>
 
                 <!-- Netflix -->
-                <div class="product-card scroll-reveal">
-                    <span class="product-badge badge-hot">🔥 HOT</span>
-                    <div class="product-header">
-                        <div class="product-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎬</span>'">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">Netflix</h3>
-                            <div class="product-features">
-                                <span class="feature-tag">Single Device</span>
-                                <span class="feature-tag">4K Quality</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-plans">
-                        <div class="single-plan">
-                            <span class="plan-duration">1 Month</span>
-                            <span class="plan-price">₹120</span>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Netflix%201%20Month%20worth%20₹120💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+<div class="product-card scroll-reveal">
+    <span class="product-badge badge-popular">🔥 HOT</span>
+
+    <div class="product-header">
+        <div class="product-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                 alt="Netflix"
+                 style="width:42px;height:auto"
+                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎬</span>'">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Netflix</h3>
+            <div class="product-features">
+                <span class="feature-tag">Premium</span>
+                <span class="feature-tag">HD / 4K</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-plans">
+        <div class="plans-dropdown" id="netflixPlans">
+
+            <div class="dropdown-header" onclick="toggleDropdown('netflixPlans')">
+                <span class="dropdown-title">📋 Select Plan</span>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+
+            <div class="dropdown-content">
+
+                <div class="plan-option"
+                     onclick="selectPlan(this,'Netflix','1 Month','120')">
+                    <span class="plan-name">1 Month</span>
+                    <span class="plan-price">₹120</span>
                 </div>
+
+                <div class="plan-option"
+                     onclick="selectPlan(this,'Netflix','3 Months','320')">
+                    <span class="plan-name">3 Months</span>
+                    <span class="plan-price">₹320</span>
+                </div>
+
+                <div class="plan-option"
+                     onclick="selectPlan(this,'Netflix','6 Months','600')">
+                    <span class="plan-name">6 Months</span>
+                    <span class="plan-price">₹600</span>
+                </div>
+
+                <div class="plan-option"
+                     onclick="selectPlan(this,'Netflix','12 Months','999')">
+                    <span class="plan-name">12 Months</span>
+                    <span class="plan-price">₹999</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Netflix🔥.%20Please%20share%20payment%20details❣️"
+       target="_blank"
+       class="buy-btn"
+       id="netflixBuyBtn">
+        💬 Buy Now
+    </a>
+</div>
 
                 <!-- Hotstar -->
                 <div class="product-card scroll-reveal">
