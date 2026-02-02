@@ -1158,6 +1158,7 @@
             </div>
 
             <div class="products-grid">
+                
                 <!-- YouTube Premium -->
 <div class="product-card scroll-reveal">
     <span class="product-badge badge-hot">🔥 HOT</span>
@@ -1177,32 +1178,21 @@
         </div>
     </div>
 
-    <!-- DROPDOWN PLANS -->
+    <!-- PLANS (same look, no scroll) -->
     <div class="product-plans">
-        <select class="plan-dropdown" id="ytPlan" onchange="updateYTLink()">
+        <select class="single-plan plan-select" id="ytPlan" onchange="updateYT()">
             <option value="1 Month|35">1 Month – ₹35</option>
             <option value="6 Months|450">6 Months – ₹450</option>
         </select>
     </div>
 
-    <a id="ytBuyBtn"
+    <a id="ytBuy"
        href="https://wa.me/919024487624?text=I%20want%20to%20buy%20YouTube%20Premium%201%20Month%20worth%20₹35💸.%20Please%20give%20me%20payment%20and%20product%20information❣️"
        target="_blank"
        class="buy-btn">
         💬 Buy Now
     </a>
 </div>
-
-<script>
-function updateYTLink() {
-    const select = document.getElementById("ytPlan");
-    const [duration, price] = select.value.split("|");
-
-    const message = `I want to buy YouTube Premium ${duration} worth ₹${price}💸. Please give me payment and product information❣️`;
-    document.getElementById("ytBuyBtn").href =
-        "https://wa.me/919024487624?text=" + encodeURIComponent(message);
-}
-</script>
 
 
                 <!-- YOUTUBE FAMILY -->
