@@ -24,23 +24,17 @@
             --instagram-pink: #E1306C;
             --instagram-purple: #833AB4;
             --instagram-orange: #F77737;
-            --christmas-red: #c41e3a;
-            --snow-white: #fffafa;
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-primary: #ffffff;
             --text-secondary: rgba(255, 255, 255, 0.7);
+            /* UPDATED: Premium offer gradient vars */
+            --offer-start: #6366f1;
+            --offer-end: #00d4ff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -53,29 +47,20 @@
 
         /* ==================== ANIMATED BACKGROUND ==================== */
         .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0; overflow: hidden;
         }
-
         .animated-bg::before {
             content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
+            position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background:
                 radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.06) 0%, transparent 40%),
                 radial-gradient(circle at 40% 40%, rgba(0, 180, 216, 0.05) 0%, transparent 30%);
             animation: bgFloat 20s ease-in-out infinite;
         }
-
         @keyframes bgFloat {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
             25% { transform: translate(2%, 2%) rotate(1deg); }
@@ -83,41 +68,10 @@
             75% { transform: translate(-2%, 2%) rotate(-1deg); }
         }
 
-        /* Floating Orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: orbFloat 15s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 212, 255, 0.15);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: rgba(250, 204, 21, 0.1);
-            top: 60%;
-            right: 10%;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            width: 250px;
-            height: 250px;
-            background: rgba(0, 180, 216, 0.12);
-            bottom: 20%;
-            left: 30%;
-            animation-delay: -10s;
-        }
-
+        .orb { position: absolute; border-radius: 50%; filter: blur(40px); animation: orbFloat 15s ease-in-out infinite; }
+        .orb-1 { width: 300px; height: 300px; background: rgba(0, 212, 255, 0.15); top: 10%; left: 10%; animation-delay: 0s; }
+        .orb-2 { width: 400px; height: 400px; background: rgba(250, 204, 21, 0.1); top: 60%; right: 10%; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: rgba(0, 180, 216, 0.12); bottom: 20%; left: 30%; animation-delay: -10s; }
         @keyframes orbFloat {
             0%, 100% { transform: translate(0, 0) scale(1); }
             25% { transform: translate(30px, -30px) scale(1.1); }
@@ -126,50 +80,23 @@
         }
 
         /* ==================== PARTICLES ==================== */
-        .particles-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-
+        .particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
         .particle-star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle var(--duration) ease-in-out infinite;
-            animation-delay: var(--delay);
+            position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite; animation-delay: var(--delay);
         }
-
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.5); }
         }
 
         /* ==================== FLOATING LOGO ==================== */
-        .floating-logo {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            pointer-events: none;
-            opacity: 0.06;
-        }
-
+        .floating-logo { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; pointer-events: none; opacity: 0.06; }
         .floating-logo img {
-            width: clamp(200px, 40vw, 450px);
-            height: auto;
+            width: clamp(200px, 40vw, 450px); height: auto;
             filter: drop-shadow(0 0 60px var(--cyan-glow)) drop-shadow(0 0 120px var(--deep-cyan)) drop-shadow(0 0 180px rgba(0, 180, 216, 0.4));
             animation: floatLogo 8s ease-in-out infinite;
         }
-
         @keyframes floatLogo {
             0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
             50% { transform: translateY(-25px) scale(1.03) rotate(1deg); }
@@ -177,849 +104,432 @@
 
         /* ==================== HEADER ==================== */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             padding: 12px 25px;
             background: rgba(2, 18, 40, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             transition: all 0.3s ease;
         }
+        .header.scrolled { padding: 8px 25px; background: rgba(2, 18, 40, 0.95); }
+        .header-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
+        .header-logo img { height: 40px; width: auto; filter: drop-shadow(0 0 10px var(--cyan-glow)); transition: all 0.3s ease; }
+        .header-logo:hover img { filter: drop-shadow(0 0 20px var(--cyan-glow)) drop-shadow(0 0 40px var(--deep-cyan)); transform: scale(1.05); }
+        .header-logo-text { font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header-nav { display: flex; gap: 15px; align-items: center; }
+        .nav-btn { padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: flex; align-items: center; gap: 6px; border: none; font-family: 'Poppins', sans-serif; }
+        .nav-btn-home { background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); color: var(--space-navy); box-shadow: 0 0 15px rgba(250, 204, 21, 0.3); }
+        .nav-btn-home:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 8px 25px rgba(250, 204, 21, 0.3); }
 
-        .header.scrolled {
-            padding: 8px 25px;
-            background: rgba(2, 18, 40, 0.95);
-        }
-
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .header-logo img {
-            height: 40px;
-            width: auto;
-            filter: drop-shadow(0 0 10px var(--cyan-glow));
-            transition: all 0.3s ease;
-        }
-
-        .header-logo:hover img {
-            filter: drop-shadow(0 0 20px var(--cyan-glow)) drop-shadow(0 0 40px var(--deep-cyan));
-            transform: scale(1.05);
-        }
-
-        .header-logo-text {
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .nav-btn {
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .nav-btn-home {
-            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-            color: var(--space-navy);
-            box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
-        }
-
-        .nav-btn-home:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 8px 25px rgba(250, 204, 21, 0.3);
-        }
-
+        /* ==================== UPDATED: Premium Offers Button (No Christmas) ==================== */
         .nav-btn-offers {
-            background: linear-gradient(135deg, var(--christmas-red), #8b0000);
+            background: linear-gradient(135deg, var(--offer-start), var(--offer-end));
             color: white;
-            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
         }
-
-        .nav-btn-offers::before {
-            content: '❄️';
-            position: absolute;
-            animation: snowMove 2s linear infinite;
-            font-size: 0.7rem;
-        }
-
-        @keyframes snowMove {
-            0% { top: -10px; left: 20%; opacity: 1; }
-            100% { top: 100%; left: 30%; opacity: 0; }
-        }
-
         .nav-btn-offers:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(196, 30, 58, 0.5), 0 8px 25px rgba(196, 30, 58, 0.3);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.5), 0 8px 25px rgba(0, 212, 255, 0.3);
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 5px; }
 
         /* ==================== MAIN CONTENT ==================== */
-        .main-content {
-            position: relative;
-            z-index: 10;
-            padding-top: 65px;
-        }
+        .main-content { position: relative; z-index: 10; padding-top: 65px; }
 
         /* ==================== BANNER ==================== */
-        .banner-section {
-            width: 100%;
-            padding: 15px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
+        .banner-section { width: 100%; padding: 15px 20px; max-width: 1400px; margin: 0 auto; }
         .banner-image {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            display: block;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 
-                        0 0 30px rgba(0, 212, 255, 0.15),
-                        0 0 60px rgba(250, 204, 21, 0.1);
-            transition: all 0.4s ease;
-            animation: bannerReveal 0.8s ease-out;
+            width: 100%; height: auto; border-radius: 20px; display: block;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 212, 255, 0.15), 0 0 60px rgba(250, 204, 21, 0.1);
+            transition: all 0.4s ease; animation: bannerReveal 0.8s ease-out;
         }
-
-        .banner-image:hover {
-            transform: scale(1.01);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 
-                        0 0 40px rgba(0, 212, 255, 0.2),
-                        0 0 80px rgba(250, 204, 21, 0.15);
-        }
-
-        @keyframes bannerReveal {
-            0% { opacity: 0; transform: translateY(-20px) scale(0.98); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
+        .banner-image:hover { transform: scale(1.01); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 255, 0.2), 0 0 80px rgba(250, 204, 21, 0.15); }
+        @keyframes bannerReveal { 0% { opacity: 0; transform: translateY(-20px) scale(0.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
 
         /* ==================== HERO SECTION ==================== */
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero-logo {
-            margin-bottom: 25px;
-        }
-
+        .hero-section { text-align: center; padding: 40px 20px; }
+        .hero-logo { margin-bottom: 25px; }
         .hero-logo img {
-            width: clamp(80px, 20vw, 130px);
-            height: auto;
+            width: clamp(80px, 20vw, 130px); height: auto;
             filter: drop-shadow(0 0 30px var(--cyan-glow)) drop-shadow(0 0 60px var(--deep-cyan));
             animation: heroLogoFloat 4s ease-in-out infinite;
         }
-
-        @keyframes heroLogoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
+        @keyframes heroLogoFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         .hero-title {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 700; margin-bottom: 15px;
             background: linear-gradient(135deg, var(--gold-start) 0%, var(--gold-end) 40%, #fff 80%, var(--gold-start) 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
             animation: gradientShift 4s ease-in-out infinite;
         }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(0.95rem, 2vw, 1.15rem);
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .hero-subtitle { font-size: clamp(0.95rem, 2vw, 1.15rem); color: var(--text-secondary); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
         /* ==================== ACTION BUTTONS ==================== */
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-bottom: 40px; }
         .action-btn {
-            padding: 14px 30px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
+            padding: 14px 30px; border-radius: 30px; font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: all 0.3s ease; text-decoration: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            border: none; font-family: 'Poppins', sans-serif; text-transform: uppercase;
+            letter-spacing: 0.5px; position: relative; overflow: hidden;
         }
-
         .action-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s ease;
         }
-
         .action-btn:hover::before { left: 100%; }
-
         .btn-home {
             background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
             color: var(--space-navy);
             box-shadow: 0 0 20px rgba(250, 204, 21, 0.4), 0 0 40px rgba(250, 204, 21, 0.2);
         }
+        .btn-home:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 30px rgba(250, 204, 21, 0.6), 0 0 60px rgba(250, 204, 21, 0.3), 0 10px 30px rgba(250, 204, 21, 0.4); }
 
-        .btn-home:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 30px rgba(250, 204, 21, 0.6), 0 0 60px rgba(250, 204, 21, 0.3), 0 10px 30px rgba(250, 204, 21, 0.4);
-        }
-
+        /* UPDATED: Premium Offers Hero Button */
         .btn-offers {
-            background: linear-gradient(135deg, var(--christmas-red), #8b0000);
+            background: linear-gradient(135deg, var(--offer-start), var(--offer-end));
             color: white;
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.4), 0 0 40px rgba(255, 255, 255, 0.15);
-            position: relative;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(0, 212, 255, 0.15);
         }
-
-        .btn-offers .snowflakes-mini {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            border-radius: 30px;
-            pointer-events: none;
-        }
-
-        .btn-offers .snowflake-mini {
-            position: absolute;
-            color: white;
-            font-size: 8px;
-            opacity: 0.7;
-            animation: miniSnowfall 2s linear infinite;
-        }
-
-        @keyframes miniSnowfall {
-            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(50px) rotate(360deg); opacity: 0; }
-        }
-
         .btn-offers:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 35px rgba(255, 255, 255, 0.4), 0 0 70px rgba(196, 30, 58, 0.4), 0 10px 30px rgba(196, 30, 58, 0.4);
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.5), 0 0 70px rgba(0, 212, 255, 0.3), 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
         /* ==================== STATS BAR ==================== */
         .stats-bar {
+            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+            padding: 25px 35px; background: var(--glass-bg);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-radius: 25px; border: 1px solid var(--glass-border);
+            max-width: 750px; margin: 0 auto 50px;
+            animation: statsReveal 0.8s ease-out 0.3s both;
+        }
+        @keyframes statsReveal { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2.2rem; font-weight: 700; background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+        .stat-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 400; margin-top: 5px; }
+        .stat-stars { color: var(--gold-start); font-size: 1rem; margin-top: 3px; }
+
+        /* ==================== PRODUCTS SECTION ==================== */
+        .products-section { padding: 20px; max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; margin-bottom: 10px; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: linear-gradient(90deg, var(--gold-start), var(--gold-end)); border-radius: 2px; }
+        .section-subtitle { color: var(--text-secondary); font-size: 1rem; margin-top: 15px; }
+
+        /* ==================== NEW: SEARCH BAR ==================== */
+        .search-container {
+            max-width: 520px;
+            margin: 0 auto 35px;
+        }
+        .search-wrapper {
+            position: relative;
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            padding: 25px 35px;
+            align-items: center;
+        }
+        .search-icon {
+            position: absolute;
+            left: 22px;
+            font-size: 1.1rem;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        .search-wrapper:focus-within .search-icon { opacity: 1; }
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 52px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 25px;
-            border: 1px solid var(--glass-border);
-            max-width: 750px;
-            margin: 0 auto 50px;
-            animation: statsReveal 0.8s ease-out 0.3s both;
-        }
-
-        @keyframes statsReveal {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            margin-top: 5px;
-        }
-
-        .stat-stars {
-            color: var(--gold-start);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
-            margin-top: 3px;
+            outline: none;
+            transition: all 0.3s ease;
         }
-
-        /* ==================== PRODUCTS SECTION ==================== */
-        .products-section {
-            padding: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .search-input:focus {
+            border-color: var(--cyan-glow);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2), 0 0 40px rgba(0, 212, 255, 0.08);
+            background: rgba(255, 255, 255, 0.07);
         }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
+        .search-input::placeholder { color: var(--text-secondary); }
+        .search-clear {
+            position: absolute; right: 18px;
+            background: rgba(255,255,255,0.08); border: 1px solid var(--glass-border);
+            color: var(--text-secondary); font-size: 0.85rem;
+            cursor: pointer; padding: 4px 10px; border-radius: 50%;
+            transition: all 0.3s ease; line-height: 1;
         }
-
-        .section-title {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
+        .search-clear:hover { color: var(--text-primary); background: rgba(255,255,255,0.15); }
+        .no-results {
+            text-align: center; padding: 50px 20px;
+            display: none;
         }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-start), var(--gold-end));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-top: 15px;
-        }
+        .no-results-icon { font-size: 3rem; display: block; margin-bottom: 15px; opacity: 0.4; }
+        .no-results-text { font-size: 1.15rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 5px; }
+        .no-results-hint { font-size: 0.85rem; color: var(--text-secondary); opacity: 0.6; }
 
         /* ==================== PRODUCTS GRID ==================== */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-        }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
 
         /* ==================== PRODUCT CARD ==================== */
         .product-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            padding: 25px;
+            border-radius: 25px; padding: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
-
         .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--cyan-glow), var(--gold-start), var(--cyan-glow));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            transform: scaleX(0); transition: transform 0.4s ease;
+            border-radius: 25px 25px 0 0;
         }
-
         .product-card:hover {
             transform: translateY(-10px);
             border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 
-                        0 0 40px rgba(0, 212, 255, 0.15),
-                        0 0 60px rgba(250, 204, 21, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.15), 0 0 60px rgba(250, 204, 21, 0.1);
+        }
+        .product-card:hover::before { transform: scaleX(1); }
+
+        /* Search hidden animation */
+        .product-card.search-hidden {
+            display: none !important;
+        }
+        .product-card.search-show {
+            animation: cardReveal 0.35s ease-out both;
+        }
+        @keyframes cardReveal {
+            from { opacity: 0; transform: translateY(15px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
+        .product-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
         .product-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 60px; height: 60px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
             background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-            overflow: hidden;
+            flex-shrink: 0; transition: all 0.3s ease; overflow: hidden;
         }
-
-        .product-icon img {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-        }
-
-        .product-icon-emoji {
-            font-size: 2rem;
-        }
-
-        .product-card:hover .product-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        .product-info {
-            flex: 1;
-        }
-
-        .product-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--text-primary);
-        }
-
-        .product-features {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .feature-tag {
-            background: rgba(0, 212, 255, 0.1);
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            color: var(--cyan-glow);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-        }
+        .product-icon img { width: 45px; height: 45px; object-fit: contain; }
+        .product-icon-emoji { font-size: 2rem; }
+        .product-card:hover .product-icon { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .product-info { flex: 1; }
+        .product-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; color: var(--text-primary); }
+        .product-features { font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-wrap: wrap; gap: 8px; }
+        .feature-tag { background: rgba(0, 212, 255, 0.1); padding: 3px 10px; border-radius: 10px; font-size: 0.75rem; color: var(--cyan-glow); border: 1px solid rgba(0, 212, 255, 0.2); }
 
         /* ==================== PRICING PLANS ==================== */
-        .product-plans {
-            margin: 15px 0;
-        }
+        .product-plans { margin: 15px 0; overflow: visible; }
+        .single-plan { display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; background: rgba(255, 255, 255, 0.03); border-radius: 15px; border: 1px solid var(--glass-border); }
+        .plan-duration { font-size: 0.9rem; color: var(--text-secondary); }
+        .plan-price { font-size: 1.4rem; font-weight: 700; color: var(--gold-start); }
 
-        /* Single Plan */
-        .single-plan {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .plan-duration {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .plan-price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--gold-start);
-        }
-
-        /* 🔧 FIX VPN DROPDOWN CUT ISSUE */
-.product-card,
-.product-plans {
-    overflow: visible !important;
-}
-
-#vpnPlans .dropdown-content {
-    max-height: 300px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
-
-        /* Multiple Plans - Dropdown Style */
-        .plans-dropdown {
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
+        /* Dropdown Plans */
+        .plans-dropdown { border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; }
         .dropdown-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.03);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 15px; background: rgba(255, 255, 255, 0.03);
+            cursor: pointer; transition: all 0.3s ease;
+            user-select: none;
         }
-
-        .dropdown-header:hover {
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .dropdown-title {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .dropdown-arrow {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-            color: var(--gold-start);
-        }
-
-        .plans-dropdown.open .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .plans-dropdown.open .dropdown-content {
-            max-height: 400px;
-        }
+        .dropdown-header:hover { background: rgba(255, 255, 255, 0.06); }
+        .dropdown-title { font-size: 0.9rem; color: var(--text-secondary); }
+        .dropdown-arrow { font-size: 0.8rem; transition: transform 0.3s ease; color: var(--gold-start); }
+        .plans-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+        .dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .plans-dropdown.open .dropdown-content { max-height: 350px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--gold-start) transparent; }
+        .dropdown-content::-webkit-scrollbar { width: 5px; }
+        .dropdown-content::-webkit-scrollbar-track { background: transparent; }
+        .dropdown-content::-webkit-scrollbar-thumb { background: var(--gold-start); border-radius: 3px; }
 
         .plan-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 15px;
-            border-top: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-            cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 15px; border-top: 1px solid var(--glass-border);
+            transition: all 0.3s ease; cursor: pointer;
         }
+        .plan-option:hover { background: rgba(0, 212, 255, 0.08); }
+        .plan-option.selected { background: rgba(37, 211, 102, 0.1); border-left: 3px solid var(--whatsapp-green); }
+        .plan-details { display: flex; flex-direction: column; gap: 2px; }
+        .plan-name { font-size: 0.9rem; font-weight: 500; color: var(--text-primary); }
+        .plan-note { font-size: 0.75rem; color: var(--text-secondary); }
+        .plan-option .plan-price { font-size: 1.2rem; font-weight: 700; color: var(--gold-start); }
 
-        .plan-option:hover {
-            background: rgba(0, 212, 255, 0.08);
-        }
-
-        .plan-option.selected {
-            background: rgba(37, 211, 102, 0.1);
-            border-left: 3px solid var(--whatsapp-green);
-        }
-
-        .plan-details {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .plan-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .plan-note {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .plan-option .plan-price {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--gold-start);
-        }
-
-        /* DM Price Style */
-        .dm-price {
-            padding: 12px 15px;
-            background: rgba(255, 140, 0, 0.1);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 140, 0, 0.2);
-            text-align: center;
-        }
-
-        .dm-text {
-            font-size: 0.95rem;
-            color: var(--orange);
-            font-weight: 600;
-        }
+        .dm-price { padding: 12px 15px; background: rgba(255, 140, 0, 0.1); border-radius: 15px; border: 1px solid rgba(255, 140, 0, 0.2); text-align: center; }
+        .dm-text { font-size: 0.95rem; color: var(--orange); font-weight: 600; }
 
         /* ==================== BUY BUTTON ==================== */
         .buy-btn {
-            width: 100%;
-            padding: 14px 25px;
-            margin-top: 15px;
-            border-radius: 25px;
+            width: 100%; padding: 14px 25px; margin-top: 15px; border-radius: 25px;
             background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            color: white; font-weight: 600; font-size: 1rem; border: none;
+            cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif;
+            text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;
             box-shadow: 0 0 20px rgba(37, 211, 102, 0.4), 0 0 40px rgba(37, 211, 102, 0.2);
         }
-
         .buy-btn:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 0 30px rgba(37, 211, 102, 0.6), 0 0 60px rgba(37, 211, 102, 0.3), 0 10px 30px rgba(37, 211, 102, 0.4);
         }
+        .buy-btn-dm { background: linear-gradient(135deg, var(--orange), #e67300); box-shadow: 0 0 20px rgba(255, 140, 0, 0.4), 0 0 40px rgba(255, 140, 0, 0.2); }
+        .buy-btn-dm:hover { box-shadow: 0 0 30px rgba(255, 140, 0, 0.6), 0 0 60px rgba(255, 140, 0, 0.3), 0 10px 30px rgba(255, 140, 0, 0.4); }
 
-        .buy-btn-dm {
-            background: linear-gradient(135deg, var(--orange), #e67300);
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.4), 0 0 40px rgba(255, 140, 0, 0.2);
-        }
-
-        .buy-btn-dm:hover {
-            box-shadow: 0 0 30px rgba(255, 140, 0, 0.6), 0 0 60px rgba(255, 140, 0, 0.3), 0 10px 30px rgba(255, 140, 0, 0.4);
-        }
-
-        /* ==================== BADGE ==================== */
+        /* ==================== BADGES ==================== */
         .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            position: absolute; top: 15px; right: 15px;
+            padding: 5px 12px; border-radius: 15px;
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+            z-index: 5;
         }
-
-        .badge-hot {
-            background: linear-gradient(135deg, var(--red-glow), #cc0044);
-            animation: badgePulse 2s ease-in-out infinite;
-        }
-
-        .badge-popular {
-            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-            color: var(--space-navy);
-        }
-
-        .badge-new {
-            background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan));
-        }
-
-        .badge-deal {
-            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
-        }
-
+        .badge-hot { background: linear-gradient(135deg, var(--red-glow), #cc0044); animation: badgePulse 2s ease-in-out infinite; }
+        .badge-popular { background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); color: var(--space-navy); }
+        .badge-new { background: linear-gradient(135deg, var(--cyan-glow), var(--deep-cyan)); }
+        .badge-deal { background: linear-gradient(135deg, var(--whatsapp-green), #128C7E); }
         @keyframes badgePulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4); }
             50% { box-shadow: 0 0 0 6px rgba(255, 51, 102, 0); }
         }
 
+        /* ==================== NEW: Dynamic Badges ==================== */
+        .badge-trending {
+            background: linear-gradient(135deg, #ff4500, #ff8c00);
+            color: white;
+            animation: badgeGlowOrange 2s ease-in-out infinite;
+        }
+        .badge-limited {
+            background: linear-gradient(135deg, #833AB4, var(--cyan-glow));
+            color: white;
+            animation: badgeGlowPurple 2s ease-in-out infinite;
+        }
+        .badge-fast-selling {
+            background: linear-gradient(135deg, var(--gold-start), #ff8c00);
+            color: var(--space-navy);
+            animation: badgeGlowGold 2s ease-in-out infinite;
+        }
+        @keyframes badgeGlowOrange {
+            0%, 100% { box-shadow: 0 0 6px rgba(255, 69, 0, 0.3); }
+            50% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.6), 0 0 30px rgba(255, 69, 0, 0.15); }
+        }
+        @keyframes badgeGlowPurple {
+            0%, 100% { box-shadow: 0 0 6px rgba(131, 58, 180, 0.3); }
+            50% { box-shadow: 0 0 16px rgba(0, 212, 255, 0.5), 0 0 30px rgba(131, 58, 180, 0.15); }
+        }
+        @keyframes badgeGlowGold {
+            0%, 100% { box-shadow: 0 0 6px rgba(250, 204, 21, 0.3); }
+            50% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.6), 0 0 30px rgba(250, 204, 21, 0.15); }
+        }
+
+        /* ==================== NEW: Sold Out System ==================== */
+        .product-sold-out {
+            opacity: 0.65;
+            border-color: rgba(255, 51, 102, 0.25) !important;
+        }
+        .product-sold-out:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 10px 30px rgba(255, 51, 102, 0.12) !important;
+        }
+        .product-sold-out::before { background: linear-gradient(90deg, var(--red-glow), #cc0044, var(--red-glow)) !important; }
+
+        .product-full-sold-out {
+            opacity: 0.55;
+            border-color: rgba(255, 51, 102, 0.2) !important;
+        }
+        .product-full-sold-out:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.1) !important;
+        }
+
+        .badge-sold-out {
+            background: linear-gradient(135deg, #ff3366, #990033) !important;
+            color: white !important;
+            animation: soldOutPulse 2.5s ease-in-out infinite !important;
+            box-shadow: 0 0 12px rgba(255, 51, 102, 0.4);
+        }
+        @keyframes soldOutPulse {
+            0%, 100% { box-shadow: 0 0 8px rgba(255, 51, 102, 0.3); }
+            50% { box-shadow: 0 0 18px rgba(255, 51, 102, 0.6), 0 0 30px rgba(255, 51, 102, 0.15); }
+        }
+
+        .all-sold-msg {
+            text-align: center; padding: 18px 15px;
+            background: rgba(255, 51, 102, 0.08);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 51, 102, 0.2);
+            color: var(--red-glow); font-weight: 600; font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .plan-sold-out {
+            opacity: 0.4 !important;
+            pointer-events: none !important;
+            cursor: not-allowed !important;
+            position: relative;
+        }
+        .plan-sold-out .plan-price,
+        .plan-sold-out .plan-sold-label {
+            color: var(--red-glow) !important;
+            font-size: 0.8rem !important;
+        }
+
+        .btn-disabled {
+            background: linear-gradient(135deg, #333, #222) !important;
+            box-shadow: 0 0 10px rgba(255, 51, 102, 0.15) !important;
+            cursor: not-allowed !important;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .btn-disabled:hover {
+            transform: none !important;
+            box-shadow: 0 0 10px rgba(255, 51, 102, 0.15) !important;
+        }
+
         /* ==================== SCROLL TO TOP ==================== */
         .scroll-top-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
+            position: fixed; bottom: 30px; right: 30px;
+            width: 55px; height: 55px; border-radius: 50%;
             background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--space-navy);
+            border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--space-navy);
             box-shadow: 0 8px 30px rgba(250, 204, 21, 0.4);
-            transition: all 0.3s ease;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
+            transition: all 0.3s ease; z-index: 999;
+            opacity: 0; visibility: hidden; transform: translateY(20px);
         }
-
-        .scroll-top-btn.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .scroll-top-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 12px 40px rgba(250, 204, 21, 0.5);
-        }
-
-        .scroll-top-btn::before {
-            content: '↑';
-            font-weight: bold;
-        }
+        .scroll-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top-btn:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 12px 40px rgba(250, 204, 21, 0.5); }
+        .scroll-top-btn::before { content: '↑'; font-weight: bold; }
 
         /* ==================== FOOTER ==================== */
-        .footer {
-            background: rgba(0, 0, 0, 0.4);
-            border-top: 1px solid var(--glass-border);
-            padding: 50px 20px 25px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .footer-logo img {
-            height: 45px;
-            width: auto;
-            filter: drop-shadow(0 0 15px var(--cyan-glow));
-        }
-
-        .footer-logo-text {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-tagline {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-5px);
-        }
-
-        .social-icon.instagram:hover {
-            background: linear-gradient(45deg, var(--instagram-purple), var(--instagram-pink), var(--instagram-orange));
-        }
-
-        .social-icon.whatsapp:hover {
-            background: var(--whatsapp-green);
-        }
-
-        .footer-bottom {
-            padding-top: 20px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-        }
-
-        .copyright a {
-            color: var(--gold-start);
-            text-decoration: none;
-        }
+        .footer { background: rgba(0, 0, 0, 0.4); border-top: 1px solid var(--glass-border); padding: 50px 20px 25px; margin-top: 60px; }
+        .footer-content { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 15px; }
+        .footer-logo img { height: 45px; width: auto; filter: drop-shadow(0 0 15px var(--cyan-glow)); }
+        .footer-logo-text { font-size: 1.6rem; font-weight: 700; background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .footer-tagline { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 25px; }
+        .footer-social { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+        .social-icon { width: 45px; height: 45px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.3rem; transition: all 0.3s ease; }
+        .social-icon:hover { transform: translateY(-5px); }
+        .social-icon.instagram:hover { background: linear-gradient(45deg, var(--instagram-purple), var(--instagram-pink), var(--instagram-orange)); }
+        .social-icon.whatsapp:hover { background: var(--whatsapp-green); }
+        .footer-bottom { padding-top: 20px; border-top: 1px solid var(--glass-border); }
+        .copyright { color: var(--text-secondary); font-size: 0.8rem; }
+        .copyright a { color: var(--gold-start); text-decoration: none; }
 
         /* ==================== SCROLL REVEAL ==================== */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
 
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
@@ -1029,37 +539,29 @@
             .header-nav { gap: 10px; }
             .nav-btn { padding: 8px 14px; font-size: 0.8rem; }
             .mobile-menu-btn { display: block; }
-
             .banner-section { padding: 10px 15px; }
             .banner-image { border-radius: 15px; }
-
             .hero-section { padding: 30px 15px; }
             .hero-title { font-size: 1.6rem; }
-            
             .hero-buttons { flex-direction: column; width: 100%; max-width: 350px; margin-left: auto; margin-right: auto; }
             .action-btn { width: 100%; padding: 14px 25px; }
-
             .stats-bar { flex-direction: row; gap: 20px; padding: 20px; }
             .stat-number { font-size: 1.8rem; }
             .stat-label { font-size: 0.75rem; }
-
             .products-section { padding: 15px; }
             .products-grid { grid-template-columns: 1fr; gap: 20px; }
             .product-card { padding: 20px; }
-
             .floating-logo { display: none; }
-
             .footer { padding: 40px 15px 20px; }
+            .search-container { margin-bottom: 25px; }
+            .search-input { padding: 14px 45px 14px 48px; font-size: 0.95rem; }
         }
-
         @media (max-width: 480px) {
             .hero-logo img { width: 70px; }
             .hero-title { font-size: 1.4rem; }
             .hero-subtitle { font-size: 0.9rem; }
-
             .stats-bar { gap: 15px; padding: 15px; }
             .stat-number { font-size: 1.5rem; }
-
             .product-header { flex-direction: column; text-align: center; }
             .product-icon { width: 70px; height: 70px; }
             .product-info { text-align: center; }
@@ -1069,13 +571,8 @@
         /* ==================== CUSTOM SCROLLBAR ==================== */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: var(--space-navy); }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--gold-start), var(--gold-end));
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold-start), var(--gold-end)); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--gold-start); }
-
-        
     </style>
 </head>
 <body>
@@ -1094,7 +591,7 @@
         <img src="logo.png" alt="TDS Logo">
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER (UPDATED: removed Christmas from offers) -->
     <header class="header" id="header">
         <a href="index.html" class="header-logo">
             <img src="logo.png" alt="TDS Logo">
@@ -1102,12 +599,11 @@
         </a>
         <nav class="header-nav">
             <a href="index.html" class="nav-btn nav-btn-home">🏠 Home</a>
-            <a href="offer.html" class="nav-btn nav-btn-offers">🎄 Offers</a>
+            <a href="offer.html" class="nav-btn nav-btn-offers">⚡ Offers</a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
     </header>
 
-    
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <!-- BANNER -->
@@ -1120,19 +616,13 @@
             <div class="hero-logo">
                 <img src="logo.png" alt="TDS Official Store">
             </div>
-            
             <h1 class="hero-title">🛒 All Products</h1>
             <p class="hero-subtitle">Premium subscriptions at unbeatable prices. Choose your plan and enjoy!</p>
 
-            <!-- Action Buttons -->
+            <!-- UPDATED: Action Buttons — removed Christmas -->
             <div class="hero-buttons">
-                <a href="index.html" class="action-btn btn-home">
-                    🏠 Back to Home
-                </a>
-                <a href="offer.html" class="action-btn btn-offers">
-                    <div class="snowflakes-mini" id="snowflakesMini"></div>
-                    🎄 Special Offers ❄️
-                </a>
+                <a href="index.html" class="action-btn btn-home">🏠 Back to Home</a>
+                <a href="offer.html" class="action-btn btn-offers">⚡ Special Offers</a>
             </div>
 
             <!-- Stats Bar -->
@@ -1160,67 +650,63 @@
                 <p class="section-subtitle">Click on any product to view plans and buy</p>
             </div>
 
-            <div class="products-grid">
-                
-                <!-- YouTube Premium -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-hot">🔥 HOT</span>
-
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
-                 alt="YouTube"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>▶️</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">YouTube Premium</h3>
-            <div class="product-features">
-                <span class="feature-tag">YT Music Included</span>
-                <span class="feature-tag">Ad-Free</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="product-plans">
-        <div class="plans-dropdown" id="youtubePlans">
-            <div class="dropdown-header" onclick="toggleDropdown('youtubePlans')">
-                <span class="dropdown-title">📋 Select Plan (2 options)</span>
-                <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="dropdown-content">
-                <div class="plan-option"
-                     onclick="selectPlan(this, 'YouTube Premium', '1 Month', '35')">
-                    <div class="plan-details">
-                        <span class="plan-name">1 Month</span>
-                    </div>
-                    <span class="plan-price">₹35</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this, 'YouTube Premium', '6 Months', '450')">
-                    <div class="plan-details">
-                        <span class="plan-name">3 Months</span>
-                        <span class="plan-note">Best Value</span>
-                    </div>
-                    <span class="plan-price">₹120</span>
+            <!-- NEW: SEARCH BAR -->
+            <div class="search-container scroll-reveal">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="productSearch" class="search-input" placeholder="Search products..." autocomplete="off">
+                    <button class="search-clear" id="searchClear" style="display:none">✕</button>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="no-results" id="noResults">
+                <span class="no-results-icon">🔍</span>
+                <p class="no-results-text">No products found</p>
+                <p class="no-results-hint">Try a different search term</p>
+            </div>
 
-    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20YouTube%20Premium💸.%20Please%20give%20me%20payment%20and%20product%20information❣️"
-       target="_blank"
-       class="buy-btn"
-       id="youtubeBuyBtn">
-        💬 Buy Now
-    </a>
-</div>
+            <div class="products-grid" id="productsGrid">
 
+                <!-- 1. YouTube Premium -->
+                <div class="product-card scroll-reveal" data-product-id="youtube-premium">
+                    <span class="product-badge badge-hot">🔥 HOT</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>▶️</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">YouTube Premium</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">YT Music Included</span>
+                                <span class="feature-tag">Ad-Free</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-plans">
+                        <div class="plans-dropdown" id="youtubePlans">
+                            <div class="dropdown-header" onclick="toggleDropdown('youtubePlans')">
+                                <span class="dropdown-title">📋 Select Plan (2 options)</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="plan-option" onclick="selectPlan(this, 'YouTube Premium', '1 Month', '35')">
+                                    <div class="plan-details"><span class="plan-name">1 Month</span></div>
+                                    <span class="plan-price">₹35</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'YouTube Premium', '3 Months', '120')">
+                                    <div class="plan-details">
+                                        <span class="plan-name">3 Months</span>
+                                        <span class="plan-note">Best Value</span>
+                                    </div>
+                                    <span class="plan-price">₹120</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20YouTube%20Premium💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="youtubeBuyBtn">💬 Buy Now</a>
+                </div>
 
-                <!-- YOUTUBE FAMILY -->
-                    
-                                <div class="product-card scroll-reveal">
+                <!-- 2. YouTube Family -->
+                <div class="product-card scroll-reveal" data-product-id="youtube-family">
                     <span class="product-badge badge-hot">🔥 HOT</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -1240,13 +726,11 @@
                             <span class="plan-price">₹1000</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20YouTube%20Family%201%20Month%20worth%20₹70💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20YouTube%20Family%201%20Month%20worth%20₹70💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Chaupal -->
-                <div class="product-card scroll-reveal">
+                <!-- 3. Chaupal -->
+                <div class="product-card scroll-reveal" data-product-id="chaupal">
                     <span class="product-badge badge-popular">⭐ POPULAR</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -1268,182 +752,113 @@
                             </div>
                             <div class="dropdown-content">
                                 <div class="plan-option" onclick="selectPlan(this, 'Chaupal', '1 Month', '80')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Month</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">1 Month</span></div>
                                     <span class="plan-price">₹80</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Chaupal', '3 Months', '160')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">3 Months</span>
-                                        <span class="plan-note">Save ₹80</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">3 Months</span><span class="plan-note">Save ₹80</span></div>
                                     <span class="plan-price">₹160</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Chaupal', '6 Months', '260')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">6 Months</span>
-                                        <span class="plan-note">Best Value</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">6 Months</span><span class="plan-note">Best Value</span></div>
                                     <span class="plan-price">₹260</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Chaupal', '12 Months', '500')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">12 Months</span>
-                                        <span class="plan-note">Maximum Savings</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">12 Months</span><span class="plan-note">Maximum Savings</span></div>
                                     <span class="plan-price">₹500</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Chaupal💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="chaupalBuyBtn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Chaupal💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="chaupalBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <!-- Prime Video -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-deal">💰 DEAL</span>
-
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg"
-                 alt="Prime Video"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>📺</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Prime Video</h3>
-            <div class="product-features">
-                <span class="feature-tag">HD / 4K</span>
-                <span class="feature-tag">On Your Mail</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="product-plans">
-        <div class="plans-dropdown" id="primePlans">
-            <div class="dropdown-header" onclick="toggleDropdown('primePlans')">
-                <span class="dropdown-title">📋 Select Plan (4 options)</span>
-                <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="dropdown-content">
-                <!-- PRIME VIDEO 4K (NO ADS) -->
-                <div class="plan-option"
-                     onclick="selectPlan(this, 'Prime Video 4K (No Ads)', '1 Month', '100')">
-                    <div class="plan-details">
-                        <span class="plan-name">4K (No Ads) · 1 Month</span>
+                <!-- 4. Prime Video -->
+                <div class="product-card scroll-reveal" data-product-id="prime-video">
+                    <span class="product-badge badge-deal">💰 DEAL</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>📺</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Prime Video</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">HD / 4K</span>
+                                <span class="feature-tag">On Your Mail</span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="plan-price">₹100</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this, 'Prime Video 4K (No Ads)', '6 Months', '250')">
-                    <div class="plan-details">
-                        <span class="plan-name">4K (No Ads) · 6 Months</span>
-                        <span class="plan-note">Best Value</span>
+                    <div class="product-plans">
+                        <div class="plans-dropdown" id="primePlans">
+                            <div class="dropdown-header" onclick="toggleDropdown('primePlans')">
+                                <span class="dropdown-title">📋 Select Plan (4 options)</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="plan-option" onclick="selectPlan(this, 'Prime Video 4K (No Ads)', '1 Month', '100')">
+                                    <div class="plan-details"><span class="plan-name">4K (No Ads) · 1 Month</span></div>
+                                    <span class="plan-price">₹100</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Prime Video 4K (No Ads)', '6 Months', '250')">
+                                    <div class="plan-details"><span class="plan-name">4K (No Ads) · 6 Months</span><span class="plan-note">Best Value</span></div>
+                                    <span class="plan-price">₹250</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Prime Video (With Ads)', '1 Month', '80')">
+                                    <div class="plan-details"><span class="plan-name">With Ads · 1 Month</span></div>
+                                    <span class="plan-price">₹80</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Prime Video (With Ads)', '6 Months', '150')">
+                                    <div class="plan-details"><span class="plan-name">With Ads · 6 Months</span><span class="plan-note">Save More</span></div>
+                                    <span class="plan-price">₹150</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="plan-price">₹250</span>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Prime%20Video💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="primeBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <!-- PRIME VIDEO WITH ADS -->
-                <div class="plan-option"
-                     onclick="selectPlan(this, 'Prime Video (With Ads)', '1 Month', '80')">
-                    <div class="plan-details">
-                        <span class="plan-name">With Ads · 1 Month</span>
+                <!-- 5. Netflix -->
+                <div class="product-card scroll-reveal" data-product-id="netflix">
+                    <span class="product-badge badge-popular">🔥 HOT</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="width:42px;height:auto" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎬</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Netflix</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">Premium</span>
+                                <span class="feature-tag">HD / 4K</span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="plan-price">₹80</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this, 'Prime Video (With Ads)', '6 Months', '150')">
-                    <div class="plan-details">
-                        <span class="plan-name">With Ads · 6 Months</span>
-                        <span class="plan-note">Save More</span>
+                    <div class="product-plans">
+                        <div class="plans-dropdown" id="netflixPlans">
+                            <div class="dropdown-header" onclick="toggleDropdown('netflixPlans')">
+                                <span class="dropdown-title">📋 Select Plan</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="plan-option" onclick="selectPlan(this,'Netflix','1 Month','120')">
+                                    <span class="plan-name">1 Month</span><span class="plan-price">₹120</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this,'Netflix','3 Months','320')">
+                                    <span class="plan-name">3 Months</span><span class="plan-price">₹320</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this,'Netflix','6 Months','600')">
+                                    <span class="plan-name">6 Months</span><span class="plan-price">₹600</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this,'Netflix','12 Months','999')">
+                                    <span class="plan-name">12 Months</span><span class="plan-price">₹999</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="plan-price">₹150</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Prime%20Video💸.%20Please%20give%20me%20payment%20and%20product%20information❣️"
-       target="_blank"
-       class="buy-btn"
-       id="primeBuyBtn">
-        💬 Buy Now
-    </a>
-</div>
-
-                <!-- Netflix -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-popular">🔥 HOT</span>
-
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-                 alt="Netflix"
-                 style="width:42px;height:auto"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎬</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Netflix</h3>
-            <div class="product-features">
-                <span class="feature-tag">Premium</span>
-                <span class="feature-tag">HD / 4K</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="product-plans">
-        <div class="plans-dropdown" id="netflixPlans">
-
-            <div class="dropdown-header" onclick="toggleDropdown('netflixPlans')">
-                <span class="dropdown-title">📋 Select Plan</span>
-                <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="dropdown-content">
-
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Netflix','1 Month','120')">
-                    <span class="plan-name">1 Month</span>
-                    <span class="plan-price">₹120</span>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Netflix🔥.%20Please%20share%20payment%20details❣️" target="_blank" class="buy-btn" id="netflixBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Netflix','3 Months','320')">
-                    <span class="plan-name">3 Months</span>
-                    <span class="plan-price">₹320</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Netflix','6 Months','600')">
-                    <span class="plan-name">6 Months</span>
-                    <span class="plan-price">₹600</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Netflix','12 Months','999')">
-                    <span class="plan-name">12 Months</span>
-                    <span class="plan-price">₹999</span>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Netflix🔥.%20Please%20share%20payment%20details❣️"
-       target="_blank"
-       class="buy-btn"
-       id="netflixBuyBtn">
-        💬 Buy Now
-    </a>
-</div>
-
-                <!-- Hotstar -->
-                <div class="product-card scroll-reveal">
+                <!-- 6. Hotstar -->
+                <div class="product-card scroll-reveal" data-product-id="hotstar">
                     <div class="product-header">
                         <div class="product-icon">
                             <img src="hotstar_logo.png" alt="Hotstar" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🏏</span>'">
@@ -1462,83 +877,55 @@
                             <span class="plan-price">₹80</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Hotstar%201%20Month%20worth%20₹80💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Hotstar%201%20Month%20worth%20₹80💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Crunchyroll -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-popular">🍥 ANIME</span>
-
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="crunchy_logo.svg" alt="Crunchyroll"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🍥</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Crunchyroll</h3>
-            <div class="product-features">
-                <span class="feature-tag">Premium</span>
-                <span class="feature-tag">HD / Simulcast</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="product-plans">
-        <div class="plans-dropdown" id="crunchyrollPlans">
-
-            <div class="dropdown-header" onclick="toggleDropdown('crunchyrollPlans')">
-                <span class="dropdown-title">📋 Select Plan</span>
-                <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="dropdown-content">
-
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Crunchyroll','1 Month','50')">
-                    <span class="plan-name">1 Month</span>
-                    <span class="plan-price">₹50</span>
+                <!-- 7. Crunchyroll -->
+                <div class="product-card scroll-reveal" data-product-id="crunchyroll">
+                    <span class="product-badge badge-popular">🍥 ANIME</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="crunchy_logo.svg" alt="Crunchyroll" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🍥</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Crunchyroll</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">Premium</span>
+                                <span class="feature-tag">HD / Simulcast</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-plans">
+                        <div class="plans-dropdown" id="crunchyrollPlans">
+                            <div class="dropdown-header" onclick="toggleDropdown('crunchyrollPlans')">
+                                <span class="dropdown-title">📋 Select Plan</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="plan-option" onclick="selectPlan(this,'Crunchyroll','1 Month','50')">
+                                    <span class="plan-name">1 Month</span><span class="plan-price">₹50</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this,'Crunchyroll','3 Months','100')">
+                                    <span class="plan-name">3 Months</span><span class="plan-price">₹100</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this,'Crunchyroll','6 Months','130')">
+                                    <span class="plan-name">6 Months</span><span class="plan-price">₹130</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this,'Crunchyroll','12 Months','200')">
+                                    <span class="plan-name">12 Months</span><span class="plan-price">₹200</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Crunchyroll🍥.%20Please%20share%20payment%20details❣️" target="_blank" class="buy-btn" id="crunchyrollBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Crunchyroll','3 Months','100')">
-                    <span class="plan-name">3 Months</span>
-                    <span class="plan-price">₹100</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Crunchyroll','6 Months','130')">
-                    <span class="plan-name">6 Months</span>
-                    <span class="plan-price">₹130</span>
-                </div>
-
-                <div class="plan-option"
-                     onclick="selectPlan(this,'Crunchyroll','12 Months','200')">
-                    <span class="plan-name">12 Months</span>
-                    <span class="plan-price">₹200</span>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Crunchyroll🍥.%20Please%20share%20payment%20details❣️"
-       target="_blank"
-       class="buy-btn"
-       id="crunchyrollBuyBtn">
-        💬 Buy Now
-    </a>
-</div>
-
-
-                  <!-- Duolingo Super -->
-                <div class="product-card scroll-reveal">
+                <!-- 8. Duolingo Super -->
+                <div class="product-card scroll-reveal" data-product-id="duolingo">
                     <span class="product-badge badge-new">✨ NEW</span>
                     <div class="product-header">
                         <div class="product-icon">
-                            <img src="./dou_lingo.svg?v=1" alt="Duolingo"
-     onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🦉</span>'">
+                            <img src="./dou_lingo.svg?v=1" alt="Duolingo" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🦉</span>'">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Duolingo Super</h3>
@@ -1554,15 +941,11 @@
                             <span class="plan-price">₹800</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Duolingo%20Premium%201%20Year%20worth%20₹800💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Duolingo%20Premium%201%20Year%20worth%20₹800💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-    
-                
-                <!-- Google Drive + Gemini -->
-                <div class="product-card scroll-reveal">
+                <!-- 9. Google Drive + Gemini -->
+                <div class="product-card scroll-reveal" data-product-id="google-drive">
                     <span class="product-badge badge-new">✨ NEW</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -1582,13 +965,11 @@
                             <span class="plan-price">₹50</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Google%20Drive%202TB%20+%20Gemini%20AI%20Pro%201%20Month%20worth%20₹50💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Google%20Drive%202TB%20+%20Gemini%20AI%20Pro%201%20Month%20worth%20₹50💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- CapCut Pro -->
-                <div class="product-card scroll-reveal">
+                <!-- 10. CapCut Pro -->
+                <div class="product-card scroll-reveal" data-product-id="capcut">
                     <div class="product-header">
                         <div class="product-icon">
                             <img src="capcut_logo.png" alt="CapCut" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎥</span>'">
@@ -1607,13 +988,11 @@
                             <span class="plan-price">₹350</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20CapCut%20Pro%201%20Month%20worth%20₹350💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20CapCut%20Pro%201%20Month%20worth%20₹350💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- ChatGPT Go -->
-                <div class="product-card scroll-reveal">
+                <!-- 11. ChatGPT Go -->
+                <div class="product-card scroll-reveal" data-product-id="chatgpt-go">
                     <span class="product-badge badge-deal">💰 VALUE</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -1633,13 +1012,11 @@
                             <span class="plan-price">₹100</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20ChatGPT%20Go%201%20Year%20worth%20₹100💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20ChatGPT%20Go%201%20Year%20worth%20₹100💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- ChatGPT Plus -->
-                <div class="product-card scroll-reveal">
+                <!-- 12. ChatGPT Plus -->
+                <div class="product-card scroll-reveal" data-product-id="chatgpt-plus">
                     <span class="product-badge badge-hot">🔥 HOT</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -1659,142 +1036,91 @@
                             <span class="plan-price">₹260</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20ChatGPT%20Plus%201%20Month%20worth%20₹260💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20ChatGPT%20Plus%201%20Month%20worth%20₹260💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Instagram Services -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-popular">🔥 HOT</span>
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="instagram_logo.png" alt="Instagram Services"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>📸</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Instagram Services</h3>
-            <div class="product-features">
-                <span class="feature-tag">Fast Delivery</span>
-                <span class="feature-tag">Real Growth</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="product-plans">
-        <div class="plans-dropdown" id="instagramPlans">
-            <div class="dropdown-header" onclick="toggleDropdown('instagramPlans')">
-                <span class="dropdown-title">📋 Select Service</span>
-                <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="dropdown-content">
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Reel Views (1000)', '2')">
-                    <div class="plan-details">
-                        <span class="plan-name">Reel Views</span>
+                <!-- 13. Instagram Services -->
+                <div class="product-card scroll-reveal" data-product-id="instagram">
+                    <span class="product-badge badge-popular">🔥 HOT</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="instagram_logo.png" alt="Instagram Services" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>📸</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Instagram Services</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">Fast Delivery</span>
+                                <span class="feature-tag">Real Growth</span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="plan-price">₹2 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Post Views (1000)', '4')">
-                    <div class="plan-details">
-                        <span class="plan-name">Post Views</span>
+                    <div class="product-plans">
+                        <div class="plans-dropdown" id="instagramPlans">
+                            <div class="dropdown-header" onclick="toggleDropdown('instagramPlans')">
+                                <span class="dropdown-title">📋 Select Service</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Reel Views (1000)', '2')">
+                                    <div class="plan-details"><span class="plan-name">Reel Views</span></div>
+                                    <span class="plan-price">₹2 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Post Views (1000)', '4')">
+                                    <div class="plan-details"><span class="plan-name">Post Views</span></div>
+                                    <span class="plan-price">₹4 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Likes (1000)', '45')">
+                                    <div class="plan-details"><span class="plan-name">Likes</span></div>
+                                    <span class="plan-price">₹45 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Indian Likes (1000)', '70')">
+                                    <div class="plan-details"><span class="plan-name">Indian Likes</span></div>
+                                    <span class="plan-price">₹70 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Followers (1000)', '200')">
+                                    <div class="plan-details"><span class="plan-name">Followers</span></div>
+                                    <span class="plan-price">₹200 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Indian Followers (1000)', '237')">
+                                    <div class="plan-details"><span class="plan-name">Indian Followers</span></div>
+                                    <span class="plan-price">₹237 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Comments Random (1000)', '130')">
+                                    <div class="plan-details"><span class="plan-name">Comments (Random)</span></div>
+                                    <span class="plan-price">₹130 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Comments Indian (1000)', '200')">
+                                    <div class="plan-details"><span class="plan-name">Comments (Indian)</span></div>
+                                    <span class="plan-price">₹200 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Shares (1000)', '5')">
+                                    <div class="plan-details"><span class="plan-name">Shares</span></div>
+                                    <span class="plan-price">₹5 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Saves (1000)', '15')">
+                                    <div class="plan-details"><span class="plan-name">Saves</span></div>
+                                    <span class="plan-price">₹15 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Repost (1000)', '110')">
+                                    <div class="plan-details"><span class="plan-name">Repost</span></div>
+                                    <span class="plan-price">₹110 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Story Views (1000)', '33')">
+                                    <div class="plan-details"><span class="plan-name">Story Views</span></div>
+                                    <span class="plan-price">₹33 / 1K</span>
+                                </div>
+                                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Live Views 15min (1000)', '100')">
+                                    <div class="plan-details"><span class="plan-name">Live Views (15 min)</span></div>
+                                    <span class="plan-price">₹100 / 1K</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="plan-price">₹4 / 1K</span>
+                    <a href="https://wa.me/919024487624?text=I%20want%20Instagram%20services📸.%20Please%20share%20details%20and%20payment%20info💸❣️" target="_blank" class="buy-btn" id="instagramBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Likes (1000)', '45')">
-                    <div class="plan-details">
-                        <span class="plan-name">Likes</span>
-                    </div>
-                    <span class="plan-price">₹45 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Indian Likes (1000)', '70')">
-                    <div class="plan-details">
-                        <span class="plan-name">Indian Likes</span>
-                    </div>
-                    <span class="plan-price">₹70 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Followers (1000)', '200')">
-                    <div class="plan-details">
-                        <span class="plan-name">Followers</span>
-                    </div>
-                    <span class="plan-price">₹200 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Indian Followers (1000)', '237')">
-                    <div class="plan-details">
-                        <span class="plan-name">Indian Followers</span>
-                    </div>
-                    <span class="plan-price">₹237 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Comments Random (1000)', '130')">
-                    <div class="plan-details">
-                        <span class="plan-name">Comments (Random)</span>
-                    </div>
-                    <span class="plan-price">₹130 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Comments Indian (1000)', '200')">
-                    <div class="plan-details">
-                        <span class="plan-name">Comments (Indian)</span>
-                    </div>
-                    <span class="plan-price">₹200 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Shares (1000)', '5')">
-                    <div class="plan-details">
-                        <span class="plan-name">Shares</span>
-                    </div>
-                    <span class="plan-price">₹5 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Saves (1000)', '15')">
-                    <div class="plan-details">
-                        <span class="plan-name">Saves</span>
-                    </div>
-                    <span class="plan-price">₹15 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Repost (1000)', '110')">
-                    <div class="plan-details">
-                        <span class="plan-name">Repost</span>
-                    </div>
-                    <span class="plan-price">₹110 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Story Views (1000)', '33')">
-                    <div class="plan-details">
-                        <span class="plan-name">Story Views</span>
-                    </div>
-                    <span class="plan-price">₹33 / 1K</span>
-                </div>
-
-                <div class="plan-option" onclick="selectPlan(this, 'Instagram', 'Live Views 15min (1000)', '100')">
-                    <div class="plan-details">
-                        <span class="plan-name">Live Views (15 min)</span>
-                    </div>
-                    <span class="plan-price">₹100 / 1K</span>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/919024487624?text=I%20want%20Instagram%20services📸.%20Please%20share%20details%20and%20payment%20info💸❣️"
-       target="_blank"
-       class="buy-btn"
-       id="instagramBuyBtn">
-        💬 Buy Now
-    </a>
-</div>
-
-                <!-- LinkedIn -->
-                <div class="product-card scroll-reveal">
+                <!-- 14. LinkedIn -->
+                <div class="product-card scroll-reveal" data-product-id="linkedin">
                     <span class="product-badge badge-popular">⭐ PRO</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -1816,29 +1142,21 @@
                             </div>
                             <div class="dropdown-content">
                                 <div class="plan-option" onclick="selectPlan(this, 'LinkedIn Career Plan', '3 Months', '320')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">Career Plan - 3 Months</span>
-                                        <span class="plan-note">Job Seekers</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">Career Plan - 3 Months</span><span class="plan-note">Job Seekers</span></div>
                                     <span class="plan-price">₹320</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'LinkedIn Business Plan', '3 Months', '620')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">Business Plan - 3 Months</span>
-                                        <span class="plan-note">For Professionals</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">Business Plan - 3 Months</span><span class="plan-note">For Professionals</span></div>
                                     <span class="plan-price">₹620</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20LinkedIn%20Premium💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="linkedinBuyBtn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20LinkedIn%20Premium💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="linkedinBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <!-- Zee5 -->
-                <div class="product-card scroll-reveal">
+                <!-- 15. Zee5 -->
+                <div class="product-card scroll-reveal" data-product-id="zee5">
                     <div class="product-header">
                         <div class="product-icon">
                             <img src="zee5_logo.png" alt="Zee5" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>📺</span>'">
@@ -1859,158 +1177,69 @@
                             </div>
                             <div class="dropdown-content">
                                 <div class="plan-option" onclick="selectPlan(this, 'Zee5', '1 Month', '55')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Month</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">1 Month</span></div>
                                     <span class="plan-price">₹55</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Zee5', '1 Year', '200')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Year</span>
-                                        <span class="plan-note">Save ₹460</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">1 Year</span><span class="plan-note">Save ₹460</span></div>
                                     <span class="plan-price">₹200</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Zee5💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="zee5BuyBtn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Zee5💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="zee5BuyBtn">💬 Buy Now</a>
                 </div>
 
-                <!-- VPN Services -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-popular">🔒 SECURE</span>
-
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="vpn.svg" alt="VPN"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🛡️</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">VPN Services</h3>
-            <div class="product-features">
-                <span class="feature-tag">High Speed</span>
-                <span class="feature-tag">No Logs</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="product-plans">
-        <div class="plans-dropdown" id="vpnPlans">
-
-            <div class="dropdown-header" onclick="toggleDropdown('vpnPlans')">
-                <span class="dropdown-title">📋 Select VPN Plan</span>
-                <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="dropdown-content">
-
-                <!-- Proton -->
-                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','3 Months','215')">
-                    <span class="plan-name">Proton VPN – 3 Months</span>
-                    <span class="plan-price">₹215</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','6 Months','420')">
-                    <span class="plan-name">Proton VPN – 6 Months</span>
-                    <span class="plan-price">₹420</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','12 Months','699')">
-                    <span class="plan-name">Proton VPN – 12 Months</span>
-                    <span class="plan-price">₹699</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','24 Months','1070')">
-                    <span class="plan-name">Proton VPN – 24 Months</span>
-                    <span class="plan-price">₹1070</span>
-                </div>
-
-                <!-- Nord -->
-                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','3 Months','299')">
-                    <span class="plan-name">Nord VPN – 3 Months</span>
-                    <span class="plan-price">₹299</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','6 Months','359')">
-                    <span class="plan-name">Nord VPN – 6 Months</span>
-                    <span class="plan-price">₹359</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','12 Months','699')">
-                    <span class="plan-name">Nord VPN – 12 Months</span>
-                    <span class="plan-price">₹699</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','24 Months','1199')">
-                    <span class="plan-name">Nord VPN – 24 Months</span>
-                    <span class="plan-price">₹1199</span>
+                <!-- 16. VPN Services -->
+                <div class="product-card scroll-reveal" data-product-id="vpn">
+                    <span class="product-badge badge-popular">🔒 SECURE</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="vpn.svg" alt="VPN" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🛡️</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">VPN Services</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">High Speed</span>
+                                <span class="feature-tag">No Logs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-plans">
+                        <div class="plans-dropdown" id="vpnPlans">
+                            <div class="dropdown-header" onclick="toggleDropdown('vpnPlans')">
+                                <span class="dropdown-title">📋 Select VPN Plan</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','3 Months','215')"><span class="plan-name">Proton VPN – 3 Months</span><span class="plan-price">₹215</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','6 Months','420')"><span class="plan-name">Proton VPN – 6 Months</span><span class="plan-price">₹420</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','12 Months','699')"><span class="plan-name">Proton VPN – 12 Months</span><span class="plan-price">₹699</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Proton VPN','24 Months','1070')"><span class="plan-name">Proton VPN – 24 Months</span><span class="plan-price">₹1070</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','3 Months','299')"><span class="plan-name">Nord VPN – 3 Months</span><span class="plan-price">₹299</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','6 Months','359')"><span class="plan-name">Nord VPN – 6 Months</span><span class="plan-price">₹359</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','12 Months','699')"><span class="plan-name">Nord VPN – 12 Months</span><span class="plan-price">₹699</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Nord VPN','24 Months','1199')"><span class="plan-name">Nord VPN – 24 Months</span><span class="plan-price">₹1199</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','3 Months','249')"><span class="plan-name">Pure VPN – 3 Months</span><span class="plan-price">₹249</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','6 Months','399')"><span class="plan-name">Pure VPN – 6 Months</span><span class="plan-price">₹399</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','12 Months','659')"><span class="plan-name">Pure VPN – 12 Months</span><span class="plan-price">₹659</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','24 Months','999')"><span class="plan-name">Pure VPN – 24 Months</span><span class="plan-price">₹999</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','1 Month','89')"><span class="plan-name">PIA VPN – 1 Month</span><span class="plan-price">₹89</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','3 Months','199')"><span class="plan-name">PIA VPN – 3 Months</span><span class="plan-price">₹199</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','6 Months','299')"><span class="plan-name">PIA VPN – 6 Months</span><span class="plan-price">₹299</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','12 Months','459')"><span class="plan-name">PIA VPN – 12 Months</span><span class="plan-price">₹459</span></div>
+                                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','24 Months','689')"><span class="plan-name">PIA VPN – 24 Months</span><span class="plan-price">₹689</span></div>
+                                <div class="plan-option"><span class="plan-name">Express VPN</span><span class="plan-price">DM</span></div>
+                                <div class="plan-option"><span class="plan-name">IPVanish</span><span class="plan-price">DM</span></div>
+                                <div class="plan-option"><span class="plan-name">HMA VPN</span><span class="plan-price">DM</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919024487624?text=I%20want%20VPN%20service🔒.%20Please%20share%20details%20and%20payment%20info💸" target="_blank" class="buy-btn" id="vpnBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <!-- Pure -->
-                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','3 Months','249')">
-                    <span class="plan-name">Pure VPN – 3 Months</span>
-                    <span class="plan-price">₹249</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','6 Months','399')">
-                    <span class="plan-name">Pure VPN – 6 Months</span>
-                    <span class="plan-price">₹399</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','12 Months','659')">
-                    <span class="plan-name">Pure VPN – 12 Months</span>
-                    <span class="plan-price">₹659</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'Pure VPN','24 Months','999')">
-                    <span class="plan-name">Pure VPN – 24 Months</span>
-                    <span class="plan-price">₹999</span>
-                </div>
-
-                <!-- PIA -->
-                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','1 Month','89')">
-                    <span class="plan-name">PIA VPN – 1 Month</span>
-                    <span class="plan-price">₹89</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','3 Months','199')">
-                    <span class="plan-name">PIA VPN – 3 Months</span>
-                    <span class="plan-price">₹199</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','6 Months','299')">
-                    <span class="plan-name">PIA VPN – 6 Months</span>
-                    <span class="plan-price">₹299</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','12 Months','459')">
-                    <span class="plan-name">PIA VPN – 12 Months</span>
-                    <span class="plan-price">₹459</span>
-                </div>
-                <div class="plan-option" onclick="selectPlan(this,'PIA VPN','24 Months','689')">
-                    <span class="plan-name">PIA VPN – 24 Months</span>
-                    <span class="plan-price">₹689</span>
-                </div>
-
-                <!-- DM ONLY -->
-                <div class="plan-option">
-                    <span class="plan-name">Express VPN</span>
-                    <span class="plan-price">DM</span>
-                </div>
-                <div class="plan-option">
-                    <span class="plan-name">IPVanish</span>
-                    <span class="plan-price">DM</span>
-                </div>
-                <div class="plan-option">
-                    <span class="plan-name">HMA VPN</span>
-                    <span class="plan-price">DM</span>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/919024487624?text=I%20want%20VPN%20service🔒.%20Please%20share%20details%20and%20payment%20info💸"
-       target="_blank"
-       class="buy-btn"
-       id="vpnBuyBtn">
-        💬 Buy Now
-    </a>
-</div>
-
-                <!-- Canva Education Pro -->
-                <div class="product-card scroll-reveal">
+                <!-- 17. Canva -->
+                <div class="product-card scroll-reveal" data-product-id="canva">
                     <span class="product-badge badge-new">✨ NEW</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -2030,13 +1259,11 @@
                             <span class="plan-price">₹170</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Canva%20Education%20Pro%201%20Year%20worth%20₹170💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Canva%20Education%20Pro%201%20Year%20worth%20₹170💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Apple TV/Music -->
-                <div class="product-card scroll-reveal">
+                <!-- 18. Apple TV/Music -->
+                <div class="product-card scroll-reveal" data-product-id="apple-tv">
                     <div class="product-header">
                         <div class="product-icon">
                             <img src="apple_logo.png" alt="Apple" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🍎</span>'">
@@ -2055,13 +1282,11 @@
                             <span class="plan-price">₹420</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Apple%20TV/Music%206%20Months%20worth%20₹420💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Apple%20TV/Music%206%20Months%20worth%20₹420💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Spotify -->
-                <div class="product-card scroll-reveal">
+                <!-- 19. Spotify -->
+                <div class="product-card scroll-reveal" data-product-id="spotify">
                     <div class="product-header">
                         <div class="product-icon">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎵</span>'">
@@ -2080,13 +1305,11 @@
                             <span class="plan-price">₹90</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Spotify%20Premium%203%20Months%20worth%20₹180💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Spotify%20Premium%203%20Months%20worth%20₹180💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Perplexity AI -->
-                <div class="product-card scroll-reveal">
+                <!-- 20. Perplexity AI -->
+                <div class="product-card scroll-reveal" data-product-id="perplexity">
                     <span class="product-badge badge-deal">💰 VALUE</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -2106,13 +1329,11 @@
                             <span class="plan-price">₹80</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Perplexity%20AI%20Pro%201%20Year%20worth%20₹80💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Perplexity%20AI%20Pro%201%20Year%20worth%20₹80💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
-                <!-- Claude AI -->
-                <div class="product-card scroll-reveal">
+                <!-- 21. Claude AI -->
+                <div class="product-card scroll-reveal" data-product-id="claude">
                     <span class="product-badge badge-new">✨ NEW</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -2134,71 +1355,51 @@
                             </div>
                             <div class="dropdown-content">
                                 <div class="plan-option" onclick="selectPlan(this, 'Claude AI', '1 Month', '320')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">1 Month</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">1 Month</span></div>
                                     <span class="plan-price">₹320</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Claude AI', '3 Months', '770')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">3 Months</span>
-                                        <span class="plan-note">Save ₹190</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">3 Months</span><span class="plan-note">Save ₹190</span></div>
                                     <span class="plan-price">₹770</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Claude AI', '6 Months', '1370')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">6 Months</span>
-                                        <span class="plan-note">Best Value</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">6 Months</span><span class="plan-note">Best Value</span></div>
                                     <span class="plan-price">₹1370</span>
                                 </div>
                                 <div class="plan-option" onclick="selectPlan(this, 'Claude AI', '12 Months', '2000')">
-                                    <div class="plan-details">
-                                        <span class="plan-name">12 Months</span>
-                                        <span class="plan-note">Maximum Savings</span>
-                                    </div>
+                                    <div class="plan-details"><span class="plan-name">12 Months</span><span class="plan-note">Maximum Savings</span></div>
                                     <span class="plan-price">₹2000</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Claude%20AI💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="claudeBuyBtn">
-                        💬 Buy Now
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Claude%20AI💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn" id="claudeBuyBtn">💬 Buy Now</a>
                 </div>
 
-                <!-- Website Creation -->
-<div class="product-card scroll-reveal">
-    <span class="product-badge badge-popular">🔥 POPULAR</span>
-    <div class="product-header">
-        <div class="product-icon">
-            <img src="website_logo.png" alt="Website Creation"
-                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🌐</span>'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Website Creation</h3>
-            <div class="product-features">
-                <span class="feature-tag">Modern Design</span>
-                <span class="feature-tag">Mobile Friendly</span>
-                <span class="feature-tag">Fast Delivery</span>
-            </div>
-        </div>
-    </div>
-    <div class="product-plans">
-        <div class="dm-price">
-            <span class="dm-text">💬 DM for Price (Best Value!)</span>
-        </div>
-    </div>
-    <a href="https://wa.me/919024487624?text=I%20want%20to%20create%20a%20website🌐.%20Please%20share%20details%20and%20pricing💸❣️"
-       target="_blank"
-       class="buy-btn buy-btn-dm">
-        💬 Get Website
-    </a>
-</div>
+                <!-- 22. Website Creation -->
+                <div class="product-card scroll-reveal" data-product-id="website">
+                    <span class="product-badge badge-popular">🔥 POPULAR</span>
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <img src="website_logo.png" alt="Website Creation" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🌐</span>'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Website Creation</h3>
+                            <div class="product-features">
+                                <span class="feature-tag">Modern Design</span>
+                                <span class="feature-tag">Mobile Friendly</span>
+                                <span class="feature-tag">Fast Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-plans">
+                        <div class="dm-price"><span class="dm-text">💬 DM for Price (Best Value!)</span></div>
+                    </div>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20create%20a%20website🌐.%20Please%20share%20details%20and%20pricing💸❣️" target="_blank" class="buy-btn buy-btn-dm">💬 Get Website</a>
+                </div>
 
-                <!-- Windows Activation -->
-                <div class="product-card scroll-reveal">
+                <!-- 23. Windows -->
+                <div class="product-card scroll-reveal" data-product-id="windows">
                     <div class="product-header">
                         <div class="product-icon">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" alt="Windows" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🪟</span>'">
@@ -2212,17 +1413,13 @@
                         </div>
                     </div>
                     <div class="product-plans">
-                        <div class="dm-price">
-                            <span class="dm-text">💬 DM for Price</span>
-                        </div>
+                        <div class="dm-price"><span class="dm-text">💬 DM for Price</span></div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20the%20price%20for%20Windows%20Activation%20Keys💸.%20Please%20give%20me%20information❣️" target="_blank" class="buy-btn buy-btn-dm">
-                        💬 Ask Price
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20the%20price%20for%20Windows%20Activation%20Keys💸.%20Please%20give%20me%20information❣️" target="_blank" class="buy-btn buy-btn-dm">💬 Ask Price</a>
                 </div>
 
-                <!-- Steam Games -->
-                <div class="product-card scroll-reveal">
+                <!-- 24. Steam -->
+                <div class="product-card scroll-reveal" data-product-id="steam">
                     <span class="product-badge badge-deal">💰 CHEAP</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -2237,17 +1434,13 @@
                         </div>
                     </div>
                     <div class="product-plans">
-                        <div class="dm-price">
-                            <span class="dm-text">💬 DM for Game List & Prices</span>
-                        </div>
+                        <div class="dm-price"><span class="dm-text">💬 DM for Game List & Prices</span></div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20about%20Steam%20Games%20and%20Accounts💸.%20Please%20send%20me%20the%20list%20and%20prices❣️" target="_blank" class="buy-btn buy-btn-dm">
-                        💬 Ask Price
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20about%20Steam%20Games%20and%20Accounts💸.%20Please%20send%20me%20the%20list%20and%20prices❣️" target="_blank" class="buy-btn buy-btn-dm">💬 Ask Price</a>
                 </div>
 
-                <!-- Xbox Game Pass -->
-                <div class="product-card scroll-reveal">
+                <!-- 25. Xbox -->
+                <div class="product-card scroll-reveal" data-product-id="xbox">
                     <span class="product-badge badge-deal">💰 CHEAP</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -2262,17 +1455,13 @@
                         </div>
                     </div>
                     <div class="product-plans">
-                        <div class="dm-price">
-                            <span class="dm-text">💬 DM for Price (Cheap!)</span>
-                        </div>
+                        <div class="dm-price"><span class="dm-text">💬 DM for Price (Cheap!)</span></div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20the%20price%20for%20Xbox%20Game%20Pass💸.%20Please%20give%20me%20information❣️" target="_blank" class="buy-btn buy-btn-dm">
-                        💬 Ask Price
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20the%20price%20for%20Xbox%20Game%20Pass💸.%20Please%20give%20me%20information❣️" target="_blank" class="buy-btn buy-btn-dm">💬 Ask Price</a>
                 </div>
 
-                <!-- PlayStation Games -->
-                <div class="product-card scroll-reveal">
+                <!-- 26. PlayStation -->
+                <div class="product-card scroll-reveal" data-product-id="playstation">
                     <span class="product-badge badge-hot">🔥 GAMES</span>
                     <div class="product-header">
                         <div class="product-icon">
@@ -2287,15 +1476,12 @@
                         </div>
                     </div>
                     <div class="product-plans">
-                        <div class="dm-price">
-                            <span class="dm-text">💬 DM for Game List & Prices</span>
-                        </div>
+                        <div class="dm-price"><span class="dm-text">💬 DM for Game List & Prices</span></div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20about%20PS4/PS5%20Games💸.%20Please%20send%20me%20the%20list%20and%20prices❣️" target="_blank" class="buy-btn buy-btn-dm">
-                        💬 Ask Price
-                    </a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20about%20PS4/PS5%20Games💸.%20Please%20send%20me%20the%20list%20and%20prices❣️" target="_blank" class="buy-btn buy-btn-dm">💬 Ask Price</a>
                 </div>
-            </div>
+
+            </div><!-- /products-grid -->
         </section>
     </main>
 
@@ -2307,16 +1493,12 @@
                 <span class="footer-logo-text">TDS Official Store</span>
             </div>
             <p class="footer-tagline">Premium subscriptions at unbeatable prices.</p>
-
             <div class="footer-social">
                 <a href="https://www.instagram.com/tdsofficial.store?igsh=NzRlaG9haGJxY2lk" target="_blank" class="social-icon instagram" title="Instagram">📸</a>
                 <a href="https://wa.me/919024487624" target="_blank" class="social-icon whatsapp" title="WhatsApp">💬</a>
             </div>
-
             <div class="footer-bottom">
-                <p class="copyright">
-                    © <span id="currentYear"></span> <a href="https://tdsofficial.store">TDS Official Store</a>. All rights reserved.
-                </p>
+                <p class="copyright">© <span id="currentYear"></span> <a href="https://tdsofficial.store">TDS Official Store</a>. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -2324,123 +1506,349 @@
     <!-- SCROLL TO TOP -->
     <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"></button>
 
-    <!-- JAVASCRIPT -->
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        // ==================== INITIALIZATION ====================
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            createMiniSnowflakes();
-            initScrollReveal();
-            initHeaderScroll();
-            initScrollTopButton();
-            setCurrentYear();
+    /* ==========================================================
+       STORE CONFIGURATION — Edit these to control sold out,
+       badges, etc. Everything is driven from this single object.
+       ========================================================== */
+    const STORE_CONFIG = {
+
+        // ── Product-level: sold out (card dimmed, button disabled) ──
+        // Set the product data-product-id as key → true
+        soldOut: {
+            // 'capcut': true,       // ← uncomment to mark CapCut sold out
+        },
+
+        // ── Product-level: ALL plans sold out (dropdown replaced) ──
+        fullSoldOut: {
+            // 'apple-tv': true,     // ← uncomment to mark Apple TV fully sold out
+        },
+
+        // ── Plan-level: specific plans sold out (0-based index) ──
+        // Key = product data-product-id, value = array of plan indices
+        plansSoldOut: {
+            // 'youtube-premium': [1],  // ← 2nd plan (3 Months) sold out
+            // 'chaupal': [2],          // ← 3rd plan (6 Months) sold out
+        },
+
+        // ── Dynamic badge overrides ──
+        // type: 'trending' | 'limited' | 'fast-selling'
+        badges: {
+            // 'netflix':       { type: 'trending',     text: '🔥 TRENDING' },
+            // 'chatgpt-plus':  { type: 'fast-selling',  text: '💎 FAST SELLING' },
+            // 'vpn':           { type: 'limited',       text: '⚡ LIMITED' },
+        }
+    };
+
+
+    /* ==========================================================
+       INITIALIZATION
+       ========================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+        createParticles();
+        initScrollReveal();
+        initHeaderScroll();
+        initScrollTopButton();
+        initSearch();
+        initDropdownOutsideClick();
+        applyBadgeConfig();
+        applySoldOutConfig();
+        setCurrentYear();
+    });
+
+
+    /* ==========================================================
+       PARTICLES
+       ========================================================== */
+    function createParticles() {
+        const c = document.getElementById('particlesContainer');
+        for (let i = 0; i < 60; i++) {
+            const s = document.createElement('div');
+            s.className = 'particle-star';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.top  = Math.random() * 100 + '%';
+            s.style.setProperty('--delay',    Math.random() * 3 + 's');
+            s.style.setProperty('--duration', (2 + Math.random() * 3) + 's');
+            c.appendChild(s);
+        }
+    }
+
+
+    /* ==========================================================
+       UPDATED: DROPDOWN TOGGLE — fixes VPN stuck-open bug
+       • Click → open (closes any other open dropdown)
+       • Click same → close
+       • Click outside → close all
+       ========================================================== */
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        if (!dropdown) return;
+        const wasOpen = dropdown.classList.contains('open');
+
+        // Close every open dropdown first
+        document.querySelectorAll('.plans-dropdown.open').forEach(dd => {
+            dd.classList.remove('open');
         });
 
-        // ==================== PARTICLES ====================
-        function createParticles() {
-            const container = document.getElementById('particlesContainer');
-            
-            for (let i = 0; i < 60; i++) {
-                const star = document.createElement('div');
-                star.className = 'particle-star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.setProperty('--delay', Math.random() * 3 + 's');
-                star.style.setProperty('--duration', (2 + Math.random() * 3) + 's');
-                container.appendChild(star);
-            }
+        // If it wasn't open, open it now
+        if (!wasOpen) {
+            dropdown.classList.add('open');
         }
+    }
 
-        // ==================== MINI SNOWFLAKES ====================
-        function createMiniSnowflakes() {
-            const container = document.getElementById('snowflakesMini');
-            if (!container) return;
-
-            const snowflakes = ['❄', '❅', '❆'];
-            
-            for (let i = 0; i < 8; i++) {
-                const snowflake = document.createElement('span');
-                snowflake.className = 'snowflake-mini';
-                snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.animationDuration = (1.5 + Math.random() * 1.5) + 's';
-                snowflake.style.animationDelay = Math.random() * 2 + 's';
-                container.appendChild(snowflake);
-            }
-        }
-
-        // ==================== DROPDOWN TOGGLE ====================
-        function toggleDropdown(id) {
-            const dropdown = document.getElementById(id);
-            dropdown.classList.toggle('open');
-        }
-
-        // ==================== SELECT PLAN ====================
-        function selectPlan(element, productName, duration, price) {
-            // Remove selected from siblings
-            const siblings = element.parentElement.querySelectorAll('.plan-option');
-            siblings.forEach(sib => sib.classList.remove('selected'));
-            
-            // Add selected to clicked
-            element.classList.add('selected');
-            
-            // Update buy button link
-            const card = element.closest('.product-card');
-            const buyBtn = card.querySelector('.buy-btn');
-            const message = encodeURIComponent(`I want to buy ${productName} ${duration} worth ₹${price}💸. Please give me payment and product information❣️`);
-            buyBtn.href = `https://wa.me/919024487624?text=${message}`;
-        }
-
-        // ==================== SCROLL REVEAL ====================
-        function initScrollReveal() {
-            const elements = document.querySelectorAll('.scroll-reveal');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('revealed');
-                        }, index * 50);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-            elements.forEach(el => observer.observe(el));
-        }
-
-        // ==================== HEADER SCROLL ====================
-        function initHeaderScroll() {
-            window.addEventListener('scroll', () => {
-                document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    function initDropdownOutsideClick() {
+        document.addEventListener('click', (e) => {
+            // If the click landed inside a dropdown, let toggleDropdown handle it
+            if (e.target.closest('.plans-dropdown')) return;
+            document.querySelectorAll('.plans-dropdown.open').forEach(dd => {
+                dd.classList.remove('open');
             });
+        });
+    }
+
+
+    /* ==========================================================
+       SELECT PLAN (unchanged logic, cleaned up)
+       ========================================================== */
+    function selectPlan(element, productName, duration, price) {
+        if (element.classList.contains('plan-sold-out')) return;
+
+        const siblings = element.parentElement.querySelectorAll('.plan-option');
+        siblings.forEach(s => s.classList.remove('selected'));
+        element.classList.add('selected');
+
+        const card   = element.closest('.product-card');
+        const buyBtn = card.querySelector('.buy-btn');
+        if (buyBtn && !buyBtn.classList.contains('btn-disabled')) {
+            const msg = encodeURIComponent(
+                `I want to buy ${productName} ${duration} worth ₹${price}💸. Please give me payment and product information❣️`
+            );
+            buyBtn.href = `https://wa.me/919024487624?text=${msg}`;
+        }
+    }
+
+
+    /* ==========================================================
+       NEW: SEARCH BAR
+       ========================================================== */
+    function initSearch() {
+        const input     = document.getElementById('productSearch');
+        const clearBtn  = document.getElementById('searchClear');
+        if (!input) return;
+
+        let debounce;
+        input.addEventListener('input', () => {
+            clearTimeout(debounce);
+            debounce = setTimeout(() => filterProducts(input.value), 180);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            filterProducts('');
+            input.focus();
+        });
+    }
+
+    function filterProducts(query) {
+        const cards      = document.querySelectorAll('.product-card');
+         const noResults  = document.getElementById('noResults');
+        const clearBtn   = document.getElementById('searchClear');
+
+        const q = query.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const name = card.querySelector('.product-name')?.textContent.toLowerCase() || '';
+
+            if (name.includes(q)) {
+                card.classList.remove('search-hidden');
+                card.classList.add('search-show');
+                visibleCount++;
+            } else {
+                card.classList.add('search-hidden');
+                card.classList.remove('search-show');
+            }
+        });
+
+        // Show / hide "no results"
+        if (visibleCount === 0 && q !== '') {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
         }
 
-        // ==================== SCROLL TO TOP ====================
-        function initScrollTopButton() {
-            const scrollBtn = document.getElementById('scrollTopBtn');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    scrollBtn.classList.add('visible');
-                } else {
-                    scrollBtn.classList.remove('visible');
+        // Show clear button
+        clearBtn.style.display = q ? 'block' : 'none';
+    }
+
+
+    /* ==========================================================
+       SCROLL REVEAL
+       ========================================================== */
+    function initScrollReveal() {
+        const elements = document.querySelectorAll('.scroll-reveal');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
                 }
             });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    }
+
+
+    /* ==========================================================
+       HEADER SCROLL EFFECT
+       ========================================================== */
+    function initHeaderScroll() {
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+
+    /* ==========================================================
+       SCROLL TO TOP
+       ========================================================== */
+    function initScrollTopButton() {
+        const btn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+
+    /* ==========================================================
+       CURRENT YEAR
+       ========================================================== */
+    function setCurrentYear() {
+        const el = document.getElementById('currentYear');
+        if (el) el.textContent = new Date().getFullYear();
+    }
+
+
+    /* ==========================================================
+       NEW: APPLY BADGES SYSTEM
+       ========================================================== */
+    function applyBadgeConfig() {
+        Object.entries(STORE_CONFIG.badges).forEach(([productId, config]) => {
+            const card = document.querySelector(`[data-product-id="${productId}"]`);
+            if (!card) return;
+
+            let badge = card.querySelector('.product-badge');
+            if (!badge) {
+                badge = document.createElement('span');
+                badge.className = 'product-badge';
+                card.appendChild(badge);
+            }
+
+            badge.textContent = config.text || '';
+
+            badge.classList.remove(
+                'badge-hot','badge-popular','badge-new','badge-deal',
+                'badge-trending','badge-limited','badge-fast-selling'
+            );
+
+            if (config.type === 'trending') badge.classList.add('badge-trending');
+            if (config.type === 'limited') badge.classList.add('badge-limited');
+            if (config.type === 'fast-selling') badge.classList.add('badge-fast-selling');
+        });
+    }
+
+
+    /* ==========================================================
+       NEW: SOLD OUT SYSTEM (FULLY WORKING 🔥)
+       ========================================================== */
+    function applySoldOutConfig() {
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            const id = card.dataset.productId;
+            const buyBtn = card.querySelector('.buy-btn');
+            const dropdown = card.querySelector('.plans-dropdown');
+
+            // ===== PRODUCT SOLD =====
+            if (STORE_CONFIG.soldOut[id]) {
+                card.classList.add('product-sold-out');
+
+                if (buyBtn) {
+                    buyBtn.classList.add('btn-disabled');
+                    buyBtn.textContent = 'Unavailable';
+                }
+
+                addSoldBadge(card, 'SOLD OUT');
+            }
+
+            // ===== FULL SOLD =====
+            if (STORE_CONFIG.fullSoldOut[id]) {
+                card.classList.add('product-full-sold-out');
+
+                if (dropdown) {
+                    dropdown.innerHTML = `
+                        <div class="all-sold-msg">
+                            🚫 All Plans Sold Out
+                        </div>
+                    `;
+                }
+
+                if (buyBtn) {
+                    buyBtn.classList.add('btn-disabled');
+                    buyBtn.textContent = 'Unavailable';
+                }
+
+                addSoldBadge(card, 'FULL SOLD');
+            }
+
+            // ===== PLAN SOLD =====
+            if (STORE_CONFIG.plansSoldOut[id]) {
+                const plans = card.querySelectorAll('.plan-option');
+
+                STORE_CONFIG.plansSoldOut[id].forEach(index => {
+                    if (plans[index]) {
+                        plans[index].classList.add('plan-sold-out');
+
+                        const price = plans[index].querySelector('.plan-price');
+                        if (price) {
+                            price.textContent = 'Sold Out';
+                            price.classList.add('plan-sold-label');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    function addSoldBadge(card, text) {
+        let badge = card.querySelector('.product-badge');
+
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'product-badge';
+            card.appendChild(badge);
         }
 
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+        badge.textContent = text;
+        badge.classList.add('badge-sold-out');
+    }
 
-
-
-        // ==================== CURRENT YEAR ====================
-        function setCurrentYear() {
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-        }
     </script>
 </body>
 </html>
