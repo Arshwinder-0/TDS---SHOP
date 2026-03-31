@@ -28,7 +28,6 @@
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-primary: #ffffff;
             --text-secondary: rgba(255, 255, 255, 0.7);
-            /* UPDATED: Premium offer gradient vars */
             --offer-start: #6366f1;
             --offer-end: #00d4ff;
         }
@@ -121,8 +120,6 @@
         .nav-btn { padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: flex; align-items: center; gap: 6px; border: none; font-family: 'Poppins', sans-serif; }
         .nav-btn-home { background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); color: var(--space-navy); box-shadow: 0 0 15px rgba(250, 204, 21, 0.3); }
         .nav-btn-home:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(250, 204, 21, 0.5), 0 8px 25px rgba(250, 204, 21, 0.3); }
-
-        /* ==================== UPDATED: Premium Offers Button (No Christmas) ==================== */
         .nav-btn-offers {
             background: linear-gradient(135deg, var(--offer-start), var(--offer-end));
             color: white;
@@ -132,7 +129,6 @@
             transform: translateY(-2px);
             box-shadow: 0 0 25px rgba(99, 102, 241, 0.5), 0 8px 25px rgba(0, 212, 255, 0.3);
         }
-
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 5px; }
 
         /* ==================== MAIN CONTENT ==================== */
@@ -188,8 +184,6 @@
             box-shadow: 0 0 20px rgba(250, 204, 21, 0.4), 0 0 40px rgba(250, 204, 21, 0.2);
         }
         .btn-home:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 30px rgba(250, 204, 21, 0.6), 0 0 60px rgba(250, 204, 21, 0.3), 0 10px 30px rgba(250, 204, 21, 0.4); }
-
-        /* UPDATED: Premium Offers Hero Button */
         .btn-offers {
             background: linear-gradient(135deg, var(--offer-start), var(--offer-end));
             color: white;
@@ -215,6 +209,453 @@
         .stat-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 400; margin-top: 5px; }
         .stat-stars { color: var(--gold-start); font-size: 1rem; margin-top: 3px; }
 
+        /* ==================== PRICING SECTION ==================== */
+        .pricing-section {
+            padding: 30px 15px 40px;
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 80%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+        }
+        .pricing-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 80%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+        }
+
+        /* ── Billing Toggle ── */
+        .billing-toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .billing-toggle {
+            position: relative;
+            display: inline-flex;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 4px;
+        }
+        .billing-option {
+            position: relative;
+            z-index: 2;
+            padding: 8px 22px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 22px;
+            transition: color 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .billing-option.active {
+            color: var(--space-navy);
+        }
+        .billing-slider {
+            position: absolute;
+            top: 4px; left: 4px;
+            height: calc(100% - 8px);
+            width: calc(50% - 4px);
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            border-radius: 22px;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+        }
+        .billing-toggle.yearly .billing-slider {
+            transform: translateX(100%);
+        }
+        .toggle-save-badge {
+            font-size: 0.5rem;
+            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-weight: 700;
+        }
+
+        /* ── Pricing Grid ── */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            align-items: start;
+        }
+
+        /* ── Pricing Card ── */
+        .pricing-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 18px 12px 14px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: visible;
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan-glow), var(--gold-start), var(--cyan-glow));
+            border-radius: 18px 18px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                0 0 25px rgba(0, 212, 255, 0.12),
+                0 0 50px rgba(0, 212, 255, 0.05);
+        }
+        .pricing-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* ── Featured Card (Pro) ── */
+        .pricing-card-featured {
+            border-color: rgba(250, 204, 21, 0.3);
+            background: linear-gradient(180deg, rgba(250, 204, 21, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.06);
+            padding-top: 28px;
+            z-index: 2;
+        }
+        .pricing-card-featured::before {
+            transform: scaleX(1) !important;
+            background: linear-gradient(90deg, var(--gold-start), var(--gold-end), var(--gold-start)) !important;
+            height: 2px;
+        }
+        .pricing-card-featured:hover {
+            border-color: rgba(250, 204, 21, 0.5);
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.3),
+                0 0 35px rgba(250, 204, 21, 0.15);
+        }
+        .pricing-featured-badge {
+            position: absolute;
+            top: -10px; left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            color: var(--space-navy);
+            padding: 3px 14px;
+            border-radius: 12px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+            animation: featuredBadgePulse 3s ease-in-out infinite;
+        }
+        @keyframes featuredBadgePulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(250, 204, 21, 0.6); }
+        }
+
+        /* ── Card Logo ── */
+        .pricing-card-logo {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+            margin-bottom: 8px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .pricing-card-logo img {
+            width: 34px; height: 34px;
+            object-fit: contain;
+        }
+        .pricing-card:hover .pricing-card-logo {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ── Plan Name ── */
+        .pricing-plan-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            letter-spacing: 0.2px;
+        }
+
+        /* ── Price Display ── */
+        .pricing-price-wrapper {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 1px;
+        }
+        .pricing-currency {
+            font-size: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pricing-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .pricing-amount.flip-out {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        .pricing-amount.flip-in {
+            animation: priceFlipIn 0.3s ease-out forwards;
+        }
+        @keyframes priceFlipIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .pricing-period {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-left: 1px;
+        }
+
+        /* ── Savings Tag ── */
+        .pricing-savings-tag {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--whatsapp-green);
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            padding: 0;
+            border-radius: 8px;
+            margin-bottom: 0;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pricing-savings-tag.visible {
+            padding: 2px 10px;
+            margin-bottom: 8px;
+            max-height: 24px;
+            opacity: 1;
+        }
+
+        /* ── Features List ── */
+        .pricing-features {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 0;
+            flex: 1;
+        }
+        .pricing-feature {
+            padding: 5px 0;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            animation: pricingFeatureIn 0.35s ease-out both;
+        }
+        .pricing-feature:last-child { border-bottom: none; }
+        .feature-check {
+            color: var(--whatsapp-green);
+            font-weight: 700;
+            font-size: 0.7rem;
+        }
+        .pricing-card-featured .feature-check {
+            color: var(--gold-start);
+        }
+        @keyframes pricingFeatureIn {
+            from { opacity: 0; transform: translateX(-5px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ── Yearly Note ── */
+        .pricing-yearly-note {
+            font-size: 0.6rem;
+            color: var(--cyan-glow);
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            max-height: 0;
+            padding: 0 8px;
+            margin-bottom: 0;
+            overflow: hidden;
+            opacity: 0;
+            border-width: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pricing-yearly-note.visible {
+            padding: 5px 8px;
+            margin-bottom: 10px;
+            max-height: 44px;
+            opacity: 1;
+            border-width: 1px;
+        }
+
+        /* ── Pricing Buy Button ── */
+        .pricing-buy-btn {
+            width: 100%;
+            margin-top: auto;
+            padding: 10px 12px !important;
+            font-size: 0.75rem !important;
+            border-radius: 14px !important;
+        }
+
+        /* ── Savings Popup ── */
+        .savings-popup {
+            position: fixed;
+            top: 75px; left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.12), rgba(0, 212, 255, 0.08));
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(250, 204, 21, 0.3);
+            border-radius: 14px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 8px 30px rgba(250, 204, 21, 0.15),
+                0 0 20px rgba(0, 212, 255, 0.06);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .savings-popup.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .savings-popup-icon { font-size: 1rem; }
+        .savings-popup-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Pricing Responsive ── */
+        @media (min-width: 769px) {
+            .pricing-section { max-width: 900px; padding: 40px 20px 50px; }
+            .pricing-grid { gap: 18px; }
+            .pricing-card { padding: 22px 16px 18px; border-radius: 20px; }
+            .pricing-card-featured { padding-top: 32px; }
+            .pricing-card-logo { width: 56px; height: 56px; }
+            .pricing-card-logo img { width: 40px; height: 40px; }
+            .pricing-plan-name { font-size: 1.15rem; margin-bottom: 10px; }
+            .pricing-amount { font-size: 2.2rem; }
+            .pricing-currency { font-size: 1.2rem; }
+            .pricing-period { font-size: 0.75rem; }
+            .pricing-feature { font-size: 0.82rem; padding: 7px 0; }
+            .pricing-buy-btn { padding: 12px 16px !important; font-size: 0.85rem !important; border-radius: 18px !important; }
+            .pricing-featured-badge { font-size: 0.62rem; padding: 4px 16px; top: -11px; }
+            .billing-option { padding: 10px 28px; font-size: 0.88rem; }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-section { padding: 25px 10px 35px; }
+            .pricing-grid { gap: 8px; }
+            .pricing-card { padding: 14px 8px 12px; border-radius: 14px; }
+            .pricing-card-featured { padding-top: 24px; }
+            .pricing-card-logo { width: 38px; height: 38px; border-radius: 10px; margin-bottom: 6px; }
+            .pricing-card-logo img { width: 26px; height: 26px; }
+            .pricing-plan-name { font-size: 0.8rem; margin-bottom: 6px; }
+            .pricing-amount { font-size: 1.4rem; }
+            .pricing-currency { font-size: 0.85rem; }
+            .pricing-period { font-size: 0.55rem; }
+            .pricing-feature { font-size: 0.6rem; padding: 3px 0; gap: 3px; }
+            .feature-check { font-size: 0.58rem; }
+            .pricing-buy-btn { padding: 8px 6px !important; font-size: 0.62rem !important; border-radius: 10px !important; gap: 4px !important; }
+            .pricing-featured-badge { font-size: 0.48rem; padding: 2px 10px; top: -8px; border-radius: 8px; }
+            .billing-option { padding: 7px 16px; font-size: 0.75rem; gap: 4px; }
+            .billing-toggle { border-radius: 20px; padding: 3px; }
+            .billing-slider { border-radius: 18px; top: 3px; left: 3px; height: calc(100% - 6px); width: calc(50% - 3px); }
+            .toggle-save-badge { font-size: 0.42rem; padding: 1px 4px; }
+            .pricing-savings-tag { font-size: 0.5rem; }
+            .pricing-savings-tag.visible { padding: 2px 6px; margin-bottom: 5px; }
+            .pricing-yearly-note { font-size: 0.5rem; }
+            .pricing-yearly-note.visible { padding: 3px 5px; margin-bottom: 6px; }
+            .savings-popup {
+                left: 10px; right: 10px;
+                transform: translateX(0) translateY(-20px);
+                white-space: normal;
+                text-align: center;
+                justify-content: center;
+                padding: 8px 14px;
+                border-radius: 12px;
+            }
+            .savings-popup.show { transform: translateX(0) translateY(0); }
+            .savings-popup-text { font-size: 0.72rem; }
+            .savings-popup-icon { font-size: 0.85rem; }
+        }
+
+        @media (max-width: 380px) {
+            .pricing-grid { gap: 6px; }
+            .pricing-card { padding: 10px 5px 10px; }
+            .pricing-card-featured { padding-top: 20px; }
+            .pricing-card-logo { width: 32px; height: 32px; margin-bottom: 4px; }
+            .pricing-card-logo img { width: 22px; height: 22px; }
+            .pricing-plan-name { font-size: 0.7rem; margin-bottom: 4px; }
+            .pricing-amount { font-size: 1.15rem; }
+            .pricing-currency { font-size: 0.7rem; }
+            .pricing-period { font-size: 0.48rem; }
+            .pricing-feature { font-size: 0.52rem; padding: 2px 0; }
+            .feature-check { font-size: 0.5rem; }
+            .pricing-buy-btn { padding: 6px 4px !important; font-size: 0.55rem !important; border-radius: 8px !important; }
+            .pricing-featured-badge { font-size: 0.42rem; padding: 2px 7px; top: -7px; }
+            .billing-option { padding: 6px 12px; font-size: 0.68rem; }
+        }
+
         /* ==================== PRODUCTS SECTION ==================== */
         .products-section { padding: 20px; max-width: 1400px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 40px; }
@@ -222,39 +663,17 @@
         .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: linear-gradient(90deg, var(--gold-start), var(--gold-end)); border-radius: 2px; }
         .section-subtitle { color: var(--text-secondary); font-size: 1rem; margin-top: 15px; }
 
-        /* ==================== NEW: SEARCH BAR ==================== */
-        .search-container {
-            max-width: 520px;
-            margin: 0 auto 35px;
-        }
-        .search-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .search-icon {
-            position: absolute;
-            left: 22px;
-            font-size: 1.1rem;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
+        /* ==================== SEARCH BAR ==================== */
+        .search-container { max-width: 520px; margin: 0 auto 35px; }
+        .search-wrapper { position: relative; display: flex; align-items: center; }
+        .search-icon { position: absolute; left: 22px; font-size: 1.1rem; pointer-events: none; z-index: 1; opacity: 0.6; transition: opacity 0.3s ease; }
         .search-wrapper:focus-within .search-icon { opacity: 1; }
         .search-input {
-            width: 100%;
-            padding: 16px 50px 16px 52px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            color: var(--text-primary);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
+            width: 100%; padding: 16px 50px 16px 52px; border-radius: 30px;
+            border: 1px solid var(--glass-border); background: var(--glass-bg);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            color: var(--text-primary); font-family: 'Poppins', sans-serif;
+            font-size: 1rem; outline: none; transition: all 0.3s ease;
         }
         .search-input:focus {
             border-color: var(--cyan-glow);
@@ -270,10 +689,7 @@
             transition: all 0.3s ease; line-height: 1;
         }
         .search-clear:hover { color: var(--text-primary); background: rgba(255,255,255,0.15); }
-        .no-results {
-            text-align: center; padding: 50px 20px;
-            display: none;
-        }
+        .no-results { text-align: center; padding: 50px 20px; display: none; }
         .no-results-icon { font-size: 3rem; display: block; margin-bottom: 15px; opacity: 0.4; }
         .no-results-text { font-size: 1.15rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 5px; }
         .no-results-hint { font-size: 0.85rem; color: var(--text-secondary); opacity: 0.6; }
@@ -288,8 +704,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 25px; padding: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: visible;
+            position: relative; overflow: visible;
         }
         .product-card::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -300,17 +715,11 @@
         .product-card:hover {
             transform: translateY(-10px);
             border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.15), 0 0 60px rgba(250, 204, 21, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 45px rgba(0, 212, 255, 0.18), 0 0 90px rgba(0, 212, 255, 0.06), 0 0 60px rgba(250, 204, 21, 0.08);
         }
         .product-card:hover::before { transform: scaleX(1); }
-
-        /* Search hidden animation */
-        .product-card.search-hidden {
-            display: none !important;
-        }
-        .product-card.search-show {
-            animation: cardReveal 0.35s ease-out both;
-        }
+        .product-card.search-hidden { display: none !important; }
+        .product-card.search-show { animation: cardReveal 0.35s ease-out both; }
         @keyframes cardReveal {
             from { opacity: 0; transform: translateY(15px) scale(0.97); }
             to   { opacity: 1; transform: translateY(0) scale(1); }
@@ -329,7 +738,15 @@
         .product-info { flex: 1; }
         .product-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; color: var(--text-primary); }
         .product-features { font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-wrap: wrap; gap: 8px; }
-        .feature-tag { background: rgba(0, 212, 255, 0.1); padding: 3px 10px; border-radius: 10px; font-size: 0.75rem; color: var(--cyan-glow); border: 1px solid rgba(0, 212, 255, 0.2); }
+        .feature-tag {
+            background: rgba(0, 212, 255, 0.1); padding: 3px 10px; border-radius: 10px;
+            font-size: 0.75rem; color: var(--cyan-glow); border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover .feature-tag {
+            border-color: rgba(0, 212, 255, 0.35);
+            background: rgba(0, 212, 255, 0.15);
+        }
 
         /* ==================== PRICING PLANS ==================== */
         .product-plans { margin: 15px 0; overflow: visible; }
@@ -337,13 +754,11 @@
         .plan-duration { font-size: 0.9rem; color: var(--text-secondary); }
         .plan-price { font-size: 1.4rem; font-weight: 700; color: var(--gold-start); }
 
-        /* Dropdown Plans */
         .plans-dropdown { border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; }
         .dropdown-header {
             display: flex; align-items: center; justify-content: space-between;
             padding: 12px 15px; background: rgba(255, 255, 255, 0.03);
-            cursor: pointer; transition: all 0.3s ease;
-            user-select: none;
+            cursor: pointer; transition: all 0.3s ease; user-select: none;
         }
         .dropdown-header:hover { background: rgba(255, 255, 255, 0.06); }
         .dropdown-title { font-size: 0.9rem; color: var(--text-secondary); }
@@ -358,9 +773,9 @@
         .plan-option {
             display: flex; align-items: center; justify-content: space-between;
             padding: 12px 15px; border-top: 1px solid var(--glass-border);
-            transition: all 0.3s ease; cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
         }
-        .plan-option:hover { background: rgba(0, 212, 255, 0.08); }
+        .plan-option:hover { background: rgba(0, 212, 255, 0.08); padding-left: 18px; }
         .plan-option.selected { background: rgba(37, 211, 102, 0.1); border-left: 3px solid var(--whatsapp-green); }
         .plan-details { display: flex; flex-direction: column; gap: 2px; }
         .plan-name { font-size: 0.9rem; font-weight: 500; color: var(--text-primary); }
@@ -390,8 +805,7 @@
         .product-badge {
             position: absolute; top: 15px; right: 15px;
             padding: 5px 12px; border-radius: 15px;
-            font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-            z-index: 5;
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase; z-index: 5;
         }
         .badge-hot { background: linear-gradient(135deg, var(--red-glow), #cc0044); animation: badgePulse 2s ease-in-out infinite; }
         .badge-popular { background: linear-gradient(135deg, var(--gold-start), var(--gold-end)); color: var(--space-navy); }
@@ -401,99 +815,26 @@
             0%, 100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4); }
             50% { box-shadow: 0 0 0 6px rgba(255, 51, 102, 0); }
         }
+        .badge-trending { background: linear-gradient(135deg, #ff4500, #ff8c00); color: white; animation: badgeGlowOrange 2s ease-in-out infinite; }
+        .badge-limited { background: linear-gradient(135deg, #833AB4, var(--cyan-glow)); color: white; animation: badgeGlowPurple 2s ease-in-out infinite; }
+        .badge-fast-selling { background: linear-gradient(135deg, var(--gold-start), #ff8c00); color: var(--space-navy); animation: badgeGlowGold 2s ease-in-out infinite; }
+        @keyframes badgeGlowOrange { 0%, 100% { box-shadow: 0 0 6px rgba(255, 69, 0, 0.3); } 50% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.6); } }
+        @keyframes badgeGlowPurple { 0%, 100% { box-shadow: 0 0 6px rgba(131, 58, 180, 0.3); } 50% { box-shadow: 0 0 16px rgba(0, 212, 255, 0.5); } }
+        @keyframes badgeGlowGold { 0%, 100% { box-shadow: 0 0 6px rgba(250, 204, 21, 0.3); } 50% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.6); } }
 
-        /* ==================== NEW: Dynamic Badges ==================== */
-        .badge-trending {
-            background: linear-gradient(135deg, #ff4500, #ff8c00);
-            color: white;
-            animation: badgeGlowOrange 2s ease-in-out infinite;
-        }
-        .badge-limited {
-            background: linear-gradient(135deg, #833AB4, var(--cyan-glow));
-            color: white;
-            animation: badgeGlowPurple 2s ease-in-out infinite;
-        }
-        .badge-fast-selling {
-            background: linear-gradient(135deg, var(--gold-start), #ff8c00);
-            color: var(--space-navy);
-            animation: badgeGlowGold 2s ease-in-out infinite;
-        }
-        @keyframes badgeGlowOrange {
-            0%, 100% { box-shadow: 0 0 6px rgba(255, 69, 0, 0.3); }
-            50% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.6), 0 0 30px rgba(255, 69, 0, 0.15); }
-        }
-        @keyframes badgeGlowPurple {
-            0%, 100% { box-shadow: 0 0 6px rgba(131, 58, 180, 0.3); }
-            50% { box-shadow: 0 0 16px rgba(0, 212, 255, 0.5), 0 0 30px rgba(131, 58, 180, 0.15); }
-        }
-        @keyframes badgeGlowGold {
-            0%, 100% { box-shadow: 0 0 6px rgba(250, 204, 21, 0.3); }
-            50% { box-shadow: 0 0 16px rgba(255, 140, 0, 0.6), 0 0 30px rgba(250, 204, 21, 0.15); }
-        }
-
-        /* ==================== NEW: Sold Out System ==================== */
-        .product-sold-out {
-            opacity: 0.65;
-            border-color: rgba(255, 51, 102, 0.25) !important;
-        }
-        .product-sold-out:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 10px 30px rgba(255, 51, 102, 0.12) !important;
-        }
+        /* ==================== SOLD OUT ==================== */
+        .product-sold-out { opacity: 0.65; border-color: rgba(255, 51, 102, 0.25) !important; }
+        .product-sold-out:hover { transform: translateY(-4px) !important; box-shadow: 0 10px 30px rgba(255, 51, 102, 0.12) !important; }
         .product-sold-out::before { background: linear-gradient(90deg, var(--red-glow), #cc0044, var(--red-glow)) !important; }
-
-        .product-full-sold-out {
-            opacity: 0.55;
-            border-color: rgba(255, 51, 102, 0.2) !important;
-        }
-        .product-full-sold-out:hover {
-            transform: translateY(-3px) !important;
-            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.1) !important;
-        }
-
-        .badge-sold-out {
-            background: linear-gradient(135deg, #ff3366, #990033) !important;
-            color: white !important;
-            animation: soldOutPulse 2.5s ease-in-out infinite !important;
-            box-shadow: 0 0 12px rgba(255, 51, 102, 0.4);
-        }
-        @keyframes soldOutPulse {
-            0%, 100% { box-shadow: 0 0 8px rgba(255, 51, 102, 0.3); }
-            50% { box-shadow: 0 0 18px rgba(255, 51, 102, 0.6), 0 0 30px rgba(255, 51, 102, 0.15); }
-        }
-
-        .all-sold-msg {
-            text-align: center; padding: 18px 15px;
-            background: rgba(255, 51, 102, 0.08);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 51, 102, 0.2);
-            color: var(--red-glow); font-weight: 600; font-size: 0.9rem;
-            letter-spacing: 0.3px;
-        }
-
-        .plan-sold-out {
-            opacity: 0.4 !important;
-            pointer-events: none !important;
-            cursor: not-allowed !important;
-            position: relative;
-        }
-        .plan-sold-out .plan-price,
-        .plan-sold-out .plan-sold-label {
-            color: var(--red-glow) !important;
-            font-size: 0.8rem !important;
-        }
-
-        .btn-disabled {
-            background: linear-gradient(135deg, #333, #222) !important;
-            box-shadow: 0 0 10px rgba(255, 51, 102, 0.15) !important;
-            cursor: not-allowed !important;
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        .btn-disabled:hover {
-            transform: none !important;
-            box-shadow: 0 0 10px rgba(255, 51, 102, 0.15) !important;
-        }
+        .product-full-sold-out { opacity: 0.55; border-color: rgba(255, 51, 102, 0.2) !important; }
+        .product-full-sold-out:hover { transform: translateY(-3px) !important; box-shadow: 0 8px 25px rgba(255, 51, 102, 0.1) !important; }
+        .badge-sold-out { background: linear-gradient(135deg, #ff3366, #990033) !important; color: white !important; animation: soldOutPulse 2.5s ease-in-out infinite !important; box-shadow: 0 0 12px rgba(255, 51, 102, 0.4); }
+        @keyframes soldOutPulse { 0%, 100% { box-shadow: 0 0 8px rgba(255, 51, 102, 0.3); } 50% { box-shadow: 0 0 18px rgba(255, 51, 102, 0.6); } }
+        .all-sold-msg { text-align: center; padding: 18px 15px; background: rgba(255, 51, 102, 0.08); border-radius: 15px; border: 1px solid rgba(255, 51, 102, 0.2); color: var(--red-glow); font-weight: 600; font-size: 0.9rem; }
+        .plan-sold-out { opacity: 0.4 !important; pointer-events: none !important; cursor: not-allowed !important; position: relative; }
+        .plan-sold-out .plan-price, .plan-sold-out .plan-sold-label { color: var(--red-glow) !important; font-size: 0.8rem !important; }
+        .btn-disabled { background: linear-gradient(135deg, #333, #222) !important; box-shadow: 0 0 10px rgba(255, 51, 102, 0.15) !important; cursor: not-allowed !important; opacity: 0.7; pointer-events: none; }
+        .btn-disabled:hover { transform: none !important; box-shadow: 0 0 10px rgba(255, 51, 102, 0.15) !important; }
 
         /* ==================== SCROLL TO TOP ==================== */
         .scroll-top-btn {
@@ -549,8 +890,8 @@
             .stat-number { font-size: 1.8rem; }
             .stat-label { font-size: 0.75rem; }
             .products-section { padding: 15px; }
-            .products-grid { grid-template-columns: 1fr; gap: 20px; }
-            .product-card { padding: 20px; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .product-card { padding: 15px; border-radius: 18px; }
             .floating-logo { display: none; }
             .footer { padding: 40px 15px 20px; }
             .search-container { margin-bottom: 25px; }
@@ -566,6 +907,7 @@
             .product-icon { width: 70px; height: 70px; }
             .product-info { text-align: center; }
             .product-features { justify-content: center; }
+            .products-grid { grid-template-columns: 1fr; gap: 15px; }
         }
 
         /* ==================== CUSTOM SCROLLBAR ==================== */
@@ -591,7 +933,7 @@
         <img src="logo.png" alt="TDS Logo">
     </div>
 
-    <!-- HEADER (UPDATED: removed Christmas from offers) -->
+    <!-- HEADER -->
     <header class="header" id="header">
         <a href="index.html" class="header-logo">
             <img src="logo.png" alt="TDS Logo">
@@ -618,14 +960,10 @@
             </div>
             <h1 class="hero-title">🛒 All Products</h1>
             <p class="hero-subtitle">Premium subscriptions at unbeatable prices. Choose your plan and enjoy!</p>
-
-            <!-- UPDATED: Action Buttons — removed Christmas -->
             <div class="hero-buttons">
                 <a href="index.html" class="action-btn btn-home">🏠 Back to Home</a>
                 <a href="offer.html" class="action-btn btn-offers">⚡ Special Offers</a>
             </div>
-
-            <!-- Stats Bar -->
             <div class="stats-bar">
                 <div class="stat-item">
                     <div class="stat-number">200+</div>
@@ -643,6 +981,95 @@
             </div>
         </section>
 
+        <!-- ==================== PRICING PLANS SECTION ==================== -->
+        <section class="pricing-section" id="pricingSection">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">💎 Choose Your Plan</h2>
+                <p class="section-subtitle">Premium combo packs — stream more, save more</p>
+            </div>
+
+            <!-- Billing Toggle -->
+            <div class="billing-toggle-wrapper scroll-reveal">
+                <div class="billing-toggle" id="billingToggle">
+                    <button class="billing-option active" data-billing="monthly" onclick="switchBilling('monthly')">Monthly</button>
+                    <button class="billing-option" data-billing="yearly" onclick="switchBilling('yearly')">
+                        Yearly
+                        <span class="toggle-save-badge">Save More</span>
+                    </button>
+                    <div class="billing-slider"></div>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-grid">
+                <!-- BASIC PLAN -->
+                <div class="pricing-card scroll-reveal" data-plan="basic">
+                    <div class="pricing-card-logo">
+                        <img src="basic.png" alt="Basic Plan" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🟢</span>'">
+                    </div>
+                    <h3 class="pricing-plan-name">Basic</h3>
+                    <div class="pricing-price-wrapper">
+                        <span class="pricing-currency">₹</span>
+                        <span class="pricing-amount" id="basicPrice">99</span>
+                        <span class="pricing-period" id="basicPeriod">/month</span>
+                    </div>
+                    <div class="pricing-savings-tag" id="basicSavings"></div>
+                    <ul class="pricing-features" id="basicFeatures">
+                        <li class="pricing-feature"><span class="feature-check">✔</span> Chaupal 4K</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> YouTube Premium</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> YouTube Music</li>
+                    </ul>
+                    <div class="pricing-yearly-note" id="basicNote"></div>
+                    <a href="#" target="_blank" class="buy-btn pricing-buy-btn" id="basicBuyBtn">💬 Get Basic</a>
+                </div>
+
+                <!-- PRO PLAN (FEATURED) -->
+                <div class="pricing-card pricing-card-featured scroll-reveal" data-plan="pro">
+                    <span class="pricing-featured-badge">⭐ BEST VALUE</span>
+                    <div class="pricing-card-logo">
+                        <img src="pro.png" alt="Pro Plan" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>⭐</span>'">
+                    </div>
+                    <h3 class="pricing-plan-name">Pro</h3>
+                    <div class="pricing-price-wrapper">
+                        <span class="pricing-currency">₹</span>
+                        <span class="pricing-amount" id="proPrice">199</span>
+                        <span class="pricing-period" id="proPeriod">/month</span>
+                    </div>
+                    <div class="pricing-savings-tag" id="proSavings"></div>
+                    <ul class="pricing-features" id="proFeatures">
+                        <li class="pricing-feature"><span class="feature-check">✔</span> Netflix 4K</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> Chaupal 4K</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> YouTube Premium</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> YouTube Music</li>
+                    </ul>
+                    <div class="pricing-yearly-note" id="proNote"></div>
+                    <a href="#" target="_blank" class="buy-btn pricing-buy-btn" id="proBuyBtn">💬 Get Pro</a>
+                </div>
+
+                <!-- ULTRA PLAN -->
+                <div class="pricing-card scroll-reveal" data-plan="ultra">
+                    <div class="pricing-card-logo">
+                        <img src="ultra.png" alt="Ultra Plan" onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>💎</span>'">
+                    </div>
+                    <h3 class="pricing-plan-name">Ultra</h3>
+                    <div class="pricing-price-wrapper">
+                        <span class="pricing-currency">₹</span>
+                        <span class="pricing-amount" id="ultraPrice">259</span>
+                        <span class="pricing-period" id="ultraPeriod">/month</span>
+                    </div>
+                    <div class="pricing-savings-tag" id="ultraSavings"></div>
+                    <ul class="pricing-features" id="ultraFeatures">
+                        <li class="pricing-feature"><span class="feature-check">✔</span> Netflix 4K</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> Prime Video 4K (No Ads)</li>
+                        <li class="pricing-feature"><span class="feature-check">✔</span> Chaupal 4K</li>
+                    </ul>
+                    <div class="pricing-yearly-note" id="ultraNote"></div>
+                    <a href="#" target="_blank" class="buy-btn pricing-buy-btn" id="ultraBuyBtn">💬 Get Ultra</a>
+                </div>
+            </div>
+        </section>
+        <!-- ==================== END PRICING SECTION ==================== -->
+
         <!-- PRODUCTS SECTION -->
         <section class="products-section">
             <div class="section-header scroll-reveal">
@@ -650,7 +1077,6 @@
                 <p class="section-subtitle">Click on any product to view plans and buy</p>
             </div>
 
-            <!-- NEW: SEARCH BAR -->
             <div class="search-container scroll-reveal">
                 <div class="search-wrapper">
                     <span class="search-icon">🔍</span>
@@ -856,6 +1282,79 @@
                     </div>
                     <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Netflix🔥.%20Please%20share%20payment%20details❣️" target="_blank" class="buy-btn" id="netflixBuyBtn">💬 Buy Now</a>
                 </div>
+
+
+<!-- KuKu FM & TV -->
+<div class="product-card scroll-reveal">
+    <span class="product-badge badge-new">🆕 NEW</span>
+
+    <div class="product-header">
+        <div class="product-icon">
+            <img src="kuku.png"
+                 alt="KuKu"
+                 onerror="this.parentElement.innerHTML='<span class=\'product-icon-emoji\'>🎧</span>'">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">KuKu FM & TV</h3>
+            <div class="product-features">
+                <span class="feature-tag">Audiobooks + Shows</span>
+                <span class="feature-tag">Premium Access</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-plans">
+        <div class="plans-dropdown" id="kukuPlans">
+            <div class="dropdown-header" onclick="toggleDropdown('kukuPlans')">
+                <span class="dropdown-title">📋 Select Plan (4 options)</span>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+
+            <div class="dropdown-content">
+                <div class="plan-option"
+                     onclick="selectPlan(this, 'KuKu FM & TV', '1 Month', '130')">
+                    <div class="plan-details">
+                        <span class="plan-name">1 Month</span>
+                    </div>
+                    <span class="plan-price">₹130</span>
+                </div>
+
+                <div class="plan-option"
+                     onclick="selectPlan(this, 'KuKu FM & TV', '3 Months', '300')">
+                    <div class="plan-details">
+                        <span class="plan-name">3 Months</span>
+                    </div>
+                    <span class="plan-price">₹300</span>
+                </div>
+
+                <div class="plan-option"
+                     onclick="selectPlan(this, 'KuKu FM & TV', '6 Months', '580')">
+                    <div class="plan-details">
+                        <span class="plan-name">6 Months</span>
+                        <span class="plan-note">Best Value</span>
+                    </div>
+                    <span class="plan-price">₹580</span>
+                </div>
+
+                <div class="plan-option"
+                     onclick="selectPlan(this, 'KuKu FM & TV', '12 Months', '899')">
+                    <div class="plan-details">
+                        <span class="plan-name">12 Months</span>
+                        <span class="plan-note">Maximum Saving</span>
+                    </div>
+                    <span class="plan-price">₹899</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20KuKu%20FM%20%26%20TV💸.%20Please%20give%20me%20payment%20and%20product%20information❣️"
+       target="_blank"
+       class="buy-btn"
+       id="kukuBuyBtn">
+        💬 Buy Now
+    </a>
+</div>
 
                 <!-- 6. Hotstar -->
                 <div class="product-card scroll-reveal" data-product-id="hotstar">
@@ -1302,10 +1801,10 @@
                     <div class="product-plans">
                         <div class="single-plan">
                             <span class="plan-duration">3 Months</span>
-                            <span class="plan-price">₹120</span>
+                            <span class="plan-price">₹90</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Spotify%20Premium%203%20Months%20worth%20₹120💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
+                    <a href="https://wa.me/919024487624?text=I%20want%20to%20buy%20Spotify%20Premium%203%20Months%20worth%20₹180💸.%20Please%20give%20me%20payment%20and%20product%20information❣️" target="_blank" class="buy-btn">💬 Buy Now</a>
                 </div>
 
                 <!-- 20. Perplexity AI -->
@@ -1481,7 +1980,7 @@
                     <a href="https://wa.me/919024487624?text=I%20want%20to%20know%20about%20PS4/PS5%20Games💸.%20Please%20send%20me%20the%20list%20and%20prices❣️" target="_blank" class="buy-btn buy-btn-dm">💬 Ask Price</a>
                 </div>
 
-            </div><!-- /products-grid -->
+            </div>
         </section>
     </main>
 
@@ -1506,46 +2005,27 @@
     <!-- SCROLL TO TOP -->
     <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"></button>
 
+    <!-- YEARLY SAVINGS POPUP -->
+    <div class="savings-popup" id="savingsPopup">
+        <span class="savings-popup-icon">🔥</span>
+        <span class="savings-popup-text" id="savingsPopupText">Save up to ₹1,209 with yearly plans!</span>
+    </div>
+
     <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-    /* ==========================================================
-       STORE CONFIGURATION — Edit these to control sold out,
-       badges, etc. Everything is driven from this single object.
-       ========================================================== */
     const STORE_CONFIG = {
-
-        // ── Product-level: sold out (card dimmed, button disabled) ──
-        // Set the product data-product-id as key → true
-        soldOut: { 
-           'hotstar': true,       // ← uncomment to mark CapCut sold out
+        soldOut: {
+           'hotstar': true,
         },
-
-        // ── Product-level: ALL plans sold out (dropdown replaced) ──
         fullSoldOut: {
-             'zee5': true, 
-               // ← uncomment to mark Apple TV fully sold out
+             'zee5': true,
         },
-
-        // ── Plan-level: specific plans sold out (0-based index) ──
-        // Key = product data-product-id, value = array of plan indices
         plansSoldOut: {
-             'youtube-premium': [1],  // ← 2nd plan (3 Months) sold out
-            // 'chaupal': [2],          // ← 3rd plan (6 Months) sold out
+             'youtube-premium': [1],
         },
-
-        // ── Dynamic badge overrides ──
-        // type: 'trending' | 'limited' | 'fast-selling'
-        badges: {
-            // 'netflix':       { type: 'trending',     text: '🔥 TRENDING' },
-            // 'chatgpt-plus':  { type: 'fast-selling',  text: '💎 FAST SELLING' },
-            // 'vpn':           { type: 'limited',       text: '⚡ LIMITED' },
-        }
+        badges: {}
     };
 
-
-    /* ==========================================================
-       INITIALIZATION
-       ========================================================== */
     document.addEventListener('DOMContentLoaded', () => {
         createParticles();
         initScrollReveal();
@@ -1556,12 +2036,9 @@
         applyBadgeConfig();
         applySoldOutConfig();
         setCurrentYear();
+        initPricing();
     });
 
-
-    /* ==========================================================
-       PARTICLES
-       ========================================================== */
     function createParticles() {
         const c = document.getElementById('particlesContainer');
         for (let i = 0; i < 60; i++) {
@@ -1575,75 +2052,43 @@
         }
     }
 
-
-    /* ==========================================================
-       UPDATED: DROPDOWN TOGGLE — fixes VPN stuck-open bug
-       • Click → open (closes any other open dropdown)
-       • Click same → close
-       • Click outside → close all
-       ========================================================== */
     function toggleDropdown(id) {
         const dropdown = document.getElementById(id);
         if (!dropdown) return;
         const wasOpen = dropdown.classList.contains('open');
-
-        // Close every open dropdown first
-        document.querySelectorAll('.plans-dropdown.open').forEach(dd => {
-            dd.classList.remove('open');
-        });
-
-        // If it wasn't open, open it now
-        if (!wasOpen) {
-            dropdown.classList.add('open');
-        }
+        document.querySelectorAll('.plans-dropdown.open').forEach(dd => dd.classList.remove('open'));
+        if (!wasOpen) dropdown.classList.add('open');
     }
 
     function initDropdownOutsideClick() {
         document.addEventListener('click', (e) => {
-            // If the click landed inside a dropdown, let toggleDropdown handle it
             if (e.target.closest('.plans-dropdown')) return;
-            document.querySelectorAll('.plans-dropdown.open').forEach(dd => {
-                dd.classList.remove('open');
-            });
+            document.querySelectorAll('.plans-dropdown.open').forEach(dd => dd.classList.remove('open'));
         });
     }
 
-
-    /* ==========================================================
-       SELECT PLAN (unchanged logic, cleaned up)
-       ========================================================== */
     function selectPlan(element, productName, duration, price) {
         if (element.classList.contains('plan-sold-out')) return;
-
         const siblings = element.parentElement.querySelectorAll('.plan-option');
         siblings.forEach(s => s.classList.remove('selected'));
         element.classList.add('selected');
-
         const card   = element.closest('.product-card');
         const buyBtn = card.querySelector('.buy-btn');
         if (buyBtn && !buyBtn.classList.contains('btn-disabled')) {
-            const msg = encodeURIComponent(
-                `I want to buy ${productName} ${duration} worth ₹${price}💸. Please give me payment and product information❣️`
-            );
+            const msg = encodeURIComponent(`I want to buy ${productName} ${duration} worth ₹${price}💸. Please give me payment and product information❣️`);
             buyBtn.href = `https://wa.me/919024487624?text=${msg}`;
         }
     }
 
-
-    /* ==========================================================
-       NEW: SEARCH BAR
-       ========================================================== */
     function initSearch() {
-        const input     = document.getElementById('productSearch');
-        const clearBtn  = document.getElementById('searchClear');
+        const input = document.getElementById('productSearch');
+        const clearBtn = document.getElementById('searchClear');
         if (!input) return;
-
         let debounce;
         input.addEventListener('input', () => {
             clearTimeout(debounce);
             debounce = setTimeout(() => filterProducts(input.value), 180);
         });
-
         clearBtn.addEventListener('click', () => {
             input.value = '';
             filterProducts('');
@@ -1652,16 +2097,13 @@
     }
 
     function filterProducts(query) {
-        const cards      = document.querySelectorAll('.product-card');
-         const noResults  = document.getElementById('noResults');
-        const clearBtn   = document.getElementById('searchClear');
-
+        const cards = document.querySelectorAll('.product-card');
+        const noResults = document.getElementById('noResults');
+        const clearBtn = document.getElementById('searchClear');
         const q = query.toLowerCase().trim();
         let visibleCount = 0;
-
         cards.forEach(card => {
             const name = card.querySelector('.product-name')?.textContent.toLowerCase() || '';
-
             if (name.includes(q)) {
                 card.classList.remove('search-hidden');
                 card.classList.add('search-show');
@@ -1671,166 +2113,76 @@
                 card.classList.remove('search-show');
             }
         });
-
-        // Show / hide "no results"
-        if (visibleCount === 0 && q !== '') {
-            noResults.style.display = 'block';
-        } else {
-            noResults.style.display = 'none';
-        }
-
-        // Show clear button
+        noResults.style.display = (visibleCount === 0 && q !== '') ? 'block' : 'none';
         clearBtn.style.display = q ? 'block' : 'none';
     }
 
-
-    /* ==========================================================
-       SCROLL REVEAL
-       ========================================================== */
     function initScrollReveal() {
         const elements = document.querySelectorAll('.scroll-reveal');
-
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
         }, { threshold: 0.1 });
-
         elements.forEach(el => observer.observe(el));
     }
 
-
-    /* ==========================================================
-       HEADER SCROLL EFFECT
-       ========================================================== */
     function initHeaderScroll() {
         const header = document.getElementById('header');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 30);
         });
     }
 
-
-    /* ==========================================================
-       SCROLL TO TOP
-       ========================================================== */
     function initScrollTopButton() {
         const btn = document.getElementById('scrollTopBtn');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
+            btn.classList.toggle('visible', window.scrollY > 300);
         });
     }
 
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-
-    /* ==========================================================
-       CURRENT YEAR
-       ========================================================== */
     function setCurrentYear() {
         const el = document.getElementById('currentYear');
         if (el) el.textContent = new Date().getFullYear();
     }
 
-
-    /* ==========================================================
-       NEW: APPLY BADGES SYSTEM
-       ========================================================== */
     function applyBadgeConfig() {
         Object.entries(STORE_CONFIG.badges).forEach(([productId, config]) => {
             const card = document.querySelector(`[data-product-id="${productId}"]`);
             if (!card) return;
-
             let badge = card.querySelector('.product-badge');
-            if (!badge) {
-                badge = document.createElement('span');
-                badge.className = 'product-badge';
-                card.appendChild(badge);
-            }
-
+            if (!badge) { badge = document.createElement('span'); badge.className = 'product-badge'; card.appendChild(badge); }
             badge.textContent = config.text || '';
-
-            badge.classList.remove(
-                'badge-hot','badge-popular','badge-new','badge-deal',
-                'badge-trending','badge-limited','badge-fast-selling'
-            );
-
+            badge.classList.remove('badge-hot','badge-popular','badge-new','badge-deal','badge-trending','badge-limited','badge-fast-selling');
             if (config.type === 'trending') badge.classList.add('badge-trending');
             if (config.type === 'limited') badge.classList.add('badge-limited');
             if (config.type === 'fast-selling') badge.classList.add('badge-fast-selling');
         });
     }
 
-
-    /* ==========================================================
-       NEW: SOLD OUT SYSTEM (FULLY WORKING 🔥)
-       ========================================================== */
     function applySoldOutConfig() {
-
         document.querySelectorAll('.product-card').forEach(card => {
             const id = card.dataset.productId;
             const buyBtn = card.querySelector('.buy-btn');
             const dropdown = card.querySelector('.plans-dropdown');
-
-            // ===== PRODUCT SOLD =====
             if (STORE_CONFIG.soldOut[id]) {
                 card.classList.add('product-sold-out');
-
-                if (buyBtn) {
-                    buyBtn.classList.add('btn-disabled');
-                    buyBtn.textContent = 'Unavailable';
-                }
-
+                if (buyBtn) { buyBtn.classList.add('btn-disabled'); buyBtn.textContent = 'Unavailable'; }
                 addSoldBadge(card, 'SOLD OUT');
             }
-
-            // ===== FULL SOLD =====
             if (STORE_CONFIG.fullSoldOut[id]) {
                 card.classList.add('product-full-sold-out');
-
-                if (dropdown) {
-                    dropdown.innerHTML = `
-                        <div class="all-sold-msg">
-                            🚫 All Plans Sold Out
-                        </div>
-                    `;
-                }
-
-                if (buyBtn) {
-                    buyBtn.classList.add('btn-disabled');
-                    buyBtn.textContent = 'Unavailable';
-                }
-
+                if (dropdown) dropdown.innerHTML = '<div class="all-sold-msg">🚫 All Plans Sold Out</div>';
+                if (buyBtn) { buyBtn.classList.add('btn-disabled'); buyBtn.textContent = 'Unavailable'; }
                 addSoldBadge(card, 'FULL SOLD');
             }
-
-            // ===== PLAN SOLD =====
             if (STORE_CONFIG.plansSoldOut[id]) {
                 const plans = card.querySelectorAll('.plan-option');
-
                 STORE_CONFIG.plansSoldOut[id].forEach(index => {
                     if (plans[index]) {
                         plans[index].classList.add('plan-sold-out');
-
                         const price = plans[index].querySelector('.plan-price');
-                        if (price) {
-                            price.textContent = 'Sold Out';
-                            price.classList.add('plan-sold-label');
-                        }
+                        if (price) { price.textContent = 'Sold Out'; price.classList.add('plan-sold-label'); }
                     }
                 });
             }
@@ -1839,17 +2191,157 @@
 
     function addSoldBadge(card, text) {
         let badge = card.querySelector('.product-badge');
-
-        if (!badge) {
-            badge = document.createElement('span');
-            badge.className = 'product-badge';
-            card.appendChild(badge);
-        }
-
+        if (!badge) { badge = document.createElement('span'); badge.className = 'product-badge'; card.appendChild(badge); }
         badge.textContent = text;
         badge.classList.add('badge-sold-out');
     }
 
+    /* ==================== PRICING PLANS SYSTEM ==================== */
+    const PRICING_DATA = {
+        basic: {
+            monthly: {
+                price: 99, period: '/month',
+                features: [
+                    { check: '✔', text: 'Chaupal 4K' },
+                    { check: '✔', text: 'YouTube Premium' },
+                    { check: '✔', text: 'YouTube Music' }
+                ],
+                note: '', savings: '',
+                whatsapp: 'I want Basic Plan ₹99/month'
+            },
+            yearly: {
+                price: 699, period: '/year',
+                features: [
+                    { check: '✔', text: 'Chaupal 4K' },
+                    { check: '✔', text: 'Prime Video (with ads)' }
+                ],
+                note: '→ Prime Video (with ads) replaces YouTube',
+                savings: 'Save ₹489/year',
+                whatsapp: 'I want Basic Plan ₹699/year'
+            }
+        },
+        pro: {
+            monthly: {
+                price: 199, period: '/month',
+                features: [
+                    { check: '✔', text: 'Netflix 4K' },
+                    { check: '✔', text: 'Chaupal 4K' },
+                    { check: '✔', text: 'YouTube Premium' },
+                    { check: '✔', text: 'YouTube Music' }
+                ],
+                note: '', savings: '',
+                whatsapp: 'I want Pro Plan ₹199/month'
+            },
+            yearly: {
+                price: 1699, period: '/year',
+                features: [
+                    { check: '✔', text: 'Netflix 4K' },
+                    { check: '✔', text: 'Chaupal 4K' },
+                    { check: '✔', text: 'Prime Video (with ads)' }
+                ],
+                note: '→ Prime Video (with ads) replaces YouTube',
+                savings: 'Save ₹689/year',
+                whatsapp: 'I want Pro Plan ₹1699/year'
+            }
+        },
+        ultra: {
+            monthly: {
+                price: 259, period: '/month',
+                features: [
+                    { check: '✔', text: 'Netflix 4K' },
+                    { check: '✔', text: 'Prime Video 4K (No Ads)' },
+                    { check: '✔', text: 'Chaupal 4K' }
+                ],
+                note: '', savings: '',
+                whatsapp: 'I want Ultra Plan ₹259/month'
+            },
+            yearly: {
+                price: 1899, period: '/year',
+                features: [
+                    { check: '✔', text: 'Netflix 4K' },
+                    { check: '✔', text: 'Prime Video 4K (No Ads)' },
+                    { check: '✔', text: 'Chaupal 4K' }
+                ],
+                note: '→ Same features included',
+                savings: 'Save ₹1,209/year',
+                whatsapp: 'I want Ultra Plan ₹1899/year'
+            }
+        }
+    };
+
+    let currentBilling = 'monthly';
+    let savingsPopupTimer = null;
+
+    function switchBilling(billing) {
+        if (billing === currentBilling) return;
+        currentBilling = billing;
+        const toggle = document.getElementById('billingToggle');
+        const options = toggle.querySelectorAll('.billing-option');
+        options.forEach(opt => opt.classList.toggle('active', opt.dataset.billing === billing));
+        toggle.classList.toggle('yearly', billing === 'yearly');
+        updateAllPricingCards(billing);
+        if (billing === 'yearly') showSavingsPopup();
+    }
+
+    function updateAllPricingCards(billing) {
+        document.querySelectorAll('.pricing-card[data-plan]').forEach(card => {
+            const plan = card.dataset.plan;
+            const data = PRICING_DATA[plan]?.[billing];
+            if (!data) return;
+
+            const amountEl = card.querySelector('.pricing-amount');
+            const periodEl = card.querySelector('.pricing-period');
+            if (amountEl) {
+                amountEl.classList.add('flip-out');
+                setTimeout(() => {
+                    amountEl.textContent = data.price.toLocaleString('en-IN');
+                    amountEl.classList.remove('flip-out');
+                    amountEl.classList.add('flip-in');
+                    setTimeout(() => amountEl.classList.remove('flip-in'), 300);
+                }, 200);
+            }
+            if (periodEl) setTimeout(() => { periodEl.textContent = data.period; }, 200);
+
+            const savingsEl = card.querySelector('.pricing-savings-tag');
+            if (savingsEl) {
+                if (data.savings) { savingsEl.textContent = data.savings; savingsEl.classList.add('visible'); }
+                else savingsEl.classList.remove('visible');
+            }
+
+            const featuresEl = card.querySelector('.pricing-features');
+            if (featuresEl && data.features) {
+                const isFeatured = card.classList.contains('pricing-card-featured');
+                featuresEl.innerHTML = data.features.map((f, i) =>
+                    `<li class="pricing-feature" style="animation-delay: ${i * 0.06}s"><span class="feature-check">${f.check}</span> ${f.text}</li>`
+                ).join('');
+                if (isFeatured) {
+                    featuresEl.querySelectorAll('.feature-check').forEach(el => el.style.color = 'var(--gold-start)');
+                }
+            }
+
+            const noteEl = card.querySelector('.pricing-yearly-note');
+            if (noteEl) {
+                if (data.note) { noteEl.textContent = data.note; noteEl.classList.add('visible'); }
+                else noteEl.classList.remove('visible');
+            }
+
+            const buyBtn = card.querySelector('.pricing-buy-btn');
+            if (buyBtn) {
+                const msg = encodeURIComponent(data.whatsapp + '💸. Please give me payment and product information❣️');
+                buyBtn.href = `https://wa.me/919024487624?text=${msg}`;
+            }
+        });
+    }
+
+    function showSavingsPopup() {
+        const popup = document.getElementById('savingsPopup');
+        if (!popup) return;
+        if (savingsPopupTimer) clearTimeout(savingsPopupTimer);
+        popup.classList.add('show');
+        savingsPopupTimer = setTimeout(() => { popup.classList.remove('show'); savingsPopupTimer = null; }, 3500);
+    }
+
+    function initPricing() { updateAllPricingCards('monthly'); }
     </script>
 </body>
 </html>
