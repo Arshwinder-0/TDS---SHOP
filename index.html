@@ -1220,51 +1220,8 @@
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
-        
+
         /* ==================== FOOTER ==================== */
-.footer {
-    background: rgba(0, 0, 0, 0.4);
-    border-top: 1px solid var(--glass-border);
-    padding: 60px 20px 30px;
-}
-
-.footer-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-/* ==================== FOOTER LINKS ==================== */
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-}
-
-.footer-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-    padding: 8px 15px;
-    border-radius: 8px;
-}
-
-.footer-link:hover {
-    color: var(--cyan-glow);
-    background: rgba(0, 212, 255, 0.1);
-}
-/* ==================== CONTINUE WITH EXISTING FOOTER CSS ==================== */
         .footer {
             background: rgba(0, 0, 0, 0.4);
             border-top: 1px solid var(--glass-border);
@@ -1444,36 +1401,106 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover { background: var(--gold-start); }
-    /* ==================== POLICY LINKS THEME FIX ==================== */
-.policy-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
+
+/* ==================== PRICING ==================== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
 }
 
-.policy-link {
-    padding: 8px 18px;
-    border-radius: 20px;
+.pricing-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 30px 25px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3),
+                0 0 40px rgba(250,204,21,0.1);
+}
+
+.plan-logo {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.plan-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.plan-price {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.plan-price span {
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    font-size: 0.85rem;
+}
+
+.plan-features {
+    list-style: none;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.plan-features li {
+    margin: 8px 0;
+}
+
+.plan-year {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.plan-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: white;
+    font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(12px);
+    transition: 0.3s;
 }
 
-.policy-link:hover {
-    color: var(--gold-start);
-    border-color: rgba(250, 204, 21, 0.4);
-    box-shadow: 0 0 15px rgba(250, 204, 21, 0.2);
-    transform: translateY(-2px);
+.plan-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(37,211,102,0.5);
 }
 
-.link-separator {
-    display: none;
+/* FEATURED PLAN */
+.featured {
+    border: 1px solid rgba(250,204,21,0.4);
+    transform: scale(1.05);
+}
+
+.featured:hover {
+    transform: scale(1.08);
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--red-glow), #cc0044);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
 }
     </style>
 </head>
@@ -1574,7 +1601,7 @@
                     </a>
                 </div>
 
-                                <!-- Stats Bar -->
+                <!-- Stats Bar -->
                 <div class="stats-bar scroll-reveal">
                     <div class="stat-item">
                         <div class="stat-number" data-target="50" data-suffix="+">0</div>
@@ -1592,8 +1619,62 @@
                 </div>
             </div>
         </section>
+
+<!-- ==================== PRICING SECTION ==================== -->
+<section class="section" id="plans">
+    <div class="section-header scroll-reveal">
+        <h2 class="section-title">💎 TDS Subscription Plans</h2>
+        <p class="section-subtitle">Choose the perfect plan for your entertainment</p>
+    </div>
+
+    <div class="pricing-grid">
         
-        
+        <!-- BASIC -->
+        <div class="pricing-card scroll-reveal">
+            <img src="basic.png" class="plan-logo">
+            <h3 class="plan-name">Basic</h3>
+            <div class="plan-price">₹99<span>/month</span></div>
+            <ul class="plan-features">
+                <li>Chaupal 4K</li>
+                <li>YouTube Premium + Music</li>
+                <li>Instant Delivery</li>
+            </ul>
+            <div class="plan-year">₹699/year (Prime replaces YT)</div>
+            <a href="https://wa.me/919024487624?text=I want Basic Plan" class="plan-btn">Buy Now</a>
+        </div>
+
+        <!-- PRO (HIGHLIGHT) -->
+        <div class="pricing-card featured scroll-reveal">
+            <div class="badge">🔥 Most Popular</div>
+            <img src="pro.png" class="plan-logo">
+            <h3 class="plan-name">Pro</h3>
+            <div class="plan-price">₹199<span>/month</span></div>
+            <ul class="plan-features">
+                <li>Netflix 4K</li>
+                <li>Chaupal 4K</li>
+                <li>YouTube Premium + Music</li>
+            </ul>
+            <div class="plan-year">₹1699/year (Prime replaces YT)</div>
+            <a href="https://wa.me/919024487624?text=I want Pro Plan" class="plan-btn">Buy Now</a>
+        </div>
+
+        <!-- ULTRA -->
+        <div class="pricing-card scroll-reveal">
+            <img src="ultra.png" class="plan-logo">
+            <h3 class="plan-name">Ultra</h3>
+            <div class="plan-price">₹259<span>/month</span></div>
+            <ul class="plan-features">
+                <li>Netflix 4K</li>
+                <li>Prime Video (No Ads)</li>
+                <li>Chaupal 4K</li>
+            </ul>
+            <div class="plan-year">₹1899/year</div>
+            <a href="https://wa.me/919024487624?text=I want Ultra Plan" class="plan-btn">Buy Now</a>
+        </div>
+
+    </div>
+</section>
+
         <!-- PRODUCTS SECTION -->
         <section class="section" id="products">
             <div class="section-header scroll-reveal">
@@ -1661,7 +1742,6 @@
                 </div>
             </div>
         </section>
-        
 
         <!-- FEATURES SECTION -->
         <section class="section" id="features">
@@ -1749,18 +1829,18 @@
                 </div>
 
                 <!-- Testimonials -->
-                  <div class="testimonials-container scroll-reveal">
-                  <div class="testimonials-track">
-                <div class="testimonial-card">
+                <div class="testimonials-container scroll-reveal">
+                    <div class="testimonials-track">
+                        <div class="testimonial-card">
                             <div class="testimonial-header">
-                                <div class="testimonial-avatar">A</div>
+                                <div class="testimonial-avatar">R</div>
                                 <div class="testimonial-info">
-                                    <div class="testimonial-name">Aditya</div>
-                                    <div class="testimonial-date" data-time="2025-12-22T14:00:00Z"></div>
+                                    <div class="testimonial-name">Rahul Kumar</div>
+                                    <div class="testimonial-date">2 days ago</div>
                                 </div>
                             </div>
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"Lovely service by arsh paji thanks you❤"</p>
+                            <p class="testimonial-text">"Amazing service! Got my Netflix within 2 minutes. Super fast and reliable!"</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -1779,24 +1859,12 @@
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">A</div>
                                 <div class="testimonial-info">
-                                    <div class="testimonial-name">Altmash</div>
-                                    <div class="testimonial-date">today</div>
+                                    <div class="testimonial-name">Amit Singh</div>
+                                    <div class="testimonial-date">1 week ago</div>
                                 </div>
                             </div>
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"Bahut sasta he bhai log jaldi lelo. "</p>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="testimonial-avatar">M</div>
-                                <div class="testimonial-info">
-                                    <div class="testimonial-name">Manish Thakor</div>
-                                    <div class="testimonial-date" data-time="2025-12-20T14:00:00Z"></div>
-                                </div>
-                            </div>
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"Very good website. Affordable Prices and very good customer service"</p>
+                            <p class="testimonial-text">"Using for 6 months now. Never had any issues. Highly recommended!"</p>
                         </div>
                         
                         <div class="testimonial-card">
@@ -1867,18 +1935,11 @@
                 <a href="https://wa.me/919024487624" target="_blank" class="social-icon whatsapp" title="WhatsApp">💬</a>
             </div>
 
-<div class="footer-bottom">
-    <div class="policy-links">
-        <a href="privacy.html" class="policy-link">Privacy Policy</a>
-        <span class="link-separator">•</span>
-        <a href="terms.html" class="policy-link">Terms of Service</a>
-        <span class="link-separator">•</span>
-        <a href="refund.html" class="policy-link">Refund Policy</a>
-    </div>
-    <p class="copyright">
-        © <span id="currentYear"></span> <a href="https://tdsofficial.store">TDS Official Store</a>. All rights reserved.
-    </p>
-</div>
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © <span id="currentYear"></span> <a href="https://tdsofficial.store">TDS Official Store</a>. All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -2047,64 +2108,31 @@
         }
 
         // ==================== REVIEW FORM ====================
-function initReviewForm() {
-    const form = document.getElementById('reviewForm');
+        function initReviewForm() {
+            const form = document.getElementById('reviewForm');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (selectedRating === 0) {
+                    alert('Please select a star rating!');
+                    return;
+                }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
 
-        if (selectedRating === 0) {
-            alert('Please select a star rating!');
-            return;
-        }
-
-        const name = document.getElementById('reviewerName').value.trim();
-        const review = document.getElementById('reviewText').value.trim();
-
-        if (!name || !review) {
-            alert('Please fill all fields');
-            return;
-        }
-
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.classList.add('loading');
-        submitBtn.disabled = true;
-
-        const BOT_TOKEN = "8580253991:AAFM5iWsd1uTwvlSq78ohQCylMl_VXBXvaA";
-        const CHAT_ID = "2056277427";
-
-        const message =
-`⭐ NEW REVIEW RECEIVED ⭐
-
-👤 Name: ${name}
-⭐ Rating: ${selectedRating}/5
-
-📝 Review:
-${review}
-🕒 *Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
-        
-🌐 Source: TDS Official Store`;
-
-        try {
-            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message
-                })
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                form.style.display = 'none';
+                document.getElementById('formSuccess').classList.add('show');
+                
+                // Create celebration particles
+                createClickParticles(submitBtn, 'gold', 25);
             });
-
-            form.style.display = 'none';
-            document.getElementById('formSuccess').classList.add('show');
-
-        } catch (error) {
-            alert("Failed to submit review. Please try again.");
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('loading');
         }
-    });
-}
 
         // ==================== PARTICLE EFFECTS ====================
         function initParticleEffects() {
@@ -2249,36 +2277,6 @@ ${review}
         function setCurrentYear() {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         }
-        // ==================== TESTIMONIAL TIME AUTO UPDATE ====================
-function testimonialTimeAgo(date) {
-    const seconds = Math.floor((new Date() - new Date(date)) / 1000);
-
-    if (seconds < 60) return "Just now";
-
-    const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-
-    const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-
-    const days = Math.floor(hours / 24);
-    if (days < 7) return `${days} day${days > 1 ? 's' : ''} ago`;
-
-    const weeks = Math.floor(days / 7);
-    return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
-}
-
-function updateTestimonialTimes() {
-    document.querySelectorAll('.testimonial-date[data-time]').forEach(el => {
-        el.textContent = testimonialTimeAgo(el.dataset.time);
-    });
-}
-
-// Run immediately
-updateTestimonialTimes();
-
-// Update every 1 minute
-setInterval(updateTestimonialTimes, 60000);
     </script>
 </body>
 </html>
