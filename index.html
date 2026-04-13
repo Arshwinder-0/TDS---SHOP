@@ -336,7 +336,7 @@
         /* ==================== TOP BANNER ==================== */
         .top-banner {
             width: 100%;
-            padding-top: 65px; /* Account for fixed header */
+            padding-top: 65px;
             position: relative;
             overflow: hidden;
         }
@@ -378,7 +378,6 @@
             }
         }
 
-        /* Banner Glow Effect */
         .banner-glow {
             position: absolute;
             top: 50%;
@@ -537,7 +536,6 @@
 
         .action-btn:hover::before { left: 100%; }
 
-        /* WhatsApp Button - Green Glow */
         .btn-whatsapp {
             background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
             color: white;
@@ -549,79 +547,30 @@
             box-shadow: 0 0 30px rgba(37, 211, 102, 0.6), 0 0 60px rgba(37, 211, 102, 0.3), 0 15px 40px rgba(37, 211, 102, 0.4);
         }
 
-        /* Christmas Special Offer Button */
-        .btn-christmas {
-            background: linear-gradient(135deg, var(--christmas-red), #8b0000, var(--christmas-red));
+        .btn-festival {
+            background: linear-gradient(135deg, #facc15, #ff8c00, #E1306C, #833AB4, #00d4ff);
+            background-size: 200% 200%;
             color: white;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 250, 250, 0.2);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.3), 0 0 50px rgba(225, 48, 108, 0.2);
+            animation: festivalGradient 3s ease-in-out infinite;
         }
 
-        .btn-christmas::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 50%);
-            pointer-events: none;
+        @keyframes festivalGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        .btn-christmas:hover {
+        .btn-festival:hover {
             transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 0 35px rgba(255, 255, 255, 0.5), 0 0 70px rgba(255, 250, 250, 0.3), 0 15px 40px rgba(196, 30, 58, 0.4);
+            box-shadow: 0 0 40px rgba(250, 204, 21, 0.5), 0 0 80px rgba(225, 48, 108, 0.3), 0 15px 40px rgba(131, 58, 180, 0.4);
+            animation: festivalGradient 1.5s ease-in-out infinite, festivalPulse 1.5s ease-in-out infinite;
         }
 
-        /* Snowflakes Container */
-        .snowflakes-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            pointer-events: none;
-            border-radius: 35px;
+        @keyframes festivalPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(250, 204, 21, 0.5), 0 0 80px rgba(225, 48, 108, 0.3), 0 15px 40px rgba(131, 58, 180, 0.4); }
+            50% { box-shadow: 0 0 50px rgba(250, 204, 21, 0.7), 0 0 100px rgba(225, 48, 108, 0.5), 0 15px 50px rgba(131, 58, 180, 0.6); }
         }
 
-        .snowflake {
-            position: absolute;
-            color: white;
-            font-size: 10px;
-            opacity: 0.8;
-            animation: snowfall linear infinite;
-            text-shadow: 0 0 5px white;
-        }
-
-        @keyframes snowfall {
-            0% {
-                transform: translateY(-10px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(60px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .christmas-icon {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tree-icon {
-            animation: treeGlow 1.5s ease-in-out infinite;
-        }
-
-        @keyframes treeGlow {
-            0%, 100% { filter: drop-shadow(0 0 3px #00ff00); }
-            50% { filter: drop-shadow(0 0 8px #00ff00) drop-shadow(0 0 15px #ffff00); }
-        }
-
-        /* Products Button - Red Glow */
         .btn-products {
             background: linear-gradient(135deg, var(--deep-red), #8b0000, var(--deep-red));
             color: white;
@@ -1300,6 +1249,53 @@
             background: var(--whatsapp-green);
         }
 
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-link-btn {
+            padding: 12px 28px;
+            border-radius: 25px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .footer-link-btn:hover::before {
+            left: 100%;
+        }
+
+        .footer-link-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.15), rgba(234, 179, 8, 0.15));
+            border-color: rgba(250, 204, 21, 0.4);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
         .footer-bottom {
             padding-top: 25px;
             border-top: 1px solid var(--glass-border);
@@ -1378,6 +1374,16 @@
             .footer { padding: 50px 15px 25px; }
 
             .floating-logo { display: none; }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-link-btn {
+                width: 100%;
+                max-width: 280px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1483,7 +1489,6 @@
     box-shadow: 0 0 20px rgba(37,211,102,0.5);
 }
 
-/* FEATURED PLAN */
 .featured {
     border: 1px solid rgba(250,204,21,0.4);
     transform: scale(1.05);
@@ -1505,7 +1510,6 @@
     </style>
 </head>
 <body>
-    <!-- INTRO OVERLAY -->
     <div class="intro-overlay" id="introOverlay">
         <div class="intro-content">
             <div class="intro-glow"></div>
@@ -1515,15 +1519,12 @@
         </div>
     </div>
 
-    <!-- FLOATING CENTER LOGO -->
     <div class="floating-logo">
         <img src="logo.png" alt="TDS Logo">
     </div>
 
-    <!-- PARTICLES BACKGROUND -->
     <div class="particles-container" id="particlesContainer"></div>
 
-    <!-- HEADER -->
     <header class="header" id="header">
         <div class="header-logo" onclick="scrollToTop()">
             <img src="logo.png" alt="TDS Logo">
@@ -1540,16 +1541,13 @@
         </nav>
     </header>
 
-    <!-- LIVE COUNTER -->
     <div class="live-counter">
         <div class="live-dot"></div>
         <span><strong id="liveCount">47</strong> people viewing</span>
     </div>
 
-    <!-- MAIN CONTENT -->
     <main class="main-content">
         
-        <!-- TOP BANNER -->
         <section class="top-banner">
             <div class="banner-glow"></div>
             <div class="banner-container">
@@ -1557,10 +1555,8 @@
             </div>
         </section>
 
-        <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-content">
-                <!-- Hero Logo -->
                 <div class="hero-logo">
                     <img src="logo.png" alt="TDS Official Store">
                 </div>
@@ -1577,31 +1573,21 @@
                     Netflix, YouTube Premium, Prime Video & more — all manually verified and instantly delivered.
                 </p>
                 
-                <!-- Main Action Buttons -->
                 <div class="hero-buttons">
-                    <!-- WhatsApp Button -->
                     <a href="https://wa.me/919024487624?text=Hello! I'm interested in your subscriptions" 
                        target="_blank" class="action-btn btn-whatsapp" data-particle="green">
                         💬 CHAT ON WHATSAPP
                     </a>
 
-                    <!-- Christmas Special Offer Button -->
-                    <a href="offer.html" class="action-btn btn-christmas" data-particle="white">
-                        <div class="snowflakes-container" id="snowflakesContainer"></div>
-                        <span class="christmas-icon">
-                            <span class="tree-icon">🎄</span>
-                            SPECIAL OFFERS
-                            <span>❄️</span>
-                        </span>
+                    <a href="offer.html" class="action-btn btn-festival" data-particle="gold">
+                        <span>🎉 SPECIAL OFFERS ✨</span>
                     </a>
 
-                    <!-- Products Button -->
                     <a href="products.html" class="action-btn btn-products" data-particle="red">
                         🛒 PRODUCTS
                     </a>
                 </div>
 
-                <!-- Stats Bar -->
                 <div class="stats-bar scroll-reveal">
                     <div class="stat-item">
                         <div class="stat-number" data-target="50" data-suffix="+">0</div>
@@ -1620,7 +1606,6 @@
             </div>
         </section>
 
-<!-- ==================== PRICING SECTION ==================== -->
 <section class="section" id="plans">
     <div class="section-header scroll-reveal">
         <h2 class="section-title">💎 TDS Subscription Plans</h2>
@@ -1629,7 +1614,6 @@
 
     <div class="pricing-grid">
         
-        <!-- BASIC -->
         <div class="pricing-card scroll-reveal">
             <img src="basic.png" class="plan-logo">
             <h3 class="plan-name">Basic</h3>
@@ -1643,7 +1627,6 @@
             <a href="https://wa.me/919024487624?text=I want Basic Plan" class="plan-btn">Buy Now</a>
         </div>
 
-        <!-- PRO (HIGHLIGHT) -->
         <div class="pricing-card featured scroll-reveal">
             <div class="badge">🔥 Most Popular</div>
             <img src="pro.png" class="plan-logo">
@@ -1658,7 +1641,6 @@
             <a href="https://wa.me/919024487624?text=I want Pro Plan" class="plan-btn">Buy Now</a>
         </div>
 
-        <!-- ULTRA -->
         <div class="pricing-card scroll-reveal">
             <img src="ultra.png" class="plan-logo">
             <h3 class="plan-name">Ultra</h3>
@@ -1675,7 +1657,6 @@
     </div>
 </section>
 
-        <!-- PRODUCTS SECTION -->
         <section class="section" id="products">
             <div class="section-header scroll-reveal">
                 <h2 class="section-title">🔥 Trending Products</h2>
@@ -1683,7 +1664,6 @@
             </div>
             
             <div class="products-carousel">
-                <!-- Netflix -->
                 <div class="product-card scroll-reveal">
                     <span class="product-badge">🔥 HOT</span>
                     <div class="product-icon">
@@ -1694,7 +1674,6 @@
                     <a href="products.html" class="product-btn-green">Buy Now</a>
                 </div>
 
-                <!-- YouTube Premium -->
                 <div class="product-card scroll-reveal">
                     <span class="product-badge">⭐ BEST</span>
                     <div class="product-icon">
@@ -1705,7 +1684,6 @@
                     <a href="products.html" class="product-btn-green">Buy Now</a>
                 </div>
 
-                <!-- Prime Video -->
                 <div class="product-card scroll-reveal">
                     <div class="product-icon">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video" onerror="this.parentElement.textContent='📺'">
@@ -1715,7 +1693,6 @@
                     <a href="products.html" class="product-btn-green">Buy Now</a>
                 </div>
 
-                <!-- Spotify -->
                 <div class="product-card scroll-reveal">
                     <div class="product-icon">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" onerror="this.parentElement.textContent='🎵'">
@@ -1725,7 +1702,6 @@
                     <a href="products.html" class="product-btn-green">Buy Now</a>
                 </div>
 
-                <!-- Disney+ Hotstar -->
                 <div class="product-card scroll-reveal">
                     <div class="product-icon">🏏</div>
                     <h3 class="product-name">Disney+ Hotstar</h3>
@@ -1733,7 +1709,6 @@
                     <a href="products.html" class="product-btn-green">Buy Now</a>
                 </div>
 
-                <!-- Crunchyroll -->
                 <div class="product-card scroll-reveal">
                     <div class="product-icon">🍿</div>
                     <h3 class="product-name">Crunchyroll</h3>
@@ -1743,7 +1718,6 @@
             </div>
         </section>
 
-        <!-- FEATURES SECTION -->
         <section class="section" id="features">
             <div class="section-header scroll-reveal">
                 <h2 class="section-title">Why Choose Us?</h2>
@@ -1789,7 +1763,6 @@
             </div>
         </section>
 
-        <!-- REVIEW SECTION -->
         <section class="review-section" id="reviews">
             <div class="section">
                 <div class="section-header scroll-reveal">
@@ -1828,7 +1801,6 @@
                     </div>
                 </div>
 
-                <!-- Testimonials -->
                 <div class="testimonials-container scroll-reveal">
                     <div class="testimonials-track">
                         <div class="testimonial-card">
@@ -1891,7 +1863,6 @@
                             <p class="testimonial-text">"Quick delivery and genuine subscriptions. Love it!"</p>
                         </div>
                         
-                        <!-- Duplicates for infinite scroll -->
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">R</div>
@@ -1921,7 +1892,6 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
@@ -1935,6 +1905,12 @@
                 <a href="https://wa.me/919024487624" target="_blank" class="social-icon whatsapp" title="WhatsApp">💬</a>
             </div>
 
+            <div class="footer-links">
+                <a href="terms.html" class="footer-link-btn">Terms of Service</a>
+                <a href="privacy.html" class="footer-link-btn">Privacy Policy</a>
+                <a href="refund.html" class="footer-link-btn">Refund Policy</a>
+            </div>
+
             <div class="footer-bottom">
                 <p class="copyright">
                     © <span id="currentYear"></span> <a href="https://tdsofficial.store">TDS Official Store</a>. All rights reserved.
@@ -1943,10 +1919,8 @@
         </div>
     </footer>
 
-    <!-- SCROLL TO TOP BUTTON -->
     <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"></button>
 
-    <!-- PURCHASE NOTIFICATION -->
     <div class="notification" id="notification">
         <div class="notification-avatar">👤</div>
         <div class="notification-content">
@@ -1955,12 +1929,9 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // ==================== INITIALIZATION ====================
         document.addEventListener('DOMContentLoaded', () => {
             createParticleBackground();
-            createSnowflakes();
             initAnimatedCounters();
             initScrollReveal();
             initStarRating();
@@ -1973,11 +1944,9 @@
             setCurrentYear();
         });
 
-        // ==================== PARTICLE BACKGROUND ====================
         function createParticleBackground() {
             const container = document.getElementById('particlesContainer');
             
-            // Create stars
             for (let i = 0; i < 80; i++) {
                 const star = document.createElement('div');
                 star.className = 'particle-star';
@@ -1988,7 +1957,6 @@
                 container.appendChild(star);
             }
             
-            // Create shooting stars
             for (let i = 0; i < 3; i++) {
                 const shootingStar = document.createElement('div');
                 shootingStar.className = 'shooting-star';
@@ -1998,26 +1966,6 @@
             }
         }
 
-        // ==================== SNOWFLAKES FOR CHRISTMAS BUTTON ====================
-        function createSnowflakes() {
-            const container = document.getElementById('snowflakesContainer');
-            if (!container) return;
-
-            const snowflakeChars = ['❄', '❅', '❆', '✻', '✼', '❉'];
-            
-            for (let i = 0; i < 15; i++) {
-                const snowflake = document.createElement('span');
-                snowflake.className = 'snowflake';
-                snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.fontSize = (6 + Math.random() * 8) + 'px';
-                snowflake.style.animationDuration = (2 + Math.random() * 3) + 's';
-                snowflake.style.animationDelay = Math.random() * 3 + 's';
-                container.appendChild(snowflake);
-            }
-        }
-
-        // ==================== ANIMATED COUNTERS ====================
         function initAnimatedCounters() {
             const counters = document.querySelectorAll('.stat-number[data-target]');
             
@@ -2053,7 +2001,6 @@
             requestAnimationFrame(update);
         }
 
-        // ==================== SCROLL REVEAL ====================
         function initScrollReveal() {
             const elements = document.querySelectorAll('.scroll-reveal');
             
@@ -2070,7 +2017,6 @@
             elements.forEach(el => observer.observe(el));
         }
 
-        // ==================== STAR RATING ====================
         let selectedRating = 0;
 
         function initStarRating() {
@@ -2107,7 +2053,6 @@
             });
         }
 
-        // ==================== REVIEW FORM ====================
         function initReviewForm() {
             const form = document.getElementById('reviewForm');
             
@@ -2123,18 +2068,15 @@
                 submitBtn.classList.add('loading');
                 submitBtn.disabled = true;
 
-                // Simulate API call
                 await new Promise(resolve => setTimeout(resolve, 2000));
                 
                 form.style.display = 'none';
                 document.getElementById('formSuccess').classList.add('show');
                 
-                // Create celebration particles
                 createClickParticles(submitBtn, 'gold', 25);
             });
         }
 
-        // ==================== PARTICLE EFFECTS ====================
         function initParticleEffects() {
             document.querySelectorAll('[data-particle]').forEach(btn => {
                 btn.addEventListener('click', function(e) {
@@ -2214,7 +2156,6 @@
             requestAnimationFrame(update);
         }
 
-        // ==================== PURCHASE NOTIFICATIONS ====================
         const products = ['Netflix Premium', 'YouTube Premium', 'Prime Video', 'Spotify Premium', 'Disney+ Hotstar'];
         const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Kolkata', 'Pune', 'Hyderabad', 'Jaipur'];
 
@@ -2236,7 +2177,6 @@
             setTimeout(() => notification.classList.remove('show'), 5000);
         }
 
-        // ==================== LIVE COUNTER ====================
         function initLiveCounter() {
             setInterval(() => {
                 const counter = document.getElementById('liveCount');
@@ -2246,14 +2186,12 @@
             }, 4000);
         }
 
-        // ==================== HEADER SCROLL ====================
         function initHeaderScroll() {
             window.addEventListener('scroll', () => {
                 document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
             });
         }
 
-        // ==================== SCROLL TO TOP BUTTON ====================
         function initScrollTopButton() {
             const scrollBtn = document.getElementById('scrollTopBtn');
             
@@ -2273,7 +2211,6 @@
             });
         }
 
-        // ==================== UTILITIES ====================
         function setCurrentYear() {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         }
