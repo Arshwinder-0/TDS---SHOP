@@ -218,15 +218,28 @@
             transform: scale(1.03);
         }
 
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
         .product-logo {
             height: 45px;
-            margin-bottom: 35px;
             filter: grayscale(1) brightness(2);
             transition: 0.5s;
         }
 
         .product-card:hover .product-logo {
             filter: grayscale(0) brightness(1);
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #fff;
         }
 
         .deal-item {
@@ -370,7 +383,10 @@
                     <div class="lock-icon">🔒</div>
                     <div class="status-text">Encrypted</div>
                 </div>
-                <img src="netflix_logo.png" alt="Netflix" class="product-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg'">
+                <div class="product-header">
+                    <img src="netflix_logo.png" alt="Netflix" class="product-logo">
+                    <span class="product-name">Netflix</span>
+                </div>
                 <div class="deal-list">
                     <div class="deal-item"><span><span class="badge badge-hot">HOT</span>1 Month</span><span class="price">₹90</span></div>
                     <div class="deal-item"><span><span class="badge badge-best">BEST</span>6 Months</span><span class="price">₹500</span></div>
@@ -384,7 +400,10 @@
                     <div class="lock-icon">🔒</div>
                     <div class="status-text">Encrypted</div>
                 </div>
-                <img src="chaupal_logo.png" alt="Chaupal" class="product-logo" onerror="this.src='https://chaupal.tv/assets/images/chaupal-logo.png'">
+                <div class="product-header">
+                    <img src="chaupal_logo.png" alt="Chaupal" class="product-logo">
+                    <span class="product-name">Chaupal</span>
+                </div>
                 <div class="deal-list">
                     <div class="deal-item"><span><span class="badge badge-hot">LIMITED</span>1 Month</span><span class="price">₹50</span></div>
                     <div class="deal-item"><span><span class="badge badge-best">YEAR</span>1 Year</span><span class="price">₹400</span></div>
@@ -398,7 +417,10 @@
                     <div class="lock-icon">🔒</div>
                     <div class="status-text">Encrypted</div>
                 </div>
-                <img src="primevideo_logo.png" alt="Prime" class="product-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg'">
+                <div class="product-header">
+                    <img src="primevideo_logo.png" alt="Prime Video" class="product-logo">
+                    <span class="product-name">Prime Video</span>
+                </div>
                 <div class="deal-list">
                     <div class="deal-item"><span><span class="badge badge-hot">BUDGET</span>6m (Ads)</span><span class="price">₹100</span></div>
                     <div class="deal-item"><span><span class="badge badge-premium">4K</span>6m (No Ads)</span><span class="price">₹190</span></div>
@@ -412,7 +434,10 @@
                     <div class="lock-icon">🔒</div>
                     <div class="status-text">Encrypted</div>
                 </div>
-                <img src="spotify_logo.png" alt="Spotify" class="product-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_with_text.svg'">
+                <div class="product-header">
+                    <img src="spotify_logo.png" alt="Spotify" class="product-logo">
+                    <span class="product-name">Spotify</span>
+                </div>
                 <div class="deal-list">
                     <div class="deal-item"><span><span class="badge badge-hot">MUSIC</span>3 Months</span><span class="price">₹75</span></div>
                 </div>
@@ -425,7 +450,10 @@
                     <div class="lock-icon">🔒</div>
                     <div class="status-text">Encrypted</div>
                 </div>
-                <img src="canva_logo.png" alt="Canva" class="product-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/0/0e/Canva_logo_2021.svg'">
+                <div class="product-header">
+                    <img src="canva_logo.png" alt="Canva" class="product-logo">
+                    <span class="product-name">Canva</span>
+                </div>
                 <div class="deal-list">
                     <div class="deal-item"><span><span class="badge badge-premium">PRO</span>1 Year</span><span class="price">₹120</span></div>
                 </div>
@@ -438,11 +466,46 @@
                     <div class="lock-icon">🔒</div>
                     <div class="status-text">Encrypted</div>
                 </div>
-                <img src="capcut_logo.png" alt="CapCut" class="product-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/0/06/CapCut_logo.svg'">
+                <div class="product-header">
+                    <img src="capcut_logo.png" alt="CapCut" class="product-logo">
+                    <span class="product-name">CapCut</span>
+                </div>
                 <div class="deal-list">
                     <div class="deal-item"><span><span class="badge badge-best">PRO</span>1 Month</span><span class="price">₹260</span></div>
                 </div>
                 <a href="#" class="buy-btn" data-product="CapCut">Locked</a>
+            </div>
+
+            <!-- Hotstar -->
+            <div class="product-card reveal">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="status-text">Encrypted</div>
+                </div>
+                <div class="product-header">
+                    <img src="hotstar_logo.png" alt="Hotstar" class="product-logo">
+                    <span class="product-name">Hotstar</span>
+                </div>
+                <div class="deal-list">
+                    <div class="deal-item"><span><span class="badge badge-hot">HOT</span>1 Month</span><span class="price">₹55</span></div>
+                </div>
+                <a href="#" class="buy-btn" data-product="Hotstar">Locked</a>
+            </div>
+
+            <!-- YouTube Premium -->
+            <div class="product-card reveal">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="status-text">Encrypted</div>
+                </div>
+                <div class="product-header">
+                    <img src="youtube_logo.png" alt="YouTube Premium" class="product-logo">
+                    <span class="product-name">YouTube Premium</span>
+                </div>
+                <div class="deal-list">
+                    <div class="deal-item"><span><span class="badge badge-best">BEST</span>3 Months</span><span class="price">₹100</span></div>
+                </div>
+                <a href="#" class="buy-btn" data-product="YouTube Premium">Locked</a>
             </div>
         </div>
     </section>
@@ -458,13 +521,15 @@
             const statusTag = document.getElementById('status-tag');
             const timer = document.getElementById('timer');
             const loader = document.getElementById('loader-wrap');
-            const btns = document.querySelectorAll('.buy-btn');
+            const btns = document.querySelectorAll('.buy-btn[data-product]');
 
             if (now < START_DATE) {
-                grid.className = "product-grid is-locked";
+                grid.classList.add('is-locked');
+                grid.classList.remove('is-live', 'is-ended');
                 updateTimer(START_DATE - now);
             } else if (now < END_DATE) {
-                grid.className = "product-grid is-live";
+                grid.classList.add('is-live');
+                grid.classList.remove('is-locked', 'is-ended');
                 statusTag.innerText = "TDS Deals Week is LIVE";
                 statusTag.style.color = "#30d158";
                 updateTimer(END_DATE - now);
@@ -476,7 +541,8 @@
                     }
                 });
             } else {
-                grid.className = "product-grid is-ended";
+                grid.classList.add('is-ended');
+                grid.classList.remove('is-locked', 'is-live');
                 statusTag.innerText = "Event Concluded";
                 timer.style.display = "none";
                 loader.style.display = "block";
@@ -496,6 +562,7 @@
         }
 
         setInterval(handlePhases, 1000);
+        handlePhases();
 
         // --- SCROLL REVEAL ---
         window.addEventListener('scroll', () => {
