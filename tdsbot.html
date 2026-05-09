@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDS BOTS | HELL ON TOP Premium Discord Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        :root {
+            --primary-red: #ff0000;
+            --dark-crimson: #8b0000;
+            --deep-black: #050505;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glow-red {
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        .card-gradient {
+            background: linear-gradient(145deg, #0f0f0f, #050505);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card-gradient:hover {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .btn-premium {
+            background: linear-gradient(90deg, var(--dark-crimson), var(--primary-red));
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .btn-premium:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-red); }
+
+        .hero-bg {
+            background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.7)), url('bannerbot.gif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .floating-embers {
+            position: absolute;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="TDS Logo" class="h-10 w-10">
+                <span class="text-xl font-extrabold tracking-tighter italic">TDS <span class="text-red-600">BOTS</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+                <a href="#features" class="hover:text-red-600 transition">Features</a>
+                <a href="#pricing" class="hover:text-red-600 transition">Pricing</a>
+                <a href="#authorize" class="hover:text-red-600 transition">Authorize</a>
+            </div>
+            <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="btn-premium px-6 py-2 rounded text-xs">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 hero-bg opacity-40"></div>
+        <div class="relative z-10 text-center px-4" data-aos="fade-up" data-aos-duration="1000">
+            <img src="logo.png" alt="TDS Bots Logo" class="w-32 h-32 mx-auto mb-8 drop-shadow-[0_0_35px_rgba(255,0,0,0.5)]">
+            <h2 class="text-red-600 font-bold tracking-[0.3em] uppercase mb-4">Elite Discord Automation</h2>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 italic uppercase">HELL <span class="text-red-600">ON TOP</span></h1>
+            <p class="max-w-2xl mx-auto text-gray-400 text-lg mb-10">
+                The most aggressive, powerful, and elite Discord bot suite ever engineered. 
+                Dominate your community with non-nitro emojis, AI integration, and total server control.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#pricing" class="btn-premium px-10 py-4 rounded-sm text-lg">View Premium Plans</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="border border-white/20 hover:bg-white/10 px-10 py-4 rounded-sm text-lg transition flex items-center justify-center gap-2">
+                    <i data-lucide="zap" class="w-5 h-5 text-red-600"></i> Authorize Bot
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 px-6 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-down">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest mb-2">Capabilities</h2>
+                <h3 class="text-4xl font-black italic uppercase">Unmatched Power</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <i data-lucide="smile" class="text-red-600 mb-4 h-10 w-10"></i>
+                    <h4 class="text-xl font-bold mb-2">Non-Nitro Emojis</h4>
+                    <p class="text-gray-500">Access and use animated emojis across any server without needing a Nitro subscription.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <i data-lucide="shield-check" class="text-red-600 mb-4 h-10 w-10"></i>
+                    <h4 class="text-xl font-bold mb-2">Elite Moderation</h4>
+                    <p class="text-gray-500">Advanced tools for spam control, raid protection, and community safety.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="300">
+                    <i data-lucide="bot" class="text-red-600 mb-4 h-10 w-10"></i>
+                    <h4 class="text-xl font-bold mb-2">AI Chat Integration</h4>
+                    <p class="text-gray-500">Industry-leading AI models integrated directly into your chat for smart interactions.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <i data-lucide="zap" class="text-red-600 mb-4 h-10 w-10"></i>
+                    <h4 class="text-xl font-bold mb-2">24/7 Uptime</h4>
+                    <p class="text-gray-500">Hosted on elite infrastructure. Your bot never sleeps, ensuring 99.9% availability.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <i data-lucide="message-square" class="text-red-600 mb-4 h-10 w-10"></i>
+                    <h4 class="text-xl font-bold mb-2">Bulk Messaging</h4>
+                    <p class="text-gray-500">Send announcements and mass messages with extreme efficiency and speed.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="300">
+                    <i data-lucide="user-plus" class="text-red-600 mb-4 h-10 w-10"></i>
+                    <h4 class="text-xl font-bold mb-2">Personal Ownership</h4>
+                    <p class="text-gray-500">Total control over your own personal bot instance with custom branding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-down">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest mb-2">Pricing</h2>
+                <h3 class="text-4xl font-black italic uppercase">Choose Your Tier</h3>
+            </div>
+
+            <!-- Keys & Bots -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+                <div class="card-gradient p-6 rounded-lg text-center">
+                    <h5 class="text-gray-400 uppercase text-xs font-bold tracking-widest mb-2">Access Key</h5>
+                    <div class="text-3xl font-black mb-4">₹50<span class="text-sm text-gray-500">/Key</span></div>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-2">
+                        <li>1x Premium Key</li>
+                        <li>Standard Support</li>
+                    </ul>
+                    <button class="w-full py-2 bg-white/5 hover:bg-white/10 transition text-xs font-bold">BUY NOW</button>
+                </div>
+                <div class="card-gradient p-6 rounded-lg text-center border-red-900">
+                    <h5 class="text-red-500 uppercase text-xs font-bold tracking-widest mb-2">Key Bundle</h5>
+                    <div class="text-3xl font-black mb-4">₹300<span class="text-sm text-gray-500">/10 Keys</span></div>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-2 text-red-100/50">
+                        <li>10x Premium Keys</li>
+                        <li>Bulk Discount Applied</li>
+                    </ul>
+                    <button class="w-full py-2 btn-premium text-xs font-bold">BUY BUNDLE</button>
+                </div>
+                <div class="card-gradient p-6 rounded-lg text-center">
+                    <h5 class="text-gray-400 uppercase text-xs font-bold tracking-widest mb-2">Basic Bot</h5>
+                    <div class="text-3xl font-black mb-4">₹170</div>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-2">
+                        <li>Standard Bot Features</li>
+                        <li>24/7 Hosting</li>
+                    </ul>
+                    <button class="w-full py-2 bg-white/5 hover:bg-white/10 transition text-xs font-bold">PURCHASE</button>
+                </div>
+                <div class="card-gradient p-6 rounded-lg text-center bg-red-950/10 border-red-600">
+                    <h5 class="text-red-600 uppercase text-xs font-bold tracking-widest mb-2">Personal Bot</h5>
+                    <div class="text-3xl font-black mb-4">₹250</div>
+                    <ul class="text-sm text-gray-500 mb-6 space-y-2">
+                        <li>Full Custom Instance</li>
+                        <li>Your Name/Avatar</li>
+                    </ul>
+                    <button class="w-full py-2 btn-premium text-xs font-bold">OWN NOW</button>
+                </div>
+            </div>
+
+            <!-- Server Setup Section -->
+            <div class="text-center mb-10">
+                <h3 class="text-2xl font-bold uppercase italic">Server Setup Services</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-[#0c0c0c] p-6 rounded border border-white/5 hover:border-white/20 transition">
+                    <h6 class="font-bold mb-1">Standard Setup</h6>
+                    <div class="text-xl font-black text-red-600 mb-4">₹100</div>
+                    <button class="text-[10px] tracking-widest font-bold opacity-50 hover:opacity-100 transition">SELECT</button>
+                </div>
+                <div class="bg-[#0c0c0c] p-6 rounded border border-white/5 hover:border-white/20 transition">
+                    <h6 class="font-bold mb-1">Professional</h6>
+                    <div class="text-xl font-black text-red-600 mb-4">₹150</div>
+                    <button class="text-[10px] tracking-widest font-bold opacity-50 hover:opacity-100 transition">SELECT</button>
+                </div>
+                <div class="bg-[#0c0c0c] p-6 rounded border border-red-600/30 transition shadow-lg shadow-red-900/10">
+                    <h6 class="font-bold mb-1">Pro + Bots</h6>
+                    <div class="text-xl font-black text-red-600 mb-4">₹220</div>
+                    <button class="text-[10px] tracking-widest font-bold text-red-500">BEST VALUE</button>
+                </div>
+                <div class="bg-red-600 p-6 rounded border border-red-600 transition shadow-xl shadow-red-600/20">
+                    <h6 class="font-bold mb-1 text-black">Elite Bundle</h6>
+                    <div class="text-xl font-black text-black mb-4">₹330</div>
+                    <p class="text-[10px] text-black/70 font-bold uppercase">Pro Setup + Personal Bot</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authorize Section -->
+    <section id="authorize" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto bg-gradient-to-br from-red-900 to-black p-1 rounded-2xl shadow-2xl shadow-red-600/20" data-aos="flip-up">
+            <div class="bg-[#050505] rounded-2xl p-8 md:p-16 text-center">
+                <i data-lucide="shield-check" class="w-16 h-16 text-red-600 mx-auto mb-6"></i>
+                <h2 class="text-3xl md:text-5xl font-black uppercase italic mb-6">Ready for Absolute Control?</h2>
+                <p class="text-gray-400 mb-10 text-lg">Join thousands of elite server owners. Secure, verified, and powerful.</p>
+                <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="btn-premium px-12 py-5 rounded-full text-xl inline-block">
+                    Authorize HELL ON TOP
+                </a>
+                <p class="mt-6 text-xs text-gray-600 uppercase tracking-widest">Secure OAuth2 Connection • No Password Required</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5 text-center">
+        <img src="logo.png" alt="Logo" class="w-12 h-12 mx-auto mb-6 grayscale hover:grayscale-0 transition duration-500">
+        <p class="text-gray-600 text-sm mb-4">© 2024 TDS BOTS. ALL RIGHTS RESERVED.</p>
+        <div class="flex justify-center gap-6 text-gray-500">
+            <a href="#" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Terms of Service</a>
+            <a href="#" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Privacy Policy</a>
+            <a href="#" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Support Discord</a>
+        </div>
+        <p class="mt-8 text-[10px] text-gray-800 tracking-[0.5em] uppercase">Built for the Elite</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Smooth Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 24px';
+                nav.style.background = 'rgba(5, 5, 5, 0.95)';
+            } else {
+                nav.style.padding = '16px 24px';
+                nav.style.background = 'rgba(5, 5, 5, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
