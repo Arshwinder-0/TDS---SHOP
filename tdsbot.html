@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDS BOTS | HELL ON TOP Premium Discord Automation</title>
+    <title>TDS BOTS | Premium Discord Automation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -36,7 +36,6 @@
         .card-gradient:hover {
             border-color: var(--primary-red);
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
-            transform: translateY(-5px);
         }
 
         .btn-premium {
@@ -58,25 +57,20 @@
             border-bottom: 1px solid rgba(255, 0, 0, 0.2);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary-red); }
-
         .hero-bg {
-            background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.7)), url('bannerbot.gif');
+            background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), url('bannerbot.gif');
             background-size: cover;
             background-position: center;
         }
 
-        .floating-embers {
-            position: absolute;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-red); }
     </style>
 </head>
 <body>
@@ -88,12 +82,21 @@
                 <img src="logo.png" alt="TDS Logo" class="h-10 w-10">
                 <span class="text-xl font-extrabold tracking-tighter italic">TDS <span class="text-red-600">BOTS</span></span>
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+            <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest items-center">
                 <a href="#features" class="hover:text-red-600 transition">Features</a>
                 <a href="#pricing" class="hover:text-red-600 transition">Pricing</a>
-                <a href="#authorize" class="hover:text-red-600 transition">Authorize</a>
+                
+                <!-- Nav Dropdown -->
+                <div class="relative dropdown">
+                    <button class="flex items-center gap-1 hover:text-red-600 transition uppercase tracking-widest">
+                        Authorize <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-[#0f0f0f] border border-red-600/30 rounded shadow-xl">
+                        <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="block px-4 py-3 text-xs hover:bg-red-600 transition border-b border-white/5">HELL ON TOP</a>
+                    </div>
+                </div>
             </div>
-            <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="btn-premium px-6 py-2 rounded text-xs">Login</a>
+            <a href="https://discord.com/users/760385079884775438" class="btn-premium px-6 py-2 rounded text-xs">Contact Owner</a>
         </div>
     </nav>
 
@@ -103,65 +106,75 @@
         <div class="relative z-10 text-center px-4" data-aos="fade-up" data-aos-duration="1000">
             <img src="logo.png" alt="TDS Bots Logo" class="w-32 h-32 mx-auto mb-8 drop-shadow-[0_0_35px_rgba(255,0,0,0.5)]">
             <h2 class="text-red-600 font-bold tracking-[0.3em] uppercase mb-4">Elite Discord Automation</h2>
-            <h1 class="text-5xl md:text-8xl font-black mb-6 italic uppercase">HELL <span class="text-red-600">ON TOP</span></h1>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 italic uppercase">TDS <span class="text-red-600">BOTS</span></h1>
             <p class="max-w-2xl mx-auto text-gray-400 text-lg mb-10">
                 The most aggressive, powerful, and elite Discord bot suite ever engineered. 
-                Dominate your community with non-nitro emojis, AI integration, and total server control.
+                Dominate your community with total server control.
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#pricing" class="btn-premium px-10 py-4 rounded-sm text-lg">View Premium Plans</a>
-                <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="border border-white/20 hover:bg-white/10 px-10 py-4 rounded-sm text-lg transition flex items-center justify-center gap-2">
-                    <i data-lucide="zap" class="w-5 h-5 text-red-600"></i> Authorize Bot
-                </a>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#pricing" class="btn-premium px-10 py-4 rounded-sm text-lg w-full md:w-auto text-center">View Premium Plans</a>
+                
+                <!-- Hero Dropdown -->
+                <div class="relative dropdown w-full md:w-auto">
+                    <button class="w-full border border-white/20 hover:bg-white/10 px-10 py-4 rounded-sm text-lg transition flex items-center justify-center gap-2">
+                        <i data-lucide="zap" class="w-5 h-5 text-red-600"></i> Authorize Bot <i data-lucide="chevron-down" class="w-4 h-4 ml-2"></i>
+                    </button>
+                    <div class="dropdown-menu hidden absolute left-0 mt-2 w-full bg-[#0a0a0a] border border-red-600 rounded-sm shadow-2xl z-20">
+                        <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="block px-6 py-4 hover:bg-red-600 transition font-bold italic">HELL ON TOP</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="py-24 px-6 bg-[#080808]">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-down">
                 <h2 class="text-red-600 font-bold uppercase tracking-widest mb-2">Capabilities</h2>
                 <h3 class="text-4xl font-black italic uppercase">Unmatched Power</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
-                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="100">
-                    <i data-lucide="smile" class="text-red-600 mb-4 h-10 w-10"></i>
-                    <h4 class="text-xl font-bold mb-2">Non-Nitro Emojis</h4>
-                    <p class="text-gray-500">Access and use animated emojis across any server without needing a Nitro subscription.</p>
+            <!-- Single Consolidated Feature Card -->
+            <div class="card-gradient p-10 md:p-16 rounded-2xl relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <i data-lucide="shield-alert" class="w-32 h-32 text-red-600"></i>
                 </div>
-                <!-- Feature 2 -->
-                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="200">
-                    <i data-lucide="shield-check" class="text-red-600 mb-4 h-10 w-10"></i>
-                    <h4 class="text-xl font-bold mb-2">Elite Moderation</h4>
-                    <p class="text-gray-500">Advanced tools for spam control, raid protection, and community safety.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="300">
-                    <i data-lucide="bot" class="text-red-600 mb-4 h-10 w-10"></i>
-                    <h4 class="text-xl font-bold mb-2">AI Chat Integration</h4>
-                    <p class="text-gray-500">Industry-leading AI models integrated directly into your chat for smart interactions.</p>
-                </div>
-                <!-- Feature 4 -->
-                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="100">
-                    <i data-lucide="zap" class="text-red-600 mb-4 h-10 w-10"></i>
-                    <h4 class="text-xl font-bold mb-2">24/7 Uptime</h4>
-                    <p class="text-gray-500">Hosted on elite infrastructure. Your bot never sleeps, ensuring 99.9% availability.</p>
-                </div>
-                <!-- Feature 5 -->
-                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="200">
-                    <i data-lucide="message-square" class="text-red-600 mb-4 h-10 w-10"></i>
-                    <h4 class="text-xl font-bold mb-2">Bulk Messaging</h4>
-                    <p class="text-gray-500">Send announcements and mass messages with extreme efficiency and speed.</p>
-                </div>
-                <!-- Feature 6 -->
-                <div class="card-gradient p-8 rounded-lg" data-aos="zoom-in" data-aos-delay="300">
-                    <i data-lucide="user-plus" class="text-red-600 mb-4 h-10 w-10"></i>
-                    <h4 class="text-xl font-bold mb-2">Personal Ownership</h4>
-                    <p class="text-gray-500">Total control over your own personal bot instance with custom branding.</p>
-                </div>
+                
+                <h4 class="text-3xl font-black text-red-600 mb-8 italic uppercase border-b border-red-600/20 pb-4">Core Functionalities</h4>
+                
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="flame" class="text-red-600"></i> MOST BRUTAL SPAMMING BOT
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="message-circle" class="text-red-600"></i> WORK IN DM & SERVER
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="zap" class="text-red-600"></i> AUTO REACT
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="door-open" class="text-red-600"></i> WELCOME & GOOD BYE
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="clock" class="text-red-600"></i> 24/7 (99.9% UPTIME)
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="ticket" class="text-red-600"></i> TICKET SYSTEM (PAID)
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="user-check" class="text-red-600"></i> PERSONAL BOT (PRIVATE)
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="brain-circuit" class="text-red-600"></i> AI MANAGEMENT
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight">
+                        <i data-lucide="shield" class="text-red-600"></i> MODERATION
+                    </li>
+                    <li class="flex items-center gap-4 text-xl font-bold tracking-tight opacity-50 italic">
+                        <i data-lucide="plus" class="text-red-600"></i> MANY MOREEE...
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -183,7 +196,7 @@
                         <li>1x Premium Key</li>
                         <li>Standard Support</li>
                     </ul>
-                    <button class="w-full py-2 bg-white/5 hover:bg-white/10 transition text-xs font-bold">BUY NOW</button>
+                    <a href="https://discord.com/users/760385079884775438" class="block w-full py-2 bg-white/5 hover:bg-white/10 transition text-xs font-bold">BUY NOW</a>
                 </div>
                 <div class="card-gradient p-6 rounded-lg text-center border-red-900">
                     <h5 class="text-red-500 uppercase text-xs font-bold tracking-widest mb-2">Key Bundle</h5>
@@ -192,7 +205,7 @@
                         <li>10x Premium Keys</li>
                         <li>Bulk Discount Applied</li>
                     </ul>
-                    <button class="w-full py-2 btn-premium text-xs font-bold">BUY BUNDLE</button>
+                    <a href="https://discord.com/users/760385079884775438" class="block w-full py-2 btn-premium text-xs font-bold">BUY BUNDLE</a>
                 </div>
                 <div class="card-gradient p-6 rounded-lg text-center">
                     <h5 class="text-gray-400 uppercase text-xs font-bold tracking-widest mb-2">Basic Bot</h5>
@@ -201,7 +214,7 @@
                         <li>Standard Bot Features</li>
                         <li>24/7 Hosting</li>
                     </ul>
-                    <button class="w-full py-2 bg-white/5 hover:bg-white/10 transition text-xs font-bold">PURCHASE</button>
+                    <a href="https://discord.com/users/760385079884775438" class="block w-full py-2 bg-white/5 hover:bg-white/10 transition text-xs font-bold">PURCHASE</a>
                 </div>
                 <div class="card-gradient p-6 rounded-lg text-center bg-red-950/10 border-red-600">
                     <h5 class="text-red-600 uppercase text-xs font-bold tracking-widest mb-2">Personal Bot</h5>
@@ -210,7 +223,7 @@
                         <li>Full Custom Instance</li>
                         <li>Your Name/Avatar</li>
                     </ul>
-                    <button class="w-full py-2 btn-premium text-xs font-bold">OWN NOW</button>
+                    <a href="https://discord.com/users/760385079884775438" class="block w-full py-2 btn-premium text-xs font-bold">OWN NOW</a>
                 </div>
             </div>
 
@@ -219,26 +232,26 @@
                 <h3 class="text-2xl font-bold uppercase italic">Server Setup Services</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="bg-[#0c0c0c] p-6 rounded border border-white/5 hover:border-white/20 transition">
+                <a href="https://discord.com/users/760385079884775438" class="bg-[#0c0c0c] p-6 rounded border border-white/5 hover:border-white/20 transition group">
                     <h6 class="font-bold mb-1">Standard Setup</h6>
                     <div class="text-xl font-black text-red-600 mb-4">₹100</div>
-                    <button class="text-[10px] tracking-widest font-bold opacity-50 hover:opacity-100 transition">SELECT</button>
-                </div>
-                <div class="bg-[#0c0c0c] p-6 rounded border border-white/5 hover:border-white/20 transition">
+                    <span class="text-[10px] tracking-widest font-bold opacity-50 group-hover:opacity-100 transition">SELECT</span>
+                </a>
+                <a href="https://discord.com/users/760385079884775438" class="bg-[#0c0c0c] p-6 rounded border border-white/5 hover:border-white/20 transition group">
                     <h6 class="font-bold mb-1">Professional</h6>
                     <div class="text-xl font-black text-red-600 mb-4">₹150</div>
-                    <button class="text-[10px] tracking-widest font-bold opacity-50 hover:opacity-100 transition">SELECT</button>
-                </div>
-                <div class="bg-[#0c0c0c] p-6 rounded border border-red-600/30 transition shadow-lg shadow-red-900/10">
+                    <span class="text-[10px] tracking-widest font-bold opacity-50 group-hover:opacity-100 transition">SELECT</span>
+                </a>
+                <a href="https://discord.com/users/760385079884775438" class="bg-[#0c0c0c] p-6 rounded border border-red-600/30 transition shadow-lg shadow-red-900/10">
                     <h6 class="font-bold mb-1">Pro + Bots</h6>
                     <div class="text-xl font-black text-red-600 mb-4">₹220</div>
-                    <button class="text-[10px] tracking-widest font-bold text-red-500">BEST VALUE</button>
-                </div>
-                <div class="bg-red-600 p-6 rounded border border-red-600 transition shadow-xl shadow-red-600/20">
+                    <span class="text-[10px] tracking-widest font-bold text-red-500">BEST VALUE</span>
+                </a>
+                <a href="https://discord.com/users/760385079884775438" class="bg-red-600 p-6 rounded border border-red-600 transition shadow-xl shadow-red-600/20">
                     <h6 class="font-bold mb-1 text-black">Elite Bundle</h6>
                     <div class="text-xl font-black text-black mb-4">₹330</div>
                     <p class="text-[10px] text-black/70 font-bold uppercase">Pro Setup + Personal Bot</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -250,9 +263,17 @@
                 <i data-lucide="shield-check" class="w-16 h-16 text-red-600 mx-auto mb-6"></i>
                 <h2 class="text-3xl md:text-5xl font-black uppercase italic mb-6">Ready for Absolute Control?</h2>
                 <p class="text-gray-400 mb-10 text-lg">Join thousands of elite server owners. Secure, verified, and powerful.</p>
-                <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="btn-premium px-12 py-5 rounded-full text-xl inline-block">
-                    Authorize HELL ON TOP
-                </a>
+                
+                <!-- Footer Dropdown -->
+                <div class="relative dropdown inline-block">
+                    <button class="btn-premium px-12 py-5 rounded-full text-xl inline-flex items-center gap-3">
+                        Authorize Now <i data-lucide="chevron-up" class="w-6 h-6"></i>
+                    </button>
+                    <div class="dropdown-menu hidden absolute bottom-full left-0 mb-4 w-full bg-[#0a0a0a] border border-red-600 rounded-xl shadow-2xl overflow-hidden">
+                        <a href="https://discord.com/oauth2/authorize?client_id=1502685507417542808" class="block px-6 py-5 hover:bg-red-600 transition font-black italic text-2xl uppercase">HELL ON TOP</a>
+                    </div>
+                </div>
+                
                 <p class="mt-6 text-xs text-gray-600 uppercase tracking-widest">Secure OAuth2 Connection • No Password Required</p>
             </div>
         </div>
@@ -265,24 +286,16 @@
         <div class="flex justify-center gap-6 text-gray-500">
             <a href="#" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Terms of Service</a>
             <a href="#" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Privacy Policy</a>
-            <a href="#" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Support Discord</a>
+            <a href="https://discord.com/users/760385079884775438" class="hover:text-red-600 transition text-xs uppercase tracking-tighter">Contact Support</a>
         </div>
         <p class="mt-8 text-[10px] text-gray-800 tracking-[0.5em] uppercase">Built for the Elite</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: 'ease-in-out'
-        });
-
-        // Initialize Icons
+        AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
         lucide.createIcons();
 
-        // Smooth Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
